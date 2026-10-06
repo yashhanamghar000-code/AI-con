@@ -1,0 +1,30 @@
+{
+  "institute_code": "01105",
+  "institute_name": "Prof. Ram Meghe Institute of Technology & Research, Amravati",
+  "url": "https://mitra.ac.in/",
+  "url_source": "claude_web_search",
+  "scraped_at": "2026-10-04T00:00:00Z",
+  "extracted": {
+    "former_name": {"value": "College of Engineering Badnera", "confidence": "secondary_source"},
+    "established_year": {"value": "1983", "confidence": "secondary_source", "agreement": "consistent across all sources"},
+    "affiliation": {"value": "Sant Gadge Baba Amravati University (SGBAU)", "confidence": "secondary_source"},
+    "approved_by": {"value": "AICTE, DTE Maharashtra; NBA-accredited for some UG programmes", "confidence": "secondary_source"},
+    "autonomy_status": {"value": "Private (Autonomous)", "confidence": "secondary_source"},
+    "naac_grade": {"value": "A+", "confidence": "secondary_source", "agreement": "A+ confirmed by careers360, agnirva.com (NAAC data aggregator, CGPA 3.43, valid until 20-03-2028) and collegebatch.com; a few older/less specific sources say plain 'A' grade without the plus - likely an older accreditation cycle being quoted, not a contradiction"},
+    "nirf_ranking": {"value": "251-300 band (2022)", "source": "https://www.collegebatch.com/2716-ram-meghe-institute-of-technology-and-research-in-amravati", "confidence": "secondary_source_unverified"},
+    "address": {"value": "Anjangaon Bari Road, Badnera-Amravati - 444701, Maharashtra", "confidence": "secondary_source"},
+    "contact": {"phone": [{"value": "0721-2681246", "source": "https://mitra.ac.in/"}]},
+    "principal": {"value": "Dr. Gajendra R. Bamnote", "confidence": "secondary_source"},
+    "placement_mentions": [
+      {"value": "Highest package INR 20 LPA, average INR 4.80 LPA (year not stated)", "source": "https://collegedunia.com/college/14742-prof-ram-meghe-institute-of-technology-and-research-prmitr-amravati and https://zollege.in/college/174063-prof-ram-meghe-institute-of-technology-and-research-prmitr-amravati", "confidence": "secondary_source_unverified", "agreement": "same figures repeated across 2 aggregator sites, but neither states the cohort year - don't present as current without checking"},
+      {"value": "Top recruiters: Accenture, Dhoot Transmission, Capgemini, TCS, Deloitte, Intel", "source": "https://collegedunia.com/college/14742-prof-ram-meghe-institute-of-technology-and-research-prmitr-amravati", "confidence": "secondary_source_unverified"}
+    ]
+  },
+  "sources_consulted": [
+    "https://mitra.ac.in/", "https://www.careers360.com/colleges/prof-ram-meghe-institute-of-technology-and-research-badnera",
+    "https://www.agnirva.com/colleges/maharashtra/prof-ram-meghe-institute-of-technology-and-research-badnera",
+    "https://collegedunia.com/college/14742-prof-ram-meghe-institute-of-technology-and-research-prmitr-amravati",
+    "https://www.collegebatch.com/2716-ram-meghe-institute-of-technology-and-research-in-amravati",
+    "https://zollege.in/college/174063-prof-ram-meghe-institute-of-technology-and-research-prmitr-amravati"
+  ]
+}

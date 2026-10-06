@@ -5,3 +5,6 @@ output/**/*.json filter=lfs diff=lfs merge=lfs -text
 output/**/*.jsonl filter=lfs diff=lfs merge=lfs -text
 v2_output/**/*.json filter=lfs diff=lfs merge=lfs -text
 v2_output/**/*.jsonl filter=lfs diff=lfs merge=lfs -text
+scraper_output/** filter=lfs diff=lfs merge=lfs -text
+V4_daataa/**/*.json filter=lfs diff=lfs merge=lfs -text
+V4_daataa/**/*.jsonl filter=lfs diff=lfs merge=lfs -text
