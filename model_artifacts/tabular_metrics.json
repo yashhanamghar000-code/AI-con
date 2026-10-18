@@ -1,0 +1,22 @@
+{
+  "training_timestamp": "2026-10-15T17:28:06Z",
+  "total_samples": 116744,
+  "train_samples": 99232,
+  "test_samples": 17512,
+  "duration_seconds": 2.68,
+  "rank_metrics": {
+    "mae": 28348.759823983375,
+    "rmse": 35719.524428613804,
+    "r2": 0.5713346812274658
+  },
+  "percentile_metrics": {
+    "mae": 15.041905638602405,
+    "rmse": 19.216097164715425,
+    "r2": 0.5260638078098963
+  },
+  "saved_artifacts": [
+    "model_artifacts\\cutoff_regressor_rank.joblib",
+    "model_artifacts\\cutoff_regressor_percentile.joblib",
+    "model_artifacts\\label_encoders.joblib"
+  ]
+}

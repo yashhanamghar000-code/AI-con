@@ -1,0 +1,4204 @@
+{
+  "academic_year": "2024-25",
+  "institute_code": "03175",
+  "institute_name": "M.G.M.'s College of Engineering and Technology, Kamothe, Navi Mumbai",
+  "status": "Un-Aided",
+  "home_university": "Mumbai University",
+  "source_files": [
+    "2024ENGG_CAP1_CutOff.pdf",
+    "2024ENGG_CAP2_CutOff.pdf",
+    "2024ENGG_CAP3_AI_CutOff.pdf",
+    "2024ENGG_CAP3_CutOff.pdf"
+  ],
+  "branches": [
+    {
+      "course_code": "0317591610",
+      "branch": "Automation and Robotics",
+      "branch_family": "mechanical",
+      "branch_family_note": "discovery only; never use to substitute cutoffs",
+      "categories": [
+        {
+          "category": "EWS",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": 1,
+              "level_key": "state_level",
+              "level_label": "State Level",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 131414,
+              "closing_percentile": 43.9565943,
+              "evidence_id": "2024-25:03175:0317591610:state_level:EWS:R1:S1",
+              "source_file": "2024ENGG_CAP1_CutOff.pdf",
+              "page": 317
+            }
+          ],
+          "category_meaning": "Economically Weaker Section (state level)",
+          "category_meaning_confidence": "best_effort"
+        },
+        {
+          "category": "GNT1O",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": 1,
+              "level_key": "other_than_home_university_seats_allotted_to_home_university",
+              "level_label": "Other Than Home University Seats Allotted to Home University Candidates",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 94740,
+              "closing_percentile": 64.4664266,
+              "evidence_id": "2024-25:03175:0317591610:other_than_home_university_seats_allotted_to_home_university:GNT1O:R1:S1",
+              "source_file": "2024ENGG_CAP1_CutOff.pdf",
+              "page": 317
+            }
+          ],
+          "category_meaning": "General (male), Nomadic Tribe 1, Other than Home University seats",
+          "category_meaning_confidence": "best_effort"
+        },
+        {
+          "category": "GNT2H",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": 1,
+              "level_key": "home_university_seats_allotted_to_other_than_home_university",
+              "level_label": "Home University Seats Allotted to Other Than Home University Candidates",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 128943,
+              "closing_percentile": 45.521922,
+              "evidence_id": "2024-25:03175:0317591610:home_university_seats_allotted_to_other_than_home_university:GNT2H:R1:S1",
+              "source_file": "2024ENGG_CAP1_CutOff.pdf",
+              "page": 317
+            }
+          ],
+          "category_meaning": "General (male), Nomadic Tribe 2, Home University seats",
+          "category_meaning_confidence": "best_effort"
+        },
+        {
+          "category": "GNT2O",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": 1,
+              "level_key": "other_than_home_university_seats_allotted_to_other_than_home",
+              "level_label": "Other Than Home University Seats Allotted to Other Than Home University Candidates",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 107024,
+              "closing_percentile": 57.9919409,
+              "evidence_id": "2024-25:03175:0317591610:other_than_home_university_seats_allotted_to_other_than_home:GNT2O:R1:S1",
+              "source_file": "2024ENGG_CAP1_CutOff.pdf",
+              "page": 317
+            }
+          ],
+          "category_meaning": "General (male), Nomadic Tribe 2, Other than Home University seats",
+          "category_meaning_confidence": "best_effort"
+        },
+        {
+          "category": "GNT3H",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": 1,
+              "level_key": "home_university_seats_allotted_to_home_university_candidates",
+              "level_label": "Home University Seats Allotted to Home University Candidates",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 89744,
+              "closing_percentile": 66.4751458,
+              "evidence_id": "2024-25:03175:0317591610:home_university_seats_allotted_to_home_university_candidates:GNT3H:R1:S1",
+              "source_file": "2024ENGG_CAP1_CutOff.pdf",
+              "page": 317
+            }
+          ],
+          "category_meaning": "General (male), Nomadic Tribe 3, Home University seats",
+          "category_meaning_confidence": "best_effort"
+        },
+        {
+          "category": "GOBCH",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": 1,
+              "level_key": "home_university_seats_allotted_to_home_university_candidates",
+              "level_label": "Home University Seats Allotted to Home University Candidates",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 106981,
+              "closing_percentile": 57.9919409,
+              "evidence_id": "2024-25:03175:0317591610:home_university_seats_allotted_to_home_university_candidates:GOBCH:R1:S1",
+              "source_file": "2024ENGG_CAP1_CutOff.pdf",
+              "page": 317
+            }
+          ],
+          "category_meaning": "General (male), Other Backward Class, Home University seats",
+          "category_meaning_confidence": "best_effort"
+        },
+        {
+          "category": "GOBCO",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": 1,
+              "level_key": "other_than_home_university_seats_allotted_to_other_than_home",
+              "level_label": "Other Than Home University Seats Allotted to Other Than Home University Candidates",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 120110,
+              "closing_percentile": 50.9307179,
+              "evidence_id": "2024-25:03175:0317591610:other_than_home_university_seats_allotted_to_other_than_home:GOBCO:R1:S1",
+              "source_file": "2024ENGG_CAP1_CutOff.pdf",
+              "page": 317
+            }
+          ],
+          "category_meaning": "General (male), Other Backward Class, Other than Home University seats",
+          "category_meaning_confidence": "best_effort"
+        },
+        {
+          "category": "GOPENH",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": 1,
+              "level_key": "home_university_seats_allotted_to_home_university_candidates",
+              "level_label": "Home University Seats Allotted to Home University Candidates",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 68944,
+              "closing_percentile": 75.3591206,
+              "evidence_id": "2024-25:03175:0317591610:home_university_seats_allotted_to_home_university_candidates:GOPENH:R1:S1",
+              "source_file": "2024ENGG_CAP1_CutOff.pdf",
+              "page": 317
+            }
+          ],
+          "category_meaning": "General (male), Open, Home University seats",
+          "category_meaning_confidence": "best_effort"
+        },
+        {
+          "category": "GOPENO",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": 1,
+              "level_key": "other_than_home_university_seats_allotted_to_other_than_home",
+              "level_label": "Other Than Home University Seats Allotted to Other Than Home University Candidates",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 94466,
+              "closing_percentile": 64.6500162,
+              "evidence_id": "2024-25:03175:0317591610:other_than_home_university_seats_allotted_to_other_than_home:GOPENO:R1:S1",
+              "source_file": "2024ENGG_CAP1_CutOff.pdf",
+              "page": 317
+            }
+          ],
+          "category_meaning": "General (male), Open, Other than Home University seats",
+          "category_meaning_confidence": "best_effort"
+        },
+        {
+          "category": "GSCH",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": 1,
+              "level_key": "home_university_seats_allotted_to_home_university_candidates",
+              "level_label": "Home University Seats Allotted to Home University Candidates",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 95078,
+              "closing_percentile": 63.7045846,
+              "evidence_id": "2024-25:03175:0317591610:home_university_seats_allotted_to_home_university_candidates:GSCH:R1:S1",
+              "source_file": "2024ENGG_CAP1_CutOff.pdf",
+              "page": 317
+            }
+          ],
+          "category_meaning": "General (male), Scheduled Caste, Home University seats",
+          "category_meaning_confidence": "best_effort"
+        },
+        {
+          "category": "GSCO",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": 1,
+              "level_key": "other_than_home_university_seats_allotted_to_other_than_home",
+              "level_label": "Other Than Home University Seats Allotted to Other Than Home University Candidates",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 116742,
+              "closing_percentile": 52.9935209,
+              "evidence_id": "2024-25:03175:0317591610:other_than_home_university_seats_allotted_to_other_than_home:GSCO:R1:S1",
+              "source_file": "2024ENGG_CAP1_CutOff.pdf",
+              "page": 317
+            }
+          ],
+          "category_meaning": "General (male), Scheduled Caste, Other than Home University seats",
+          "category_meaning_confidence": "best_effort"
+        },
+        {
+          "category": "GSEBCH",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": 1,
+              "level_key": "home_university_seats_allotted_to_home_university_candidates",
+              "level_label": "Home University Seats Allotted to Home University Candidates",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 133849,
+              "closing_percentile": 42.2216419,
+              "evidence_id": "2024-25:03175:0317591610:home_university_seats_allotted_to_home_university_candidates:GSEBCH:R1:S1",
+              "source_file": "2024ENGG_CAP1_CutOff.pdf",
+              "page": 317
+            }
+          ],
+          "category_meaning": "General (male), Home University seats",
+          "category_meaning_confidence": "best_effort"
+        },
+        {
+          "category": "GSEBCO",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": 1,
+              "level_key": "other_than_home_university_seats_allotted_to_other_than_home",
+              "level_label": "Other Than Home University Seats Allotted to Other Than Home University Candidates",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 113529,
+              "closing_percentile": 54.3920183,
+              "evidence_id": "2024-25:03175:0317591610:other_than_home_university_seats_allotted_to_other_than_home:GSEBCO:R1:S1",
+              "source_file": "2024ENGG_CAP1_CutOff.pdf",
+              "page": 317
+            }
+          ],
+          "category_meaning": "General (male), Other than Home University seats",
+          "category_meaning_confidence": "best_effort"
+        },
+        {
+          "category": "GVJO",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": 1,
+              "level_key": "other_than_home_university_seats_allotted_to_other_than_home",
+              "level_label": "Other Than Home University Seats Allotted to Other Than Home University Candidates",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 95041,
+              "closing_percentile": 63.7045846,
+              "evidence_id": "2024-25:03175:0317591610:other_than_home_university_seats_allotted_to_other_than_home:GVJO:R1:S1",
+              "source_file": "2024ENGG_CAP1_CutOff.pdf",
+              "page": 317
+            }
+          ],
+          "category_meaning": "General (male), Vimukt Jati, Other than Home University seats",
+          "category_meaning_confidence": "best_effort"
+        },
+        {
+          "category": "LOBCH",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": 1,
+              "level_key": "home_university_seats_allotted_to_home_university_candidates",
+              "level_label": "Home University Seats Allotted to Home University Candidates",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 74354,
+              "closing_percentile": 73.4250332,
+              "evidence_id": "2024-25:03175:0317591610:home_university_seats_allotted_to_home_university_candidates:LOBCH:R1:S1",
+              "source_file": "2024ENGG_CAP1_CutOff.pdf",
+              "page": 317
+            }
+          ],
+          "category_meaning": "Ladies, Other Backward Class, Home University seats",
+          "category_meaning_confidence": "best_effort"
+        },
+        {
+          "category": "LOPENH",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": 1,
+              "level_key": "home_university_seats_allotted_to_home_university_candidates",
+              "level_label": "Home University Seats Allotted to Home University Candidates",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 50054,
+              "closing_percentile": 82.7099252,
+              "evidence_id": "2024-25:03175:0317591610:home_university_seats_allotted_to_home_university_candidates:LOPENH:R1:S1",
+              "source_file": "2024ENGG_CAP1_CutOff.pdf",
+              "page": 317
+            }
+          ],
+          "category_meaning": "Ladies, Open, Home University seats",
+          "category_meaning_confidence": "best_effort"
+        },
+        {
+          "category": "LOPENO",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": 1,
+              "level_key": "other_than_home_university_seats_allotted_to_other_than_home",
+              "level_label": "Other Than Home University Seats Allotted to Other Than Home University Candidates",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 80782,
+              "closing_percentile": 70.5215521,
+              "evidence_id": "2024-25:03175:0317591610:other_than_home_university_seats_allotted_to_other_than_home:LOPENO:R1:S1",
+              "source_file": "2024ENGG_CAP1_CutOff.pdf",
+              "page": 317
+            }
+          ],
+          "category_meaning": "Ladies, Open, Other than Home University seats",
+          "category_meaning_confidence": "best_effort"
+        },
+        {
+          "category": "LSCH",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": 1,
+              "level_key": "home_university_seats_allotted_to_home_university_candidates",
+              "level_label": "Home University Seats Allotted to Home University Candidates",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 87967,
+              "closing_percentile": 67.5881106,
+              "evidence_id": "2024-25:03175:0317591610:home_university_seats_allotted_to_home_university_candidates:LSCH:R1:S1",
+              "source_file": "2024ENGG_CAP1_CutOff.pdf",
+              "page": 317
+            }
+          ],
+          "category_meaning": "Ladies, Scheduled Caste, Home University seats",
+          "category_meaning_confidence": "best_effort"
+        },
+        {
+          "category": "TFWS",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": 1,
+              "level_key": "state_level",
+              "level_label": "State Level",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 54488,
+              "closing_percentile": 81.1614491,
+              "evidence_id": "2024-25:03175:0317591610:state_level:TFWS:R1:S1",
+              "source_file": "2024ENGG_CAP1_CutOff.pdf",
+              "page": 317
+            }
+          ],
+          "category_meaning": "Tuition Fee Waiver Scheme (state level)",
+          "category_meaning_confidence": "best_effort"
+        }
+      ]
+    },
+    {
+      "course_code": "0317546110",
+      "branch": "Bio Medical Engineering",
+      "branch_family": "chemical_bio",
+      "branch_family_note": "discovery only; never use to substitute cutoffs",
+      "categories": [
+        {
+          "category": "EWS",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": 1,
+              "level_key": "state_level",
+              "level_label": "State Level",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 152165,
+              "closing_percentile": 28.7732713,
+              "evidence_id": "2024-25:03175:0317546110:state_level:EWS:R1:S1",
+              "source_file": "2024ENGG_CAP1_CutOff.pdf",
+              "page": 313
+            }
+          ],
+          "category_meaning": "Economically Weaker Section (state level)",
+          "category_meaning_confidence": "best_effort"
+        },
+        {
+          "category": "GNT3H",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": 1,
+              "level_key": "home_university_seats_allotted_to_home_university_candidates",
+              "level_label": "Home University Seats Allotted to Home University Candidates",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 156382,
+              "closing_percentile": 25.5139718,
+              "evidence_id": "2024-25:03175:0317546110:home_university_seats_allotted_to_home_university_candidates:GNT3H:R1:S1",
+              "source_file": "2024ENGG_CAP1_CutOff.pdf",
+              "page": 313
+            }
+          ],
+          "category_meaning": "General (male), Nomadic Tribe 3, Home University seats",
+          "category_meaning_confidence": "best_effort"
+        },
+        {
+          "category": "GOBCH",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": 1,
+              "level_key": "home_university_seats_allotted_to_home_university_candidates",
+              "level_label": "Home University Seats Allotted to Home University Candidates",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 89083,
+              "closing_percentile": 67.0458361,
+              "evidence_id": "2024-25:03175:0317546110:home_university_seats_allotted_to_home_university_candidates:GOBCH:R1:S1",
+              "source_file": "2024ENGG_CAP1_CutOff.pdf",
+              "page": 313
+            }
+          ],
+          "category_meaning": "General (male), Other Backward Class, Home University seats",
+          "category_meaning_confidence": "best_effort"
+        },
+        {
+          "category": "GOPENH",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": 1,
+              "level_key": "home_university_seats_allotted_to_home_university_candidates",
+              "level_label": "Home University Seats Allotted to Home University Candidates",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 45195,
+              "closing_percentile": 84.5114907,
+              "evidence_id": "2024-25:03175:0317546110:home_university_seats_allotted_to_home_university_candidates:GOPENH:R1:S1",
+              "source_file": "2024ENGG_CAP1_CutOff.pdf",
+              "page": 313
+            }
+          ],
+          "category_meaning": "General (male), Open, Home University seats",
+          "category_meaning_confidence": "best_effort"
+        },
+        {
+          "category": "GSCH",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": 1,
+              "level_key": "home_university_seats_allotted_to_home_university_candidates",
+              "level_label": "Home University Seats Allotted to Home University Candidates",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 94128,
+              "closing_percentile": 64.9513096,
+              "evidence_id": "2024-25:03175:0317546110:home_university_seats_allotted_to_home_university_candidates:GSCH:R1:S1",
+              "source_file": "2024ENGG_CAP1_CutOff.pdf",
+              "page": 313
+            }
+          ],
+          "category_meaning": "General (male), Scheduled Caste, Home University seats",
+          "category_meaning_confidence": "best_effort"
+        },
+        {
+          "category": "GSCO",
+          "cutoffs": [
+            {
+              "round": 3,
+              "stage": 1,
+              "level_key": "other_than_home_university_seats_allotted_to_other_than_home",
+              "level_label": "Other Than Home University Seats Allotted to Other Than Home University Candidates",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 74481,
+              "closing_percentile": 73.4250332,
+              "evidence_id": "2024-25:03175:0317546110:other_than_home_university_seats_allotted_to_other_than_home:GSCO:R3:S1",
+              "source_file": "2024ENGG_CAP3_CutOff.pdf",
+              "page": 268
+            }
+          ],
+          "category_meaning": "General (male), Scheduled Caste, Other than Home University seats",
+          "category_meaning_confidence": "best_effort"
+        },
+        {
+          "category": "GSEBCH",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": 1,
+              "level_key": "home_university_seats_allotted_to_home_university_candidates",
+              "level_label": "Home University Seats Allotted to Home University Candidates",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 109490,
+              "closing_percentile": 57.1543272,
+              "evidence_id": "2024-25:03175:0317546110:home_university_seats_allotted_to_home_university_candidates:GSEBCH:R1:S1",
+              "source_file": "2024ENGG_CAP1_CutOff.pdf",
+              "page": 313
+            },
+            {
+              "round": 1,
+              "stage": 1,
+              "level_key": "home_university_seats_allotted_to_other_than_home_university",
+              "level_label": "Home University Seats Allotted to Other Than Home University Candidates",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 148272,
+              "closing_percentile": 31.6884901,
+              "evidence_id": "2024-25:03175:0317546110:home_university_seats_allotted_to_other_than_home_university:GSEBCH:R1:S1",
+              "source_file": "2024ENGG_CAP1_CutOff.pdf",
+              "page": 313
+            }
+          ],
+          "category_meaning": "General (male), Home University seats",
+          "category_meaning_confidence": "best_effort"
+        },
+        {
+          "category": "GSTH",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": 1,
+              "level_key": "home_university_seats_allotted_to_other_than_home_university",
+              "level_label": "Home University Seats Allotted to Other Than Home University Candidates",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 60821,
+              "closing_percentile": 78.9120215,
+              "evidence_id": "2024-25:03175:0317546110:home_university_seats_allotted_to_other_than_home_university:GSTH:R1:S1",
+              "source_file": "2024ENGG_CAP1_CutOff.pdf",
+              "page": 313
+            },
+            {
+              "round": 3,
+              "stage": 1,
+              "level_key": "home_university_seats_allotted_to_other_than_home_university",
+              "level_label": "Home University Seats Allotted to Other Than Home University Candidates",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 60821,
+              "closing_percentile": 78.9120215,
+              "evidence_id": "2024-25:03175:0317546110:home_university_seats_allotted_to_other_than_home_university:GSTH:R3:S1",
+              "source_file": "2024ENGG_CAP3_CutOff.pdf",
+              "page": 268
+            }
+          ],
+          "category_meaning": "General (male), Scheduled Tribe, Home University seats",
+          "category_meaning_confidence": "best_effort"
+        },
+        {
+          "category": "LOBCH",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": 1,
+              "level_key": "home_university_seats_allotted_to_home_university_candidates",
+              "level_label": "Home University Seats Allotted to Home University Candidates",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 42943,
+              "closing_percentile": 85.3422371,
+              "evidence_id": "2024-25:03175:0317546110:home_university_seats_allotted_to_home_university_candidates:LOBCH:R1:S1",
+              "source_file": "2024ENGG_CAP1_CutOff.pdf",
+              "page": 313
+            }
+          ],
+          "category_meaning": "Ladies, Other Backward Class, Home University seats",
+          "category_meaning_confidence": "best_effort"
+        },
+        {
+          "category": "LOPENH",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": 1,
+              "level_key": "home_university_seats_allotted_to_home_university_candidates",
+              "level_label": "Home University Seats Allotted to Home University Candidates",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 35360,
+              "closing_percentile": 88.0525374,
+              "evidence_id": "2024-25:03175:0317546110:home_university_seats_allotted_to_home_university_candidates:LOPENH:R1:S1",
+              "source_file": "2024ENGG_CAP1_CutOff.pdf",
+              "page": 313
+            }
+          ],
+          "category_meaning": "Ladies, Open, Home University seats",
+          "category_meaning_confidence": "best_effort"
+        }
+      ]
+    },
+    {
+      "course_code": "0317550710",
+      "branch": "Chemical Engineering",
+      "branch_family": "chemical_bio",
+      "branch_family_note": "discovery only; never use to substitute cutoffs",
+      "categories": [
+        {
+          "category": "EWS",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": 1,
+              "level_key": "state_level",
+              "level_label": "State Level",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 146602,
+              "closing_percentile": 33.099972,
+              "evidence_id": "2024-25:03175:0317550710:state_level:EWS:R1:S1",
+              "source_file": "2024ENGG_CAP1_CutOff.pdf",
+              "page": 314
+            }
+          ],
+          "category_meaning": "Economically Weaker Section (state level)",
+          "category_meaning_confidence": "best_effort"
+        },
+        {
+          "category": "GNT1O",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": 1,
+              "level_key": "other_than_home_university_seats_allotted_to_home_university",
+              "level_label": "Other Than Home University Seats Allotted to Home University Candidates",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 79777,
+              "closing_percentile": 71.1376941,
+              "evidence_id": "2024-25:03175:0317550710:other_than_home_university_seats_allotted_to_home_university:GNT1O:R1:S1",
+              "source_file": "2024ENGG_CAP1_CutOff.pdf",
+              "page": 314
+            }
+          ],
+          "category_meaning": "General (male), Nomadic Tribe 1, Other than Home University seats",
+          "category_meaning_confidence": "best_effort"
+        },
+        {
+          "category": "GNT2O",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": 1,
+              "level_key": "other_than_home_university_seats_allotted_to_other_than_home",
+              "level_label": "Other Than Home University Seats Allotted to Other Than Home University Candidates",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 117161,
+              "closing_percentile": 52.5184688,
+              "evidence_id": "2024-25:03175:0317550710:other_than_home_university_seats_allotted_to_other_than_home:GNT2O:R1:S1",
+              "source_file": "2024ENGG_CAP1_CutOff.pdf",
+              "page": 314
+            }
+          ],
+          "category_meaning": "General (male), Nomadic Tribe 2, Other than Home University seats",
+          "category_meaning_confidence": "best_effort"
+        },
+        {
+          "category": "GNT3H",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": 1,
+              "level_key": "home_university_seats_allotted_to_home_university_candidates",
+              "level_label": "Home University Seats Allotted to Home University Candidates",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 172665,
+              "closing_percentile": 9.4599659,
+              "evidence_id": "2024-25:03175:0317550710:home_university_seats_allotted_to_home_university_candidates:GNT3H:R1:S1",
+              "source_file": "2024ENGG_CAP1_CutOff.pdf",
+              "page": 314
+            }
+          ],
+          "category_meaning": "General (male), Nomadic Tribe 3, Home University seats",
+          "category_meaning_confidence": "best_effort"
+        },
+        {
+          "category": "GOBCH",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": 1,
+              "level_key": "home_university_seats_allotted_to_home_university_candidates",
+              "level_label": "Home University Seats Allotted to Home University Candidates",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 80056,
+              "closing_percentile": 70.889365,
+              "evidence_id": "2024-25:03175:0317550710:home_university_seats_allotted_to_home_university_candidates:GOBCH:R1:S1",
+              "source_file": "2024ENGG_CAP1_CutOff.pdf",
+              "page": 314
+            }
+          ],
+          "category_meaning": "General (male), Other Backward Class, Home University seats",
+          "category_meaning_confidence": "best_effort"
+        },
+        {
+          "category": "GOBCO",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": 1,
+              "level_key": "other_than_home_university_seats_allotted_to_other_than_home",
+              "level_label": "Other Than Home University Seats Allotted to Other Than Home University Candidates",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 101294,
+              "closing_percentile": 60.6237408,
+              "evidence_id": "2024-25:03175:0317550710:other_than_home_university_seats_allotted_to_other_than_home:GOBCO:R1:S1",
+              "source_file": "2024ENGG_CAP1_CutOff.pdf",
+              "page": 314
+            }
+          ],
+          "category_meaning": "General (male), Other Backward Class, Other than Home University seats",
+          "category_meaning_confidence": "best_effort"
+        },
+        {
+          "category": "GOPENH",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": 1,
+              "level_key": "home_university_seats_allotted_to_home_university_candidates",
+              "level_label": "Home University Seats Allotted to Home University Candidates",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 63904,
+              "closing_percentile": 77.7152332,
+              "evidence_id": "2024-25:03175:0317550710:home_university_seats_allotted_to_home_university_candidates:GOPENH:R1:S1",
+              "source_file": "2024ENGG_CAP1_CutOff.pdf",
+              "page": 314
+            }
+          ],
+          "category_meaning": "General (male), Open, Home University seats",
+          "category_meaning_confidence": "best_effort"
+        },
+        {
+          "category": "GOPENO",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": 1,
+              "level_key": "other_than_home_university_seats_allotted_to_other_than_home",
+              "level_label": "Other Than Home University Seats Allotted to Other Than Home University Candidates",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 89588,
+              "closing_percentile": 66.8404462,
+              "evidence_id": "2024-25:03175:0317550710:other_than_home_university_seats_allotted_to_other_than_home:GOPENO:R1:S1",
+              "source_file": "2024ENGG_CAP1_CutOff.pdf",
+              "page": 314
+            }
+          ],
+          "category_meaning": "General (male), Open, Other than Home University seats",
+          "category_meaning_confidence": "best_effort"
+        },
+        {
+          "category": "GSCH",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": 1,
+              "level_key": "home_university_seats_allotted_to_home_university_candidates",
+              "level_label": "Home University Seats Allotted to Home University Candidates",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 115857,
+              "closing_percentile": 53.7424491,
+              "evidence_id": "2024-25:03175:0317550710:home_university_seats_allotted_to_home_university_candidates:GSCH:R1:S1",
+              "source_file": "2024ENGG_CAP1_CutOff.pdf",
+              "page": 314
+            }
+          ],
+          "category_meaning": "General (male), Scheduled Caste, Home University seats",
+          "category_meaning_confidence": "best_effort"
+        },
+        {
+          "category": "GSCO",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": 1,
+              "level_key": "other_than_home_university_seats_allotted_to_other_than_home",
+              "level_label": "Other Than Home University Seats Allotted to Other Than Home University Candidates",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 126449,
+              "closing_percentile": 47.4207012,
+              "evidence_id": "2024-25:03175:0317550710:other_than_home_university_seats_allotted_to_other_than_home:GSCO:R1:S1",
+              "source_file": "2024ENGG_CAP1_CutOff.pdf",
+              "page": 314
+            }
+          ],
+          "category_meaning": "General (male), Scheduled Caste, Other than Home University seats",
+          "category_meaning_confidence": "best_effort"
+        },
+        {
+          "category": "LNT2H",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": 1,
+              "level_key": "home_university_seats_allotted_to_home_university_candidates",
+              "level_label": "Home University Seats Allotted to Home University Candidates",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 121827,
+              "closing_percentile": 50.0353239,
+              "evidence_id": "2024-25:03175:0317550710:home_university_seats_allotted_to_home_university_candidates:LNT2H:R1:S1",
+              "source_file": "2024ENGG_CAP1_CutOff.pdf",
+              "page": 314
+            }
+          ],
+          "category_meaning": "Ladies, Nomadic Tribe 2, Home University seats",
+          "category_meaning_confidence": "best_effort"
+        },
+        {
+          "category": "LOBCH",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": 1,
+              "level_key": "home_university_seats_allotted_to_home_university_candidates",
+              "level_label": "Home University Seats Allotted to Home University Candidates",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 78130,
+              "closing_percentile": 71.716606,
+              "evidence_id": "2024-25:03175:0317550710:home_university_seats_allotted_to_home_university_candidates:LOBCH:R1:S1",
+              "source_file": "2024ENGG_CAP1_CutOff.pdf",
+              "page": 314
+            }
+          ],
+          "category_meaning": "Ladies, Other Backward Class, Home University seats",
+          "category_meaning_confidence": "best_effort"
+        },
+        {
+          "category": "LOBCO",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": 1,
+              "level_key": "other_than_home_university_seats_allotted_to_other_than_home",
+              "level_label": "Other Than Home University Seats Allotted to Other Than Home University Candidates",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 100436,
+              "closing_percentile": 61.3261708,
+              "evidence_id": "2024-25:03175:0317550710:other_than_home_university_seats_allotted_to_other_than_home:LOBCO:R1:S1",
+              "source_file": "2024ENGG_CAP1_CutOff.pdf",
+              "page": 314
+            }
+          ],
+          "category_meaning": "Ladies, Other Backward Class, Other than Home University seats",
+          "category_meaning_confidence": "best_effort"
+        },
+        {
+          "category": "LOPENH",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": 1,
+              "level_key": "home_university_seats_allotted_to_home_university_candidates",
+              "level_label": "Home University Seats Allotted to Home University Candidates",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 58286,
+              "closing_percentile": 79.6526596,
+              "evidence_id": "2024-25:03175:0317550710:home_university_seats_allotted_to_home_university_candidates:LOPENH:R1:S1",
+              "source_file": "2024ENGG_CAP1_CutOff.pdf",
+              "page": 314
+            }
+          ],
+          "category_meaning": "Ladies, Open, Home University seats",
+          "category_meaning_confidence": "best_effort"
+        },
+        {
+          "category": "LOPENO",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": 1,
+              "level_key": "other_than_home_university_seats_allotted_to_other_than_home",
+              "level_label": "Other Than Home University Seats Allotted to Other Than Home University Candidates",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 84124,
+              "closing_percentile": 69.2652564,
+              "evidence_id": "2024-25:03175:0317550710:other_than_home_university_seats_allotted_to_other_than_home:LOPENO:R1:S1",
+              "source_file": "2024ENGG_CAP1_CutOff.pdf",
+              "page": 314
+            }
+          ],
+          "category_meaning": "Ladies, Open, Other than Home University seats",
+          "category_meaning_confidence": "best_effort"
+        },
+        {
+          "category": "LSCH",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": 1,
+              "level_key": "home_university_seats_allotted_to_home_university_candidates",
+              "level_label": "Home University Seats Allotted to Home University Candidates",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 142264,
+              "closing_percentile": 36.6283954,
+              "evidence_id": "2024-25:03175:0317550710:home_university_seats_allotted_to_home_university_candidates:LSCH:R1:S1",
+              "source_file": "2024ENGG_CAP1_CutOff.pdf",
+              "page": 314
+            }
+          ],
+          "category_meaning": "Ladies, Scheduled Caste, Home University seats",
+          "category_meaning_confidence": "best_effort"
+        },
+        {
+          "category": "LSCO",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": 1,
+              "level_key": "other_than_home_university_seats_allotted_to_home_university",
+              "level_label": "Other Than Home University Seats Allotted to Home University Candidates",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 149244,
+              "closing_percentile": 31.3198919,
+              "evidence_id": "2024-25:03175:0317550710:other_than_home_university_seats_allotted_to_home_university:LSCO:R1:S1",
+              "source_file": "2024ENGG_CAP1_CutOff.pdf",
+              "page": 314
+            },
+            {
+              "round": 3,
+              "stage": 2,
+              "level_key": "other_than_home_university_seats_allotted_to_home_university",
+              "level_label": "Other Than Home University Seats Allotted to Home University Candidates",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 105680,
+              "closing_percentile": 59.0509185,
+              "evidence_id": "2024-25:03175:0317550710:other_than_home_university_seats_allotted_to_home_university:LSCO:R3:S2",
+              "source_file": "2024ENGG_CAP3_CutOff.pdf",
+              "page": 269
+            }
+          ],
+          "category_meaning": "Ladies, Scheduled Caste, Other than Home University seats",
+          "category_meaning_confidence": "best_effort"
+        },
+        {
+          "category": "LSEBCO",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": 1,
+              "level_key": "other_than_home_university_seats_allotted_to_other_than_home",
+              "level_label": "Other Than Home University Seats Allotted to Other Than Home University Candidates",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 92282,
+              "closing_percentile": 65.5460439,
+              "evidence_id": "2024-25:03175:0317550710:other_than_home_university_seats_allotted_to_other_than_home:LSEBCO:R1:S1",
+              "source_file": "2024ENGG_CAP1_CutOff.pdf",
+              "page": 314
+            }
+          ],
+          "category_meaning": "Ladies, Other than Home University seats",
+          "category_meaning_confidence": "best_effort"
+        }
+      ]
+    },
+    {
+      "course_code": "0317519110",
+      "branch": "Civil Engineering",
+      "branch_family": "civil",
+      "branch_family_note": "discovery only; never use to substitute cutoffs",
+      "categories": [
+        {
+          "category": "AI",
+          "cutoffs": [
+            {
+              "round": 3,
+              "stage": 1,
+              "level_key": "all_india",
+              "level_label": "All India",
+              "list_type": "all_india",
+              "closing_rank": 172899,
+              "closing_percentile": 25.7846411,
+              "evidence_id": "2024-25:03175:0317519110:all_india:AI:R3:S1",
+              "source_file": "2024ENGG_CAP3_AI_CutOff.pdf",
+              "page": 16,
+              "all_india_merit_no": 172899,
+              "exam": "MHT-CET",
+              "candidature_type": "AI to AI",
+              "name_confidence": "confident"
+            }
+          ],
+          "category_meaning": "All India seat",
+          "category_meaning_confidence": "best_effort"
+        },
+        {
+          "category": "EWS",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": 1,
+              "level_key": "state_level",
+              "level_label": "State Level",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 172504,
+              "closing_percentile": 9.5534224,
+              "evidence_id": "2024-25:03175:0317519110:state_level:EWS:R1:S1",
+              "source_file": "2024ENGG_CAP1_CutOff.pdf",
+              "page": 308
+            }
+          ],
+          "category_meaning": "Economically Weaker Section (state level)",
+          "category_meaning_confidence": "best_effort"
+        },
+        {
+          "category": "GOBCO",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": 1,
+              "level_key": "other_than_home_university_seats_allotted_to_other_than_home",
+              "level_label": "Other Than Home University Seats Allotted to Other Than Home University Candidates",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 169156,
+              "closing_percentile": 13.2387508,
+              "evidence_id": "2024-25:03175:0317519110:other_than_home_university_seats_allotted_to_other_than_home:GOBCO:R1:S1",
+              "source_file": "2024ENGG_CAP1_CutOff.pdf",
+              "page": 308
+            }
+          ],
+          "category_meaning": "General (male), Other Backward Class, Other than Home University seats",
+          "category_meaning_confidence": "best_effort"
+        },
+        {
+          "category": "GOPENO",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": 1,
+              "level_key": "other_than_home_university_seats_allotted_to_other_than_home",
+              "level_label": "Other Than Home University Seats Allotted to Other Than Home University Candidates",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 105028,
+              "closing_percentile": 59.8892661,
+              "evidence_id": "2024-25:03175:0317519110:other_than_home_university_seats_allotted_to_other_than_home:GOPENO:R1:S1",
+              "source_file": "2024ENGG_CAP1_CutOff.pdf",
+              "page": 308
+            }
+          ],
+          "category_meaning": "General (male), Open, Other than Home University seats",
+          "category_meaning_confidence": "best_effort"
+        },
+        {
+          "category": "GSCH",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": 1,
+              "level_key": "home_university_seats_allotted_to_other_than_home_university",
+              "level_label": "Home University Seats Allotted to Other Than Home University Candidates",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 163832,
+              "closing_percentile": 18.576741,
+              "evidence_id": "2024-25:03175:0317519110:home_university_seats_allotted_to_other_than_home_university:GSCH:R1:S1",
+              "source_file": "2024ENGG_CAP1_CutOff.pdf",
+              "page": 308
+            },
+            {
+              "round": 3,
+              "stage": 1,
+              "level_key": "home_university_seats_allotted_to_other_than_home_university",
+              "level_label": "Home University Seats Allotted to Other Than Home University Candidates",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 155591,
+              "closing_percentile": 25.6745674,
+              "evidence_id": "2024-25:03175:0317519110:home_university_seats_allotted_to_other_than_home_university:GSCH:R3:S1",
+              "source_file": "2024ENGG_CAP3_CutOff.pdf",
+              "page": 264
+            }
+          ],
+          "category_meaning": "General (male), Scheduled Caste, Home University seats",
+          "category_meaning_confidence": "best_effort"
+        },
+        {
+          "category": "GSCO",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": 1,
+              "level_key": "other_than_home_university_seats_allotted_to_other_than_home",
+              "level_label": "Other Than Home University Seats Allotted to Other Than Home University Candidates",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 141717,
+              "closing_percentile": 36.9291471,
+              "evidence_id": "2024-25:03175:0317519110:other_than_home_university_seats_allotted_to_other_than_home:GSCO:R1:S1",
+              "source_file": "2024ENGG_CAP1_CutOff.pdf",
+              "page": 308
+            }
+          ],
+          "category_meaning": "General (male), Scheduled Caste, Other than Home University seats",
+          "category_meaning_confidence": "best_effort"
+        },
+        {
+          "category": "GSTO",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": 1,
+              "level_key": "other_than_home_university_seats_allotted_to_other_than_home",
+              "level_label": "Other Than Home University Seats Allotted to Other Than Home University Candidates",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 117832,
+              "closing_percentile": 52.0861037,
+              "evidence_id": "2024-25:03175:0317519110:other_than_home_university_seats_allotted_to_other_than_home:GSTO:R1:S1",
+              "source_file": "2024ENGG_CAP1_CutOff.pdf",
+              "page": 308
+            }
+          ],
+          "category_meaning": "General (male), Scheduled Tribe, Other than Home University seats",
+          "category_meaning_confidence": "best_effort"
+        },
+        {
+          "category": "GVJH",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": 1,
+              "level_key": "home_university_seats_allotted_to_other_than_home_university",
+              "level_label": "Home University Seats Allotted to Other Than Home University Candidates",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 108043,
+              "closing_percentile": 57.3310702,
+              "evidence_id": "2024-25:03175:0317519110:home_university_seats_allotted_to_other_than_home_university:GVJH:R1:S1",
+              "source_file": "2024ENGG_CAP1_CutOff.pdf",
+              "page": 308
+            },
+            {
+              "round": 3,
+              "stage": 1,
+              "level_key": "home_university_seats_allotted_to_other_than_home_university",
+              "level_label": "Home University Seats Allotted to Other Than Home University Candidates",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 173732,
+              "closing_percentile": 7.8773225,
+              "evidence_id": "2024-25:03175:0317519110:home_university_seats_allotted_to_other_than_home_university:GVJH:R3:S1",
+              "source_file": "2024ENGG_CAP3_CutOff.pdf",
+              "page": 264
+            }
+          ],
+          "category_meaning": "General (male), Vimukt Jati, Home University seats",
+          "category_meaning_confidence": "best_effort"
+        },
+        {
+          "category": "LOBCH",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": 1,
+              "level_key": "home_university_seats_allotted_to_other_than_home_university",
+              "level_label": "Home University Seats Allotted to Other Than Home University Candidates",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 151318,
+              "closing_percentile": 29.3071786,
+              "evidence_id": "2024-25:03175:0317519110:home_university_seats_allotted_to_other_than_home_university:LOBCH:R1:S1",
+              "source_file": "2024ENGG_CAP1_CutOff.pdf",
+              "page": 308
+            }
+          ],
+          "category_meaning": "Ladies, Other Backward Class, Home University seats",
+          "category_meaning_confidence": "best_effort"
+        },
+        {
+          "category": "LOPENO",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": 1,
+              "level_key": "other_than_home_university_seats_allotted_to_other_than_home",
+              "level_label": "Other Than Home University Seats Allotted to Other Than Home University Candidates",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 105372,
+              "closing_percentile": 59.3445914,
+              "evidence_id": "2024-25:03175:0317519110:other_than_home_university_seats_allotted_to_other_than_home:LOPENO:R1:S1",
+              "source_file": "2024ENGG_CAP1_CutOff.pdf",
+              "page": 308
+            },
+            {
+              "round": 2,
+              "stage": 1,
+              "level_key": "other_than_home_university_seats_allotted_to_home_university",
+              "level_label": "Other Than Home University Seats Allotted to Home University Candidates",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 176409,
+              "closing_percentile": 4.7766958,
+              "evidence_id": "2024-25:03175:0317519110:other_than_home_university_seats_allotted_to_home_university:LOPENO:R2:S1",
+              "source_file": "2024ENGG_CAP2_CutOff.pdf",
+              "page": 305
+            }
+          ],
+          "category_meaning": "Ladies, Open, Other than Home University seats",
+          "category_meaning_confidence": "best_effort"
+        }
+      ]
+    },
+    {
+      "course_code": "0317524510",
+      "branch": "Computer Engineering",
+      "branch_family": "computing",
+      "branch_family_note": "discovery only; never use to substitute cutoffs",
+      "categories": [
+        {
+          "category": "DEFOBCS",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": 1,
+              "level_key": "state_level",
+              "level_label": "State Level",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 141079,
+              "closing_percentile": 37.6014199,
+              "evidence_id": "2024-25:03175:0317524510:state_level:DEFOBCS:R1:S1",
+              "source_file": "2024ENGG_CAP1_CutOff.pdf",
+              "page": 309
+            }
+          ],
+          "category_meaning": "Defense quota, Other Backward Class, State Level",
+          "category_meaning_confidence": "best_effort"
+        },
+        {
+          "category": "DEFOPENS",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": 1,
+              "level_key": "state_level",
+              "level_label": "State Level",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 56106,
+              "closing_percentile": 80.5896708,
+              "evidence_id": "2024-25:03175:0317524510:state_level:DEFOPENS:R1:S1",
+              "source_file": "2024ENGG_CAP1_CutOff.pdf",
+              "page": 309
+            }
+          ],
+          "category_meaning": "Defense quota, Open, State Level",
+          "category_meaning_confidence": "best_effort"
+        },
+        {
+          "category": "DEFRSEBC",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": 1,
+              "level_key": "state_level",
+              "level_label": "State Level",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 105120,
+              "closing_percentile": 59.8892661,
+              "evidence_id": "2024-25:03175:0317524510:state_level:DEFRSEBC:R1:S1",
+              "source_file": "2024ENGG_CAP1_CutOff.pdf",
+              "page": 309
+            }
+          ]
+        },
+        {
+          "category": "EWS",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": 1,
+              "level_key": "state_level",
+              "level_label": "State Level",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 89972,
+              "closing_percentile": 66.4751458,
+              "evidence_id": "2024-25:03175:0317524510:state_level:EWS:R1:S1",
+              "source_file": "2024ENGG_CAP1_CutOff.pdf",
+              "page": 309
+            }
+          ],
+          "category_meaning": "Economically Weaker Section (state level)",
+          "category_meaning_confidence": "best_effort"
+        },
+        {
+          "category": "GNT1H",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": 1,
+              "level_key": "home_university_seats_allotted_to_home_university_candidates",
+              "level_label": "Home University Seats Allotted to Home University Candidates",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 48706,
+              "closing_percentile": 83.1983982,
+              "evidence_id": "2024-25:03175:0317524510:home_university_seats_allotted_to_home_university_candidates:GNT1H:R1:S1",
+              "source_file": "2024ENGG_CAP1_CutOff.pdf",
+              "page": 309
+            }
+          ],
+          "category_meaning": "General (male), Nomadic Tribe 1, Home University seats",
+          "category_meaning_confidence": "best_effort"
+        },
+        {
+          "category": "GNT2H",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": 1,
+              "level_key": "home_university_seats_allotted_to_home_university_candidates",
+              "level_label": "Home University Seats Allotted to Home University Candidates",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 51629,
+              "closing_percentile": 82.1493863,
+              "evidence_id": "2024-25:03175:0317524510:home_university_seats_allotted_to_home_university_candidates:GNT2H:R1:S1",
+              "source_file": "2024ENGG_CAP1_CutOff.pdf",
+              "page": 309
+            }
+          ],
+          "category_meaning": "General (male), Nomadic Tribe 2, Home University seats",
+          "category_meaning_confidence": "best_effort"
+        },
+        {
+          "category": "GNT2O",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": 1,
+              "level_key": "other_than_home_university_seats_allotted_to_other_than_home",
+              "level_label": "Other Than Home University Seats Allotted to Other Than Home University Candidates",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 58356,
+              "closing_percentile": 79.6526596,
+              "evidence_id": "2024-25:03175:0317524510:other_than_home_university_seats_allotted_to_other_than_home:GNT2O:R1:S1",
+              "source_file": "2024ENGG_CAP1_CutOff.pdf",
+              "page": 309
+            }
+          ],
+          "category_meaning": "General (male), Nomadic Tribe 2, Other than Home University seats",
+          "category_meaning_confidence": "best_effort"
+        },
+        {
+          "category": "GNT3H",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": 1,
+              "level_key": "home_university_seats_allotted_to_home_university_candidates",
+              "level_label": "Home University Seats Allotted to Home University Candidates",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 48231,
+              "closing_percentile": 83.5013309,
+              "evidence_id": "2024-25:03175:0317524510:home_university_seats_allotted_to_home_university_candidates:GNT3H:R1:S1",
+              "source_file": "2024ENGG_CAP1_CutOff.pdf",
+              "page": 309
+            }
+          ],
+          "category_meaning": "General (male), Nomadic Tribe 3, Home University seats",
+          "category_meaning_confidence": "best_effort"
+        },
+        {
+          "category": "GOBCH",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": 1,
+              "level_key": "home_university_seats_allotted_to_home_university_candidates",
+              "level_label": "Home University Seats Allotted to Home University Candidates",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 41996,
+              "closing_percentile": 85.5052176,
+              "evidence_id": "2024-25:03175:0317524510:home_university_seats_allotted_to_home_university_candidates:GOBCH:R1:S1",
+              "source_file": "2024ENGG_CAP1_CutOff.pdf",
+              "page": 309
+            }
+          ],
+          "category_meaning": "General (male), Other Backward Class, Home University seats",
+          "category_meaning_confidence": "best_effort"
+        },
+        {
+          "category": "GOBCO",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": 1,
+              "level_key": "other_than_home_university_seats_allotted_to_other_than_home",
+              "level_label": "Other Than Home University Seats Allotted to Other Than Home University Candidates",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 53003,
+              "closing_percentile": 81.7098306,
+              "evidence_id": "2024-25:03175:0317524510:other_than_home_university_seats_allotted_to_other_than_home:GOBCO:R1:S1",
+              "source_file": "2024ENGG_CAP1_CutOff.pdf",
+              "page": 309
+            },
+            {
+              "round": 3,
+              "stage": 1,
+              "level_key": "other_than_home_university_seats_allotted_to_other_than_home",
+              "level_label": "Other Than Home University Seats Allotted to Other Than Home University Candidates",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 67380,
+              "closing_percentile": 76.1358545,
+              "evidence_id": "2024-25:03175:0317524510:other_than_home_university_seats_allotted_to_other_than_home:GOBCO:R3:S1",
+              "source_file": "2024ENGG_CAP3_CutOff.pdf",
+              "page": 265
+            }
+          ],
+          "category_meaning": "General (male), Other Backward Class, Other than Home University seats",
+          "category_meaning_confidence": "best_effort"
+        },
+        {
+          "category": "GOPENH",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": 1,
+              "level_key": "home_university_seats_allotted_to_home_university_candidates",
+              "level_label": "Home University Seats Allotted to Home University Candidates",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 36060,
+              "closing_percentile": 87.8152279,
+              "evidence_id": "2024-25:03175:0317524510:home_university_seats_allotted_to_home_university_candidates:GOPENH:R1:S1",
+              "source_file": "2024ENGG_CAP1_CutOff.pdf",
+              "page": 309
+            }
+          ],
+          "category_meaning": "General (male), Open, Home University seats",
+          "category_meaning_confidence": "best_effort"
+        },
+        {
+          "category": "GOPENO",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": 1,
+              "level_key": "other_than_home_university_seats_allotted_to_other_than_home",
+              "level_label": "Other Than Home University Seats Allotted to Other Than Home University Candidates",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 42579,
+              "closing_percentile": 85.4082122,
+              "evidence_id": "2024-25:03175:0317524510:other_than_home_university_seats_allotted_to_other_than_home:GOPENO:R1:S1",
+              "source_file": "2024ENGG_CAP1_CutOff.pdf",
+              "page": 309
+            },
+            {
+              "round": 3,
+              "stage": 1,
+              "level_key": "other_than_home_university_seats_allotted_to_other_than_home",
+              "level_label": "Other Than Home University Seats Allotted to Other Than Home University Candidates",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 58657,
+              "closing_percentile": 79.5290328,
+              "evidence_id": "2024-25:03175:0317524510:other_than_home_university_seats_allotted_to_other_than_home:GOPENO:R3:S1",
+              "source_file": "2024ENGG_CAP3_CutOff.pdf",
+              "page": 265
+            }
+          ],
+          "category_meaning": "General (male), Open, Other than Home University seats",
+          "category_meaning_confidence": "best_effort"
+        },
+        {
+          "category": "GSCH",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": 1,
+              "level_key": "home_university_seats_allotted_to_home_university_candidates",
+              "level_label": "Home University Seats Allotted to Home University Candidates",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 48322,
+              "closing_percentile": 83.4700421,
+              "evidence_id": "2024-25:03175:0317524510:home_university_seats_allotted_to_home_university_candidates:GSCH:R1:S1",
+              "source_file": "2024ENGG_CAP1_CutOff.pdf",
+              "page": 309
+            }
+          ],
+          "category_meaning": "General (male), Scheduled Caste, Home University seats",
+          "category_meaning_confidence": "best_effort"
+        },
+        {
+          "category": "GSCO",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": 1,
+              "level_key": "other_than_home_university_seats_allotted_to_other_than_home",
+              "level_label": "Other Than Home University Seats Allotted to Other Than Home University Candidates",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 64461,
+              "closing_percentile": 77.2074577,
+              "evidence_id": "2024-25:03175:0317524510:other_than_home_university_seats_allotted_to_other_than_home:GSCO:R1:S1",
+              "source_file": "2024ENGG_CAP1_CutOff.pdf",
+              "page": 309
+            },
+            {
+              "round": 3,
+              "stage": 1,
+              "level_key": "other_than_home_university_seats_allotted_to_other_than_home",
+              "level_label": "Other Than Home University Seats Allotted to Other Than Home University Candidates",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 78294,
+              "closing_percentile": 71.7115,
+              "evidence_id": "2024-25:03175:0317524510:other_than_home_university_seats_allotted_to_other_than_home:GSCO:R3:S1",
+              "source_file": "2024ENGG_CAP3_CutOff.pdf",
+              "page": 265
+            }
+          ],
+          "category_meaning": "General (male), Scheduled Caste, Other than Home University seats",
+          "category_meaning_confidence": "best_effort"
+        },
+        {
+          "category": "GSEBCH",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": 1,
+              "level_key": "home_university_seats_allotted_to_home_university_candidates",
+              "level_label": "Home University Seats Allotted to Home University Candidates",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 58225,
+              "closing_percentile": 79.7465759,
+              "evidence_id": "2024-25:03175:0317524510:home_university_seats_allotted_to_home_university_candidates:GSEBCH:R1:S1",
+              "source_file": "2024ENGG_CAP1_CutOff.pdf",
+              "page": 309
+            }
+          ],
+          "category_meaning": "General (male), Home University seats",
+          "category_meaning_confidence": "best_effort"
+        },
+        {
+          "category": "GSEBCO",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": 1,
+              "level_key": "other_than_home_university_seats_allotted_to_other_than_home",
+              "level_label": "Other Than Home University Seats Allotted to Other Than Home University Candidates",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 48945,
+              "closing_percentile": 83.032746,
+              "evidence_id": "2024-25:03175:0317524510:other_than_home_university_seats_allotted_to_other_than_home:GSEBCO:R1:S1",
+              "source_file": "2024ENGG_CAP1_CutOff.pdf",
+              "page": 309
+            },
+            {
+              "round": 3,
+              "stage": 1,
+              "level_key": "other_than_home_university_seats_allotted_to_other_than_home",
+              "level_label": "Other Than Home University Seats Allotted to Other Than Home University Candidates",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 63922,
+              "closing_percentile": 77.7152332,
+              "evidence_id": "2024-25:03175:0317524510:other_than_home_university_seats_allotted_to_other_than_home:GSEBCO:R3:S1",
+              "source_file": "2024ENGG_CAP3_CutOff.pdf",
+              "page": 265
+            }
+          ],
+          "category_meaning": "General (male), Other than Home University seats",
+          "category_meaning_confidence": "best_effort"
+        },
+        {
+          "category": "GSTH",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": 1,
+              "level_key": "home_university_seats_allotted_to_home_university_candidates",
+              "level_label": "Home University Seats Allotted to Home University Candidates",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 172913,
+              "closing_percentile": 8.946165,
+              "evidence_id": "2024-25:03175:0317524510:home_university_seats_allotted_to_home_university_candidates:GSTH:R1:S1",
+              "source_file": "2024ENGG_CAP1_CutOff.pdf",
+              "page": 309
+            }
+          ],
+          "category_meaning": "General (male), Scheduled Tribe, Home University seats",
+          "category_meaning_confidence": "best_effort"
+        },
+        {
+          "category": "GSTO",
+          "cutoffs": [
+            {
+              "round": 3,
+              "stage": 1,
+              "level_key": "other_than_home_university_seats_allotted_to_home_university",
+              "level_label": "Other Than Home University Seats Allotted to Home University Candidates",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 154758,
+              "closing_percentile": 27.1532908,
+              "evidence_id": "2024-25:03175:0317524510:other_than_home_university_seats_allotted_to_home_university:GSTO:R3:S1",
+              "source_file": "2024ENGG_CAP3_CutOff.pdf",
+              "page": 265
+            }
+          ],
+          "category_meaning": "General (male), Scheduled Tribe, Other than Home University seats",
+          "category_meaning_confidence": "best_effort"
+        },
+        {
+          "category": "GVJH",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": 1,
+              "level_key": "home_university_seats_allotted_to_home_university_candidates",
+              "level_label": "Home University Seats Allotted to Home University Candidates",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 79670,
+              "closing_percentile": 71.1376941,
+              "evidence_id": "2024-25:03175:0317524510:home_university_seats_allotted_to_home_university_candidates:GVJH:R1:S1",
+              "source_file": "2024ENGG_CAP1_CutOff.pdf",
+              "page": 309
+            }
+          ],
+          "category_meaning": "General (male), Vimukt Jati, Home University seats",
+          "category_meaning_confidence": "best_effort"
+        },
+        {
+          "category": "GVJO",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": 1,
+              "level_key": "other_than_home_university_seats_allotted_to_other_than_home",
+              "level_label": "Other Than Home University Seats Allotted to Other Than Home University Candidates",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 73910,
+              "closing_percentile": 73.5848302,
+              "evidence_id": "2024-25:03175:0317524510:other_than_home_university_seats_allotted_to_other_than_home:GVJO:R1:S1",
+              "source_file": "2024ENGG_CAP1_CutOff.pdf",
+              "page": 309
+            }
+          ],
+          "category_meaning": "General (male), Vimukt Jati, Other than Home University seats",
+          "category_meaning_confidence": "best_effort"
+        },
+        {
+          "category": "LNT1H",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": 1,
+              "level_key": "home_university_seats_allotted_to_home_university_candidates",
+              "level_label": "Home University Seats Allotted to Home University Candidates",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 64479,
+              "closing_percentile": 77.2074577,
+              "evidence_id": "2024-25:03175:0317524510:home_university_seats_allotted_to_home_university_candidates:LNT1H:R1:S1",
+              "source_file": "2024ENGG_CAP1_CutOff.pdf",
+              "page": 309
+            }
+          ],
+          "category_meaning": "Ladies, Nomadic Tribe 1, Home University seats",
+          "category_meaning_confidence": "best_effort"
+        },
+        {
+          "category": "LNT1O",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": 1,
+              "level_key": "other_than_home_university_seats_allotted_to_other_than_home",
+              "level_label": "Other Than Home University Seats Allotted to Other Than Home University Candidates",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 152330,
+              "closing_percentile": 28.7003692,
+              "evidence_id": "2024-25:03175:0317524510:other_than_home_university_seats_allotted_to_other_than_home:LNT1O:R1:S1",
+              "source_file": "2024ENGG_CAP1_CutOff.pdf",
+              "page": 309
+            }
+          ],
+          "category_meaning": "Ladies, Nomadic Tribe 1, Other than Home University seats",
+          "category_meaning_confidence": "best_effort"
+        },
+        {
+          "category": "LNT3O",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": 1,
+              "level_key": "other_than_home_university_seats_allotted_to_other_than_home",
+              "level_label": "Other Than Home University Seats Allotted to Other Than Home University Candidates",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 71739,
+              "closing_percentile": 74.3785526,
+              "evidence_id": "2024-25:03175:0317524510:other_than_home_university_seats_allotted_to_other_than_home:LNT3O:R1:S1",
+              "source_file": "2024ENGG_CAP1_CutOff.pdf",
+              "page": 309
+            },
+            {
+              "round": 3,
+              "stage": 1,
+              "level_key": "other_than_home_university_seats_allotted_to_other_than_home",
+              "level_label": "Other Than Home University Seats Allotted to Other Than Home University Candidates",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 71739,
+              "closing_percentile": 74.3785526,
+              "evidence_id": "2024-25:03175:0317524510:other_than_home_university_seats_allotted_to_other_than_home:LNT3O:R3:S1",
+              "source_file": "2024ENGG_CAP3_CutOff.pdf",
+              "page": 265
+            }
+          ],
+          "category_meaning": "Ladies, Nomadic Tribe 3, Other than Home University seats",
+          "category_meaning_confidence": "best_effort"
+        },
+        {
+          "category": "LOBCH",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": 1,
+              "level_key": "home_university_seats_allotted_to_home_university_candidates",
+              "level_label": "Home University Seats Allotted to Home University Candidates",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 40200,
+              "closing_percentile": 86.1969983,
+              "evidence_id": "2024-25:03175:0317524510:home_university_seats_allotted_to_home_university_candidates:LOBCH:R1:S1",
+              "source_file": "2024ENGG_CAP1_CutOff.pdf",
+              "page": 309
+            }
+          ],
+          "category_meaning": "Ladies, Other Backward Class, Home University seats",
+          "category_meaning_confidence": "best_effort"
+        },
+        {
+          "category": "LOBCO",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": 1,
+              "level_key": "other_than_home_university_seats_allotted_to_other_than_home",
+              "level_label": "Other Than Home University Seats Allotted to Other Than Home University Candidates",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 44590,
+              "closing_percentile": 84.6087386,
+              "evidence_id": "2024-25:03175:0317524510:other_than_home_university_seats_allotted_to_other_than_home:LOBCO:R1:S1",
+              "source_file": "2024ENGG_CAP1_CutOff.pdf",
+              "page": 309
+            },
+            {
+              "round": 3,
+              "stage": 1,
+              "level_key": "other_than_home_university_seats_allotted_to_other_than_home",
+              "level_label": "Other Than Home University Seats Allotted to Other Than Home University Candidates",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 72102,
+              "closing_percentile": 74.3614357,
+              "evidence_id": "2024-25:03175:0317524510:other_than_home_university_seats_allotted_to_other_than_home:LOBCO:R3:S1",
+              "source_file": "2024ENGG_CAP3_CutOff.pdf",
+              "page": 265
+            }
+          ],
+          "category_meaning": "Ladies, Other Backward Class, Other than Home University seats",
+          "category_meaning_confidence": "best_effort"
+        },
+        {
+          "category": "LOPENH",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": 1,
+              "level_key": "home_university_seats_allotted_to_home_university_candidates",
+              "level_label": "Home University Seats Allotted to Home University Candidates",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 36624,
+              "closing_percentile": 87.5036363,
+              "evidence_id": "2024-25:03175:0317524510:home_university_seats_allotted_to_home_university_candidates:LOPENH:R1:S1",
+              "source_file": "2024ENGG_CAP1_CutOff.pdf",
+              "page": 309
+            }
+          ],
+          "category_meaning": "Ladies, Open, Home University seats",
+          "category_meaning_confidence": "best_effort"
+        },
+        {
+          "category": "LOPENO",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": 1,
+              "level_key": "other_than_home_university_seats_allotted_to_other_than_home",
+              "level_label": "Other Than Home University Seats Allotted to Other Than Home University Candidates",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 33918,
+              "closing_percentile": 88.553941,
+              "evidence_id": "2024-25:03175:0317524510:other_than_home_university_seats_allotted_to_other_than_home:LOPENO:R1:S1",
+              "source_file": "2024ENGG_CAP1_CutOff.pdf",
+              "page": 309
+            }
+          ],
+          "category_meaning": "Ladies, Open, Other than Home University seats",
+          "category_meaning_confidence": "best_effort"
+        },
+        {
+          "category": "LSCH",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": 1,
+              "level_key": "home_university_seats_allotted_to_home_university_candidates",
+              "level_label": "Home University Seats Allotted to Home University Candidates",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 57515,
+              "closing_percentile": 80.003358,
+              "evidence_id": "2024-25:03175:0317524510:home_university_seats_allotted_to_home_university_candidates:LSCH:R1:S1",
+              "source_file": "2024ENGG_CAP1_CutOff.pdf",
+              "page": 309
+            }
+          ],
+          "category_meaning": "Ladies, Scheduled Caste, Home University seats",
+          "category_meaning_confidence": "best_effort"
+        },
+        {
+          "category": "LSCO",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": 1,
+              "level_key": "other_than_home_university_seats_allotted_to_other_than_home",
+              "level_label": "Other Than Home University Seats Allotted to Other Than Home University Candidates",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 53205,
+              "closing_percentile": 81.658825,
+              "evidence_id": "2024-25:03175:0317524510:other_than_home_university_seats_allotted_to_other_than_home:LSCO:R1:S1",
+              "source_file": "2024ENGG_CAP1_CutOff.pdf",
+              "page": 309
+            }
+          ],
+          "category_meaning": "Ladies, Scheduled Caste, Other than Home University seats",
+          "category_meaning_confidence": "best_effort"
+        },
+        {
+          "category": "LSEBCH",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": 1,
+              "level_key": "home_university_seats_allotted_to_home_university_candidates",
+              "level_label": "Home University Seats Allotted to Home University Candidates",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 51566,
+              "closing_percentile": 82.1766955,
+              "evidence_id": "2024-25:03175:0317524510:home_university_seats_allotted_to_home_university_candidates:LSEBCH:R1:S1",
+              "source_file": "2024ENGG_CAP1_CutOff.pdf",
+              "page": 309
+            }
+          ],
+          "category_meaning": "Ladies, Home University seats",
+          "category_meaning_confidence": "best_effort"
+        },
+        {
+          "category": "LSEBCO",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": 1,
+              "level_key": "other_than_home_university_seats_allotted_to_other_than_home",
+              "level_label": "Other Than Home University Seats Allotted to Other Than Home University Candidates",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 46020,
+              "closing_percentile": 84.2430574,
+              "evidence_id": "2024-25:03175:0317524510:other_than_home_university_seats_allotted_to_other_than_home:LSEBCO:R1:S1",
+              "source_file": "2024ENGG_CAP1_CutOff.pdf",
+              "page": 309
+            }
+          ],
+          "category_meaning": "Ladies, Other than Home University seats",
+          "category_meaning_confidence": "best_effort"
+        },
+        {
+          "category": "LSTH",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": 1,
+              "level_key": "home_university_seats_allotted_to_home_university_candidates",
+              "level_label": "Home University Seats Allotted to Home University Candidates",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 168380,
+              "closing_percentile": 13.7020033,
+              "evidence_id": "2024-25:03175:0317524510:home_university_seats_allotted_to_home_university_candidates:LSTH:R1:S1",
+              "source_file": "2024ENGG_CAP1_CutOff.pdf",
+              "page": 309
+            }
+          ],
+          "category_meaning": "Ladies, Scheduled Tribe, Home University seats",
+          "category_meaning_confidence": "best_effort"
+        },
+        {
+          "category": "LVJH",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": 1,
+              "level_key": "home_university_seats_allotted_to_home_university_candidates",
+              "level_label": "Home University Seats Allotted to Home University Candidates",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 148396,
+              "closing_percentile": 31.6884901,
+              "evidence_id": "2024-25:03175:0317524510:home_university_seats_allotted_to_home_university_candidates:LVJH:R1:S1",
+              "source_file": "2024ENGG_CAP1_CutOff.pdf",
+              "page": 309
+            }
+          ],
+          "category_meaning": "Ladies, Vimukt Jati, Home University seats",
+          "category_meaning_confidence": "best_effort"
+        },
+        {
+          "category": "TFWS",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": 1,
+              "level_key": "state_level",
+              "level_label": "State Level",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 31119,
+              "closing_percentile": 89.4789625,
+              "evidence_id": "2024-25:03175:0317524510:state_level:TFWS:R1:S1",
+              "source_file": "2024ENGG_CAP1_CutOff.pdf",
+              "page": 309
+            }
+          ],
+          "category_meaning": "Tuition Fee Waiver Scheme (state level)",
+          "category_meaning_confidence": "best_effort"
+        }
+      ]
+    },
+    {
+      "course_code": "0317591110",
+      "branch": "Computer Science and Engineering(Artificial Intelligence and Machine Learning)",
+      "branch_family": "computing",
+      "branch_family_note": "discovery only; never use to substitute cutoffs",
+      "categories": [
+        {
+          "category": "DEFOPENS",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": 1,
+              "level_key": "state_level",
+              "level_label": "State Level",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 123868,
+              "closing_percentile": 48.6637821,
+              "evidence_id": "2024-25:03175:0317591110:state_level:DEFOPENS:R1:S1",
+              "source_file": "2024ENGG_CAP1_CutOff.pdf",
+              "page": 315
+            },
+            {
+              "round": 2,
+              "stage": 1,
+              "level_key": "state_level",
+              "level_label": "State Level",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 95093,
+              "closing_percentile": 63.7045846,
+              "evidence_id": "2024-25:03175:0317591110:state_level:DEFOPENS:R2:S1",
+              "source_file": "2024ENGG_CAP2_CutOff.pdf",
+              "page": 313
+            }
+          ],
+          "category_meaning": "Defense quota, Open, State Level",
+          "category_meaning_confidence": "best_effort"
+        },
+        {
+          "category": "EWS",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": 1,
+              "level_key": "state_level",
+              "level_label": "State Level",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 85397,
+              "closing_percentile": 68.4785771,
+              "evidence_id": "2024-25:03175:0317591110:state_level:EWS:R1:S1",
+              "source_file": "2024ENGG_CAP1_CutOff.pdf",
+              "page": 315
+            },
+            {
+              "round": 2,
+              "stage": 1,
+              "level_key": "state_level",
+              "level_label": "State Level",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 77885,
+              "closing_percentile": 71.7682877,
+              "evidence_id": "2024-25:03175:0317591110:state_level:EWS:R2:S1",
+              "source_file": "2024ENGG_CAP2_CutOff.pdf",
+              "page": 313
+            },
+            {
+              "round": 3,
+              "stage": 1,
+              "level_key": "state_level",
+              "level_label": "State Level",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 63606,
+              "closing_percentile": 77.7634641,
+              "evidence_id": "2024-25:03175:0317591110:state_level:EWS:R3:S1",
+              "source_file": "2024ENGG_CAP3_CutOff.pdf",
+              "page": 270
+            }
+          ],
+          "category_meaning": "Economically Weaker Section (state level)",
+          "category_meaning_confidence": "best_effort"
+        },
+        {
+          "category": "GNT1H",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": 1,
+              "level_key": "home_university_seats_allotted_to_home_university_candidates",
+              "level_label": "Home University Seats Allotted to Home University Candidates",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 59485,
+              "closing_percentile": 79.1872032,
+              "evidence_id": "2024-25:03175:0317591110:home_university_seats_allotted_to_home_university_candidates:GNT1H:R1:S1",
+              "source_file": "2024ENGG_CAP1_CutOff.pdf",
+              "page": 315
+            }
+          ],
+          "category_meaning": "General (male), Nomadic Tribe 1, Home University seats",
+          "category_meaning_confidence": "best_effort"
+        },
+        {
+          "category": "GOBCH",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": 1,
+              "level_key": "home_university_seats_allotted_to_home_university_candidates",
+              "level_label": "Home University Seats Allotted to Home University Candidates",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 47749,
+              "closing_percentile": 83.5806009,
+              "evidence_id": "2024-25:03175:0317591110:home_university_seats_allotted_to_home_university_candidates:GOBCH:R1:S1",
+              "source_file": "2024ENGG_CAP1_CutOff.pdf",
+              "page": 315
+            }
+          ],
+          "category_meaning": "General (male), Other Backward Class, Home University seats",
+          "category_meaning_confidence": "best_effort"
+        },
+        {
+          "category": "GOBCO",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": 1,
+              "level_key": "other_than_home_university_seats_allotted_to_other_than_home",
+              "level_label": "Other Than Home University Seats Allotted to Other Than Home University Candidates",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 66548,
+              "closing_percentile": 76.4789025,
+              "evidence_id": "2024-25:03175:0317591110:other_than_home_university_seats_allotted_to_other_than_home:GOBCO:R1:S1",
+              "source_file": "2024ENGG_CAP1_CutOff.pdf",
+              "page": 315
+            }
+          ],
+          "category_meaning": "General (male), Other Backward Class, Other than Home University seats",
+          "category_meaning_confidence": "best_effort"
+        },
+        {
+          "category": "GOPENH",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": 1,
+              "level_key": "home_university_seats_allotted_to_home_university_candidates",
+              "level_label": "Home University Seats Allotted to Home University Candidates",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 39696,
+              "closing_percentile": 86.450638,
+              "evidence_id": "2024-25:03175:0317591110:home_university_seats_allotted_to_home_university_candidates:GOPENH:R1:S1",
+              "source_file": "2024ENGG_CAP1_CutOff.pdf",
+              "page": 315
+            },
+            {
+              "round": 3,
+              "stage": 1,
+              "level_key": "home_university_seats_allotted_to_home_university_candidates",
+              "level_label": "Home University Seats Allotted to Home University Candidates",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 44835,
+              "closing_percentile": 84.5942451,
+              "evidence_id": "2024-25:03175:0317591110:home_university_seats_allotted_to_home_university_candidates:GOPENH:R3:S1",
+              "source_file": "2024ENGG_CAP3_CutOff.pdf",
+              "page": 270
+            }
+          ],
+          "category_meaning": "General (male), Open, Home University seats",
+          "category_meaning_confidence": "best_effort"
+        },
+        {
+          "category": "GOPENO",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": 1,
+              "level_key": "other_than_home_university_seats_allotted_to_other_than_home",
+              "level_label": "Other Than Home University Seats Allotted to Other Than Home University Candidates",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 56335,
+              "closing_percentile": 80.5358903,
+              "evidence_id": "2024-25:03175:0317591110:other_than_home_university_seats_allotted_to_other_than_home:GOPENO:R1:S1",
+              "source_file": "2024ENGG_CAP1_CutOff.pdf",
+              "page": 315
+            },
+            {
+              "round": 3,
+              "stage": 1,
+              "level_key": "other_than_home_university_seats_allotted_to_other_than_home",
+              "level_label": "Other Than Home University Seats Allotted to Other Than Home University Candidates",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 42458,
+              "closing_percentile": 85.4383663,
+              "evidence_id": "2024-25:03175:0317591110:other_than_home_university_seats_allotted_to_other_than_home:GOPENO:R3:S1",
+              "source_file": "2024ENGG_CAP3_CutOff.pdf",
+              "page": 270
+            }
+          ],
+          "category_meaning": "General (male), Open, Other than Home University seats",
+          "category_meaning_confidence": "best_effort"
+        },
+        {
+          "category": "GSCH",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": 1,
+              "level_key": "home_university_seats_allotted_to_home_university_candidates",
+              "level_label": "Home University Seats Allotted to Home University Candidates",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 60399,
+              "closing_percentile": 78.956117,
+              "evidence_id": "2024-25:03175:0317591110:home_university_seats_allotted_to_home_university_candidates:GSCH:R1:S1",
+              "source_file": "2024ENGG_CAP1_CutOff.pdf",
+              "page": 315
+            }
+          ],
+          "category_meaning": "General (male), Scheduled Caste, Home University seats",
+          "category_meaning_confidence": "best_effort"
+        },
+        {
+          "category": "GSCO",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": 1,
+              "level_key": "other_than_home_university_seats_allotted_to_other_than_home",
+              "level_label": "Other Than Home University Seats Allotted to Other Than Home University Candidates",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 60518,
+              "closing_percentile": 78.9173428,
+              "evidence_id": "2024-25:03175:0317591110:other_than_home_university_seats_allotted_to_other_than_home:GSCO:R1:S1",
+              "source_file": "2024ENGG_CAP1_CutOff.pdf",
+              "page": 315
+            }
+          ],
+          "category_meaning": "General (male), Scheduled Caste, Other than Home University seats",
+          "category_meaning_confidence": "best_effort"
+        },
+        {
+          "category": "GSEBCH",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": 1,
+              "level_key": "home_university_seats_allotted_to_home_university_candidates",
+              "level_label": "Home University Seats Allotted to Home University Candidates",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 66210,
+              "closing_percentile": 76.5963466,
+              "evidence_id": "2024-25:03175:0317591110:home_university_seats_allotted_to_home_university_candidates:GSEBCH:R1:S1",
+              "source_file": "2024ENGG_CAP1_CutOff.pdf",
+              "page": 315
+            }
+          ],
+          "category_meaning": "General (male), Home University seats",
+          "category_meaning_confidence": "best_effort"
+        },
+        {
+          "category": "GSEBCO",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": 1,
+              "level_key": "other_than_home_university_seats_allotted_to_other_than_home",
+              "level_label": "Other Than Home University Seats Allotted to Other Than Home University Candidates",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 62666,
+              "closing_percentile": 77.8466015,
+              "evidence_id": "2024-25:03175:0317591110:other_than_home_university_seats_allotted_to_other_than_home:GSEBCO:R1:S1",
+              "source_file": "2024ENGG_CAP1_CutOff.pdf",
+              "page": 315
+            }
+          ],
+          "category_meaning": "General (male), Other than Home University seats",
+          "category_meaning_confidence": "best_effort"
+        },
+        {
+          "category": "LNT2H",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": 1,
+              "level_key": "home_university_seats_allotted_to_home_university_candidates",
+              "level_label": "Home University Seats Allotted to Home University Candidates",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 82950,
+              "closing_percentile": 69.7639628,
+              "evidence_id": "2024-25:03175:0317591110:home_university_seats_allotted_to_home_university_candidates:LNT2H:R1:S1",
+              "source_file": "2024ENGG_CAP1_CutOff.pdf",
+              "page": 315
+            }
+          ],
+          "category_meaning": "Ladies, Nomadic Tribe 2, Home University seats",
+          "category_meaning_confidence": "best_effort"
+        },
+        {
+          "category": "LNT3H",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": 1,
+              "level_key": "home_university_seats_allotted_to_home_university_candidates",
+              "level_label": "Home University Seats Allotted to Home University Candidates",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 98864,
+              "closing_percentile": 62.7875345,
+              "evidence_id": "2024-25:03175:0317591110:home_university_seats_allotted_to_home_university_candidates:LNT3H:R1:S1",
+              "source_file": "2024ENGG_CAP1_CutOff.pdf",
+              "page": 315
+            }
+          ],
+          "category_meaning": "Ladies, Nomadic Tribe 3, Home University seats",
+          "category_meaning_confidence": "best_effort"
+        },
+        {
+          "category": "LOBCH",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": 1,
+              "level_key": "home_university_seats_allotted_to_home_university_candidates",
+              "level_label": "Home University Seats Allotted to Home University Candidates",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 50083,
+              "closing_percentile": 82.7099252,
+              "evidence_id": "2024-25:03175:0317591110:home_university_seats_allotted_to_home_university_candidates:LOBCH:R1:S1",
+              "source_file": "2024ENGG_CAP1_CutOff.pdf",
+              "page": 315
+            }
+          ],
+          "category_meaning": "Ladies, Other Backward Class, Home University seats",
+          "category_meaning_confidence": "best_effort"
+        },
+        {
+          "category": "LOBCO",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": 1,
+              "level_key": "other_than_home_university_seats_allotted_to_other_than_home",
+              "level_label": "Other Than Home University Seats Allotted to Other Than Home University Candidates",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 55989,
+              "closing_percentile": 80.5896708,
+              "evidence_id": "2024-25:03175:0317591110:other_than_home_university_seats_allotted_to_other_than_home:LOBCO:R1:S1",
+              "source_file": "2024ENGG_CAP1_CutOff.pdf",
+              "page": 315
+            }
+          ],
+          "category_meaning": "Ladies, Other Backward Class, Other than Home University seats",
+          "category_meaning_confidence": "best_effort"
+        },
+        {
+          "category": "LOPENH",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": 1,
+              "level_key": "home_university_seats_allotted_to_home_university_candidates",
+              "level_label": "Home University Seats Allotted to Home University Candidates",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 40131,
+              "closing_percentile": 86.2190813,
+              "evidence_id": "2024-25:03175:0317591110:home_university_seats_allotted_to_home_university_candidates:LOPENH:R1:S1",
+              "source_file": "2024ENGG_CAP1_CutOff.pdf",
+              "page": 315
+            }
+          ],
+          "category_meaning": "Ladies, Open, Home University seats",
+          "category_meaning_confidence": "best_effort"
+        },
+        {
+          "category": "LOPENO",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": 1,
+              "level_key": "other_than_home_university_seats_allotted_to_other_than_home",
+              "level_label": "Other Than Home University Seats Allotted to Other Than Home University Candidates",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 51977,
+              "closing_percentile": 82.0158422,
+              "evidence_id": "2024-25:03175:0317591110:other_than_home_university_seats_allotted_to_other_than_home:LOPENO:R1:S1",
+              "source_file": "2024ENGG_CAP1_CutOff.pdf",
+              "page": 315
+            },
+            {
+              "round": 3,
+              "stage": 1,
+              "level_key": "other_than_home_university_seats_allotted_to_other_than_home",
+              "level_label": "Other Than Home University Seats Allotted to Other Than Home University Candidates",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 73840,
+              "closing_percentile": 73.5848302,
+              "evidence_id": "2024-25:03175:0317591110:other_than_home_university_seats_allotted_to_other_than_home:LOPENO:R3:S1",
+              "source_file": "2024ENGG_CAP3_CutOff.pdf",
+              "page": 270
+            }
+          ],
+          "category_meaning": "Ladies, Open, Other than Home University seats",
+          "category_meaning_confidence": "best_effort"
+        },
+        {
+          "category": "LSCH",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": 1,
+              "level_key": "home_university_seats_allotted_to_home_university_candidates",
+              "level_label": "Home University Seats Allotted to Home University Candidates",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 44232,
+              "closing_percentile": 84.8060392,
+              "evidence_id": "2024-25:03175:0317591110:home_university_seats_allotted_to_home_university_candidates:LSCH:R1:S1",
+              "source_file": "2024ENGG_CAP1_CutOff.pdf",
+              "page": 315
+            }
+          ],
+          "category_meaning": "Ladies, Scheduled Caste, Home University seats",
+          "category_meaning_confidence": "best_effort"
+        },
+        {
+          "category": "LSCO",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": 1,
+              "level_key": "other_than_home_university_seats_allotted_to_other_than_home",
+              "level_label": "Other Than Home University Seats Allotted to Other Than Home University Candidates",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 94765,
+              "closing_percentile": 63.9612515,
+              "evidence_id": "2024-25:03175:0317591110:other_than_home_university_seats_allotted_to_other_than_home:LSCO:R1:S1",
+              "source_file": "2024ENGG_CAP1_CutOff.pdf",
+              "page": 315
+            }
+          ],
+          "category_meaning": "Ladies, Scheduled Caste, Other than Home University seats",
+          "category_meaning_confidence": "best_effort"
+        },
+        {
+          "category": "LSEBCH",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": 1,
+              "level_key": "home_university_seats_allotted_to_home_university_candidates",
+              "level_label": "Home University Seats Allotted to Home University Candidates",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 82767,
+              "closing_percentile": 69.7639628,
+              "evidence_id": "2024-25:03175:0317591110:home_university_seats_allotted_to_home_university_candidates:LSEBCH:R1:S1",
+              "source_file": "2024ENGG_CAP1_CutOff.pdf",
+              "page": 315
+            }
+          ],
+          "category_meaning": "Ladies, Home University seats",
+          "category_meaning_confidence": "best_effort"
+        },
+        {
+          "category": "LVJH",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": 1,
+              "level_key": "home_university_seats_allotted_to_home_university_candidates",
+              "level_label": "Home University Seats Allotted to Home University Candidates",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 124638,
+              "closing_percentile": 48.0648514,
+              "evidence_id": "2024-25:03175:0317591110:home_university_seats_allotted_to_home_university_candidates:LVJH:R1:S1",
+              "source_file": "2024ENGG_CAP1_CutOff.pdf",
+              "page": 315
+            }
+          ],
+          "category_meaning": "Ladies, Vimukt Jati, Home University seats",
+          "category_meaning_confidence": "best_effort"
+        },
+        {
+          "category": "TFWS",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": 1,
+              "level_key": "state_level",
+              "level_label": "State Level",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 38044,
+              "closing_percentile": 86.9701586,
+              "evidence_id": "2024-25:03175:0317591110:state_level:TFWS:R1:S1",
+              "source_file": "2024ENGG_CAP1_CutOff.pdf",
+              "page": 315
+            },
+            {
+              "round": 2,
+              "stage": 1,
+              "level_key": "state_level",
+              "level_label": "State Level",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 42184,
+              "closing_percentile": 85.455686,
+              "evidence_id": "2024-25:03175:0317591110:state_level:TFWS:R2:S1",
+              "source_file": "2024ENGG_CAP2_CutOff.pdf",
+              "page": 313
+            }
+          ],
+          "category_meaning": "Tuition Fee Waiver Scheme (state level)",
+          "category_meaning_confidence": "best_effort"
+        }
+      ]
+    },
+    {
+      "course_code": "0317591210",
+      "branch": "Computer Science and Engineering(Data Science)",
+      "branch_family": "computing",
+      "branch_family_note": "discovery only; never use to substitute cutoffs",
+      "categories": [
+        {
+          "category": "DEFOPENS",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": 1,
+              "level_key": "state_level",
+              "level_label": "State Level",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 148762,
+              "closing_percentile": 31.4286926,
+              "evidence_id": "2024-25:03175:0317591210:state_level:DEFOPENS:R1:S1",
+              "source_file": "2024ENGG_CAP1_CutOff.pdf",
+              "page": 316
+            }
+          ],
+          "category_meaning": "Defense quota, Open, State Level",
+          "category_meaning_confidence": "best_effort"
+        },
+        {
+          "category": "EWS",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": 1,
+              "level_key": "state_level",
+              "level_label": "State Level",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 115246,
+              "closing_percentile": 53.8203081,
+              "evidence_id": "2024-25:03175:0317591210:state_level:EWS:R1:S1",
+              "source_file": "2024ENGG_CAP1_CutOff.pdf",
+              "page": 316
+            },
+            {
+              "round": 2,
+              "stage": 1,
+              "level_key": "state_level",
+              "level_label": "State Level",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 127880,
+              "closing_percentile": 46.3188381,
+              "evidence_id": "2024-25:03175:0317591210:state_level:EWS:R2:S1",
+              "source_file": "2024ENGG_CAP2_CutOff.pdf",
+              "page": 314
+            },
+            {
+              "round": 3,
+              "stage": 1,
+              "level_key": "state_level",
+              "level_label": "State Level",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 159722,
+              "closing_percentile": 22.2282247,
+              "evidence_id": "2024-25:03175:0317591210:state_level:EWS:R3:S1",
+              "source_file": "2024ENGG_CAP3_CutOff.pdf",
+              "page": 271
+            }
+          ],
+          "category_meaning": "Economically Weaker Section (state level)",
+          "category_meaning_confidence": "best_effort"
+        },
+        {
+          "category": "GNT1H",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": 1,
+              "level_key": "home_university_seats_allotted_to_home_university_candidates",
+              "level_label": "Home University Seats Allotted to Home University Candidates",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 72512,
+              "closing_percentile": 74.1162962,
+              "evidence_id": "2024-25:03175:0317591210:home_university_seats_allotted_to_home_university_candidates:GNT1H:R1:S1",
+              "source_file": "2024ENGG_CAP1_CutOff.pdf",
+              "page": 316
+            }
+          ],
+          "category_meaning": "General (male), Nomadic Tribe 1, Home University seats",
+          "category_meaning_confidence": "best_effort"
+        },
+        {
+          "category": "GNT2H",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": 1,
+              "level_key": "home_university_seats_allotted_to_home_university_candidates",
+              "level_label": "Home University Seats Allotted to Home University Candidates",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 55099,
+              "closing_percentile": 80.9741447,
+              "evidence_id": "2024-25:03175:0317591210:home_university_seats_allotted_to_home_university_candidates:GNT2H:R1:S1",
+              "source_file": "2024ENGG_CAP1_CutOff.pdf",
+              "page": 316
+            }
+          ],
+          "category_meaning": "General (male), Nomadic Tribe 2, Home University seats",
+          "category_meaning_confidence": "best_effort"
+        },
+        {
+          "category": "GNT3H",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": 1,
+              "level_key": "home_university_seats_allotted_to_home_university_candidates",
+              "level_label": "Home University Seats Allotted to Home University Candidates",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 72212,
+              "closing_percentile": 74.2767378,
+              "evidence_id": "2024-25:03175:0317591210:home_university_seats_allotted_to_home_university_candidates:GNT3H:R1:S1",
+              "source_file": "2024ENGG_CAP1_CutOff.pdf",
+              "page": 316
+            }
+          ],
+          "category_meaning": "General (male), Nomadic Tribe 3, Home University seats",
+          "category_meaning_confidence": "best_effort"
+        },
+        {
+          "category": "GOBCH",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": 1,
+              "level_key": "home_university_seats_allotted_to_home_university_candidates",
+              "level_label": "Home University Seats Allotted to Home University Candidates",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 48238,
+              "closing_percentile": 83.5013309,
+              "evidence_id": "2024-25:03175:0317591210:home_university_seats_allotted_to_home_university_candidates:GOBCH:R1:S1",
+              "source_file": "2024ENGG_CAP1_CutOff.pdf",
+              "page": 316
+            }
+          ],
+          "category_meaning": "General (male), Other Backward Class, Home University seats",
+          "category_meaning_confidence": "best_effort"
+        },
+        {
+          "category": "GOBCO",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": 1,
+              "level_key": "other_than_home_university_seats_allotted_to_other_than_home",
+              "level_label": "Other Than Home University Seats Allotted to Other Than Home University Candidates",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 69910,
+              "closing_percentile": 75.1972801,
+              "evidence_id": "2024-25:03175:0317591210:other_than_home_university_seats_allotted_to_other_than_home:GOBCO:R1:S1",
+              "source_file": "2024ENGG_CAP1_CutOff.pdf",
+              "page": 316
+            }
+          ],
+          "category_meaning": "General (male), Other Backward Class, Other than Home University seats",
+          "category_meaning_confidence": "best_effort"
+        },
+        {
+          "category": "GOPENH",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": 1,
+              "level_key": "home_university_seats_allotted_to_home_university_candidates",
+              "level_label": "Home University Seats Allotted to Home University Candidates",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 41877,
+              "closing_percentile": 85.5352459,
+              "evidence_id": "2024-25:03175:0317591210:home_university_seats_allotted_to_home_university_candidates:GOPENH:R1:S1",
+              "source_file": "2024ENGG_CAP1_CutOff.pdf",
+              "page": 316
+            }
+          ],
+          "category_meaning": "General (male), Open, Home University seats",
+          "category_meaning_confidence": "best_effort"
+        },
+        {
+          "category": "GOPENO",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": 1,
+              "level_key": "other_than_home_university_seats_allotted_to_other_than_home",
+              "level_label": "Other Than Home University Seats Allotted to Other Than Home University Candidates",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 56859,
+              "closing_percentile": 80.2743712,
+              "evidence_id": "2024-25:03175:0317591210:other_than_home_university_seats_allotted_to_other_than_home:GOPENO:R1:S1",
+              "source_file": "2024ENGG_CAP1_CutOff.pdf",
+              "page": 316
+            },
+            {
+              "round": 2,
+              "stage": 1,
+              "level_key": "other_than_home_university_seats_allotted_to_other_than_home",
+              "level_label": "Other Than Home University Seats Allotted to Other Than Home University Candidates",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 67353,
+              "closing_percentile": 76.1358545,
+              "evidence_id": "2024-25:03175:0317591210:other_than_home_university_seats_allotted_to_other_than_home:GOPENO:R2:S1",
+              "source_file": "2024ENGG_CAP2_CutOff.pdf",
+              "page": 314
+            }
+          ],
+          "category_meaning": "General (male), Open, Other than Home University seats",
+          "category_meaning_confidence": "best_effort"
+        },
+        {
+          "category": "GSCH",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": 1,
+              "level_key": "home_university_seats_allotted_to_home_university_candidates",
+              "level_label": "Home University Seats Allotted to Home University Candidates",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 65333,
+              "closing_percentile": 76.7997668,
+              "evidence_id": "2024-25:03175:0317591210:home_university_seats_allotted_to_home_university_candidates:GSCH:R1:S1",
+              "source_file": "2024ENGG_CAP1_CutOff.pdf",
+              "page": 316
+            }
+          ],
+          "category_meaning": "General (male), Scheduled Caste, Home University seats",
+          "category_meaning_confidence": "best_effort"
+        },
+        {
+          "category": "GSCO",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": 1,
+              "level_key": "other_than_home_university_seats_allotted_to_other_than_home",
+              "level_label": "Other Than Home University Seats Allotted to Other Than Home University Candidates",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 61815,
+              "closing_percentile": 78.2152555,
+              "evidence_id": "2024-25:03175:0317591210:other_than_home_university_seats_allotted_to_other_than_home:GSCO:R1:S1",
+              "source_file": "2024ENGG_CAP1_CutOff.pdf",
+              "page": 316
+            },
+            {
+              "round": 2,
+              "stage": 1,
+              "level_key": "other_than_home_university_seats_allotted_to_other_than_home",
+              "level_label": "Other Than Home University Seats Allotted to Other Than Home University Candidates",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 72914,
+              "closing_percentile": 73.8486985,
+              "evidence_id": "2024-25:03175:0317591210:other_than_home_university_seats_allotted_to_other_than_home:GSCO:R2:S1",
+              "source_file": "2024ENGG_CAP2_CutOff.pdf",
+              "page": 314
+            }
+          ],
+          "category_meaning": "General (male), Scheduled Caste, Other than Home University seats",
+          "category_meaning_confidence": "best_effort"
+        },
+        {
+          "category": "GSEBCH",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": 1,
+              "level_key": "home_university_seats_allotted_to_home_university_candidates",
+              "level_label": "Home University Seats Allotted to Home University Candidates",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 79350,
+              "closing_percentile": 71.3988776,
+              "evidence_id": "2024-25:03175:0317591210:home_university_seats_allotted_to_home_university_candidates:GSEBCH:R1:S1",
+              "source_file": "2024ENGG_CAP1_CutOff.pdf",
+              "page": 316
+            }
+          ],
+          "category_meaning": "General (male), Home University seats",
+          "category_meaning_confidence": "best_effort"
+        },
+        {
+          "category": "GSTO",
+          "cutoffs": [
+            {
+              "round": 2,
+              "stage": 1,
+              "level_key": "other_than_home_university_seats_allotted_to_other_than_home",
+              "level_label": "Other Than Home University Seats Allotted to Other Than Home University Candidates",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 106482,
+              "closing_percentile": 58.1588042,
+              "evidence_id": "2024-25:03175:0317591210:other_than_home_university_seats_allotted_to_other_than_home:GSTO:R2:S1",
+              "source_file": "2024ENGG_CAP2_CutOff.pdf",
+              "page": 314
+            }
+          ],
+          "category_meaning": "General (male), Scheduled Tribe, Other than Home University seats",
+          "category_meaning_confidence": "best_effort"
+        },
+        {
+          "category": "GVJH",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": 1,
+              "level_key": "home_university_seats_allotted_to_home_university_candidates",
+              "level_label": "Home University Seats Allotted to Home University Candidates",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 124682,
+              "closing_percentile": 48.0648514,
+              "evidence_id": "2024-25:03175:0317591210:home_university_seats_allotted_to_home_university_candidates:GVJH:R1:S1",
+              "source_file": "2024ENGG_CAP1_CutOff.pdf",
+              "page": 316
+            }
+          ],
+          "category_meaning": "General (male), Vimukt Jati, Home University seats",
+          "category_meaning_confidence": "best_effort"
+        },
+        {
+          "category": "LNT2O",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": 1,
+              "level_key": "other_than_home_university_seats_allotted_to_other_than_home",
+              "level_label": "Other Than Home University Seats Allotted to Other Than Home University Candidates",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 159732,
+              "closing_percentile": 22.2282247,
+              "evidence_id": "2024-25:03175:0317591210:other_than_home_university_seats_allotted_to_other_than_home:LNT2O:R1:S1",
+              "source_file": "2024ENGG_CAP1_CutOff.pdf",
+              "page": 316
+            }
+          ],
+          "category_meaning": "Ladies, Nomadic Tribe 2, Other than Home University seats",
+          "category_meaning_confidence": "best_effort"
+        },
+        {
+          "category": "LOBCH",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": 1,
+              "level_key": "home_university_seats_allotted_to_home_university_candidates",
+              "level_label": "Home University Seats Allotted to Home University Candidates",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 42603,
+              "closing_percentile": 85.3822102,
+              "evidence_id": "2024-25:03175:0317591210:home_university_seats_allotted_to_home_university_candidates:LOBCH:R1:S1",
+              "source_file": "2024ENGG_CAP1_CutOff.pdf",
+              "page": 316
+            }
+          ],
+          "category_meaning": "Ladies, Other Backward Class, Home University seats",
+          "category_meaning_confidence": "best_effort"
+        },
+        {
+          "category": "LOBCO",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": 1,
+              "level_key": "other_than_home_university_seats_allotted_to_other_than_home",
+              "level_label": "Other Than Home University Seats Allotted to Other Than Home University Candidates",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 59951,
+              "closing_percentile": 79.1318865,
+              "evidence_id": "2024-25:03175:0317591210:other_than_home_university_seats_allotted_to_other_than_home:LOBCO:R1:S1",
+              "source_file": "2024ENGG_CAP1_CutOff.pdf",
+              "page": 316
+            },
+            {
+              "round": 2,
+              "stage": 1,
+              "level_key": "other_than_home_university_seats_allotted_to_other_than_home",
+              "level_label": "Other Than Home University Seats Allotted to Other Than Home University Candidates",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 86632,
+              "closing_percentile": 68.0717863,
+              "evidence_id": "2024-25:03175:0317591210:other_than_home_university_seats_allotted_to_other_than_home:LOBCO:R2:S1",
+              "source_file": "2024ENGG_CAP2_CutOff.pdf",
+              "page": 314
+            }
+          ],
+          "category_meaning": "Ladies, Other Backward Class, Other than Home University seats",
+          "category_meaning_confidence": "best_effort"
+        },
+        {
+          "category": "LOPENH",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": 1,
+              "level_key": "home_university_seats_allotted_to_home_university_candidates",
+              "level_label": "Home University Seats Allotted to Home University Candidates",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 39304,
+              "closing_percentile": 86.6547892,
+              "evidence_id": "2024-25:03175:0317591210:home_university_seats_allotted_to_home_university_candidates:LOPENH:R1:S1",
+              "source_file": "2024ENGG_CAP1_CutOff.pdf",
+              "page": 316
+            }
+          ],
+          "category_meaning": "Ladies, Open, Home University seats",
+          "category_meaning_confidence": "best_effort"
+        },
+        {
+          "category": "LOPENO",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": 1,
+              "level_key": "other_than_home_university_seats_allotted_to_other_than_home",
+              "level_label": "Other Than Home University Seats Allotted to Other Than Home University Candidates",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 58650,
+              "closing_percentile": 79.5290328,
+              "evidence_id": "2024-25:03175:0317591210:other_than_home_university_seats_allotted_to_other_than_home:LOPENO:R1:S1",
+              "source_file": "2024ENGG_CAP1_CutOff.pdf",
+              "page": 316
+            }
+          ],
+          "category_meaning": "Ladies, Open, Other than Home University seats",
+          "category_meaning_confidence": "best_effort"
+        },
+        {
+          "category": "LSCH",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": 1,
+              "level_key": "home_university_seats_allotted_to_home_university_candidates",
+              "level_label": "Home University Seats Allotted to Home University Candidates",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 64860,
+              "closing_percentile": 76.933232,
+              "evidence_id": "2024-25:03175:0317591210:home_university_seats_allotted_to_home_university_candidates:LSCH:R1:S1",
+              "source_file": "2024ENGG_CAP1_CutOff.pdf",
+              "page": 316
+            }
+          ],
+          "category_meaning": "Ladies, Scheduled Caste, Home University seats",
+          "category_meaning_confidence": "best_effort"
+        },
+        {
+          "category": "LSCO",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": 1,
+              "level_key": "other_than_home_university_seats_allotted_to_other_than_home",
+              "level_label": "Other Than Home University Seats Allotted to Other Than Home University Candidates",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 87067,
+              "closing_percentile": 67.8440824,
+              "evidence_id": "2024-25:03175:0317591210:other_than_home_university_seats_allotted_to_other_than_home:LSCO:R1:S1",
+              "source_file": "2024ENGG_CAP1_CutOff.pdf",
+              "page": 316
+            },
+            {
+              "round": 2,
+              "stage": 1,
+              "level_key": "other_than_home_university_seats_allotted_to_other_than_home",
+              "level_label": "Other Than Home University Seats Allotted to Other Than Home University Candidates",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 99631,
+              "closing_percentile": 62.2534756,
+              "evidence_id": "2024-25:03175:0317591210:other_than_home_university_seats_allotted_to_other_than_home:LSCO:R2:S1",
+              "source_file": "2024ENGG_CAP2_CutOff.pdf",
+              "page": 314
+            }
+          ],
+          "category_meaning": "Ladies, Scheduled Caste, Other than Home University seats",
+          "category_meaning_confidence": "best_effort"
+        },
+        {
+          "category": "LSEBCH",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": 1,
+              "level_key": "home_university_seats_allotted_to_home_university_candidates",
+              "level_label": "Home University Seats Allotted to Home University Candidates",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 93117,
+              "closing_percentile": 65.2878345,
+              "evidence_id": "2024-25:03175:0317591210:home_university_seats_allotted_to_home_university_candidates:LSEBCH:R1:S1",
+              "source_file": "2024ENGG_CAP1_CutOff.pdf",
+              "page": 316
+            }
+          ],
+          "category_meaning": "Ladies, Home University seats",
+          "category_meaning_confidence": "best_effort"
+        },
+        {
+          "category": "LSEBCO",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": 1,
+              "level_key": "other_than_home_university_seats_allotted_to_other_than_home",
+              "level_label": "Other Than Home University Seats Allotted to Other Than Home University Candidates",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 73164,
+              "closing_percentile": 73.8486985,
+              "evidence_id": "2024-25:03175:0317591210:other_than_home_university_seats_allotted_to_other_than_home:LSEBCO:R1:S1",
+              "source_file": "2024ENGG_CAP1_CutOff.pdf",
+              "page": 316
+            },
+            {
+              "round": 2,
+              "stage": 1,
+              "level_key": "other_than_home_university_seats_allotted_to_other_than_home",
+              "level_label": "Other Than Home University Seats Allotted to Other Than Home University Candidates",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 76074,
+              "closing_percentile": 72.6095528,
+              "evidence_id": "2024-25:03175:0317591210:other_than_home_university_seats_allotted_to_other_than_home:LSEBCO:R2:S1",
+              "source_file": "2024ENGG_CAP2_CutOff.pdf",
+              "page": 314
+            }
+          ],
+          "category_meaning": "Ladies, Other than Home University seats",
+          "category_meaning_confidence": "best_effort"
+        },
+        {
+          "category": "TFWS",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": 1,
+              "level_key": "state_level",
+              "level_label": "State Level",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 44203,
+              "closing_percentile": 84.8060392,
+              "evidence_id": "2024-25:03175:0317591210:state_level:TFWS:R1:S1",
+              "source_file": "2024ENGG_CAP1_CutOff.pdf",
+              "page": 316
+            }
+          ],
+          "category_meaning": "Tuition Fee Waiver Scheme (state level)",
+          "category_meaning_confidence": "best_effort"
+        }
+      ]
+    },
+    {
+      "course_code": "0317529310",
+      "branch": "Electrical Engineering",
+      "branch_family": "electrical",
+      "branch_family_note": "discovery only; never use to substitute cutoffs",
+      "categories": [
+        {
+          "category": "EWS",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": 1,
+              "level_key": "state_level",
+              "level_label": "State Level",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 179445,
+              "closing_percentile": 0.2624457,
+              "evidence_id": "2024-25:03175:0317529310:state_level:EWS:R1:S1",
+              "source_file": "2024ENGG_CAP1_CutOff.pdf",
+              "page": 311
+            }
+          ],
+          "category_meaning": "Economically Weaker Section (state level)",
+          "category_meaning_confidence": "best_effort"
+        },
+        {
+          "category": "LSEBCH",
+          "cutoffs": [
+            {
+              "round": 2,
+              "stage": 1,
+              "level_key": "home_university_seats_allotted_to_other_than_home_university",
+              "level_label": "Home University Seats Allotted to Other Than Home University Candidates",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 148446,
+              "closing_percentile": 31.6234334,
+              "evidence_id": "2024-25:03175:0317529310:home_university_seats_allotted_to_other_than_home_university:LSEBCH:R2:S1",
+              "source_file": "2024ENGG_CAP2_CutOff.pdf",
+              "page": 308
+            }
+          ],
+          "category_meaning": "Ladies, Home University seats",
+          "category_meaning_confidence": "best_effort"
+        }
+      ]
+    },
+    {
+      "course_code": "0317537210",
+      "branch": "Electronics and Telecommunication Engg",
+      "branch_family": "electronics_telecom",
+      "branch_family_note": "discovery only; never use to substitute cutoffs",
+      "categories": [
+        {
+          "category": "DEFOPENS",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": 1,
+              "level_key": "state_level",
+              "level_label": "State Level",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 122846,
+              "closing_percentile": 49.513096,
+              "evidence_id": "2024-25:03175:0317537210:state_level:DEFOPENS:R1:S1",
+              "source_file": "2024ENGG_CAP1_CutOff.pdf",
+              "page": 312
+            },
+            {
+              "round": 2,
+              "stage": 1,
+              "level_key": "state_level",
+              "level_label": "State Level",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 118047,
+              "closing_percentile": 52.0861037,
+              "evidence_id": "2024-25:03175:0317537210:state_level:DEFOPENS:R2:S1",
+              "source_file": "2024ENGG_CAP2_CutOff.pdf",
+              "page": 309
+            }
+          ],
+          "category_meaning": "Defense quota, Open, State Level",
+          "category_meaning_confidence": "best_effort"
+        },
+        {
+          "category": "EWS",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": 1,
+              "level_key": "state_level",
+              "level_label": "State Level",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 177686,
+              "closing_percentile": 2.9443123,
+              "evidence_id": "2024-25:03175:0317537210:state_level:EWS:R1:S1",
+              "source_file": "2024ENGG_CAP1_CutOff.pdf",
+              "page": 312
+            },
+            {
+              "round": 2,
+              "stage": 1,
+              "level_key": "state_level",
+              "level_label": "State Level",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 165004,
+              "closing_percentile": 17.7533973,
+              "evidence_id": "2024-25:03175:0317537210:state_level:EWS:R2:S1",
+              "source_file": "2024ENGG_CAP2_CutOff.pdf",
+              "page": 309
+            },
+            {
+              "round": 3,
+              "stage": 1,
+              "level_key": "state_level",
+              "level_label": "State Level",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 177686,
+              "closing_percentile": 2.9443123,
+              "evidence_id": "2024-25:03175:0317537210:state_level:EWS:R3:S1",
+              "source_file": "2024ENGG_CAP3_CutOff.pdf",
+              "page": 267
+            }
+          ],
+          "category_meaning": "Economically Weaker Section (state level)",
+          "category_meaning_confidence": "best_effort"
+        },
+        {
+          "category": "GNT1H",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": 1,
+              "level_key": "home_university_seats_allotted_to_home_university_candidates",
+              "level_label": "Home University Seats Allotted to Home University Candidates",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 102052,
+              "closing_percentile": 60.546705,
+              "evidence_id": "2024-25:03175:0317537210:home_university_seats_allotted_to_home_university_candidates:GNT1H:R1:S1",
+              "source_file": "2024ENGG_CAP1_CutOff.pdf",
+              "page": 312
+            }
+          ],
+          "category_meaning": "General (male), Nomadic Tribe 1, Home University seats",
+          "category_meaning_confidence": "best_effort"
+        },
+        {
+          "category": "GNT2H",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": 1,
+              "level_key": "home_university_seats_allotted_to_home_university_candidates",
+              "level_label": "Home University Seats Allotted to Home University Candidates",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 76305,
+              "closing_percentile": 72.6095528,
+              "evidence_id": "2024-25:03175:0317537210:home_university_seats_allotted_to_home_university_candidates:GNT2H:R1:S1",
+              "source_file": "2024ENGG_CAP1_CutOff.pdf",
+              "page": 312
+            }
+          ],
+          "category_meaning": "General (male), Nomadic Tribe 2, Home University seats",
+          "category_meaning_confidence": "best_effort"
+        },
+        {
+          "category": "GNT2O",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": 1,
+              "level_key": "other_than_home_university_seats_allotted_to_other_than_home",
+              "level_label": "Other Than Home University Seats Allotted to Other Than Home University Candidates",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 108017,
+              "closing_percentile": 57.3310702,
+              "evidence_id": "2024-25:03175:0317537210:other_than_home_university_seats_allotted_to_other_than_home:GNT2O:R1:S1",
+              "source_file": "2024ENGG_CAP1_CutOff.pdf",
+              "page": 312
+            }
+          ],
+          "category_meaning": "General (male), Nomadic Tribe 2, Other than Home University seats",
+          "category_meaning_confidence": "best_effort"
+        },
+        {
+          "category": "GNT3O",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": 1,
+              "level_key": "other_than_home_university_seats_allotted_to_other_than_home",
+              "level_label": "Other Than Home University Seats Allotted to Other Than Home University Candidates",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 98381,
+              "closing_percentile": 62.8351694,
+              "evidence_id": "2024-25:03175:0317537210:other_than_home_university_seats_allotted_to_other_than_home:GNT3O:R1:S1",
+              "source_file": "2024ENGG_CAP1_CutOff.pdf",
+              "page": 312
+            }
+          ],
+          "category_meaning": "General (male), Nomadic Tribe 3, Other than Home University seats",
+          "category_meaning_confidence": "best_effort"
+        },
+        {
+          "category": "GOBCH",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": 1,
+              "level_key": "home_university_seats_allotted_to_home_university_candidates",
+              "level_label": "Home University Seats Allotted to Home University Candidates",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 66946,
+              "closing_percentile": 76.3630319,
+              "evidence_id": "2024-25:03175:0317537210:home_university_seats_allotted_to_home_university_candidates:GOBCH:R1:S1",
+              "source_file": "2024ENGG_CAP1_CutOff.pdf",
+              "page": 312
+            }
+          ],
+          "category_meaning": "General (male), Other Backward Class, Home University seats",
+          "category_meaning_confidence": "best_effort"
+        },
+        {
+          "category": "GOBCO",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": 1,
+              "level_key": "other_than_home_university_seats_allotted_to_other_than_home",
+              "level_label": "Other Than Home University Seats Allotted to Other Than Home University Candidates",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 65156,
+              "closing_percentile": 76.8897938,
+              "evidence_id": "2024-25:03175:0317537210:other_than_home_university_seats_allotted_to_other_than_home:GOBCO:R1:S1",
+              "source_file": "2024ENGG_CAP1_CutOff.pdf",
+              "page": 312
+            }
+          ],
+          "category_meaning": "General (male), Other Backward Class, Other than Home University seats",
+          "category_meaning_confidence": "best_effort"
+        },
+        {
+          "category": "GOPENH",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": 1,
+              "level_key": "home_university_seats_allotted_to_home_university_candidates",
+              "level_label": "Home University Seats Allotted to Home University Candidates",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 56663,
+              "closing_percentile": 80.3003309,
+              "evidence_id": "2024-25:03175:0317537210:home_university_seats_allotted_to_home_university_candidates:GOPENH:R1:S1",
+              "source_file": "2024ENGG_CAP1_CutOff.pdf",
+              "page": 312
+            }
+          ],
+          "category_meaning": "General (male), Open, Home University seats",
+          "category_meaning_confidence": "best_effort"
+        },
+        {
+          "category": "GOPENO",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": 1,
+              "level_key": "other_than_home_university_seats_allotted_to_other_than_home",
+              "level_label": "Other Than Home University Seats Allotted to Other Than Home University Candidates",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 57714,
+              "closing_percentile": 79.9360013,
+              "evidence_id": "2024-25:03175:0317537210:other_than_home_university_seats_allotted_to_other_than_home:GOPENO:R1:S1",
+              "source_file": "2024ENGG_CAP1_CutOff.pdf",
+              "page": 312
+            }
+          ],
+          "category_meaning": "General (male), Open, Other than Home University seats",
+          "category_meaning_confidence": "best_effort"
+        },
+        {
+          "category": "GSCH",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": 1,
+              "level_key": "home_university_seats_allotted_to_home_university_candidates",
+              "level_label": "Home University Seats Allotted to Home University Candidates",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 69509,
+              "closing_percentile": 75.3410409,
+              "evidence_id": "2024-25:03175:0317537210:home_university_seats_allotted_to_home_university_candidates:GSCH:R1:S1",
+              "source_file": "2024ENGG_CAP1_CutOff.pdf",
+              "page": 312
+            }
+          ],
+          "category_meaning": "General (male), Scheduled Caste, Home University seats",
+          "category_meaning_confidence": "best_effort"
+        },
+        {
+          "category": "GSCO",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": 1,
+              "level_key": "other_than_home_university_seats_allotted_to_other_than_home",
+              "level_label": "Other Than Home University Seats Allotted to Other Than Home University Candidates",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 98908,
+              "closing_percentile": 62.7875345,
+              "evidence_id": "2024-25:03175:0317537210:other_than_home_university_seats_allotted_to_other_than_home:GSCO:R1:S1",
+              "source_file": "2024ENGG_CAP1_CutOff.pdf",
+              "page": 312
+            }
+          ],
+          "category_meaning": "General (male), Scheduled Caste, Other than Home University seats",
+          "category_meaning_confidence": "best_effort"
+        },
+        {
+          "category": "GSEBCH",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": 1,
+              "level_key": "home_university_seats_allotted_to_home_university_candidates",
+              "level_label": "Home University Seats Allotted to Home University Candidates",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 90373,
+              "closing_percentile": 66.1855163,
+              "evidence_id": "2024-25:03175:0317537210:home_university_seats_allotted_to_home_university_candidates:GSEBCH:R1:S1",
+              "source_file": "2024ENGG_CAP1_CutOff.pdf",
+              "page": 312
+            }
+          ],
+          "category_meaning": "General (male), Home University seats",
+          "category_meaning_confidence": "best_effort"
+        },
+        {
+          "category": "GSEBCO",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": 1,
+              "level_key": "other_than_home_university_seats_allotted_to_other_than_home",
+              "level_label": "Other Than Home University Seats Allotted to Other Than Home University Candidates",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 58206,
+              "closing_percentile": 79.7465759,
+              "evidence_id": "2024-25:03175:0317537210:other_than_home_university_seats_allotted_to_other_than_home:GSEBCO:R1:S1",
+              "source_file": "2024ENGG_CAP1_CutOff.pdf",
+              "page": 312
+            }
+          ],
+          "category_meaning": "General (male), Other than Home University seats",
+          "category_meaning_confidence": "best_effort"
+        },
+        {
+          "category": "GVJH",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": 1,
+              "level_key": "home_university_seats_allotted_to_home_university_candidates",
+              "level_label": "Home University Seats Allotted to Home University Candidates",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 108439,
+              "closing_percentile": 57.2537563,
+              "evidence_id": "2024-25:03175:0317537210:home_university_seats_allotted_to_home_university_candidates:GVJH:R1:S1",
+              "source_file": "2024ENGG_CAP1_CutOff.pdf",
+              "page": 312
+            },
+            {
+              "round": 2,
+              "stage": 1,
+              "level_key": "home_university_seats_allotted_to_other_than_home_university",
+              "level_label": "Home University Seats Allotted to Other Than Home University Candidates",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 79898,
+              "closing_percentile": 70.889365,
+              "evidence_id": "2024-25:03175:0317537210:home_university_seats_allotted_to_other_than_home_university:GVJH:R2:S1",
+              "source_file": "2024ENGG_CAP2_CutOff.pdf",
+              "page": 309
+            }
+          ],
+          "category_meaning": "General (male), Vimukt Jati, Home University seats",
+          "category_meaning_confidence": "best_effort"
+        },
+        {
+          "category": "LOBCH",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": 1,
+              "level_key": "home_university_seats_allotted_to_home_university_candidates",
+              "level_label": "Home University Seats Allotted to Home University Candidates",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 68879,
+              "closing_percentile": 75.5247196,
+              "evidence_id": "2024-25:03175:0317537210:home_university_seats_allotted_to_home_university_candidates:LOBCH:R1:S1",
+              "source_file": "2024ENGG_CAP1_CutOff.pdf",
+              "page": 312
+            }
+          ],
+          "category_meaning": "Ladies, Other Backward Class, Home University seats",
+          "category_meaning_confidence": "best_effort"
+        },
+        {
+          "category": "LOBCO",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": 1,
+              "level_key": "other_than_home_university_seats_allotted_to_other_than_home",
+              "level_label": "Other Than Home University Seats Allotted to Other Than Home University Candidates",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 58242,
+              "closing_percentile": 79.7465759,
+              "evidence_id": "2024-25:03175:0317537210:other_than_home_university_seats_allotted_to_other_than_home:LOBCO:R1:S1",
+              "source_file": "2024ENGG_CAP1_CutOff.pdf",
+              "page": 312
+            }
+          ],
+          "category_meaning": "Ladies, Other Backward Class, Other than Home University seats",
+          "category_meaning_confidence": "best_effort"
+        },
+        {
+          "category": "LOPENH",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": 1,
+              "level_key": "home_university_seats_allotted_to_home_university_candidates",
+              "level_label": "Home University Seats Allotted to Home University Candidates",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 55965,
+              "closing_percentile": 80.5929134,
+              "evidence_id": "2024-25:03175:0317537210:home_university_seats_allotted_to_home_university_candidates:LOPENH:R1:S1",
+              "source_file": "2024ENGG_CAP1_CutOff.pdf",
+              "page": 312
+            }
+          ],
+          "category_meaning": "Ladies, Open, Home University seats",
+          "category_meaning_confidence": "best_effort"
+        },
+        {
+          "category": "LOPENO",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": 1,
+              "level_key": "other_than_home_university_seats_allotted_to_other_than_home",
+              "level_label": "Other Than Home University Seats Allotted to Other Than Home University Candidates",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 48954,
+              "closing_percentile": 83.032746,
+              "evidence_id": "2024-25:03175:0317537210:other_than_home_university_seats_allotted_to_other_than_home:LOPENO:R1:S1",
+              "source_file": "2024ENGG_CAP1_CutOff.pdf",
+              "page": 312
+            }
+          ],
+          "category_meaning": "Ladies, Open, Other than Home University seats",
+          "category_meaning_confidence": "best_effort"
+        },
+        {
+          "category": "LSCH",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": 1,
+              "level_key": "home_university_seats_allotted_to_home_university_candidates",
+              "level_label": "Home University Seats Allotted to Home University Candidates",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 59215,
+              "closing_percentile": 79.4055287,
+              "evidence_id": "2024-25:03175:0317537210:home_university_seats_allotted_to_home_university_candidates:LSCH:R1:S1",
+              "source_file": "2024ENGG_CAP1_CutOff.pdf",
+              "page": 312
+            }
+          ],
+          "category_meaning": "Ladies, Scheduled Caste, Home University seats",
+          "category_meaning_confidence": "best_effort"
+        },
+        {
+          "category": "LSCO",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": 1,
+              "level_key": "other_than_home_university_seats_allotted_to_other_than_home",
+              "level_label": "Other Than Home University Seats Allotted to Other Than Home University Candidates",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 111440,
+              "closing_percentile": 55.8763225,
+              "evidence_id": "2024-25:03175:0317537210:other_than_home_university_seats_allotted_to_other_than_home:LSCO:R1:S1",
+              "source_file": "2024ENGG_CAP1_CutOff.pdf",
+              "page": 312
+            }
+          ],
+          "category_meaning": "Ladies, Scheduled Caste, Other than Home University seats",
+          "category_meaning_confidence": "best_effort"
+        },
+        {
+          "category": "LSEBCH",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": 1,
+              "level_key": "home_university_seats_allotted_to_home_university_candidates",
+              "level_label": "Home University Seats Allotted to Home University Candidates",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 114818,
+              "closing_percentile": 54.0550229,
+              "evidence_id": "2024-25:03175:0317537210:home_university_seats_allotted_to_home_university_candidates:LSEBCH:R1:S1",
+              "source_file": "2024ENGG_CAP1_CutOff.pdf",
+              "page": 312
+            }
+          ],
+          "category_meaning": "Ladies, Home University seats",
+          "category_meaning_confidence": "best_effort"
+        },
+        {
+          "category": "LSEBCO",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": 1,
+              "level_key": "other_than_home_university_seats_allotted_to_other_than_home",
+              "level_label": "Other Than Home University Seats Allotted to Other Than Home University Candidates",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 127914,
+              "closing_percentile": 46.3188381,
+              "evidence_id": "2024-25:03175:0317537210:other_than_home_university_seats_allotted_to_other_than_home:LSEBCO:R1:S1",
+              "source_file": "2024ENGG_CAP1_CutOff.pdf",
+              "page": 312
+            }
+          ],
+          "category_meaning": "Ladies, Other than Home University seats",
+          "category_meaning_confidence": "best_effort"
+        },
+        {
+          "category": "TFWS",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": 1,
+              "level_key": "state_level",
+              "level_label": "State Level",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 48105,
+              "closing_percentile": 83.5073164,
+              "evidence_id": "2024-25:03175:0317537210:state_level:TFWS:R1:S1",
+              "source_file": "2024ENGG_CAP1_CutOff.pdf",
+              "page": 312
+            },
+            {
+              "round": 2,
+              "stage": 1,
+              "level_key": "state_level",
+              "level_label": "State Level",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 50552,
+              "closing_percentile": 82.6959019,
+              "evidence_id": "2024-25:03175:0317537210:state_level:TFWS:R2:S1",
+              "source_file": "2024ENGG_CAP2_CutOff.pdf",
+              "page": 309
+            }
+          ],
+          "category_meaning": "Tuition Fee Waiver Scheme (state level)",
+          "category_meaning_confidence": "best_effort"
+        }
+      ]
+    },
+    {
+      "course_code": "0317524610",
+      "branch": "Information Technology",
+      "branch_family": "computing",
+      "branch_family_note": "discovery only; never use to substitute cutoffs",
+      "categories": [
+        {
+          "category": "DEFOPENS",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": 1,
+              "level_key": "state_level",
+              "level_label": "State Level",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 68883,
+              "closing_percentile": 75.5247196,
+              "evidence_id": "2024-25:03175:0317524610:state_level:DEFOPENS:R1:S1",
+              "source_file": "2024ENGG_CAP1_CutOff.pdf",
+              "page": 310
+            }
+          ],
+          "category_meaning": "Defense quota, Open, State Level",
+          "category_meaning_confidence": "best_effort"
+        },
+        {
+          "category": "EWS",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": 1,
+              "level_key": "state_level",
+              "level_label": "State Level",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 127265,
+              "closing_percentile": 46.3828235,
+              "evidence_id": "2024-25:03175:0317524610:state_level:EWS:R1:S1",
+              "source_file": "2024ENGG_CAP1_CutOff.pdf",
+              "page": 310
+            },
+            {
+              "round": 2,
+              "stage": 1,
+              "level_key": "state_level",
+              "level_label": "State Level",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 130686,
+              "closing_percentile": 44.4778985,
+              "evidence_id": "2024-25:03175:0317524610:state_level:EWS:R2:S1",
+              "source_file": "2024ENGG_CAP2_CutOff.pdf",
+              "page": 307
+            },
+            {
+              "round": 3,
+              "stage": 1,
+              "level_key": "state_level",
+              "level_label": "State Level",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 154674,
+              "closing_percentile": 27.1532908,
+              "evidence_id": "2024-25:03175:0317524610:state_level:EWS:R3:S1",
+              "source_file": "2024ENGG_CAP3_CutOff.pdf",
+              "page": 266
+            }
+          ],
+          "category_meaning": "Economically Weaker Section (state level)",
+          "category_meaning_confidence": "best_effort"
+        },
+        {
+          "category": "GNT1H",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": 1,
+              "level_key": "home_university_seats_allotted_to_home_university_candidates",
+              "level_label": "Home University Seats Allotted to Home University Candidates",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 59072,
+              "closing_percentile": 79.4895283,
+              "evidence_id": "2024-25:03175:0317524610:home_university_seats_allotted_to_home_university_candidates:GNT1H:R1:S1",
+              "source_file": "2024ENGG_CAP1_CutOff.pdf",
+              "page": 310
+            }
+          ],
+          "category_meaning": "General (male), Nomadic Tribe 1, Home University seats",
+          "category_meaning_confidence": "best_effort"
+        },
+        {
+          "category": "GNT3H",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": 1,
+              "level_key": "home_university_seats_allotted_to_home_university_candidates",
+              "level_label": "Home University Seats Allotted to Home University Candidates",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 58258,
+              "closing_percentile": 79.7465759,
+              "evidence_id": "2024-25:03175:0317524610:home_university_seats_allotted_to_home_university_candidates:GNT3H:R1:S1",
+              "source_file": "2024ENGG_CAP1_CutOff.pdf",
+              "page": 310
+            }
+          ],
+          "category_meaning": "General (male), Nomadic Tribe 3, Home University seats",
+          "category_meaning_confidence": "best_effort"
+        },
+        {
+          "category": "GOBCH",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": 1,
+              "level_key": "home_university_seats_allotted_to_home_university_candidates",
+              "level_label": "Home University Seats Allotted to Home University Candidates",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 44472,
+              "closing_percentile": 84.6402007,
+              "evidence_id": "2024-25:03175:0317524610:home_university_seats_allotted_to_home_university_candidates:GOBCH:R1:S1",
+              "source_file": "2024ENGG_CAP1_CutOff.pdf",
+              "page": 310
+            }
+          ],
+          "category_meaning": "General (male), Other Backward Class, Home University seats",
+          "category_meaning_confidence": "best_effort"
+        },
+        {
+          "category": "GOBCO",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": 1,
+              "level_key": "other_than_home_university_seats_allotted_to_other_than_home",
+              "level_label": "Other Than Home University Seats Allotted to Other Than Home University Candidates",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 53997,
+              "closing_percentile": 81.3738935,
+              "evidence_id": "2024-25:03175:0317524610:other_than_home_university_seats_allotted_to_other_than_home:GOBCO:R1:S1",
+              "source_file": "2024ENGG_CAP1_CutOff.pdf",
+              "page": 310
+            }
+          ],
+          "category_meaning": "General (male), Other Backward Class, Other than Home University seats",
+          "category_meaning_confidence": "best_effort"
+        },
+        {
+          "category": "GOPENH",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": 1,
+              "level_key": "home_university_seats_allotted_to_home_university_candidates",
+              "level_label": "Home University Seats Allotted to Home University Candidates",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 34650,
+              "closing_percentile": 88.1886477,
+              "evidence_id": "2024-25:03175:0317524610:home_university_seats_allotted_to_home_university_candidates:GOPENH:R1:S1",
+              "source_file": "2024ENGG_CAP1_CutOff.pdf",
+              "page": 310
+            }
+          ],
+          "category_meaning": "General (male), Open, Home University seats",
+          "category_meaning_confidence": "best_effort"
+        },
+        {
+          "category": "GOPENO",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": 1,
+              "level_key": "other_than_home_university_seats_allotted_to_other_than_home",
+              "level_label": "Other Than Home University Seats Allotted to Other Than Home University Candidates",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 48865,
+              "closing_percentile": 83.1469549,
+              "evidence_id": "2024-25:03175:0317524610:other_than_home_university_seats_allotted_to_other_than_home:GOPENO:R1:S1",
+              "source_file": "2024ENGG_CAP1_CutOff.pdf",
+              "page": 310
+            },
+            {
+              "round": 3,
+              "stage": 1,
+              "level_key": "other_than_home_university_seats_allotted_to_other_than_home",
+              "level_label": "Other Than Home University Seats Allotted to Other Than Home University Candidates",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 46467,
+              "closing_percentile": 84.0259309,
+              "evidence_id": "2024-25:03175:0317524610:other_than_home_university_seats_allotted_to_other_than_home:GOPENO:R3:S1",
+              "source_file": "2024ENGG_CAP3_CutOff.pdf",
+              "page": 266
+            }
+          ],
+          "category_meaning": "General (male), Open, Other than Home University seats",
+          "category_meaning_confidence": "best_effort"
+        },
+        {
+          "category": "GSCH",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": 1,
+              "level_key": "home_university_seats_allotted_to_home_university_candidates",
+              "level_label": "Home University Seats Allotted to Home University Candidates",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 43958,
+              "closing_percentile": 84.8482325,
+              "evidence_id": "2024-25:03175:0317524610:home_university_seats_allotted_to_home_university_candidates:GSCH:R1:S1",
+              "source_file": "2024ENGG_CAP1_CutOff.pdf",
+              "page": 310
+            }
+          ],
+          "category_meaning": "General (male), Scheduled Caste, Home University seats",
+          "category_meaning_confidence": "best_effort"
+        },
+        {
+          "category": "GSCO",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": 1,
+              "level_key": "other_than_home_university_seats_allotted_to_other_than_home",
+              "level_label": "Other Than Home University Seats Allotted to Other Than Home University Candidates",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 81902,
+              "closing_percentile": 70.2544031,
+              "evidence_id": "2024-25:03175:0317524610:other_than_home_university_seats_allotted_to_other_than_home:GSCO:R1:S1",
+              "source_file": "2024ENGG_CAP1_CutOff.pdf",
+              "page": 310
+            },
+            {
+              "round": 3,
+              "stage": 1,
+              "level_key": "other_than_home_university_seats_allotted_to_other_than_home",
+              "level_label": "Other Than Home University Seats Allotted to Other Than Home University Candidates",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 78150,
+              "closing_percentile": 71.716606,
+              "evidence_id": "2024-25:03175:0317524610:other_than_home_university_seats_allotted_to_other_than_home:GSCO:R3:S1",
+              "source_file": "2024ENGG_CAP3_CutOff.pdf",
+              "page": 266
+            }
+          ],
+          "category_meaning": "General (male), Scheduled Caste, Other than Home University seats",
+          "category_meaning_confidence": "best_effort"
+        },
+        {
+          "category": "GSEBCH",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": 1,
+              "level_key": "home_university_seats_allotted_to_home_university_candidates",
+              "level_label": "Home University Seats Allotted to Home University Candidates",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 63233,
+              "closing_percentile": 77.8250739,
+              "evidence_id": "2024-25:03175:0317524610:home_university_seats_allotted_to_home_university_candidates:GSEBCH:R1:S1",
+              "source_file": "2024ENGG_CAP1_CutOff.pdf",
+              "page": 310
+            }
+          ],
+          "category_meaning": "General (male), Home University seats",
+          "category_meaning_confidence": "best_effort"
+        },
+        {
+          "category": "GSEBCO",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": 1,
+              "level_key": "other_than_home_university_seats_allotted_to_other_than_home",
+              "level_label": "Other Than Home University Seats Allotted to Other Than Home University Candidates",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 52592,
+              "closing_percentile": 81.8151897,
+              "evidence_id": "2024-25:03175:0317524610:other_than_home_university_seats_allotted_to_other_than_home:GSEBCO:R1:S1",
+              "source_file": "2024ENGG_CAP1_CutOff.pdf",
+              "page": 310
+            },
+            {
+              "round": 3,
+              "stage": 1,
+              "level_key": "other_than_home_university_seats_allotted_to_other_than_home",
+              "level_label": "Other Than Home University Seats Allotted to Other Than Home University Candidates",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 73062,
+              "closing_percentile": 73.8486985,
+              "evidence_id": "2024-25:03175:0317524610:other_than_home_university_seats_allotted_to_other_than_home:GSEBCO:R3:S1",
+              "source_file": "2024ENGG_CAP3_CutOff.pdf",
+              "page": 266
+            }
+          ],
+          "category_meaning": "General (male), Other than Home University seats",
+          "category_meaning_confidence": "best_effort"
+        },
+        {
+          "category": "GSTH",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": 1,
+              "level_key": "home_university_seats_allotted_to_home_university_candidates",
+              "level_label": "Home University Seats Allotted to Home University Candidates",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 171938,
+              "closing_percentile": 9.9567819,
+              "evidence_id": "2024-25:03175:0317524610:home_university_seats_allotted_to_home_university_candidates:GSTH:R1:S1",
+              "source_file": "2024ENGG_CAP1_CutOff.pdf",
+              "page": 310
+            },
+            {
+              "round": 1,
+              "stage": 1,
+              "level_key": "home_university_seats_allotted_to_other_than_home_university",
+              "level_label": "Home University Seats Allotted to Other Than Home University Candidates",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 177130,
+              "closing_percentile": 3.7972607,
+              "evidence_id": "2024-25:03175:0317524610:home_university_seats_allotted_to_other_than_home_university:GSTH:R1:S1",
+              "source_file": "2024ENGG_CAP1_CutOff.pdf",
+              "page": 310
+            }
+          ],
+          "category_meaning": "General (male), Scheduled Tribe, Home University seats",
+          "category_meaning_confidence": "best_effort"
+        },
+        {
+          "category": "GVJH",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": 1,
+              "level_key": "home_university_seats_allotted_to_home_university_candidates",
+              "level_label": "Home University Seats Allotted to Home University Candidates",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 83653,
+              "closing_percentile": 69.4683908,
+              "evidence_id": "2024-25:03175:0317524610:home_university_seats_allotted_to_home_university_candidates:GVJH:R1:S1",
+              "source_file": "2024ENGG_CAP1_CutOff.pdf",
+              "page": 310
+            }
+          ],
+          "category_meaning": "General (male), Vimukt Jati, Home University seats",
+          "category_meaning_confidence": "best_effort"
+        },
+        {
+          "category": "LNT2O",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": 1,
+              "level_key": "other_than_home_university_seats_allotted_to_other_than_home",
+              "level_label": "Other Than Home University Seats Allotted to Other Than Home University Candidates",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 76283,
+              "closing_percentile": 72.6095528,
+              "evidence_id": "2024-25:03175:0317524610:other_than_home_university_seats_allotted_to_other_than_home:LNT2O:R1:S1",
+              "source_file": "2024ENGG_CAP1_CutOff.pdf",
+              "page": 310
+            }
+          ],
+          "category_meaning": "Ladies, Nomadic Tribe 2, Other than Home University seats",
+          "category_meaning_confidence": "best_effort"
+        },
+        {
+          "category": "LOBCH",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": 1,
+              "level_key": "home_university_seats_allotted_to_home_university_candidates",
+              "level_label": "Home University Seats Allotted to Home University Candidates",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 43247,
+              "closing_percentile": 85.2572473,
+              "evidence_id": "2024-25:03175:0317524610:home_university_seats_allotted_to_home_university_candidates:LOBCH:R1:S1",
+              "source_file": "2024ENGG_CAP1_CutOff.pdf",
+              "page": 310
+            }
+          ],
+          "category_meaning": "Ladies, Other Backward Class, Home University seats",
+          "category_meaning_confidence": "best_effort"
+        },
+        {
+          "category": "LOBCO",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": 1,
+              "level_key": "other_than_home_university_seats_allotted_to_other_than_home",
+              "level_label": "Other Than Home University Seats Allotted to Other Than Home University Candidates",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 54246,
+              "closing_percentile": 81.2084441,
+              "evidence_id": "2024-25:03175:0317524610:other_than_home_university_seats_allotted_to_other_than_home:LOBCO:R1:S1",
+              "source_file": "2024ENGG_CAP1_CutOff.pdf",
+              "page": 310
+            }
+          ],
+          "category_meaning": "Ladies, Other Backward Class, Other than Home University seats",
+          "category_meaning_confidence": "best_effort"
+        },
+        {
+          "category": "LOPENH",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": 1,
+              "level_key": "home_university_seats_allotted_to_home_university_candidates",
+              "level_label": "Home University Seats Allotted to Home University Candidates",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 35002,
+              "closing_percentile": 88.1228442,
+              "evidence_id": "2024-25:03175:0317524610:home_university_seats_allotted_to_home_university_candidates:LOPENH:R1:S1",
+              "source_file": "2024ENGG_CAP1_CutOff.pdf",
+              "page": 310
+            }
+          ],
+          "category_meaning": "Ladies, Open, Home University seats",
+          "category_meaning_confidence": "best_effort"
+        },
+        {
+          "category": "LOPENO",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": 1,
+              "level_key": "other_than_home_university_seats_allotted_to_other_than_home",
+              "level_label": "Other Than Home University Seats Allotted to Other Than Home University Candidates",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 49151,
+              "closing_percentile": 82.9978985,
+              "evidence_id": "2024-25:03175:0317524610:other_than_home_university_seats_allotted_to_other_than_home:LOPENO:R1:S1",
+              "source_file": "2024ENGG_CAP1_CutOff.pdf",
+              "page": 310
+            }
+          ],
+          "category_meaning": "Ladies, Open, Other than Home University seats",
+          "category_meaning_confidence": "best_effort"
+        },
+        {
+          "category": "LSCH",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": 1,
+              "level_key": "home_university_seats_allotted_to_home_university_candidates",
+              "level_label": "Home University Seats Allotted to Home University Candidates",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 43139,
+              "closing_percentile": 85.2572473,
+              "evidence_id": "2024-25:03175:0317524610:home_university_seats_allotted_to_home_university_candidates:LSCH:R1:S1",
+              "source_file": "2024ENGG_CAP1_CutOff.pdf",
+              "page": 310
+            }
+          ],
+          "category_meaning": "Ladies, Scheduled Caste, Home University seats",
+          "category_meaning_confidence": "best_effort"
+        },
+        {
+          "category": "LSCO",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": 1,
+              "level_key": "other_than_home_university_seats_allotted_to_other_than_home",
+              "level_label": "Other Than Home University Seats Allotted to Other Than Home University Candidates",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 82843,
+              "closing_percentile": 69.7639628,
+              "evidence_id": "2024-25:03175:0317524610:other_than_home_university_seats_allotted_to_other_than_home:LSCO:R1:S1",
+              "source_file": "2024ENGG_CAP1_CutOff.pdf",
+              "page": 310
+            }
+          ],
+          "category_meaning": "Ladies, Scheduled Caste, Other than Home University seats",
+          "category_meaning_confidence": "best_effort"
+        },
+        {
+          "category": "LSEBCH",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": 1,
+              "level_key": "home_university_seats_allotted_to_home_university_candidates",
+              "level_label": "Home University Seats Allotted to Home University Candidates",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 96132,
+              "closing_percentile": 63.2687832,
+              "evidence_id": "2024-25:03175:0317524610:home_university_seats_allotted_to_home_university_candidates:LSEBCH:R1:S1",
+              "source_file": "2024ENGG_CAP1_CutOff.pdf",
+              "page": 310
+            }
+          ],
+          "category_meaning": "Ladies, Home University seats",
+          "category_meaning_confidence": "best_effort"
+        },
+        {
+          "category": "TFWS",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": 1,
+              "level_key": "state_level",
+              "level_label": "State Level",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 28455,
+              "closing_percentile": 90.4629322,
+              "evidence_id": "2024-25:03175:0317524610:state_level:TFWS:R1:S1",
+              "source_file": "2024ENGG_CAP1_CutOff.pdf",
+              "page": 310
+            },
+            {
+              "round": 2,
+              "stage": 1,
+              "level_key": "state_level",
+              "level_label": "State Level",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 35379,
+              "closing_percentile": 88.0209851,
+              "evidence_id": "2024-25:03175:0317524610:state_level:TFWS:R2:S1",
+              "source_file": "2024ENGG_CAP2_CutOff.pdf",
+              "page": 307
+            },
+            {
+              "round": 3,
+              "stage": 1,
+              "level_key": "state_level",
+              "level_label": "State Level",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 23979,
+              "closing_percentile": 92.0088098,
+              "evidence_id": "2024-25:03175:0317524610:state_level:TFWS:R3:S1",
+              "source_file": "2024ENGG_CAP3_CutOff.pdf",
+              "page": 266
+            }
+          ],
+          "category_meaning": "Tuition Fee Waiver Scheme (state level)",
+          "category_meaning_confidence": "best_effort"
+        }
+      ]
+    },
+    {
+      "course_code": "0317561210",
+      "branch": "Mechanical Engineering",
+      "branch_family": "mechanical",
+      "branch_family_note": "discovery only; never use to substitute cutoffs",
+      "categories": [
+        {
+          "category": "GNT3O",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": 1,
+              "level_key": "other_than_home_university_seats_allotted_to_other_than_home",
+              "level_label": "Other Than Home University Seats Allotted to Other Than Home University Candidates",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 116579,
+              "closing_percentile": 52.9935209,
+              "evidence_id": "2024-25:03175:0317561210:other_than_home_university_seats_allotted_to_other_than_home:GNT3O:R1:S1",
+              "source_file": "2024ENGG_CAP1_CutOff.pdf",
+              "page": 315
+            }
+          ],
+          "category_meaning": "General (male), Nomadic Tribe 3, Other than Home University seats",
+          "category_meaning_confidence": "best_effort"
+        },
+        {
+          "category": "GOBCO",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": 1,
+              "level_key": "other_than_home_university_seats_allotted_to_other_than_home",
+              "level_label": "Other Than Home University Seats Allotted to Other Than Home University Candidates",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 135220,
+              "closing_percentile": 41.3261276,
+              "evidence_id": "2024-25:03175:0317561210:other_than_home_university_seats_allotted_to_other_than_home:GOBCO:R1:S1",
+              "source_file": "2024ENGG_CAP1_CutOff.pdf",
+              "page": 315
+            }
+          ],
+          "category_meaning": "General (male), Other Backward Class, Other than Home University seats",
+          "category_meaning_confidence": "best_effort"
+        },
+        {
+          "category": "GOPENO",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": 1,
+              "level_key": "other_than_home_university_seats_allotted_to_other_than_home",
+              "level_label": "Other Than Home University Seats Allotted to Other Than Home University Candidates",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 115188,
+              "closing_percentile": 53.8203081,
+              "evidence_id": "2024-25:03175:0317561210:other_than_home_university_seats_allotted_to_other_than_home:GOPENO:R1:S1",
+              "source_file": "2024ENGG_CAP1_CutOff.pdf",
+              "page": 315
+            }
+          ],
+          "category_meaning": "General (male), Open, Other than Home University seats",
+          "category_meaning_confidence": "best_effort"
+        },
+        {
+          "category": "GSCO",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": 1,
+              "level_key": "other_than_home_university_seats_allotted_to_other_than_home",
+              "level_label": "Other Than Home University Seats Allotted to Other Than Home University Candidates",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 137556,
+              "closing_percentile": 39.7481853,
+              "evidence_id": "2024-25:03175:0317561210:other_than_home_university_seats_allotted_to_other_than_home:GSCO:R1:S1",
+              "source_file": "2024ENGG_CAP1_CutOff.pdf",
+              "page": 315
+            }
+          ],
+          "category_meaning": "General (male), Scheduled Caste, Other than Home University seats",
+          "category_meaning_confidence": "best_effort"
+        },
+        {
+          "category": "LOPENO",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": 1,
+              "level_key": "other_than_home_university_seats_allotted_to_other_than_home",
+              "level_label": "Other Than Home University Seats Allotted to Other Than Home University Candidates",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 118404,
+              "closing_percentile": 52.0276576,
+              "evidence_id": "2024-25:03175:0317561210:other_than_home_university_seats_allotted_to_other_than_home:LOPENO:R1:S1",
+              "source_file": "2024ENGG_CAP1_CutOff.pdf",
+              "page": 315
+            }
+          ],
+          "category_meaning": "Ladies, Open, Other than Home University seats",
+          "category_meaning_confidence": "best_effort"
+        }
+      ]
+    }
+  ],
+  "parser_version": "0.3-flattened-output-v1",
+  "extracted_at": "2026-10-03T13:21:44.025128+00:00"
+}

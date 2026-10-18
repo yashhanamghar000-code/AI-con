@@ -1,0 +1,19 @@
+{
+  "dataset_version": "4.0_sparse_verified_fields",
+  "generated_at": "2026-10-09T17:06:57Z",
+  "input_file": "college_dataset_index(1).csv",
+  "input_rows": 1041,
+  "json_records_written": 1041,
+  "record_ids_unique": true,
+  "cutoff_data_included": false,
+  "null_fields_emitted": false,
+  "unverified_fields_emitted": false,
+  "approach": "Sparse JSON: retain only populated/source-backed fields, omit null/unverified values and empty schema placeholders.",
+  "live_scraper_note": "Fields not present here should be fetched at query time by the live scraper and cached with source URL, retrieved_at, and confidence.",
+  "official_sources": [
+    "https://fe2026.mahacet.org/StaticPages/frmInstituteList",
+    "https://fe2026.mahacet.org/StaticPages/frmInstituteSummary",
+    "https://cetcell.mahacet.org/"
+  ],
+  "limitations": "This pass removes empty/unverified placeholders and merges populated fields from the supplied index and previous dataset. It does not imply that every college was individually crawled live in this run."
+}

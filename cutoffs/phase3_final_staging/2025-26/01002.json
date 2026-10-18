@@ -1,0 +1,3753 @@
+{
+  "institute_code": "01002",
+  "institute_name": "Government College of Engineering, Amravati",
+  "source_institute_name": null,
+  "academic_year": "2025-26",
+  "branches": [
+    {
+      "branch": "Civil Engineering",
+      "categories": [
+        {
+          "category": "DEFOBCS",
+          "category_meaning": "Defense quota, Other Backward Class, State Level",
+          "category_meaning_confidence": "best_effort",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 85223,
+              "closing_percentile": 73.2612864,
+              "evidence_id": "2025-26:01002:0100219110:state_level:DEFOBCS:R1:S1",
+              "source_file": "2025ENGG_CAP1_CutOff.pdf",
+              "page": 1,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            }
+          ]
+        },
+        {
+          "category": "DEFOPENS",
+          "category_meaning": "Defense quota, Open, State Level",
+          "category_meaning_confidence": "best_effort",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 47707,
+              "closing_percentile": 85.8501253,
+              "evidence_id": "2025-26:01002:0100219110:state_level:DEFOPENS:R1:S1",
+              "source_file": "2025ENGG_CAP1_CutOff.pdf",
+              "page": 1,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            }
+          ]
+        },
+        {
+          "category": "DEFROBCS",
+          "category_meaning": "Defense quota, reserved-category, State Level",
+          "category_meaning_confidence": "best_effort",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 95765,
+              "closing_percentile": 69.0979021,
+              "evidence_id": "2025-26:01002:0100219110:state_level:DEFROBCS:R1:S1",
+              "source_file": "2025ENGG_CAP1_CutOff.pdf",
+              "page": 1,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            }
+          ]
+        },
+        {
+          "category": "EWS",
+          "category_meaning": "Economically Weaker Section (state level)",
+          "category_meaning_confidence": "best_effort",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 90389,
+              "closing_percentile": 71.4755245,
+              "evidence_id": "2025-26:01002:0100219110:state_level:EWS:R1:S1",
+              "source_file": "2025ENGG_CAP1_CutOff.pdf",
+              "page": 1,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            }
+          ]
+        },
+        {
+          "category": "GNT1S",
+          "category_meaning": "General (male), Nomadic Tribe 1, State Level",
+          "category_meaning_confidence": "best_effort",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 48422,
+              "closing_percentile": 85.5729148,
+              "evidence_id": "2025-26:01002:0100219110:state_level:GNT1S:R1:S1",
+              "source_file": "2025ENGG_CAP1_CutOff.pdf",
+              "page": 1,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            },
+            {
+              "round": 3,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 49466,
+              "closing_percentile": 85.1919561,
+              "evidence_id": "2025-26:01002:0100219110:state_level:GNT1S:R3:S1",
+              "source_file": "2025ENGG_CAP3_CutOff.pdf",
+              "page": 1,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            }
+          ]
+        },
+        {
+          "category": "GNT2S",
+          "category_meaning": "General (male), Nomadic Tribe 2, State Level",
+          "category_meaning_confidence": "best_effort",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 41549,
+              "closing_percentile": 87.687217,
+              "evidence_id": "2025-26:01002:0100219110:state_level:GNT2S:R1:S1",
+              "source_file": "2025ENGG_CAP1_CutOff.pdf",
+              "page": 1,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            },
+            {
+              "round": 4,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 55787,
+              "closing_percentile": 83.2058578,
+              "evidence_id": "2025-26:01002:0100219110:state_level:GNT2S:R4:S1",
+              "source_file": "2025ENGG_CAP4_CutOff.pdf",
+              "page": 1,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            }
+          ]
+        },
+        {
+          "category": "GNT3S",
+          "category_meaning": "General (male), Nomadic Tribe 3, State Level",
+          "category_meaning_confidence": "best_effort",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 50563,
+              "closing_percentile": 84.8736599,
+              "evidence_id": "2025-26:01002:0100219110:state_level:GNT3S:R1:S1",
+              "source_file": "2025ENGG_CAP1_CutOff.pdf",
+              "page": 1,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            }
+          ]
+        },
+        {
+          "category": "GOBCS",
+          "category_meaning": "General (male), Other Backward Class, State Level",
+          "category_meaning_confidence": "best_effort",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 44130,
+              "closing_percentile": 86.9194446,
+              "evidence_id": "2025-26:01002:0100219110:state_level:GOBCS:R1:S1",
+              "source_file": "2025ENGG_CAP1_CutOff.pdf",
+              "page": 1,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            },
+            {
+              "round": 4,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 44981,
+              "closing_percentile": 86.6751751,
+              "evidence_id": "2025-26:01002:0100219110:state_level:GOBCS:R4:S1",
+              "source_file": "2025ENGG_CAP4_CutOff.pdf",
+              "page": 1,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            }
+          ]
+        },
+        {
+          "category": "GOPENS",
+          "category_meaning": "General (male), Open, State Level",
+          "category_meaning_confidence": "best_effort",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 37591,
+              "closing_percentile": 88.9550679,
+              "evidence_id": "2025-26:01002:0100219110:state_level:GOPENS:R1:S1",
+              "source_file": "2025ENGG_CAP1_CutOff.pdf",
+              "page": 1,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            },
+            {
+              "round": 3,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 31618,
+              "closing_percentile": 90.668828,
+              "evidence_id": "2025-26:01002:0100219110:state_level:GOPENS:R3:S1",
+              "source_file": "2025ENGG_CAP3_CutOff.pdf",
+              "page": 1,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            },
+            {
+              "round": 4,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 28216,
+              "closing_percentile": 91.7377622,
+              "evidence_id": "2025-26:01002:0100219110:state_level:GOPENS:R4:S1",
+              "source_file": "2025ENGG_CAP4_CutOff.pdf",
+              "page": 1,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            }
+          ]
+        },
+        {
+          "category": "GSCS",
+          "category_meaning": "General (male), Scheduled Caste, State Level",
+          "category_meaning_confidence": "best_effort",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 58518,
+              "closing_percentile": 82.3322294,
+              "evidence_id": "2025-26:01002:0100219110:state_level:GSCS:R1:S1",
+              "source_file": "2025ENGG_CAP1_CutOff.pdf",
+              "page": 1,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            },
+            {
+              "round": 3,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 53254,
+              "closing_percentile": 84.0359888,
+              "evidence_id": "2025-26:01002:0100219110:state_level:GSCS:R3:S1",
+              "source_file": "2025ENGG_CAP3_CutOff.pdf",
+              "page": 1,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            }
+          ]
+        },
+        {
+          "category": "GSEBCS",
+          "category_meaning": "General (male), State Level",
+          "category_meaning_confidence": "best_effort",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 62247,
+              "closing_percentile": 81.1295102,
+              "evidence_id": "2025-26:01002:0100219110:state_level:GSEBCS:R1:S1",
+              "source_file": "2025ENGG_CAP1_CutOff.pdf",
+              "page": 1,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            },
+            {
+              "round": 3,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 73539,
+              "closing_percentile": 77.161886,
+              "evidence_id": "2025-26:01002:0100219110:state_level:GSEBCS:R3:S1",
+              "source_file": "2025ENGG_CAP3_CutOff.pdf",
+              "page": 1,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            }
+          ]
+        },
+        {
+          "category": "GSTS",
+          "category_meaning": "General (male), Scheduled Tribe, State Level",
+          "category_meaning_confidence": "best_effort",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 94334,
+              "closing_percentile": 69.4936445,
+              "evidence_id": "2025-26:01002:0100219110:state_level:GSTS:R1:S1",
+              "source_file": "2025ENGG_CAP1_CutOff.pdf",
+              "page": 1,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            }
+          ]
+        },
+        {
+          "category": "GVJS",
+          "category_meaning": "General (male), Vimukt Jati, State Level",
+          "category_meaning_confidence": "best_effort",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 44057,
+              "closing_percentile": 86.9194446,
+              "evidence_id": "2025-26:01002:0100219110:state_level:GVJS:R1:S1",
+              "source_file": "2025ENGG_CAP1_CutOff.pdf",
+              "page": 1,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            }
+          ]
+        },
+        {
+          "category": "LNT2S",
+          "category_meaning": "Ladies, Nomadic Tribe 2, State Level",
+          "category_meaning_confidence": "best_effort",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 62338,
+              "closing_percentile": 81.1295102,
+              "evidence_id": "2025-26:01002:0100219110:state_level:LNT2S:R1:S1",
+              "source_file": "2025ENGG_CAP1_CutOff.pdf",
+              "page": 1,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            }
+          ]
+        },
+        {
+          "category": "LOBCS",
+          "category_meaning": "Ladies, Other Backward Class, State Level",
+          "category_meaning_confidence": "best_effort",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 41127,
+              "closing_percentile": 87.9159305,
+              "evidence_id": "2025-26:01002:0100219110:state_level:LOBCS:R1:S1",
+              "source_file": "2025ENGG_CAP1_CutOff.pdf",
+              "page": 1,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            }
+          ]
+        },
+        {
+          "category": "LOPENS",
+          "category_meaning": "Ladies, Open, State Level",
+          "category_meaning_confidence": "best_effort",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 30071,
+              "closing_percentile": 91.1459607,
+              "evidence_id": "2025-26:01002:0100219110:state_level:LOPENS:R1:S1",
+              "source_file": "2025ENGG_CAP1_CutOff.pdf",
+              "page": 1,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            }
+          ]
+        },
+        {
+          "category": "LSCS",
+          "category_meaning": "Ladies, Scheduled Caste, State Level",
+          "category_meaning_confidence": "best_effort",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 45170,
+              "closing_percentile": 86.6223776,
+              "evidence_id": "2025-26:01002:0100219110:state_level:LSCS:R1:S1",
+              "source_file": "2025ENGG_CAP1_CutOff.pdf",
+              "page": 1,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            },
+            {
+              "round": 3,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 41066,
+              "closing_percentile": 87.9159305,
+              "evidence_id": "2025-26:01002:0100219110:state_level:LSCS:R3:S1",
+              "source_file": "2025ENGG_CAP3_CutOff.pdf",
+              "page": 1,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            }
+          ]
+        },
+        {
+          "category": "LSEBCS",
+          "category_meaning": "Ladies, State Level",
+          "category_meaning_confidence": "best_effort",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 69477,
+              "closing_percentile": 78.6137148,
+              "evidence_id": "2025-26:01002:0100219110:state_level:LSEBCS:R1:S1",
+              "source_file": "2025ENGG_CAP1_CutOff.pdf",
+              "page": 1,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            },
+            {
+              "round": 3,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 91727,
+              "closing_percentile": 70.6189283,
+              "evidence_id": "2025-26:01002:0100219110:state_level:LSEBCS:R3:S1",
+              "source_file": "2025ENGG_CAP3_CutOff.pdf",
+              "page": 1,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            }
+          ]
+        },
+        {
+          "category": "LSTS",
+          "category_meaning": "Ladies, Scheduled Tribe, State Level",
+          "category_meaning_confidence": "best_effort",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 49208,
+              "closing_percentile": 85.2215842,
+              "evidence_id": "2025-26:01002:0100219110:state_level:LSTS:R1:S1",
+              "source_file": "2025ENGG_CAP1_CutOff.pdf",
+              "page": 1,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            }
+          ]
+        },
+        {
+          "category": "LVJS",
+          "category_meaning": "Ladies, Vimukt Jati, State Level",
+          "category_meaning_confidence": "best_effort",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 66707,
+              "closing_percentile": 79.6986029,
+              "evidence_id": "2025-26:01002:0100219110:state_level:LVJS:R1:S1",
+              "source_file": "2025ENGG_CAP1_CutOff.pdf",
+              "page": 1,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            }
+          ]
+        },
+        {
+          "category": "ORPHAN",
+          "category_meaning": "Orphan category (state level)",
+          "category_meaning_confidence": "best_effort",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 179315,
+              "closing_percentile": 23.4132019,
+              "evidence_id": "2025-26:01002:0100219110:state_level:ORPHAN:R1:S1",
+              "source_file": "2025ENGG_CAP1_CutOff.pdf",
+              "page": 1,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            }
+          ]
+        },
+        {
+          "category": "PWDOBCS",
+          "category_meaning": "Persons with Disability, Other Backward Class, State Level",
+          "category_meaning_confidence": "best_effort",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 197856,
+              "closing_percentile": 7.1701886,
+              "evidence_id": "2025-26:01002:0100219110:state_level:PWDOBCS:R1:S1",
+              "source_file": "2025ENGG_CAP1_CutOff.pdf",
+              "page": 1,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            }
+          ]
+        },
+        {
+          "category": "PWDOPENS",
+          "category_meaning": "Persons with Disability, Open, State Level",
+          "category_meaning_confidence": "best_effort",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 131331,
+              "closing_percentile": 53.6060165,
+              "evidence_id": "2025-26:01002:0100219110:state_level:PWDOPENS:R1:S1",
+              "source_file": "2025ENGG_CAP1_CutOff.pdf",
+              "page": 1,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            }
+          ]
+        },
+        {
+          "category": "PWDRSCS",
+          "category_meaning": "Persons with Disability, reserved-category, Scheduled Caste, State Level",
+          "category_meaning_confidence": "best_effort",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 200074,
+              "closing_percentile": 4.5709952,
+              "evidence_id": "2025-26:01002:0100219110:state_level:PWDRSCS:R1:S1",
+              "source_file": "2025ENGG_CAP1_CutOff.pdf",
+              "page": 1,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            }
+          ]
+        },
+        {
+          "category": "TFWS",
+          "category_meaning": "Tuition Fee Waiver Scheme (state level)",
+          "category_meaning_confidence": "best_effort",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 37350,
+              "closing_percentile": 88.9773781,
+              "evidence_id": "2025-26:01002:0100219110:state_level:TFWS:R1:S1",
+              "source_file": "2025ENGG_CAP1_CutOff.pdf",
+              "page": 1,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            }
+          ]
+        }
+      ],
+      "course_code": "0100219110"
+    },
+    {
+      "branch": "Computer Science and Engineering",
+      "categories": [
+        {
+          "category": "DEFOBCS",
+          "category_meaning": "Defense quota, Other Backward Class, State Level",
+          "category_meaning_confidence": "best_effort",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 35641,
+              "closing_percentile": 89.51289,
+              "evidence_id": "2025-26:01002:0100224210:state_level:DEFOBCS:R1:S1",
+              "source_file": "2025ENGG_CAP1_CutOff.pdf",
+              "page": 1,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            }
+          ]
+        },
+        {
+          "category": "DEFOPENS",
+          "category_meaning": "Defense quota, Open, State Level",
+          "category_meaning_confidence": "best_effort",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 30524,
+              "closing_percentile": 91.051072,
+              "evidence_id": "2025-26:01002:0100224210:state_level:DEFOPENS:R1:S1",
+              "source_file": "2025ENGG_CAP1_CutOff.pdf",
+              "page": 1,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            },
+            {
+              "round": 4,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 27996,
+              "closing_percentile": 91.7968608,
+              "evidence_id": "2025-26:01002:0100224210:state_level:DEFOPENS:R4:S1",
+              "source_file": "2025ENGG_CAP4_CutOff.pdf",
+              "page": 1,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            }
+          ]
+        },
+        {
+          "category": "DEFROBCS",
+          "category_meaning": "Defense quota, reserved-category, State Level",
+          "category_meaning_confidence": "best_effort",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 40308,
+              "closing_percentile": 88.0599617,
+              "evidence_id": "2025-26:01002:0100224210:state_level:DEFROBCS:R1:S1",
+              "source_file": "2025ENGG_CAP1_CutOff.pdf",
+              "page": 1,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            }
+          ]
+        },
+        {
+          "category": "EWS",
+          "category_meaning": "Economically Weaker Section (state level)",
+          "category_meaning_confidence": "best_effort",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 13724,
+              "closing_percentile": 96.0638523,
+              "evidence_id": "2025-26:01002:0100224210:state_level:EWS:R1:S1",
+              "source_file": "2025ENGG_CAP1_CutOff.pdf",
+              "page": 1,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            },
+            {
+              "round": 2,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 14920,
+              "closing_percentile": 95.7237762,
+              "evidence_id": "2025-26:01002:0100224210:state_level:EWS:R2:S1",
+              "source_file": "2025ENGG_CAP2_CutOff.pdf",
+              "page": 1,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            }
+          ]
+        },
+        {
+          "category": "GNT1S",
+          "category_meaning": "General (male), Nomadic Tribe 1, State Level",
+          "category_meaning_confidence": "best_effort",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 20440,
+              "closing_percentile": 94.0716041,
+              "evidence_id": "2025-26:01002:0100224210:state_level:GNT1S:R1:S1",
+              "source_file": "2025ENGG_CAP1_CutOff.pdf",
+              "page": 1,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            },
+            {
+              "round": 2,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 19945,
+              "closing_percentile": 94.25259,
+              "evidence_id": "2025-26:01002:0100224210:state_level:GNT1S:R2:S1",
+              "source_file": "2025ENGG_CAP2_CutOff.pdf",
+              "page": 1,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            }
+          ]
+        },
+        {
+          "category": "GNT2S",
+          "category_meaning": "General (male), Nomadic Tribe 2, State Level",
+          "category_meaning_confidence": "best_effort",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 15590,
+              "closing_percentile": 95.5372663,
+              "evidence_id": "2025-26:01002:0100224210:state_level:GNT2S:R1:S1",
+              "source_file": "2025ENGG_CAP1_CutOff.pdf",
+              "page": 1,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            }
+          ]
+        },
+        {
+          "category": "GOBCS",
+          "category_meaning": "General (male), Other Backward Class, State Level",
+          "category_meaning_confidence": "best_effort",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 10583,
+              "closing_percentile": 96.9659622,
+              "evidence_id": "2025-26:01002:0100224210:state_level:GOBCS:R1:S1",
+              "source_file": "2025ENGG_CAP1_CutOff.pdf",
+              "page": 1,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            },
+            {
+              "round": 2,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 9801,
+              "closing_percentile": 97.1954276,
+              "evidence_id": "2025-26:01002:0100224210:state_level:GOBCS:R2:S1",
+              "source_file": "2025ENGG_CAP2_CutOff.pdf",
+              "page": 1,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            },
+            {
+              "round": 3,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 11290,
+              "closing_percentile": 96.7783105,
+              "evidence_id": "2025-26:01002:0100224210:state_level:GOBCS:R3:S1",
+              "source_file": "2025ENGG_CAP3_CutOff.pdf",
+              "page": 1,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            }
+          ]
+        },
+        {
+          "category": "GOPENS",
+          "category_meaning": "General (male), Open, State Level",
+          "category_meaning_confidence": "best_effort",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 9196,
+              "closing_percentile": 97.3737374,
+              "evidence_id": "2025-26:01002:0100224210:state_level:GOPENS:R1:S1",
+              "source_file": "2025ENGG_CAP1_CutOff.pdf",
+              "page": 1,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            },
+            {
+              "round": 2,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 9629,
+              "closing_percentile": 97.2320377,
+              "evidence_id": "2025-26:01002:0100224210:state_level:GOPENS:R2:S1",
+              "source_file": "2025ENGG_CAP2_CutOff.pdf",
+              "page": 1,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            },
+            {
+              "round": 3,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 10017,
+              "closing_percentile": 97.1220006,
+              "evidence_id": "2025-26:01002:0100224210:state_level:GOPENS:R3:S1",
+              "source_file": "2025ENGG_CAP3_CutOff.pdf",
+              "page": 1,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            }
+          ]
+        },
+        {
+          "category": "GSCS",
+          "category_meaning": "General (male), Scheduled Caste, State Level",
+          "category_meaning_confidence": "best_effort",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 18016,
+              "closing_percentile": 94.783775,
+              "evidence_id": "2025-26:01002:0100224210:state_level:GSCS:R1:S1",
+              "source_file": "2025ENGG_CAP1_CutOff.pdf",
+              "page": 1,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            },
+            {
+              "round": 2,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 22376,
+              "closing_percentile": 93.515499,
+              "evidence_id": "2025-26:01002:0100224210:state_level:GSCS:R2:S1",
+              "source_file": "2025ENGG_CAP2_CutOff.pdf",
+              "page": 1,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            }
+          ]
+        },
+        {
+          "category": "GSEBCS",
+          "category_meaning": "General (male), State Level",
+          "category_meaning_confidence": "best_effort",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 16679,
+              "closing_percentile": 95.2142111,
+              "evidence_id": "2025-26:01002:0100224210:state_level:GSEBCS:R1:S1",
+              "source_file": "2025ENGG_CAP1_CutOff.pdf",
+              "page": 1,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            },
+            {
+              "round": 2,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 17628,
+              "closing_percentile": 94.9067632,
+              "evidence_id": "2025-26:01002:0100224210:state_level:GSEBCS:R2:S1",
+              "source_file": "2025ENGG_CAP2_CutOff.pdf",
+              "page": 1,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            }
+          ]
+        },
+        {
+          "category": "GSTS",
+          "category_meaning": "General (male), Scheduled Tribe, State Level",
+          "category_meaning_confidence": "best_effort",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 46829,
+              "closing_percentile": 85.9646097,
+              "evidence_id": "2025-26:01002:0100224210:state_level:GSTS:R1:S1",
+              "source_file": "2025ENGG_CAP1_CutOff.pdf",
+              "page": 1,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            }
+          ]
+        },
+        {
+          "category": "GVJS",
+          "category_meaning": "General (male), Vimukt Jati, State Level",
+          "category_meaning_confidence": "best_effort",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 12192,
+              "closing_percentile": 96.5118421,
+              "evidence_id": "2025-26:01002:0100224210:state_level:GVJS:R1:S1",
+              "source_file": "2025ENGG_CAP1_CutOff.pdf",
+              "page": 1,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            },
+            {
+              "round": 2,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 14098,
+              "closing_percentile": 95.970516,
+              "evidence_id": "2025-26:01002:0100224210:state_level:GVJS:R2:S1",
+              "source_file": "2025ENGG_CAP2_CutOff.pdf",
+              "page": 1,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            }
+          ]
+        },
+        {
+          "category": "LNT1S",
+          "category_meaning": "Ladies, Nomadic Tribe 1, State Level",
+          "category_meaning_confidence": "best_effort",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 15967,
+              "closing_percentile": 95.4055944,
+              "evidence_id": "2025-26:01002:0100224210:state_level:LNT1S:R1:S1",
+              "source_file": "2025ENGG_CAP1_CutOff.pdf",
+              "page": 1,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            }
+          ]
+        },
+        {
+          "category": "LNT3S",
+          "category_meaning": "Ladies, Nomadic Tribe 3, State Level",
+          "category_meaning_confidence": "best_effort",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 26110,
+              "closing_percentile": 92.3826851,
+              "evidence_id": "2025-26:01002:0100224210:state_level:LNT3S:R1:S1",
+              "source_file": "2025ENGG_CAP1_CutOff.pdf",
+              "page": 1,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            }
+          ]
+        },
+        {
+          "category": "LOBCS",
+          "category_meaning": "Ladies, Other Backward Class, State Level",
+          "category_meaning_confidence": "best_effort",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 10921,
+              "closing_percentile": 96.8499656,
+              "evidence_id": "2025-26:01002:0100224210:state_level:LOBCS:R1:S1",
+              "source_file": "2025ENGG_CAP1_CutOff.pdf",
+              "page": 1,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            }
+          ]
+        },
+        {
+          "category": "LOPENS",
+          "category_meaning": "Ladies, Open, State Level",
+          "category_meaning_confidence": "best_effort",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 8473,
+              "closing_percentile": 97.5647615,
+              "evidence_id": "2025-26:01002:0100224210:state_level:LOPENS:R1:S1",
+              "source_file": "2025ENGG_CAP1_CutOff.pdf",
+              "page": 1,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            },
+            {
+              "round": 2,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 9339,
+              "closing_percentile": 97.3358402,
+              "evidence_id": "2025-26:01002:0100224210:state_level:LOPENS:R2:S1",
+              "source_file": "2025ENGG_CAP2_CutOff.pdf",
+              "page": 1,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            }
+          ]
+        },
+        {
+          "category": "LSCS",
+          "category_meaning": "Ladies, Scheduled Caste, State Level",
+          "category_meaning_confidence": "best_effort",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 25163,
+              "closing_percentile": 92.6752061,
+              "evidence_id": "2025-26:01002:0100224210:state_level:LSCS:R1:S1",
+              "source_file": "2025ENGG_CAP1_CutOff.pdf",
+              "page": 1,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            },
+            {
+              "round": 2,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 25702,
+              "closing_percentile": 92.52184,
+              "evidence_id": "2025-26:01002:0100224210:state_level:LSCS:R2:S1",
+              "source_file": "2025ENGG_CAP2_CutOff.pdf",
+              "page": 1,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            }
+          ]
+        },
+        {
+          "category": "LSEBCS",
+          "category_meaning": "Ladies, State Level",
+          "category_meaning_confidence": "best_effort",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 15326,
+              "closing_percentile": 95.6055328,
+              "evidence_id": "2025-26:01002:0100224210:state_level:LSEBCS:R1:S1",
+              "source_file": "2025ENGG_CAP1_CutOff.pdf",
+              "page": 1,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            }
+          ]
+        },
+        {
+          "category": "LSTS",
+          "category_meaning": "Ladies, Scheduled Tribe, State Level",
+          "category_meaning_confidence": "best_effort",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 35441,
+              "closing_percentile": 89.5868952,
+              "evidence_id": "2025-26:01002:0100224210:state_level:LSTS:R1:S1",
+              "source_file": "2025ENGG_CAP1_CutOff.pdf",
+              "page": 1,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            }
+          ]
+        },
+        {
+          "category": "ORPHAN",
+          "category_meaning": "Orphan category (state level)",
+          "category_meaning_confidence": "best_effort",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 59070,
+              "closing_percentile": 82.135869,
+              "evidence_id": "2025-26:01002:0100224210:state_level:ORPHAN:R1:S1",
+              "source_file": "2025ENGG_CAP1_CutOff.pdf",
+              "page": 1,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            }
+          ]
+        },
+        {
+          "category": "PWDOBCS",
+          "category_meaning": "Persons with Disability, Other Backward Class, State Level",
+          "category_meaning_confidence": "best_effort",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 98826,
+              "closing_percentile": 68.1164395,
+              "evidence_id": "2025-26:01002:0100224210:state_level:PWDOBCS:R1:S1",
+              "source_file": "2025ENGG_CAP1_CutOff.pdf",
+              "page": 1,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            }
+          ]
+        },
+        {
+          "category": "PWDOPENS",
+          "category_meaning": "Persons with Disability, Open, State Level",
+          "category_meaning_confidence": "best_effort",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 51675,
+              "closing_percentile": 84.5176078,
+              "evidence_id": "2025-26:01002:0100224210:state_level:PWDOPENS:R1:S1",
+              "source_file": "2025ENGG_CAP1_CutOff.pdf",
+              "page": 1,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            }
+          ]
+        },
+        {
+          "category": "PWDROBC",
+          "category_meaning": null,
+          "category_meaning_confidence": null,
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 93506,
+              "closing_percentile": 70.2033567,
+              "evidence_id": "2025-26:01002:0100224210:state_level:PWDROBC:R1:S1",
+              "source_file": "2025ENGG_CAP1_CutOff.pdf",
+              "page": 1,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            }
+          ]
+        },
+        {
+          "category": "TFWS",
+          "category_meaning": "Tuition Fee Waiver Scheme (state level)",
+          "category_meaning_confidence": "best_effort",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 7401,
+              "closing_percentile": 97.8664807,
+              "evidence_id": "2025-26:01002:0100224210:state_level:TFWS:R1:S1",
+              "source_file": "2025ENGG_CAP1_CutOff.pdf",
+              "page": 1,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            },
+            {
+              "round": 2,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 3578,
+              "closing_percentile": 98.9287476,
+              "evidence_id": "2025-26:01002:0100224210:state_level:TFWS:R2:S1",
+              "source_file": "2025ENGG_CAP2_CutOff.pdf",
+              "page": 1,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            }
+          ]
+        }
+      ],
+      "course_code": "0100224210"
+    },
+    {
+      "branch": "Electrical Engineering",
+      "categories": [
+        {
+          "category": "DEFOBCS",
+          "category_meaning": "Defense quota, Other Backward Class, State Level",
+          "category_meaning_confidence": "best_effort",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 84091,
+              "closing_percentile": 73.5570613,
+              "evidence_id": "2025-26:01002:0100229310:state_level:DEFOBCS:R1:S1",
+              "source_file": "2025ENGG_CAP1_CutOff.pdf",
+              "page": 1,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            }
+          ]
+        },
+        {
+          "category": "DEFOPENS",
+          "category_meaning": "Defense quota, Open, State Level",
+          "category_meaning_confidence": "best_effort",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 56683,
+              "closing_percentile": 82.8811189,
+              "evidence_id": "2025-26:01002:0100229310:state_level:DEFOPENS:R1:S1",
+              "source_file": "2025ENGG_CAP1_CutOff.pdf",
+              "page": 1,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            }
+          ]
+        },
+        {
+          "category": "DEFROBCS",
+          "category_meaning": "Defense quota, reserved-category, State Level",
+          "category_meaning_confidence": "best_effort",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 64751,
+              "closing_percentile": 80.3531469,
+              "evidence_id": "2025-26:01002:0100229310:state_level:DEFROBCS:R1:S1",
+              "source_file": "2025ENGG_CAP1_CutOff.pdf",
+              "page": 1,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            }
+          ]
+        },
+        {
+          "category": "EWS",
+          "category_meaning": "Economically Weaker Section (state level)",
+          "category_meaning_confidence": "best_effort",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 58738,
+              "closing_percentile": 82.2162613,
+              "evidence_id": "2025-26:01002:0100229310:state_level:EWS:R1:S1",
+              "source_file": "2025ENGG_CAP1_CutOff.pdf",
+              "page": 1,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            },
+            {
+              "round": 4,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 62811,
+              "closing_percentile": 81.0133535,
+              "evidence_id": "2025-26:01002:0100229310:state_level:EWS:R4:S1",
+              "source_file": "2025ENGG_CAP4_CutOff.pdf",
+              "page": 1,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            }
+          ]
+        },
+        {
+          "category": "GNT1S",
+          "category_meaning": "General (male), Nomadic Tribe 1, State Level",
+          "category_meaning_confidence": "best_effort",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 33361,
+              "closing_percentile": 90.1610143,
+              "evidence_id": "2025-26:01002:0100229310:state_level:GNT1S:R1:S1",
+              "source_file": "2025ENGG_CAP1_CutOff.pdf",
+              "page": 1,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            }
+          ]
+        },
+        {
+          "category": "GNT2S",
+          "category_meaning": "General (male), Nomadic Tribe 2, State Level",
+          "category_meaning_confidence": "best_effort",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 55530,
+              "closing_percentile": 83.2103258,
+              "evidence_id": "2025-26:01002:0100229310:state_level:GNT2S:R1:S1",
+              "source_file": "2025ENGG_CAP1_CutOff.pdf",
+              "page": 1,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            }
+          ]
+        },
+        {
+          "category": "GNT3S",
+          "category_meaning": "General (male), Nomadic Tribe 3, State Level",
+          "category_meaning_confidence": "best_effort",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 45231,
+              "closing_percentile": 86.6223776,
+              "evidence_id": "2025-26:01002:0100229310:state_level:GNT3S:R1:S1",
+              "source_file": "2025ENGG_CAP1_CutOff.pdf",
+              "page": 1,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            }
+          ]
+        },
+        {
+          "category": "GOBCS",
+          "category_meaning": "General (male), Other Backward Class, State Level",
+          "category_meaning_confidence": "best_effort",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 29365,
+              "closing_percentile": 91.3593874,
+              "evidence_id": "2025-26:01002:0100229310:state_level:GOBCS:R1:S1",
+              "source_file": "2025ENGG_CAP1_CutOff.pdf",
+              "page": 1,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            },
+            {
+              "round": 4,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 28160,
+              "closing_percentile": 91.7513251,
+              "evidence_id": "2025-26:01002:0100229310:state_level:GOBCS:R4:S1",
+              "source_file": "2025ENGG_CAP4_CutOff.pdf",
+              "page": 1,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            }
+          ]
+        },
+        {
+          "category": "GOPENS",
+          "category_meaning": "General (male), Open, State Level",
+          "category_meaning_confidence": "best_effort",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 28037,
+              "closing_percentile": 91.7521019,
+              "evidence_id": "2025-26:01002:0100229310:state_level:GOPENS:R1:S1",
+              "source_file": "2025ENGG_CAP1_CutOff.pdf",
+              "page": 1,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            },
+            {
+              "round": 4,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 25688,
+              "closing_percentile": 92.52184,
+              "evidence_id": "2025-26:01002:0100229310:state_level:GOPENS:R4:S1",
+              "source_file": "2025ENGG_CAP4_CutOff.pdf",
+              "page": 1,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            }
+          ]
+        },
+        {
+          "category": "GSCS",
+          "category_meaning": "General (male), Scheduled Caste, State Level",
+          "category_meaning_confidence": "best_effort",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 45807,
+              "closing_percentile": 86.3869833,
+              "evidence_id": "2025-26:01002:0100229310:state_level:GSCS:R1:S1",
+              "source_file": "2025ENGG_CAP1_CutOff.pdf",
+              "page": 1,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            }
+          ]
+        },
+        {
+          "category": "GSEBCS",
+          "category_meaning": "General (male), State Level",
+          "category_meaning_confidence": "best_effort",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 50107,
+              "closing_percentile": 85.0571556,
+              "evidence_id": "2025-26:01002:0100229310:state_level:GSEBCS:R1:S1",
+              "source_file": "2025ENGG_CAP1_CutOff.pdf",
+              "page": 1,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            },
+            {
+              "round": 4,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 50107,
+              "closing_percentile": 85.0571556,
+              "evidence_id": "2025-26:01002:0100229310:state_level:GSEBCS:R4:S1",
+              "source_file": "2025ENGG_CAP4_CutOff.pdf",
+              "page": 1,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            }
+          ]
+        },
+        {
+          "category": "GSTS",
+          "category_meaning": "General (male), Scheduled Tribe, State Level",
+          "category_meaning_confidence": "best_effort",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 81211,
+              "closing_percentile": 74.6802716,
+              "evidence_id": "2025-26:01002:0100229310:state_level:GSTS:R1:S1",
+              "source_file": "2025ENGG_CAP1_CutOff.pdf",
+              "page": 1,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            }
+          ]
+        },
+        {
+          "category": "GVJS",
+          "category_meaning": "General (male), Vimukt Jati, State Level",
+          "category_meaning_confidence": "best_effort",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 54199,
+              "closing_percentile": 83.7674516,
+              "evidence_id": "2025-26:01002:0100229310:state_level:GVJS:R1:S1",
+              "source_file": "2025ENGG_CAP1_CutOff.pdf",
+              "page": 1,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            }
+          ]
+        },
+        {
+          "category": "LNT1S",
+          "category_meaning": "Ladies, Nomadic Tribe 1, State Level",
+          "category_meaning_confidence": "best_effort",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 37913,
+              "closing_percentile": 88.7700729,
+              "evidence_id": "2025-26:01002:0100229310:state_level:LNT1S:R1:S1",
+              "source_file": "2025ENGG_CAP1_CutOff.pdf",
+              "page": 1,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            }
+          ]
+        },
+        {
+          "category": "LOBCS",
+          "category_meaning": "Ladies, Other Backward Class, State Level",
+          "category_meaning_confidence": "best_effort",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 30147,
+              "closing_percentile": 91.082078,
+              "evidence_id": "2025-26:01002:0100229310:state_level:LOBCS:R1:S1",
+              "source_file": "2025ENGG_CAP1_CutOff.pdf",
+              "page": 1,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            },
+            {
+              "round": 4,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 21656,
+              "closing_percentile": 93.7361801,
+              "evidence_id": "2025-26:01002:0100229310:state_level:LOBCS:R4:S1",
+              "source_file": "2025ENGG_CAP4_CutOff.pdf",
+              "page": 1,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            }
+          ]
+        },
+        {
+          "category": "LOPENS",
+          "category_meaning": "Ladies, Open, State Level",
+          "category_meaning_confidence": "best_effort",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 26875,
+              "closing_percentile": 92.1231015,
+              "evidence_id": "2025-26:01002:0100229310:state_level:LOPENS:R1:S1",
+              "source_file": "2025ENGG_CAP1_CutOff.pdf",
+              "page": 1,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            }
+          ]
+        },
+        {
+          "category": "LSCS",
+          "category_meaning": "Ladies, Scheduled Caste, State Level",
+          "category_meaning_confidence": "best_effort",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 41351,
+              "closing_percentile": 87.7785554,
+              "evidence_id": "2025-26:01002:0100229310:state_level:LSCS:R1:S1",
+              "source_file": "2025ENGG_CAP1_CutOff.pdf",
+              "page": 1,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            }
+          ]
+        },
+        {
+          "category": "LSEBCS",
+          "category_meaning": "Ladies, State Level",
+          "category_meaning_confidence": "best_effort",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 54480,
+              "closing_percentile": 83.5597353,
+              "evidence_id": "2025-26:01002:0100229310:state_level:LSEBCS:R1:S1",
+              "source_file": "2025ENGG_CAP1_CutOff.pdf",
+              "page": 1,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            }
+          ]
+        },
+        {
+          "category": "LSTS",
+          "category_meaning": "Ladies, Scheduled Tribe, State Level",
+          "category_meaning_confidence": "best_effort",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 89472,
+              "closing_percentile": 71.5562808,
+              "evidence_id": "2025-26:01002:0100229310:state_level:LSTS:R1:S1",
+              "source_file": "2025ENGG_CAP1_CutOff.pdf",
+              "page": 1,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            }
+          ]
+        },
+        {
+          "category": "LVJS",
+          "category_meaning": "Ladies, Vimukt Jati, State Level",
+          "category_meaning_confidence": "best_effort",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 63174,
+              "closing_percentile": 80.9669596,
+              "evidence_id": "2025-26:01002:0100229310:state_level:LVJS:R1:S1",
+              "source_file": "2025ENGG_CAP1_CutOff.pdf",
+              "page": 1,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            }
+          ]
+        },
+        {
+          "category": "PWDOBCS",
+          "category_meaning": "Persons with Disability, Other Backward Class, State Level",
+          "category_meaning_confidence": "best_effort",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 131185,
+              "closing_percentile": 53.6060165,
+              "evidence_id": "2025-26:01002:0100229310:state_level:PWDOBCS:R1:S1",
+              "source_file": "2025ENGG_CAP1_CutOff.pdf",
+              "page": 1,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            }
+          ]
+        },
+        {
+          "category": "PWDOPENS",
+          "category_meaning": "Persons with Disability, Open, State Level",
+          "category_meaning_confidence": "best_effort",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 97352,
+              "closing_percentile": 68.4887011,
+              "evidence_id": "2025-26:01002:0100229310:state_level:PWDOPENS:R1:S1",
+              "source_file": "2025ENGG_CAP1_CutOff.pdf",
+              "page": 1,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            }
+          ]
+        },
+        {
+          "category": "PWDRSCS",
+          "category_meaning": "Persons with Disability, reserved-category, Scheduled Caste, State Level",
+          "category_meaning_confidence": "best_effort",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 99969,
+              "closing_percentile": 67.8210479,
+              "evidence_id": "2025-26:01002:0100229310:state_level:PWDRSCS:R1:S1",
+              "source_file": "2025ENGG_CAP1_CutOff.pdf",
+              "page": 1,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            }
+          ]
+        },
+        {
+          "category": "TFWS",
+          "category_meaning": "Tuition Fee Waiver Scheme (state level)",
+          "category_meaning_confidence": "best_effort",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 31810,
+              "closing_percentile": 90.6536517,
+              "evidence_id": "2025-26:01002:0100229310:state_level:TFWS:R1:S1",
+              "source_file": "2025ENGG_CAP1_CutOff.pdf",
+              "page": 1,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            }
+          ]
+        }
+      ],
+      "course_code": "0100229310"
+    },
+    {
+      "branch": "Electronics and Telecommunication Engg",
+      "categories": [
+        {
+          "category": "DEFOBCS",
+          "category_meaning": "Defense quota, Other Backward Class, State Level",
+          "category_meaning_confidence": "best_effort",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 58925,
+              "closing_percentile": 82.135869,
+              "evidence_id": "2025-26:01002:0100237210:state_level:DEFOBCS:R1:S1",
+              "source_file": "2025ENGG_CAP1_CutOff.pdf",
+              "page": 2,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            }
+          ]
+        },
+        {
+          "category": "DEFOPENS",
+          "category_meaning": "Defense quota, Open, State Level",
+          "category_meaning_confidence": "best_effort",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 40691,
+              "closing_percentile": 87.9289094,
+              "evidence_id": "2025-26:01002:0100237210:state_level:DEFOPENS:R1:S1",
+              "source_file": "2025ENGG_CAP1_CutOff.pdf",
+              "page": 2,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            },
+            {
+              "round": 2,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 40811,
+              "closing_percentile": 87.9272878,
+              "evidence_id": "2025-26:01002:0100237210:state_level:DEFOPENS:R2:S1",
+              "source_file": "2025ENGG_CAP2_CutOff.pdf",
+              "page": 2,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            }
+          ]
+        },
+        {
+          "category": "DEFRSEBC",
+          "category_meaning": null,
+          "category_meaning_confidence": null,
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 52275,
+              "closing_percentile": 84.3296195,
+              "evidence_id": "2025-26:01002:0100237210:state_level:DEFRSEBC:R1:S1",
+              "source_file": "2025ENGG_CAP1_CutOff.pdf",
+              "page": 2,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            },
+            {
+              "round": 3,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 96522,
+              "closing_percentile": 68.9620341,
+              "evidence_id": "2025-26:01002:0100237210:state_level:DEFRSEBC:R3:S1",
+              "source_file": "2025ENGG_CAP3_CutOff.pdf",
+              "page": 2,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            },
+            {
+              "round": 4,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 113654,
+              "closing_percentile": 61.6834321,
+              "evidence_id": "2025-26:01002:0100237210:state_level:DEFRSEBC:R4:S1",
+              "source_file": "2025ENGG_CAP4_CutOff.pdf",
+              "page": 2,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            }
+          ]
+        },
+        {
+          "category": "EWS",
+          "category_meaning": "Economically Weaker Section (state level)",
+          "category_meaning_confidence": "best_effort",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 35492,
+              "closing_percentile": 89.5355262,
+              "evidence_id": "2025-26:01002:0100237210:state_level:EWS:R1:S1",
+              "source_file": "2025ENGG_CAP1_CutOff.pdf",
+              "page": 2,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            },
+            {
+              "round": 2,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 35349,
+              "closing_percentile": 89.6391842,
+              "evidence_id": "2025-26:01002:0100237210:state_level:EWS:R2:S1",
+              "source_file": "2025ENGG_CAP2_CutOff.pdf",
+              "page": 2,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            },
+            {
+              "round": 4,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 33700,
+              "closing_percentile": 90.0917161,
+              "evidence_id": "2025-26:01002:0100237210:state_level:EWS:R4:S1",
+              "source_file": "2025ENGG_CAP4_CutOff.pdf",
+              "page": 2,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            }
+          ]
+        },
+        {
+          "category": "GNT1S",
+          "category_meaning": "General (male), Nomadic Tribe 1, State Level",
+          "category_meaning_confidence": "best_effort",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 31138,
+              "closing_percentile": 90.8833776,
+              "evidence_id": "2025-26:01002:0100237210:state_level:GNT1S:R1:S1",
+              "source_file": "2025ENGG_CAP1_CutOff.pdf",
+              "page": 2,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            }
+          ]
+        },
+        {
+          "category": "GNT2S",
+          "category_meaning": "General (male), Nomadic Tribe 2, State Level",
+          "category_meaning_confidence": "best_effort",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 17913,
+              "closing_percentile": 94.8202997,
+              "evidence_id": "2025-26:01002:0100237210:state_level:GNT2S:R1:S1",
+              "source_file": "2025ENGG_CAP1_CutOff.pdf",
+              "page": 2,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            }
+          ]
+        },
+        {
+          "category": "GOBCS",
+          "category_meaning": "General (male), Other Backward Class, State Level",
+          "category_meaning_confidence": "best_effort",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 18719,
+              "closing_percentile": 94.5862876,
+              "evidence_id": "2025-26:01002:0100237210:state_level:GOBCS:R1:S1",
+              "source_file": "2025ENGG_CAP1_CutOff.pdf",
+              "page": 2,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            },
+            {
+              "round": 2,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 17223,
+              "closing_percentile": 95.0406335,
+              "evidence_id": "2025-26:01002:0100237210:state_level:GOBCS:R2:S1",
+              "source_file": "2025ENGG_CAP2_CutOff.pdf",
+              "page": 2,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            },
+            {
+              "round": 3,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 16933,
+              "closing_percentile": 95.1095384,
+              "evidence_id": "2025-26:01002:0100237210:state_level:GOBCS:R3:S1",
+              "source_file": "2025ENGG_CAP3_CutOff.pdf",
+              "page": 2,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            }
+          ]
+        },
+        {
+          "category": "GOPENS",
+          "category_meaning": "General (male), Open, State Level",
+          "category_meaning_confidence": "best_effort",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 17151,
+              "closing_percentile": 95.0636221,
+              "evidence_id": "2025-26:01002:0100237210:state_level:GOPENS:R1:S1",
+              "source_file": "2025ENGG_CAP1_CutOff.pdf",
+              "page": 2,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            },
+            {
+              "round": 2,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 16908,
+              "closing_percentile": 95.1229826,
+              "evidence_id": "2025-26:01002:0100237210:state_level:GOPENS:R2:S1",
+              "source_file": "2025ENGG_CAP2_CutOff.pdf",
+              "page": 2,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            },
+            {
+              "round": 3,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 14271,
+              "closing_percentile": 95.918508,
+              "evidence_id": "2025-26:01002:0100237210:state_level:GOPENS:R3:S1",
+              "source_file": "2025ENGG_CAP3_CutOff.pdf",
+              "page": 2,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            },
+            {
+              "round": 4,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 14458,
+              "closing_percentile": 95.8324651,
+              "evidence_id": "2025-26:01002:0100237210:state_level:GOPENS:R4:S1",
+              "source_file": "2025ENGG_CAP4_CutOff.pdf",
+              "page": 2,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            }
+          ]
+        },
+        {
+          "category": "GSCS",
+          "category_meaning": "General (male), Scheduled Caste, State Level",
+          "category_meaning_confidence": "best_effort",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 36725,
+              "closing_percentile": 89.1962092,
+              "evidence_id": "2025-26:01002:0100237210:state_level:GSCS:R1:S1",
+              "source_file": "2025ENGG_CAP1_CutOff.pdf",
+              "page": 2,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            },
+            {
+              "round": 2,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 28240,
+              "closing_percentile": 91.7377622,
+              "evidence_id": "2025-26:01002:0100237210:state_level:GSCS:R2:S1",
+              "source_file": "2025ENGG_CAP2_CutOff.pdf",
+              "page": 2,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            },
+            {
+              "round": 4,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 34764,
+              "closing_percentile": 89.8231024,
+              "evidence_id": "2025-26:01002:0100237210:state_level:GSCS:R4:S1",
+              "source_file": "2025ENGG_CAP4_CutOff.pdf",
+              "page": 2,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            }
+          ]
+        },
+        {
+          "category": "GSEBCS",
+          "category_meaning": "General (male), State Level",
+          "category_meaning_confidence": "best_effort",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 30507,
+              "closing_percentile": 91.051072,
+              "evidence_id": "2025-26:01002:0100237210:state_level:GSEBCS:R1:S1",
+              "source_file": "2025ENGG_CAP1_CutOff.pdf",
+              "page": 2,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            },
+            {
+              "round": 2,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 32209,
+              "closing_percentile": 90.588192,
+              "evidence_id": "2025-26:01002:0100237210:state_level:GSEBCS:R2:S1",
+              "source_file": "2025ENGG_CAP2_CutOff.pdf",
+              "page": 2,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            },
+            {
+              "round": 3,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 33196,
+              "closing_percentile": 90.1729075,
+              "evidence_id": "2025-26:01002:0100237210:state_level:GSEBCS:R3:S1",
+              "source_file": "2025ENGG_CAP3_CutOff.pdf",
+              "page": 2,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            },
+            {
+              "round": 4,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 34019,
+              "closing_percentile": 90.0175917,
+              "evidence_id": "2025-26:01002:0100237210:state_level:GSEBCS:R4:S1",
+              "source_file": "2025ENGG_CAP4_CutOff.pdf",
+              "page": 2,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            }
+          ]
+        },
+        {
+          "category": "GSTS",
+          "category_meaning": "General (male), Scheduled Tribe, State Level",
+          "category_meaning_confidence": "best_effort",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 116393,
+              "closing_percentile": 60.422115,
+              "evidence_id": "2025-26:01002:0100237210:state_level:GSTS:R1:S1",
+              "source_file": "2025ENGG_CAP1_CutOff.pdf",
+              "page": 2,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            },
+            {
+              "round": 3,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 65065,
+              "closing_percentile": 80.0,
+              "evidence_id": "2025-26:01002:0100237210:state_level:GSTS:R3:S1",
+              "source_file": "2025ENGG_CAP3_CutOff.pdf",
+              "page": 2,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            }
+          ]
+        },
+        {
+          "category": "GVJS",
+          "category_meaning": "General (male), Vimukt Jati, State Level",
+          "category_meaning_confidence": "best_effort",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 37532,
+              "closing_percentile": 88.9550679,
+              "evidence_id": "2025-26:01002:0100237210:state_level:GVJS:R1:S1",
+              "source_file": "2025ENGG_CAP1_CutOff.pdf",
+              "page": 2,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            },
+            {
+              "round": 4,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 57875,
+              "closing_percentile": 82.4521073,
+              "evidence_id": "2025-26:01002:0100237210:state_level:GVJS:R4:S1",
+              "source_file": "2025ENGG_CAP4_CutOff.pdf",
+              "page": 2,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            }
+          ]
+        },
+        {
+          "category": "LNT2S",
+          "category_meaning": "Ladies, Nomadic Tribe 2, State Level",
+          "category_meaning_confidence": "best_effort",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 32000,
+              "closing_percentile": 90.6332693,
+              "evidence_id": "2025-26:01002:0100237210:state_level:LNT2S:R1:S1",
+              "source_file": "2025ENGG_CAP1_CutOff.pdf",
+              "page": 2,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            }
+          ]
+        },
+        {
+          "category": "LNT3S",
+          "category_meaning": "Ladies, Nomadic Tribe 3, State Level",
+          "category_meaning_confidence": "best_effort",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 41415,
+              "closing_percentile": 87.7785554,
+              "evidence_id": "2025-26:01002:0100237210:state_level:LNT3S:R1:S1",
+              "source_file": "2025ENGG_CAP1_CutOff.pdf",
+              "page": 2,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            }
+          ]
+        },
+        {
+          "category": "LOBCS",
+          "category_meaning": "Ladies, Other Backward Class, State Level",
+          "category_meaning_confidence": "best_effort",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 18895,
+              "closing_percentile": 94.5372821,
+              "evidence_id": "2025-26:01002:0100237210:state_level:LOBCS:R1:S1",
+              "source_file": "2025ENGG_CAP1_CutOff.pdf",
+              "page": 2,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            }
+          ]
+        },
+        {
+          "category": "LOPENS",
+          "category_meaning": "Ladies, Open, State Level",
+          "category_meaning_confidence": "best_effort",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 18397,
+              "closing_percentile": 94.7159159,
+              "evidence_id": "2025-26:01002:0100237210:state_level:LOPENS:R1:S1",
+              "source_file": "2025ENGG_CAP1_CutOff.pdf",
+              "page": 2,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            },
+            {
+              "round": 2,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 14516,
+              "closing_percentile": 95.830721,
+              "evidence_id": "2025-26:01002:0100237210:state_level:LOPENS:R2:S1",
+              "source_file": "2025ENGG_CAP2_CutOff.pdf",
+              "page": 2,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            },
+            {
+              "round": 4,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 16085,
+              "closing_percentile": 95.3847746,
+              "evidence_id": "2025-26:01002:0100237210:state_level:LOPENS:R4:S1",
+              "source_file": "2025ENGG_CAP4_CutOff.pdf",
+              "page": 2,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            }
+          ]
+        },
+        {
+          "category": "LSCS",
+          "category_meaning": "Ladies, Scheduled Caste, State Level",
+          "category_meaning_confidence": "best_effort",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 37791,
+              "closing_percentile": 88.7823852,
+              "evidence_id": "2025-26:01002:0100237210:state_level:LSCS:R1:S1",
+              "source_file": "2025ENGG_CAP1_CutOff.pdf",
+              "page": 2,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            }
+          ]
+        },
+        {
+          "category": "LSEBCS",
+          "category_meaning": "Ladies, State Level",
+          "category_meaning_confidence": "best_effort",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 29991,
+              "closing_percentile": 91.2776413,
+              "evidence_id": "2025-26:01002:0100237210:state_level:LSEBCS:R1:S1",
+              "source_file": "2025ENGG_CAP1_CutOff.pdf",
+              "page": 2,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            },
+            {
+              "round": 2,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 30249,
+              "closing_percentile": 91.0751777,
+              "evidence_id": "2025-26:01002:0100237210:state_level:LSEBCS:R2:S1",
+              "source_file": "2025ENGG_CAP2_CutOff.pdf",
+              "page": 2,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            }
+          ]
+        },
+        {
+          "category": "LSTS",
+          "category_meaning": "Ladies, Scheduled Tribe, State Level",
+          "category_meaning_confidence": "best_effort",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 72278,
+              "closing_percentile": 77.9513058,
+              "evidence_id": "2025-26:01002:0100237210:state_level:LSTS:R1:S1",
+              "source_file": "2025ENGG_CAP1_CutOff.pdf",
+              "page": 2,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            }
+          ]
+        },
+        {
+          "category": "LVJS",
+          "category_meaning": "Ladies, Vimukt Jati, State Level",
+          "category_meaning_confidence": "best_effort",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 35169,
+              "closing_percentile": 89.6700597,
+              "evidence_id": "2025-26:01002:0100237210:state_level:LVJS:R1:S1",
+              "source_file": "2025ENGG_CAP1_CutOff.pdf",
+              "page": 2,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            }
+          ]
+        },
+        {
+          "category": "ORPHAN",
+          "category_meaning": "Orphan category (state level)",
+          "category_meaning_confidence": "best_effort",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 159747,
+              "closing_percentile": 37.1950556,
+              "evidence_id": "2025-26:01002:0100237210:state_level:ORPHAN:R1:S1",
+              "source_file": "2025ENGG_CAP1_CutOff.pdf",
+              "page": 2,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            }
+          ]
+        },
+        {
+          "category": "PWDOBCS",
+          "category_meaning": "Persons with Disability, Other Backward Class, State Level",
+          "category_meaning_confidence": "best_effort",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 182725,
+              "closing_percentile": 21.3037657,
+              "evidence_id": "2025-26:01002:0100237210:state_level:PWDOBCS:R1:S1",
+              "source_file": "2025ENGG_CAP1_CutOff.pdf",
+              "page": 2,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            },
+            {
+              "round": 2,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 188072,
+              "closing_percentile": 16.4425946,
+              "evidence_id": "2025-26:01002:0100237210:state_level:PWDOBCS:R2:S1",
+              "source_file": "2025ENGG_CAP2_CutOff.pdf",
+              "page": 2,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            }
+          ]
+        },
+        {
+          "category": "PWDOPENS",
+          "category_meaning": "Persons with Disability, Open, State Level",
+          "category_meaning_confidence": "best_effort",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 149070,
+              "closing_percentile": 43.658874,
+              "evidence_id": "2025-26:01002:0100237210:state_level:PWDOPENS:R1:S1",
+              "source_file": "2025ENGG_CAP1_CutOff.pdf",
+              "page": 2,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            },
+            {
+              "round": 2,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 155129,
+              "closing_percentile": 39.902473,
+              "evidence_id": "2025-26:01002:0100237210:state_level:PWDOPENS:R2:S1",
+              "source_file": "2025ENGG_CAP2_CutOff.pdf",
+              "page": 2,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            }
+          ]
+        },
+        {
+          "category": "PWDROBC",
+          "category_meaning": null,
+          "category_meaning_confidence": null,
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 165828,
+              "closing_percentile": 32.6791073,
+              "evidence_id": "2025-26:01002:0100237210:state_level:PWDROBC:R1:S1",
+              "source_file": "2025ENGG_CAP1_CutOff.pdf",
+              "page": 2,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            }
+          ]
+        },
+        {
+          "category": "TFWS",
+          "category_meaning": "Tuition Fee Waiver Scheme (state level)",
+          "category_meaning_confidence": "best_effort",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 18894,
+              "closing_percentile": 94.5372821,
+              "evidence_id": "2025-26:01002:0100237210:state_level:TFWS:R1:S1",
+              "source_file": "2025ENGG_CAP1_CutOff.pdf",
+              "page": 2,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            },
+            {
+              "round": 3,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 15807,
+              "closing_percentile": 95.4261304,
+              "evidence_id": "2025-26:01002:0100237210:state_level:TFWS:R3:S1",
+              "source_file": "2025ENGG_CAP3_CutOff.pdf",
+              "page": 2,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            }
+          ]
+        }
+      ],
+      "course_code": "0100237210"
+    },
+    {
+      "branch": "Information Technology",
+      "categories": [
+        {
+          "category": "DEFOBCS",
+          "category_meaning": "Defense quota, Other Backward Class, State Level",
+          "category_meaning_confidence": "best_effort",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 45048,
+              "closing_percentile": 86.6718198,
+              "evidence_id": "2025-26:01002:0100224610:state_level:DEFOBCS:R1:S1",
+              "source_file": "2025ENGG_CAP1_CutOff.pdf",
+              "page": 1,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            }
+          ]
+        },
+        {
+          "category": "DEFOPENS",
+          "category_meaning": "Defense quota, Open, State Level",
+          "category_meaning_confidence": "best_effort",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 36897,
+              "closing_percentile": 89.1476381,
+              "evidence_id": "2025-26:01002:0100224610:state_level:DEFOPENS:R1:S1",
+              "source_file": "2025ENGG_CAP1_CutOff.pdf",
+              "page": 1,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            }
+          ]
+        },
+        {
+          "category": "DEFRNT3S",
+          "category_meaning": "Defense quota, reserved-category, Nomadic Tribe 3, State Level",
+          "category_meaning_confidence": "best_effort",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 45117,
+              "closing_percentile": 86.6718198,
+              "evidence_id": "2025-26:01002:0100224610:state_level:DEFRNT3S:R1:S1",
+              "source_file": "2025ENGG_CAP1_CutOff.pdf",
+              "page": 1,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            }
+          ]
+        },
+        {
+          "category": "EWS",
+          "category_meaning": "Economically Weaker Section (state level)",
+          "category_meaning_confidence": "best_effort",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 22723,
+              "closing_percentile": 93.4192837,
+              "evidence_id": "2025-26:01002:0100224610:state_level:EWS:R1:S1",
+              "source_file": "2025ENGG_CAP1_CutOff.pdf",
+              "page": 1,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            },
+            {
+              "round": 2,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 23904,
+              "closing_percentile": 93.0332708,
+              "evidence_id": "2025-26:01002:0100224610:state_level:EWS:R2:S1",
+              "source_file": "2025ENGG_CAP2_CutOff.pdf",
+              "page": 1,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            },
+            {
+              "round": 3,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 18334,
+              "closing_percentile": 94.7364547,
+              "evidence_id": "2025-26:01002:0100224610:state_level:EWS:R3:S1",
+              "source_file": "2025ENGG_CAP3_CutOff.pdf",
+              "page": 1,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            },
+            {
+              "round": 4,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 25512,
+              "closing_percentile": 92.5540912,
+              "evidence_id": "2025-26:01002:0100224610:state_level:EWS:R4:S1",
+              "source_file": "2025ENGG_CAP4_CutOff.pdf",
+              "page": 1,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            }
+          ]
+        },
+        {
+          "category": "GNT1S",
+          "category_meaning": "General (male), Nomadic Tribe 1, State Level",
+          "category_meaning_confidence": "best_effort",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 24028,
+              "closing_percentile": 92.997543,
+              "evidence_id": "2025-26:01002:0100224610:state_level:GNT1S:R1:S1",
+              "source_file": "2025ENGG_CAP1_CutOff.pdf",
+              "page": 1,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            }
+          ]
+        },
+        {
+          "category": "GNT2S",
+          "category_meaning": "General (male), Nomadic Tribe 2, State Level",
+          "category_meaning_confidence": "best_effort",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 16590,
+              "closing_percentile": 95.2407244,
+              "evidence_id": "2025-26:01002:0100224610:state_level:GNT2S:R1:S1",
+              "source_file": "2025ENGG_CAP1_CutOff.pdf",
+              "page": 1,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            },
+            {
+              "round": 3,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 23636,
+              "closing_percentile": 93.1055879,
+              "evidence_id": "2025-26:01002:0100224610:state_level:GNT2S:R3:S1",
+              "source_file": "2025ENGG_CAP3_CutOff.pdf",
+              "page": 1,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            },
+            {
+              "round": 4,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 24489,
+              "closing_percentile": 92.8770798,
+              "evidence_id": "2025-26:01002:0100224610:state_level:GNT2S:R4:S1",
+              "source_file": "2025ENGG_CAP4_CutOff.pdf",
+              "page": 1,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            }
+          ]
+        },
+        {
+          "category": "GNT3S",
+          "category_meaning": "General (male), Nomadic Tribe 3, State Level",
+          "category_meaning_confidence": "best_effort",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 18035,
+              "closing_percentile": 94.783775,
+              "evidence_id": "2025-26:01002:0100224610:state_level:GNT3S:R1:S1",
+              "source_file": "2025ENGG_CAP1_CutOff.pdf",
+              "page": 1,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            }
+          ]
+        },
+        {
+          "category": "GOBCS",
+          "category_meaning": "General (male), Other Backward Class, State Level",
+          "category_meaning_confidence": "best_effort",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 14193,
+              "closing_percentile": 95.9539167,
+              "evidence_id": "2025-26:01002:0100224610:state_level:GOBCS:R1:S1",
+              "source_file": "2025ENGG_CAP1_CutOff.pdf",
+              "page": 1,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            },
+            {
+              "round": 2,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 14231,
+              "closing_percentile": 95.9261851,
+              "evidence_id": "2025-26:01002:0100224610:state_level:GOBCS:R2:S1",
+              "source_file": "2025ENGG_CAP2_CutOff.pdf",
+              "page": 1,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            },
+            {
+              "round": 3,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 14798,
+              "closing_percentile": 95.7536628,
+              "evidence_id": "2025-26:01002:0100224610:state_level:GOBCS:R3:S1",
+              "source_file": "2025ENGG_CAP3_CutOff.pdf",
+              "page": 1,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            }
+          ]
+        },
+        {
+          "category": "GOPENS",
+          "category_meaning": "General (male), Open, State Level",
+          "category_meaning_confidence": "best_effort",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 12891,
+              "closing_percentile": 96.3316055,
+              "evidence_id": "2025-26:01002:0100224610:state_level:GOPENS:R1:S1",
+              "source_file": "2025ENGG_CAP1_CutOff.pdf",
+              "page": 1,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            },
+            {
+              "round": 2,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 12810,
+              "closing_percentile": 96.3339223,
+              "evidence_id": "2025-26:01002:0100224610:state_level:GOPENS:R2:S1",
+              "source_file": "2025ENGG_CAP2_CutOff.pdf",
+              "page": 1,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            },
+            {
+              "round": 3,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 13634,
+              "closing_percentile": 96.0780932,
+              "evidence_id": "2025-26:01002:0100224610:state_level:GOPENS:R3:S1",
+              "source_file": "2025ENGG_CAP3_CutOff.pdf",
+              "page": 1,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            },
+            {
+              "round": 4,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 13465,
+              "closing_percentile": 96.1512986,
+              "evidence_id": "2025-26:01002:0100224610:state_level:GOPENS:R4:S1",
+              "source_file": "2025ENGG_CAP4_CutOff.pdf",
+              "page": 1,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            }
+          ]
+        },
+        {
+          "category": "GSCS",
+          "category_meaning": "General (male), Scheduled Caste, State Level",
+          "category_meaning_confidence": "best_effort",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 22881,
+              "closing_percentile": 93.3597277,
+              "evidence_id": "2025-26:01002:0100224610:state_level:GSCS:R1:S1",
+              "source_file": "2025ENGG_CAP1_CutOff.pdf",
+              "page": 1,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            },
+            {
+              "round": 2,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 29209,
+              "closing_percentile": 91.4198717,
+              "evidence_id": "2025-26:01002:0100224610:state_level:GSCS:R2:S1",
+              "source_file": "2025ENGG_CAP2_CutOff.pdf",
+              "page": 1,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            }
+          ]
+        },
+        {
+          "category": "GSEBCS",
+          "category_meaning": "General (male), State Level",
+          "category_meaning_confidence": "best_effort",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 20387,
+              "closing_percentile": 94.0956622,
+              "evidence_id": "2025-26:01002:0100224610:state_level:GSEBCS:R1:S1",
+              "source_file": "2025ENGG_CAP1_CutOff.pdf",
+              "page": 1,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            },
+            {
+              "round": 2,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 21655,
+              "closing_percentile": 93.7361801,
+              "evidence_id": "2025-26:01002:0100224610:state_level:GSEBCS:R2:S1",
+              "source_file": "2025ENGG_CAP2_CutOff.pdf",
+              "page": 1,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            }
+          ]
+        },
+        {
+          "category": "GSTS",
+          "category_meaning": "General (male), Scheduled Tribe, State Level",
+          "category_meaning_confidence": "best_effort",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 61474,
+              "closing_percentile": 81.2846613,
+              "evidence_id": "2025-26:01002:0100224610:state_level:GSTS:R1:S1",
+              "source_file": "2025ENGG_CAP1_CutOff.pdf",
+              "page": 1,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            }
+          ]
+        },
+        {
+          "category": "GVJS",
+          "category_meaning": "General (male), Vimukt Jati, State Level",
+          "category_meaning_confidence": "best_effort",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 25469,
+              "closing_percentile": 92.5745163,
+              "evidence_id": "2025-26:01002:0100224610:state_level:GVJS:R1:S1",
+              "source_file": "2025ENGG_CAP1_CutOff.pdf",
+              "page": 1,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            },
+            {
+              "round": 2,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 27356,
+              "closing_percentile": 92.0354593,
+              "evidence_id": "2025-26:01002:0100224610:state_level:GVJS:R2:S1",
+              "source_file": "2025ENGG_CAP2_CutOff.pdf",
+              "page": 1,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            },
+            {
+              "round": 3,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 26351,
+              "closing_percentile": 92.3341523,
+              "evidence_id": "2025-26:01002:0100224610:state_level:GVJS:R3:S1",
+              "source_file": "2025ENGG_CAP3_CutOff.pdf",
+              "page": 1,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            }
+          ]
+        },
+        {
+          "category": "LNT2S",
+          "category_meaning": "Ladies, Nomadic Tribe 2, State Level",
+          "category_meaning_confidence": "best_effort",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 15745,
+              "closing_percentile": 95.45053,
+              "evidence_id": "2025-26:01002:0100224610:state_level:LNT2S:R1:S1",
+              "source_file": "2025ENGG_CAP1_CutOff.pdf",
+              "page": 1,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            }
+          ]
+        },
+        {
+          "category": "LOBCS",
+          "category_meaning": "Ladies, Other Backward Class, State Level",
+          "category_meaning_confidence": "best_effort",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 13342,
+              "closing_percentile": 96.171967,
+              "evidence_id": "2025-26:01002:0100224610:state_level:LOBCS:R1:S1",
+              "source_file": "2025ENGG_CAP1_CutOff.pdf",
+              "page": 1,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            },
+            {
+              "round": 3,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 15087,
+              "closing_percentile": 95.6472486,
+              "evidence_id": "2025-26:01002:0100224610:state_level:LOBCS:R3:S1",
+              "source_file": "2025ENGG_CAP3_CutOff.pdf",
+              "page": 1,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            }
+          ]
+        },
+        {
+          "category": "LOPENS",
+          "category_meaning": "Ladies, Open, State Level",
+          "category_meaning_confidence": "best_effort",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 12183,
+              "closing_percentile": 96.5201084,
+              "evidence_id": "2025-26:01002:0100224610:state_level:LOPENS:R1:S1",
+              "source_file": "2025ENGG_CAP1_CutOff.pdf",
+              "page": 1,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            },
+            {
+              "round": 2,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 11984,
+              "closing_percentile": 96.5695839,
+              "evidence_id": "2025-26:01002:0100224610:state_level:LOPENS:R2:S1",
+              "source_file": "2025ENGG_CAP2_CutOff.pdf",
+              "page": 1,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            },
+            {
+              "round": 3,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 12774,
+              "closing_percentile": 96.3424067,
+              "evidence_id": "2025-26:01002:0100224610:state_level:LOPENS:R3:S1",
+              "source_file": "2025ENGG_CAP3_CutOff.pdf",
+              "page": 1,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            },
+            {
+              "round": 4,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 15196,
+              "closing_percentile": 95.635667,
+              "evidence_id": "2025-26:01002:0100224610:state_level:LOPENS:R4:S1",
+              "source_file": "2025ENGG_CAP4_CutOff.pdf",
+              "page": 1,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            }
+          ]
+        },
+        {
+          "category": "LSCS",
+          "category_meaning": "Ladies, Scheduled Caste, State Level",
+          "category_meaning_confidence": "best_effort",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 28662,
+              "closing_percentile": 91.6544074,
+              "evidence_id": "2025-26:01002:0100224610:state_level:LSCS:R1:S1",
+              "source_file": "2025ENGG_CAP1_CutOff.pdf",
+              "page": 1,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            },
+            {
+              "round": 2,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 30518,
+              "closing_percentile": 91.051072,
+              "evidence_id": "2025-26:01002:0100224610:state_level:LSCS:R2:S1",
+              "source_file": "2025ENGG_CAP2_CutOff.pdf",
+              "page": 1,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            }
+          ]
+        },
+        {
+          "category": "LSEBCS",
+          "category_meaning": "Ladies, State Level",
+          "category_meaning_confidence": "best_effort",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 17281,
+              "closing_percentile": 95.0157683,
+              "evidence_id": "2025-26:01002:0100224610:state_level:LSEBCS:R1:S1",
+              "source_file": "2025ENGG_CAP1_CutOff.pdf",
+              "page": 1,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            },
+            {
+              "round": 2,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 21498,
+              "closing_percentile": 93.7635248,
+              "evidence_id": "2025-26:01002:0100224610:state_level:LSEBCS:R2:S1",
+              "source_file": "2025ENGG_CAP2_CutOff.pdf",
+              "page": 1,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            }
+          ]
+        },
+        {
+          "category": "LSTS",
+          "category_meaning": "Ladies, Scheduled Tribe, State Level",
+          "category_meaning_confidence": "best_effort",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 65926,
+              "closing_percentile": 79.9072027,
+              "evidence_id": "2025-26:01002:0100224610:state_level:LSTS:R1:S1",
+              "source_file": "2025ENGG_CAP1_CutOff.pdf",
+              "page": 1,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            },
+            {
+              "round": 2,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 105922,
+              "closing_percentile": 65.3084343,
+              "evidence_id": "2025-26:01002:0100224610:state_level:LSTS:R2:S1",
+              "source_file": "2025ENGG_CAP2_CutOff.pdf",
+              "page": 1,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            }
+          ]
+        },
+        {
+          "category": "ORPHAN",
+          "category_meaning": "Orphan category (state level)",
+          "category_meaning_confidence": "best_effort",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 67452,
+              "closing_percentile": 79.6033896,
+              "evidence_id": "2025-26:01002:0100224610:state_level:ORPHAN:R1:S1",
+              "source_file": "2025ENGG_CAP1_CutOff.pdf",
+              "page": 1,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            }
+          ]
+        },
+        {
+          "category": "PWDOBCS",
+          "category_meaning": "Persons with Disability, Other Backward Class, State Level",
+          "category_meaning_confidence": "best_effort",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 88788,
+              "closing_percentile": 71.6607627,
+              "evidence_id": "2025-26:01002:0100224610:state_level:PWDOBCS:R1:S1",
+              "source_file": "2025ENGG_CAP1_CutOff.pdf",
+              "page": 1,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            }
+          ]
+        },
+        {
+          "category": "PWDOPENS",
+          "category_meaning": "Persons with Disability, Open, State Level",
+          "category_meaning_confidence": "best_effort",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 54426,
+              "closing_percentile": 83.7239356,
+              "evidence_id": "2025-26:01002:0100224610:state_level:PWDOPENS:R1:S1",
+              "source_file": "2025ENGG_CAP1_CutOff.pdf",
+              "page": 1,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            }
+          ]
+        },
+        {
+          "category": "PWDRSCS",
+          "category_meaning": "Persons with Disability, reserved-category, Scheduled Caste, State Level",
+          "category_meaning_confidence": "best_effort",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 77323,
+              "closing_percentile": 75.6538462,
+              "evidence_id": "2025-26:01002:0100224610:state_level:PWDRSCS:R1:S1",
+              "source_file": "2025ENGG_CAP1_CutOff.pdf",
+              "page": 1,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            }
+          ]
+        },
+        {
+          "category": "TFWS",
+          "category_meaning": "Tuition Fee Waiver Scheme (state level)",
+          "category_meaning_confidence": "best_effort",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 12026,
+              "closing_percentile": 96.5454743,
+              "evidence_id": "2025-26:01002:0100224610:state_level:TFWS:R1:S1",
+              "source_file": "2025ENGG_CAP1_CutOff.pdf",
+              "page": 1,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            },
+            {
+              "round": 2,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 13438,
+              "closing_percentile": 96.1656046,
+              "evidence_id": "2025-26:01002:0100224610:state_level:TFWS:R2:S1",
+              "source_file": "2025ENGG_CAP2_CutOff.pdf",
+              "page": 1,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            },
+            {
+              "round": 3,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 14372,
+              "closing_percentile": 95.868115,
+              "evidence_id": "2025-26:01002:0100224610:state_level:TFWS:R3:S1",
+              "source_file": "2025ENGG_CAP3_CutOff.pdf",
+              "page": 1,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            }
+          ]
+        }
+      ],
+      "course_code": "0100224610"
+    },
+    {
+      "branch": "Mechanical Engineering",
+      "categories": [
+        {
+          "category": "DEFOBCS",
+          "category_meaning": "Defense quota, Other Backward Class, State Level",
+          "category_meaning_confidence": "best_effort",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 152603,
+              "closing_percentile": 41.7471281,
+              "evidence_id": "2025-26:01002:0100261210:state_level:DEFOBCS:R1:S1",
+              "source_file": "2025ENGG_CAP1_CutOff.pdf",
+              "page": 2,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            }
+          ]
+        },
+        {
+          "category": "DEFOPENS",
+          "category_meaning": "Defense quota, Open, State Level",
+          "category_meaning_confidence": "best_effort",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 51875,
+              "closing_percentile": 84.4950314,
+              "evidence_id": "2025-26:01002:0100261210:state_level:DEFOPENS:R1:S1",
+              "source_file": "2025ENGG_CAP1_CutOff.pdf",
+              "page": 2,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            }
+          ]
+        },
+        {
+          "category": "DEFRSEBC",
+          "category_meaning": null,
+          "category_meaning_confidence": null,
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 123660,
+              "closing_percentile": 57.0133407,
+              "evidence_id": "2025-26:01002:0100261210:state_level:DEFRSEBC:R1:S1",
+              "source_file": "2025ENGG_CAP1_CutOff.pdf",
+              "page": 2,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            }
+          ]
+        },
+        {
+          "category": "EWS",
+          "category_meaning": "Economically Weaker Section (state level)",
+          "category_meaning_confidence": "best_effort",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 75700,
+              "closing_percentile": 76.7694659,
+              "evidence_id": "2025-26:01002:0100261210:state_level:EWS:R1:S1",
+              "source_file": "2025ENGG_CAP1_CutOff.pdf",
+              "page": 2,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            },
+            {
+              "round": 3,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 81885,
+              "closing_percentile": 74.0630785,
+              "evidence_id": "2025-26:01002:0100261210:state_level:EWS:R3:S1",
+              "source_file": "2025ENGG_CAP3_CutOff.pdf",
+              "page": 2,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            }
+          ]
+        },
+        {
+          "category": "GNT1S",
+          "category_meaning": "General (male), Nomadic Tribe 1, State Level",
+          "category_meaning_confidence": "best_effort",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 49466,
+              "closing_percentile": 85.1919561,
+              "evidence_id": "2025-26:01002:0100261210:state_level:GNT1S:R1:S1",
+              "source_file": "2025ENGG_CAP1_CutOff.pdf",
+              "page": 2,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            },
+            {
+              "round": 3,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 35310,
+              "closing_percentile": 89.6391842,
+              "evidence_id": "2025-26:01002:0100261210:state_level:GNT1S:R3:S1",
+              "source_file": "2025ENGG_CAP3_CutOff.pdf",
+              "page": 2,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            }
+          ]
+        },
+        {
+          "category": "GNT2S",
+          "category_meaning": "General (male), Nomadic Tribe 2, State Level",
+          "category_meaning_confidence": "best_effort",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 35304,
+              "closing_percentile": 89.6391842,
+              "evidence_id": "2025-26:01002:0100261210:state_level:GNT2S:R1:S1",
+              "source_file": "2025ENGG_CAP1_CutOff.pdf",
+              "page": 2,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            }
+          ]
+        },
+        {
+          "category": "GNT3S",
+          "category_meaning": "General (male), Nomadic Tribe 3, State Level",
+          "category_meaning_confidence": "best_effort",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 43753,
+              "closing_percentile": 87.0316109,
+              "evidence_id": "2025-26:01002:0100261210:state_level:GNT3S:R1:S1",
+              "source_file": "2025ENGG_CAP1_CutOff.pdf",
+              "page": 2,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            },
+            {
+              "round": 3,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 49949,
+              "closing_percentile": 85.0571556,
+              "evidence_id": "2025-26:01002:0100261210:state_level:GNT3S:R3:S1",
+              "source_file": "2025ENGG_CAP3_CutOff.pdf",
+              "page": 2,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            }
+          ]
+        },
+        {
+          "category": "GOBCS",
+          "category_meaning": "General (male), Other Backward Class, State Level",
+          "category_meaning_confidence": "best_effort",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 38117,
+              "closing_percentile": 88.7615737,
+              "evidence_id": "2025-26:01002:0100261210:state_level:GOBCS:R1:S1",
+              "source_file": "2025ENGG_CAP1_CutOff.pdf",
+              "page": 2,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            },
+            {
+              "round": 3,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 32705,
+              "closing_percentile": 90.4110066,
+              "evidence_id": "2025-26:01002:0100261210:state_level:GOBCS:R3:S1",
+              "source_file": "2025ENGG_CAP3_CutOff.pdf",
+              "page": 2,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            }
+          ]
+        },
+        {
+          "category": "GOPENS",
+          "category_meaning": "General (male), Open, State Level",
+          "category_meaning_confidence": "best_effort",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 34406,
+              "closing_percentile": 89.861767,
+              "evidence_id": "2025-26:01002:0100261210:state_level:GOPENS:R1:S1",
+              "source_file": "2025ENGG_CAP1_CutOff.pdf",
+              "page": 2,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            },
+            {
+              "round": 3,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 26387,
+              "closing_percentile": 92.2706158,
+              "evidence_id": "2025-26:01002:0100261210:state_level:GOPENS:R3:S1",
+              "source_file": "2025ENGG_CAP3_CutOff.pdf",
+              "page": 2,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            }
+          ]
+        },
+        {
+          "category": "GSCS",
+          "category_meaning": "General (male), Scheduled Caste, State Level",
+          "category_meaning_confidence": "best_effort",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 53314,
+              "closing_percentile": 84.0359888,
+              "evidence_id": "2025-26:01002:0100261210:state_level:GSCS:R1:S1",
+              "source_file": "2025ENGG_CAP1_CutOff.pdf",
+              "page": 2,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            }
+          ]
+        },
+        {
+          "category": "GSEBCS",
+          "category_meaning": "General (male), State Level",
+          "category_meaning_confidence": "best_effort",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 60529,
+              "closing_percentile": 81.6453226,
+              "evidence_id": "2025-26:01002:0100261210:state_level:GSEBCS:R1:S1",
+              "source_file": "2025ENGG_CAP1_CutOff.pdf",
+              "page": 2,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            }
+          ]
+        },
+        {
+          "category": "GSTS",
+          "category_meaning": "General (male), Scheduled Tribe, State Level",
+          "category_meaning_confidence": "best_effort",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 134704,
+              "closing_percentile": 51.57164,
+              "evidence_id": "2025-26:01002:0100261210:state_level:GSTS:R1:S1",
+              "source_file": "2025ENGG_CAP1_CutOff.pdf",
+              "page": 2,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            },
+            {
+              "round": 3,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 85674,
+              "closing_percentile": 73.1347962,
+              "evidence_id": "2025-26:01002:0100261210:state_level:GSTS:R3:S1",
+              "source_file": "2025ENGG_CAP3_CutOff.pdf",
+              "page": 2,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            }
+          ]
+        },
+        {
+          "category": "GVJS",
+          "category_meaning": "General (male), Vimukt Jati, State Level",
+          "category_meaning_confidence": "best_effort",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 73509,
+              "closing_percentile": 77.161886,
+              "evidence_id": "2025-26:01002:0100261210:state_level:GVJS:R1:S1",
+              "source_file": "2025ENGG_CAP1_CutOff.pdf",
+              "page": 2,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            }
+          ]
+        },
+        {
+          "category": "LNT2S",
+          "category_meaning": "Ladies, Nomadic Tribe 2, State Level",
+          "category_meaning_confidence": "best_effort",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 73011,
+              "closing_percentile": 77.2287062,
+              "evidence_id": "2025-26:01002:0100261210:state_level:LNT2S:R1:S1",
+              "source_file": "2025ENGG_CAP1_CutOff.pdf",
+              "page": 2,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            },
+            {
+              "round": 3,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 70691,
+              "closing_percentile": 78.4242636,
+              "evidence_id": "2025-26:01002:0100261210:state_level:LNT2S:R3:S1",
+              "source_file": "2025ENGG_CAP3_CutOff.pdf",
+              "page": 2,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            }
+          ]
+        },
+        {
+          "category": "LOBCS",
+          "category_meaning": "Ladies, Other Backward Class, State Level",
+          "category_meaning_confidence": "best_effort",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 49484,
+              "closing_percentile": 85.1919561,
+              "evidence_id": "2025-26:01002:0100261210:state_level:LOBCS:R1:S1",
+              "source_file": "2025ENGG_CAP1_CutOff.pdf",
+              "page": 2,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            }
+          ]
+        },
+        {
+          "category": "LOPENS",
+          "category_meaning": "Ladies, Open, State Level",
+          "category_meaning_confidence": "best_effort",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 43339,
+              "closing_percentile": 87.1376478,
+              "evidence_id": "2025-26:01002:0100261210:state_level:LOPENS:R1:S1",
+              "source_file": "2025ENGG_CAP1_CutOff.pdf",
+              "page": 2,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            },
+            {
+              "round": 3,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 28486,
+              "closing_percentile": 91.699564,
+              "evidence_id": "2025-26:01002:0100261210:state_level:LOPENS:R3:S1",
+              "source_file": "2025ENGG_CAP3_CutOff.pdf",
+              "page": 2,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            }
+          ]
+        },
+        {
+          "category": "LSCS",
+          "category_meaning": "Ladies, Scheduled Caste, State Level",
+          "category_meaning_confidence": "best_effort",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 60393,
+              "closing_percentile": 81.7705077,
+              "evidence_id": "2025-26:01002:0100261210:state_level:LSCS:R1:S1",
+              "source_file": "2025ENGG_CAP1_CutOff.pdf",
+              "page": 2,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            }
+          ]
+        },
+        {
+          "category": "LSEBCS",
+          "category_meaning": "Ladies, State Level",
+          "category_meaning_confidence": "best_effort",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 83614,
+              "closing_percentile": 73.6328536,
+              "evidence_id": "2025-26:01002:0100261210:state_level:LSEBCS:R1:S1",
+              "source_file": "2025ENGG_CAP1_CutOff.pdf",
+              "page": 2,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            }
+          ]
+        },
+        {
+          "category": "LSTS",
+          "category_meaning": "Ladies, Scheduled Tribe, State Level",
+          "category_meaning_confidence": "best_effort",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 125170,
+              "closing_percentile": 56.5039753,
+              "evidence_id": "2025-26:01002:0100261210:state_level:LSTS:R1:S1",
+              "source_file": "2025ENGG_CAP1_CutOff.pdf",
+              "page": 2,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            }
+          ]
+        },
+        {
+          "category": "PWDOPENS",
+          "category_meaning": "Persons with Disability, Open, State Level",
+          "category_meaning_confidence": "best_effort",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 188072,
+              "closing_percentile": 16.4425946,
+              "evidence_id": "2025-26:01002:0100261210:state_level:PWDOPENS:R1:S1",
+              "source_file": "2025ENGG_CAP1_CutOff.pdf",
+              "page": 2,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            }
+          ]
+        },
+        {
+          "category": "TFWS",
+          "category_meaning": "Tuition Fee Waiver Scheme (state level)",
+          "category_meaning_confidence": "best_effort",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 36139,
+              "closing_percentile": 89.2945239,
+              "evidence_id": "2025-26:01002:0100261210:state_level:TFWS:R1:S1",
+              "source_file": "2025ENGG_CAP1_CutOff.pdf",
+              "page": 2,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            },
+            {
+              "round": 3,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 36832,
+              "closing_percentile": 89.1476381,
+              "evidence_id": "2025-26:01002:0100261210:state_level:TFWS:R3:S1",
+              "source_file": "2025ENGG_CAP3_CutOff.pdf",
+              "page": 2,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            }
+          ]
+        }
+      ],
+      "course_code": "0100261210"
+    }
+  ],
+  "home_university": "Autonomous Institute",
+  "status": "Government Autonomous",
+  "source_files": [
+    "2025ENGG_CAP1_CutOff.pdf",
+    "2025ENGG_CAP2_CutOff.pdf",
+    "2025ENGG_CAP3_CutOff.pdf",
+    "2025ENGG_CAP4_CutOff.pdf"
+  ]
+}
