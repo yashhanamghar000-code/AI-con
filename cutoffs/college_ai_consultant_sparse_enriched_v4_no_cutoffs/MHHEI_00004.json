@@ -1,0 +1,56 @@
+{
+  "schema_version": "4.0",
+  "record_id": "MHHEI_00004",
+  "institute_code": "01101",
+  "institute_name": "Shri Sant Gajanan Maharaj College of Engineering, Shegaon",
+  "official_website": "https://ssgmce.ac.in/",
+  "institution_type": "Un-Aided",
+  "extracted": {
+    "identity": {
+      "verification_status": {
+        "value": "verified_government",
+        "source": "Maharashtra State CET Cell"
+      },
+      "district": {
+        "confidence": "provided_master_list",
+        "source": "Maharashtra State CET Cell"
+      },
+      "city": {
+        "confidence": "provided_master_list",
+        "source": "Maharashtra State CET Cell"
+      },
+      "state": {
+        "value": "Maharashtra",
+        "source": "scope of supplied college dataset"
+      },
+      "affiliation": {
+        "value": "Sant Gadge Baba Amravati University, Amravati",
+        "source": "Maharashtra State CET Cell"
+      },
+      "ownership": {
+        "value": "Un-Aided",
+        "confidence": "provided_master_list",
+        "source": "Maharashtra State CET Cell"
+      },
+      "institute_code": {
+        "value": "01101",
+        "source": "Maharashtra State CET Cell"
+      },
+      "institution_type": {
+        "value": "Un-Aided",
+        "source": "Maharashtra State CET Cell"
+      }
+    },
+    "admissions": {
+      "note": "Cutoff data is intentionally excluded because it is maintained in a separate dataset."
+    },
+    "location": {
+      "state": "Maharashtra"
+    }
+  },
+  "sources_consulted": [
+    "https://ssgmce.ac.in/",
+    "https://fe2026.mahacet.org/StaticPages/frmInstituteSummary?InstituteCode=01101"
+  ],
+  "last_processed_at": "2026-10-09T17:06:57Z"
+}

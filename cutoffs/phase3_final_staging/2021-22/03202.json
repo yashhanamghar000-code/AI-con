@@ -1,0 +1,537 @@
+{
+  "institute_code": "03202",
+  "institute_name": "Rajendra Mane College of Engineering & Technology Ambav Deorukh",
+  "source_institute_name": null,
+  "academic_year": "2021-22",
+  "branches": [
+    {
+      "branch": "Computer Engineering",
+      "categories": [
+        {
+          "category": "EWS",
+          "category_meaning": null,
+          "category_meaning_confidence": null,
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "CAP",
+              "closing_rank": 84517,
+              "closing_percentile": 26.7293565,
+              "evidence_id": "2021-22:3202:320224510:state_level:EWS:R1:S1",
+              "source_file": "2021ENGG_CAP1_CutOff.pdf",
+              "page": 351,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            }
+          ]
+        },
+        {
+          "category": "GNT2H",
+          "category_meaning": null,
+          "category_meaning_confidence": null,
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "CAP",
+              "closing_rank": 62634,
+              "closing_percentile": 52.0169076,
+              "evidence_id": "2021-22:3202:320224510:home_university_seats_allotted_to_home_university_candidates:GNT2H:R1:S1",
+              "source_file": "2021ENGG_CAP1_CutOff.pdf",
+              "page": 351,
+              "level_key": "home_university_seats_allotted_to_home_university_candidates",
+              "level_label": "Home University Seats Allotted to Home University Candidates"
+            }
+          ]
+        },
+        {
+          "category": "GNT2O",
+          "category_meaning": null,
+          "category_meaning_confidence": null,
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "CAP",
+              "closing_rank": 97341,
+              "closing_percentile": 6.7188485,
+              "evidence_id": "2021-22:3202:320224510:other_than_home_university_seats_allotted_to_home_university:GNT2O:R1:S1",
+              "source_file": "2021ENGG_CAP1_CutOff.pdf",
+              "page": 351,
+              "level_key": "other_than_home_university_seats_allotted_to_home_university",
+              "level_label": "Other Than Home University Seats Allotted to Home University Candidates"
+            }
+          ]
+        },
+        {
+          "category": "GOBCH",
+          "category_meaning": null,
+          "category_meaning_confidence": null,
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "CAP",
+              "closing_rank": 70706,
+              "closing_percentile": 44.3547118,
+              "evidence_id": "2021-22:3202:320224510:home_university_seats_allotted_to_home_university_candidates:GOBCH:R1:S1",
+              "source_file": "2021ENGG_CAP1_CutOff.pdf",
+              "page": 351,
+              "level_key": "home_university_seats_allotted_to_home_university_candidates",
+              "level_label": "Home University Seats Allotted to Home University Candidates"
+            }
+          ]
+        },
+        {
+          "category": "GOBCO",
+          "category_meaning": null,
+          "category_meaning_confidence": null,
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "CAP",
+              "closing_rank": 71840,
+              "closing_percentile": 42.092358,
+              "evidence_id": "2021-22:3202:320224510:other_than_home_university_seats_allotted_to_home_university:GOBCO:R1:S1",
+              "source_file": "2021ENGG_CAP1_CutOff.pdf",
+              "page": 351,
+              "level_key": "other_than_home_university_seats_allotted_to_home_university",
+              "level_label": "Other Than Home University Seats Allotted to Home University Candidates"
+            }
+          ]
+        },
+        {
+          "category": "GOPENH",
+          "category_meaning": null,
+          "category_meaning_confidence": null,
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "CAP",
+              "closing_rank": 50936,
+              "closing_percentile": 63.6974316,
+              "evidence_id": "2021-22:3202:320224510:home_university_seats_allotted_to_home_university_candidates:GOPENH:R1:S1",
+              "source_file": "2021ENGG_CAP1_CutOff.pdf",
+              "page": 351,
+              "level_key": "home_university_seats_allotted_to_home_university_candidates",
+              "level_label": "Home University Seats Allotted to Home University Candidates"
+            }
+          ]
+        },
+        {
+          "category": "GOPENO",
+          "category_meaning": null,
+          "category_meaning_confidence": null,
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "CAP",
+              "closing_rank": 98957,
+              "closing_percentile": 3.6409822,
+              "evidence_id": "2021-22:3202:320224510:other_than_home_university_seats_allotted_to_other_than_home:GOPENO:R1:S1",
+              "source_file": "2021ENGG_CAP1_CutOff.pdf",
+              "page": 351,
+              "level_key": "other_than_home_university_seats_allotted_to_other_than_home",
+              "level_label": "Other Than Home University Seats Allotted to Other Than Home University Candidates"
+            },
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "CAP",
+              "closing_rank": 53295,
+              "closing_percentile": 61.3942986,
+              "evidence_id": "2021-22:3202:320224510:other_than_home_university_seats_allotted_to_home_university:GOPENO:R1:S1",
+              "source_file": "2021ENGG_CAP1_CutOff.pdf",
+              "page": 351,
+              "level_key": "other_than_home_university_seats_allotted_to_home_university",
+              "level_label": "Other Than Home University Seats Allotted to Home University Candidates"
+            },
+            {
+              "round": 2,
+              "stage": "1",
+              "list_type": "CAP",
+              "closing_rank": 52061,
+              "closing_percentile": 62.3075719,
+              "evidence_id": "2021-22:3202:320224510:other_than_home_university_seats_allotted_to_other_than_home:GOPENO:R2:S1",
+              "source_file": "2021ENGG_CAP2_CutOff.pdf",
+              "page": 298,
+              "level_key": "other_than_home_university_seats_allotted_to_other_than_home",
+              "level_label": "Other Than Home University Seats Allotted to Other Than Home University Candidates"
+            }
+          ]
+        },
+        {
+          "category": "GSCH",
+          "category_meaning": null,
+          "category_meaning_confidence": null,
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "CAP",
+              "closing_rank": 93507,
+              "closing_percentile": 12.7980055,
+              "evidence_id": "2021-22:3202:320224510:home_university_seats_allotted_to_home_university_candidates:GSCH:R1:S1",
+              "source_file": "2021ENGG_CAP1_CutOff.pdf",
+              "page": 351,
+              "level_key": "home_university_seats_allotted_to_home_university_candidates",
+              "level_label": "Home University Seats Allotted to Home University Candidates"
+            }
+          ]
+        },
+        {
+          "category": "GSCO",
+          "category_meaning": null,
+          "category_meaning_confidence": null,
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "CAP",
+              "closing_rank": 96598,
+              "closing_percentile": 8.1817268,
+              "evidence_id": "2021-22:3202:320224510:other_than_home_university_seats_allotted_to_home_university:GSCO:R1:S1",
+              "source_file": "2021ENGG_CAP1_CutOff.pdf",
+              "page": 351,
+              "level_key": "other_than_home_university_seats_allotted_to_home_university",
+              "level_label": "Other Than Home University Seats Allotted to Home University Candidates"
+            }
+          ]
+        },
+        {
+          "category": "GVJH",
+          "category_meaning": null,
+          "category_meaning_confidence": null,
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "CAP",
+              "closing_rank": 76911,
+              "closing_percentile": 36.4400146,
+              "evidence_id": "2021-22:3202:320224510:home_university_seats_allotted_to_home_university_candidates:GVJH:R1:S1",
+              "source_file": "2021ENGG_CAP1_CutOff.pdf",
+              "page": 351,
+              "level_key": "home_university_seats_allotted_to_home_university_candidates",
+              "level_label": "Home University Seats Allotted to Home University Candidates"
+            }
+          ]
+        },
+        {
+          "category": "LOBCH",
+          "category_meaning": null,
+          "category_meaning_confidence": null,
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "CAP",
+              "closing_rank": 77209,
+              "closing_percentile": 36.4202981,
+              "evidence_id": "2021-22:3202:320224510:home_university_seats_allotted_to_home_university_candidates:LOBCH:R1:S1",
+              "source_file": "2021ENGG_CAP1_CutOff.pdf",
+              "page": 351,
+              "level_key": "home_university_seats_allotted_to_home_university_candidates",
+              "level_label": "Home University Seats Allotted to Home University Candidates"
+            }
+          ]
+        },
+        {
+          "category": "LOBCO",
+          "category_meaning": null,
+          "category_meaning_confidence": null,
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "CAP",
+              "closing_rank": 76288,
+              "closing_percentile": 37.427407,
+              "evidence_id": "2021-22:3202:320224510:other_than_home_university_seats_allotted_to_home_university:LOBCO:R1:S1",
+              "source_file": "2021ENGG_CAP1_CutOff.pdf",
+              "page": 351,
+              "level_key": "other_than_home_university_seats_allotted_to_home_university",
+              "level_label": "Other Than Home University Seats Allotted to Home University Candidates"
+            }
+          ]
+        },
+        {
+          "category": "LOPENH",
+          "category_meaning": null,
+          "category_meaning_confidence": null,
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "CAP",
+              "closing_rank": 62959,
+              "closing_percentile": 51.9482809,
+              "evidence_id": "2021-22:3202:320224510:home_university_seats_allotted_to_home_university_candidates:LOPENH:R1:S1",
+              "source_file": "2021ENGG_CAP1_CutOff.pdf",
+              "page": 351,
+              "level_key": "home_university_seats_allotted_to_home_university_candidates",
+              "level_label": "Home University Seats Allotted to Home University Candidates"
+            }
+          ]
+        },
+        {
+          "category": "LOPENO",
+          "category_meaning": null,
+          "category_meaning_confidence": null,
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "CAP",
+              "closing_rank": 85059,
+              "closing_percentile": 25.9807928,
+              "evidence_id": "2021-22:3202:320224510:other_than_home_university_seats_allotted_to_other_than_home:LOPENO:R1:S1",
+              "source_file": "2021ENGG_CAP1_CutOff.pdf",
+              "page": 351,
+              "level_key": "other_than_home_university_seats_allotted_to_other_than_home",
+              "level_label": "Other Than Home University Seats Allotted to Other Than Home University Candidates"
+            }
+          ]
+        },
+        {
+          "category": "LSCH",
+          "category_meaning": null,
+          "category_meaning_confidence": null,
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "CAP",
+              "closing_rank": 95959,
+              "closing_percentile": 8.8142108,
+              "evidence_id": "2021-22:3202:320224510:home_university_seats_allotted_to_home_university_candidates:LSCH:R1:S1",
+              "source_file": "2021ENGG_CAP1_CutOff.pdf",
+              "page": 351,
+              "level_key": "home_university_seats_allotted_to_home_university_candidates",
+              "level_label": "Home University Seats Allotted to Home University Candidates"
+            }
+          ]
+        },
+        {
+          "category": "LSCO",
+          "category_meaning": null,
+          "category_meaning_confidence": null,
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "CAP",
+              "closing_rank": 98467,
+              "closing_percentile": 4.6076829,
+              "evidence_id": "2021-22:3202:320224510:other_than_home_university_seats_allotted_to_home_university:LSCO:R1:S1",
+              "source_file": "2021ENGG_CAP1_CutOff.pdf",
+              "page": 351,
+              "level_key": "other_than_home_university_seats_allotted_to_home_university",
+              "level_label": "Other Than Home University Seats Allotted to Home University Candidates"
+            }
+          ]
+        },
+        {
+          "category": "TFWS",
+          "category_meaning": null,
+          "category_meaning_confidence": null,
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "CAP",
+              "closing_rank": 45900,
+              "closing_percentile": 67.9011717,
+              "evidence_id": "2021-22:3202:320224510:state_level:TFWS:R1:S1",
+              "source_file": "2021ENGG_CAP1_CutOff.pdf",
+              "page": 351,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            }
+          ]
+        }
+      ],
+      "course_code": "320224510"
+    },
+    {
+      "branch": "Electronics and Telecommunication Engg",
+      "categories": [
+        {
+          "category": "EWS",
+          "category_meaning": null,
+          "category_meaning_confidence": null,
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "CAP",
+              "closing_rank": 75656,
+              "closing_percentile": 37.6726418,
+              "evidence_id": "2021-22:3202:320237210:state_level:EWS:R1:S1",
+              "source_file": "2021ENGG_CAP1_CutOff.pdf",
+              "page": 352,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            }
+          ]
+        },
+        {
+          "category": "GOPENH",
+          "category_meaning": null,
+          "category_meaning_confidence": null,
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "CAP",
+              "closing_rank": 64377,
+              "closing_percentile": 51.1462048,
+              "evidence_id": "2021-22:3202:320237210:home_university_seats_allotted_to_home_university_candidates:GOPENH:R1:S1",
+              "source_file": "2021ENGG_CAP1_CutOff.pdf",
+              "page": 352,
+              "level_key": "home_university_seats_allotted_to_home_university_candidates",
+              "level_label": "Home University Seats Allotted to Home University Candidates"
+            }
+          ]
+        }
+      ],
+      "course_code": "320237210"
+    },
+    {
+      "branch": "Automobile Engineering",
+      "categories": [
+        {
+          "category": "GOPENH",
+          "category_meaning": null,
+          "category_meaning_confidence": null,
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "CAP",
+              "closing_rank": 97359,
+              "closing_percentile": 6.7188485,
+              "evidence_id": "2021-22:3202:320260210:home_university_seats_allotted_to_home_university_candidates:GOPENH:R1:S1",
+              "source_file": "2021ENGG_CAP1_CutOff.pdf",
+              "page": 352,
+              "level_key": "home_university_seats_allotted_to_home_university_candidates",
+              "level_label": "Home University Seats Allotted to Home University Candidates"
+            }
+          ]
+        },
+        {
+          "category": "GOPENO",
+          "category_meaning": null,
+          "category_meaning_confidence": null,
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "CAP",
+              "closing_rank": 89987,
+              "closing_percentile": 18.2274908,
+              "evidence_id": "2021-22:3202:320260210:other_than_home_university_seats_allotted_to_home_university:GOPENO:R1:S1",
+              "source_file": "2021ENGG_CAP1_CutOff.pdf",
+              "page": 352,
+              "level_key": "other_than_home_university_seats_allotted_to_home_university",
+              "level_label": "Other Than Home University Seats Allotted to Home University Candidates"
+            }
+          ]
+        }
+      ],
+      "course_code": "320260210"
+    },
+    {
+      "branch": "Mechanical Engineering",
+      "categories": [
+        {
+          "category": "EWS",
+          "category_meaning": null,
+          "category_meaning_confidence": null,
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "CAP",
+              "closing_rank": 98300,
+              "closing_percentile": 4.8165736,
+              "evidence_id": "2021-22:3202:320261210:state_level:EWS:R1:S1",
+              "source_file": "2021ENGG_CAP1_CutOff.pdf",
+              "page": 353,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            }
+          ]
+        },
+        {
+          "category": "GOBCH",
+          "category_meaning": null,
+          "category_meaning_confidence": null,
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "CAP",
+              "closing_rank": 97688,
+              "closing_percentile": 6.02724,
+              "evidence_id": "2021-22:3202:320261210:home_university_seats_allotted_to_home_university_candidates:GOBCH:R1:S1",
+              "source_file": "2021ENGG_CAP1_CutOff.pdf",
+              "page": 353,
+              "level_key": "home_university_seats_allotted_to_home_university_candidates",
+              "level_label": "Home University Seats Allotted to Home University Candidates"
+            }
+          ]
+        },
+        {
+          "category": "GOPENH",
+          "category_meaning": null,
+          "category_meaning_confidence": null,
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "CAP",
+              "closing_rank": 77349,
+              "closing_percentile": 36.4202981,
+              "evidence_id": "2021-22:3202:320261210:home_university_seats_allotted_to_home_university_candidates:GOPENH:R1:S1",
+              "source_file": "2021ENGG_CAP1_CutOff.pdf",
+              "page": 353,
+              "level_key": "home_university_seats_allotted_to_home_university_candidates",
+              "level_label": "Home University Seats Allotted to Home University Candidates"
+            }
+          ]
+        },
+        {
+          "category": "GOPENO",
+          "category_meaning": null,
+          "category_meaning_confidence": null,
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "CAP",
+              "closing_rank": 97865,
+              "closing_percentile": 5.6666494,
+              "evidence_id": "2021-22:3202:320261210:other_than_home_university_seats_allotted_to_home_university:GOPENO:R1:S1",
+              "source_file": "2021ENGG_CAP1_CutOff.pdf",
+              "page": 353,
+              "level_key": "other_than_home_university_seats_allotted_to_home_university",
+              "level_label": "Other Than Home University Seats Allotted to Home University Candidates"
+            }
+          ]
+        }
+      ],
+      "course_code": "320261210"
+    }
+  ],
+  "home_university": null,
+  "status": "Un-Aided",
+  "source_files": [
+    "2021ENGG_CAP1_CutOff.pdf",
+    "2021ENGG_CAP2_CutOff.pdf"
+  ]
+}

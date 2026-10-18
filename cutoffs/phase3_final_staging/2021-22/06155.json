@@ -1,0 +1,968 @@
+{
+  "institute_code": "06155",
+  "institute_name": "G.H.Raisoni College of Engineering & Management, Wagholi, Pune",
+  "source_institute_name": null,
+  "academic_year": "2021-22",
+  "branches": [
+    {
+      "branch": "Civil Engineering",
+      "categories": [
+        {
+          "category": "GOPENS",
+          "category_meaning": null,
+          "category_meaning_confidence": null,
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "CAP",
+              "closing_rank": 95854,
+              "closing_percentile": 8.93593,
+              "evidence_id": "2021-22:6155:615519110:state_level:GOPENS:R1:S1",
+              "source_file": "2021ENGG_CAP1_CutOff.pdf",
+              "page": 892,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            },
+            {
+              "round": 2,
+              "stage": "1",
+              "list_type": "CAP",
+              "closing_rank": 85679,
+              "closing_percentile": 24.3861135,
+              "evidence_id": "2021-22:6155:615519110:state_level:GOPENS:R2:S1",
+              "source_file": "2021ENGG_CAP2_CutOff.pdf",
+              "page": 747,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            }
+          ]
+        },
+        {
+          "category": "LOPENS",
+          "category_meaning": null,
+          "category_meaning_confidence": null,
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "CAP",
+              "closing_rank": 71043,
+              "closing_percentile": 44.1945416,
+              "evidence_id": "2021-22:6155:615519110:state_level:LOPENS:R1:S1",
+              "source_file": "2021ENGG_CAP1_CutOff.pdf",
+              "page": 892,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            }
+          ]
+        }
+      ],
+      "course_code": "615519110"
+    },
+    {
+      "branch": "Computer Engineering",
+      "categories": [
+        {
+          "category": "GOPENS",
+          "category_meaning": null,
+          "category_meaning_confidence": null,
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "CAP",
+              "closing_rank": 16786,
+              "closing_percentile": 88.9865141,
+              "evidence_id": "2021-22:6155:615524510:state_level:GOPENS:R1:S1",
+              "source_file": "2021ENGG_CAP1_CutOff.pdf",
+              "page": 892,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            },
+            {
+              "round": 2,
+              "stage": "1",
+              "list_type": "CAP",
+              "closing_rank": 19248,
+              "closing_percentile": 87.3292709,
+              "evidence_id": "2021-22:6155:615524510:state_level:GOPENS:R2:S1",
+              "source_file": "2021ENGG_CAP2_CutOff.pdf",
+              "page": 747,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            }
+          ]
+        },
+        {
+          "category": "LOPENS",
+          "category_meaning": null,
+          "category_meaning_confidence": null,
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "CAP",
+              "closing_rank": 18286,
+              "closing_percentile": 88.0080788,
+              "evidence_id": "2021-22:6155:615524510:state_level:LOPENS:R1:S1",
+              "source_file": "2021ENGG_CAP1_CutOff.pdf",
+              "page": 892,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            },
+            {
+              "round": 2,
+              "stage": "1",
+              "list_type": "CAP",
+              "closing_rank": 19605,
+              "closing_percentile": 87.2236373,
+              "evidence_id": "2021-22:6155:615524510:state_level:LOPENS:R2:S1",
+              "source_file": "2021ENGG_CAP2_CutOff.pdf",
+              "page": 747,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            }
+          ]
+        },
+        {
+          "category": "MI",
+          "category_meaning": null,
+          "category_meaning_confidence": null,
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "CAP",
+              "closing_rank": 95124,
+              "closing_percentile": 10.5537393,
+              "evidence_id": "2021-22:6155:615524510:state_level:MI:R1:S1",
+              "source_file": "2021ENGG_CAP1_CutOff.pdf",
+              "page": 892,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            },
+            {
+              "round": 2,
+              "stage": "1",
+              "list_type": "CAP",
+              "closing_rank": 89750,
+              "closing_percentile": 19.0366853,
+              "evidence_id": "2021-22:6155:615524510:state_level:MI:R2:S1",
+              "source_file": "2021ENGG_CAP2_CutOff.pdf",
+              "page": 747,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            }
+          ]
+        },
+        {
+          "category": "TFWS",
+          "category_meaning": null,
+          "category_meaning_confidence": null,
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "CAP",
+              "closing_rank": 13676,
+              "closing_percentile": 91.0432864,
+              "evidence_id": "2021-22:6155:615524510:state_level:TFWS:R1:S1",
+              "source_file": "2021ENGG_CAP1_CutOff.pdf",
+              "page": 892,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            },
+            {
+              "round": 2,
+              "stage": "1",
+              "list_type": "CAP",
+              "closing_rank": 12966,
+              "closing_percentile": 91.495062,
+              "evidence_id": "2021-22:6155:615524510:state_level:TFWS:R2:S1",
+              "source_file": "2021ENGG_CAP2_CutOff.pdf",
+              "page": 747,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            }
+          ]
+        }
+      ],
+      "course_code": "615524510"
+    },
+    {
+      "branch": "Information Technology",
+      "categories": [
+        {
+          "category": "GOPENS",
+          "category_meaning": null,
+          "category_meaning_confidence": null,
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "CAP",
+              "closing_rank": 22589,
+              "closing_percentile": 85.1655088,
+              "evidence_id": "2021-22:6155:615524610:state_level:GOPENS:R1:S1",
+              "source_file": "2021ENGG_CAP1_CutOff.pdf",
+              "page": 892,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            },
+            {
+              "round": 2,
+              "stage": "1",
+              "list_type": "CAP",
+              "closing_rank": 27044,
+              "closing_percentile": 82.1745519,
+              "evidence_id": "2021-22:6155:615524610:state_level:GOPENS:R2:S1",
+              "source_file": "2021ENGG_CAP2_CutOff.pdf",
+              "page": 747,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            }
+          ]
+        },
+        {
+          "category": "LOPENS",
+          "category_meaning": null,
+          "category_meaning_confidence": null,
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "CAP",
+              "closing_rank": 22139,
+              "closing_percentile": 85.4531684,
+              "evidence_id": "2021-22:6155:615524610:state_level:LOPENS:R1:S1",
+              "source_file": "2021ENGG_CAP1_CutOff.pdf",
+              "page": 892,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            },
+            {
+              "round": 2,
+              "stage": "1",
+              "list_type": "CAP",
+              "closing_rank": 27604,
+              "closing_percentile": 81.8966977,
+              "evidence_id": "2021-22:6155:615524610:state_level:LOPENS:R2:S1",
+              "source_file": "2021ENGG_CAP2_CutOff.pdf",
+              "page": 747,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            }
+          ]
+        },
+        {
+          "category": "MI",
+          "category_meaning": null,
+          "category_meaning_confidence": null,
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "CAP",
+              "closing_rank": 90846,
+              "closing_percentile": 17.5835125,
+              "evidence_id": "2021-22:6155:615524610:state_level:MI:R1:S1",
+              "source_file": "2021ENGG_CAP1_CutOff.pdf",
+              "page": 892,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            },
+            {
+              "round": 2,
+              "stage": "1",
+              "list_type": "CAP",
+              "closing_rank": 67252,
+              "closing_percentile": 47.7789098,
+              "evidence_id": "2021-22:6155:615524610:state_level:MI:R2:S1",
+              "source_file": "2021ENGG_CAP2_CutOff.pdf",
+              "page": 747,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            }
+          ]
+        },
+        {
+          "category": "TFWS",
+          "category_meaning": null,
+          "category_meaning_confidence": null,
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "CAP",
+              "closing_rank": 17469,
+              "closing_percentile": 88.5585207,
+              "evidence_id": "2021-22:6155:615524610:state_level:TFWS:R1:S1",
+              "source_file": "2021ENGG_CAP1_CutOff.pdf",
+              "page": 892,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            },
+            {
+              "round": 2,
+              "stage": "1",
+              "list_type": "CAP",
+              "closing_rank": 17080,
+              "closing_percentile": 88.7543704,
+              "evidence_id": "2021-22:6155:615524610:state_level:TFWS:R2:S1",
+              "source_file": "2021ENGG_CAP2_CutOff.pdf",
+              "page": 747,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            }
+          ]
+        }
+      ],
+      "course_code": "615524610"
+    },
+    {
+      "branch": "Computer Science and Engineering (Cyber Security)",
+      "categories": [
+        {
+          "category": "GOPENS",
+          "category_meaning": null,
+          "category_meaning_confidence": null,
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "CAP",
+              "closing_rank": 32290,
+              "closing_percentile": 78.4397237,
+              "evidence_id": "2021-22:6155:615526010:state_level:GOPENS:R1:S1",
+              "source_file": "2021ENGG_CAP1_CutOff.pdf",
+              "page": 892,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            }
+          ]
+        },
+        {
+          "category": "LOPENS",
+          "category_meaning": null,
+          "category_meaning_confidence": null,
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "CAP",
+              "closing_rank": 35844,
+              "closing_percentile": 75.9050745,
+              "evidence_id": "2021-22:6155:615526010:state_level:LOPENS:R1:S1",
+              "source_file": "2021ENGG_CAP1_CutOff.pdf",
+              "page": 892,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            }
+          ]
+        },
+        {
+          "category": "MI",
+          "category_meaning": null,
+          "category_meaning_confidence": null,
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "CAP",
+              "closing_rank": 91253,
+              "closing_percentile": 17.2251737,
+              "evidence_id": "2021-22:6155:615526010:state_level:MI:R1:S1",
+              "source_file": "2021ENGG_CAP1_CutOff.pdf",
+              "page": 892,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            }
+          ]
+        },
+        {
+          "category": "TFWS",
+          "category_meaning": null,
+          "category_meaning_confidence": null,
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "CAP",
+              "closing_rank": 26024,
+              "closing_percentile": 82.9327064,
+              "evidence_id": "2021-22:6155:615526010:state_level:TFWS:R1:S1",
+              "source_file": "2021ENGG_CAP1_CutOff.pdf",
+              "page": 892,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            }
+          ]
+        }
+      ],
+      "course_code": "615526010"
+    },
+    {
+      "branch": "Electrical Engineering",
+      "categories": [
+        {
+          "category": "GOPENS",
+          "category_meaning": null,
+          "category_meaning_confidence": null,
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "CAP",
+              "closing_rank": 72748,
+              "closing_percentile": 41.1916183,
+              "evidence_id": "2021-22:6155:615529310:state_level:GOPENS:R1:S1",
+              "source_file": "2021ENGG_CAP1_CutOff.pdf",
+              "page": 893,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            }
+          ]
+        },
+        {
+          "category": "LOPENS",
+          "category_meaning": null,
+          "category_meaning_confidence": null,
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "CAP",
+              "closing_rank": 92533,
+              "closing_percentile": 14.9465104,
+              "evidence_id": "2021-22:6155:615529310:state_level:LOPENS:R1:S1",
+              "source_file": "2021ENGG_CAP1_CutOff.pdf",
+              "page": 893,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            }
+          ]
+        }
+      ],
+      "course_code": "615529310"
+    },
+    {
+      "branch": "Electronics and Telecommunication Engg",
+      "categories": [
+        {
+          "category": "GOPENS",
+          "category_meaning": null,
+          "category_meaning_confidence": null,
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "CAP",
+              "closing_rank": 41100,
+              "closing_percentile": 71.5034873,
+              "evidence_id": "2021-22:6155:615537210:state_level:GOPENS:R1:S1",
+              "source_file": "2021ENGG_CAP1_CutOff.pdf",
+              "page": 893,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            },
+            {
+              "round": 2,
+              "stage": "1",
+              "list_type": "CAP",
+              "closing_rank": 52489,
+              "closing_percentile": 61.8916532,
+              "evidence_id": "2021-22:6155:615537210:state_level:GOPENS:R2:S1",
+              "source_file": "2021ENGG_CAP2_CutOff.pdf",
+              "page": 748,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            }
+          ]
+        },
+        {
+          "category": "LOPENS",
+          "category_meaning": null,
+          "category_meaning_confidence": null,
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "CAP",
+              "closing_rank": 42863,
+              "closing_percentile": 70.7243564,
+              "evidence_id": "2021-22:6155:615537210:state_level:LOPENS:R1:S1",
+              "source_file": "2021ENGG_CAP1_CutOff.pdf",
+              "page": 893,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            },
+            {
+              "round": 2,
+              "stage": "1",
+              "list_type": "CAP",
+              "closing_rank": 48598,
+              "closing_percentile": 65.8083801,
+              "evidence_id": "2021-22:6155:615537210:state_level:LOPENS:R2:S1",
+              "source_file": "2021ENGG_CAP2_CutOff.pdf",
+              "page": 748,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            }
+          ]
+        },
+        {
+          "category": "MI",
+          "category_meaning": null,
+          "category_meaning_confidence": null,
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "CAP",
+              "closing_rank": 86914,
+              "closing_percentile": 23.6859379,
+              "evidence_id": "2021-22:6155:615537210:state_level:MI:R1:S1",
+              "source_file": "2021ENGG_CAP1_CutOff.pdf",
+              "page": 893,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            },
+            {
+              "round": 2,
+              "stage": "1",
+              "list_type": "CAP",
+              "closing_rank": 48442,
+              "closing_percentile": 65.83909,
+              "evidence_id": "2021-22:6155:615537210:state_level:MI:R2:S1",
+              "source_file": "2021ENGG_CAP2_CutOff.pdf",
+              "page": 748,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            }
+          ]
+        },
+        {
+          "category": "TFWS",
+          "category_meaning": null,
+          "category_meaning_confidence": null,
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "CAP",
+              "closing_rank": 30866,
+              "closing_percentile": 79.541581,
+              "evidence_id": "2021-22:6155:615537210:state_level:TFWS:R1:S1",
+              "source_file": "2021ENGG_CAP1_CutOff.pdf",
+              "page": 893,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            },
+            {
+              "round": 2,
+              "stage": "1",
+              "list_type": "CAP",
+              "closing_rank": 31093,
+              "closing_percentile": 79.301927,
+              "evidence_id": "2021-22:6155:615537210:state_level:TFWS:R2:S1",
+              "source_file": "2021ENGG_CAP2_CutOff.pdf",
+              "page": 748,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            }
+          ]
+        }
+      ],
+      "course_code": "615537210"
+    },
+    {
+      "branch": "Mechanical Engineering",
+      "categories": [
+        {
+          "category": "GOPENS",
+          "category_meaning": null,
+          "category_meaning_confidence": null,
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "CAP",
+              "closing_rank": 99878,
+              "closing_percentile": 1.9035597,
+              "evidence_id": "2021-22:6155:615561210:state_level:GOPENS:R1:S1",
+              "source_file": "2021ENGG_CAP1_CutOff.pdf",
+              "page": 893,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            },
+            {
+              "round": 2,
+              "stage": "1",
+              "list_type": "CAP",
+              "closing_rank": 92560,
+              "closing_percentile": 14.9465104,
+              "evidence_id": "2021-22:6155:615561210:state_level:GOPENS:R2:S1",
+              "source_file": "2021ENGG_CAP2_CutOff.pdf",
+              "page": 748,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            }
+          ]
+        },
+        {
+          "category": "LOPENS",
+          "category_meaning": null,
+          "category_meaning_confidence": null,
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "CAP",
+              "closing_rank": 63353,
+              "closing_percentile": 51.8984054,
+              "evidence_id": "2021-22:6155:615561210:state_level:LOPENS:R1:S1",
+              "source_file": "2021ENGG_CAP1_CutOff.pdf",
+              "page": 893,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            }
+          ]
+        }
+      ],
+      "course_code": "615561210"
+    },
+    {
+      "branch": "Computer Science and Engineering(Artificial Intelligence and Machine Learning)",
+      "categories": [
+        {
+          "category": "GOPENS",
+          "category_meaning": null,
+          "category_meaning_confidence": null,
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "CAP",
+              "closing_rank": 29818,
+              "closing_percentile": 80.2221661,
+              "evidence_id": "2021-22:6155:615591110:state_level:GOPENS:R1:S1",
+              "source_file": "2021ENGG_CAP1_CutOff.pdf",
+              "page": 893,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            },
+            {
+              "round": 2,
+              "stage": "1",
+              "list_type": "CAP",
+              "closing_rank": 31156,
+              "closing_percentile": 79.301927,
+              "evidence_id": "2021-22:6155:615591110:state_level:GOPENS:R2:S1",
+              "source_file": "2021ENGG_CAP2_CutOff.pdf",
+              "page": 748,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            }
+          ]
+        },
+        {
+          "category": "LOPENS",
+          "category_meaning": null,
+          "category_meaning_confidence": null,
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "CAP",
+              "closing_rank": 38374,
+              "closing_percentile": 73.9633214,
+              "evidence_id": "2021-22:6155:615591110:state_level:LOPENS:R1:S1",
+              "source_file": "2021ENGG_CAP1_CutOff.pdf",
+              "page": 893,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            },
+            {
+              "round": 2,
+              "stage": "1",
+              "list_type": "CAP",
+              "closing_rank": 36408,
+              "closing_percentile": 75.4365724,
+              "evidence_id": "2021-22:6155:615591110:state_level:LOPENS:R2:S1",
+              "source_file": "2021ENGG_CAP2_CutOff.pdf",
+              "page": 748,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            }
+          ]
+        },
+        {
+          "category": "MI",
+          "category_meaning": null,
+          "category_meaning_confidence": null,
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "CAP",
+              "closing_rank": 40456,
+              "closing_percentile": 72.5725827,
+              "evidence_id": "2021-22:6155:615591110:state_level:MI:R1:S1",
+              "source_file": "2021ENGG_CAP1_CutOff.pdf",
+              "page": 893,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            },
+            {
+              "round": 2,
+              "stage": "1",
+              "list_type": "CAP",
+              "closing_rank": 22481,
+              "closing_percentile": 85.179415,
+              "evidence_id": "2021-22:6155:615591110:state_level:MI:R2:S1",
+              "source_file": "2021ENGG_CAP2_CutOff.pdf",
+              "page": 748,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            }
+          ]
+        },
+        {
+          "category": "TFWS",
+          "category_meaning": null,
+          "category_meaning_confidence": null,
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "CAP",
+              "closing_rank": 23636,
+              "closing_percentile": 84.5535668,
+              "evidence_id": "2021-22:6155:615591110:state_level:TFWS:R1:S1",
+              "source_file": "2021ENGG_CAP1_CutOff.pdf",
+              "page": 893,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            }
+          ]
+        }
+      ],
+      "course_code": "615591110"
+    },
+    {
+      "branch": "Computer Science and Engineering (Artificial Intelligence)",
+      "categories": [
+        {
+          "category": "GOPENS",
+          "category_meaning": null,
+          "category_meaning_confidence": null,
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "CAP",
+              "closing_rank": 27929,
+              "closing_percentile": 81.4574352,
+              "evidence_id": "2021-22:6155:615591310:state_level:GOPENS:R1:S1",
+              "source_file": "2021ENGG_CAP1_CutOff.pdf",
+              "page": 894,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            }
+          ]
+        },
+        {
+          "category": "LOPENS",
+          "category_meaning": null,
+          "category_meaning_confidence": null,
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "CAP",
+              "closing_rank": 35642,
+              "closing_percentile": 75.9153688,
+              "evidence_id": "2021-22:6155:615591310:state_level:LOPENS:R1:S1",
+              "source_file": "2021ENGG_CAP1_CutOff.pdf",
+              "page": 894,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            }
+          ]
+        },
+        {
+          "category": "MI",
+          "category_meaning": null,
+          "category_meaning_confidence": null,
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "CAP",
+              "closing_rank": 87053,
+              "closing_percentile": 23.6405669,
+              "evidence_id": "2021-22:6155:615591310:state_level:MI:R1:S1",
+              "source_file": "2021ENGG_CAP1_CutOff.pdf",
+              "page": 894,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            }
+          ]
+        },
+        {
+          "category": "TFWS",
+          "category_meaning": null,
+          "category_meaning_confidence": null,
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "CAP",
+              "closing_rank": 23079,
+              "closing_percentile": 84.7816208,
+              "evidence_id": "2021-22:6155:615591310:state_level:TFWS:R1:S1",
+              "source_file": "2021ENGG_CAP1_CutOff.pdf",
+              "page": 894,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            }
+          ]
+        }
+      ],
+      "course_code": "615591310"
+    },
+    {
+      "branch": "Data Science",
+      "categories": [
+        {
+          "category": "GOPENS",
+          "category_meaning": null,
+          "category_meaning_confidence": null,
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "CAP",
+              "closing_rank": 40777,
+              "closing_percentile": 72.2823866,
+              "evidence_id": "2021-22:6155:615591710:state_level:GOPENS:R1:S1",
+              "source_file": "2021ENGG_CAP1_CutOff.pdf",
+              "page": 894,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            }
+          ]
+        },
+        {
+          "category": "LOPENS",
+          "category_meaning": null,
+          "category_meaning_confidence": null,
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "CAP",
+              "closing_rank": 49005,
+              "closing_percentile": 65.5810044,
+              "evidence_id": "2021-22:6155:615591710:state_level:LOPENS:R1:S1",
+              "source_file": "2021ENGG_CAP1_CutOff.pdf",
+              "page": 894,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            }
+          ]
+        },
+        {
+          "category": "MI",
+          "category_meaning": null,
+          "category_meaning_confidence": null,
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "CAP",
+              "closing_rank": 39306,
+              "closing_percentile": 72.9671324,
+              "evidence_id": "2021-22:6155:615591710:state_level:MI:R1:S1",
+              "source_file": "2021ENGG_CAP1_CutOff.pdf",
+              "page": 894,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            }
+          ]
+        }
+      ],
+      "course_code": "615591710"
+    },
+    {
+      "branch": "Artificial Intelligence",
+      "categories": [
+        {
+          "category": "GOPENS",
+          "category_meaning": null,
+          "category_meaning_confidence": null,
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "CAP",
+              "closing_rank": 42476,
+              "closing_percentile": 70.788968,
+              "evidence_id": "2021-22:6155:615599710:state_level:GOPENS:R1:S1",
+              "source_file": "2021ENGG_CAP1_CutOff.pdf",
+              "page": 894,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            }
+          ]
+        },
+        {
+          "category": "LOPENS",
+          "category_meaning": null,
+          "category_meaning_confidence": null,
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "CAP",
+              "closing_rank": 49756,
+              "closing_percentile": 64.167253,
+              "evidence_id": "2021-22:6155:615599710:state_level:LOPENS:R1:S1",
+              "source_file": "2021ENGG_CAP1_CutOff.pdf",
+              "page": 894,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            }
+          ]
+        },
+        {
+          "category": "TFWS",
+          "category_meaning": null,
+          "category_meaning_confidence": null,
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "CAP",
+              "closing_rank": 29555,
+              "closing_percentile": 80.3937702,
+              "evidence_id": "2021-22:6155:615599710:state_level:TFWS:R1:S1",
+              "source_file": "2021ENGG_CAP1_CutOff.pdf",
+              "page": 894,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            }
+          ]
+        }
+      ],
+      "course_code": "615599710"
+    }
+  ],
+  "home_university": null,
+  "status": "Un-Aided Autonomous Linguistic Minority - Hindi",
+  "source_files": [
+    "2021ENGG_CAP1_CutOff.pdf",
+    "2021ENGG_CAP2_CutOff.pdf"
+  ]
+}

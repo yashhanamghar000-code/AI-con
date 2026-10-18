@@ -1,0 +1,868 @@
+{
+  "institute_code": "01005",
+  "institute_name": "Sant Gadge Baba Amravati University,Amravati",
+  "source_institute_name": null,
+  "academic_year": "2020-21",
+  "branches": [
+    {
+      "branch": "Food Technology",
+      "categories": [
+        {
+          "category": "EWS",
+          "category_meaning": null,
+          "category_meaning_confidence": null,
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "CAP",
+              "closing_rank": 50606,
+              "closing_percentile": 60.577932,
+              "evidence_id": "2020-21:1005:100550310:state_level:EWS:R1:S1",
+              "source_file": "round-1-mht-cet-2020-mh.pdf",
+              "page": 3,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            }
+          ]
+        },
+        {
+          "category": "GOBCH",
+          "category_meaning": null,
+          "category_meaning_confidence": null,
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "CAP",
+              "closing_rank": 39782,
+              "closing_percentile": 71.0406477,
+              "evidence_id": "2020-21:1005:100550310:home_university_seats_allotted_to_home_university_candidates:GOBCH:R1:S1",
+              "source_file": "round-1-mht-cet-2020-mh.pdf",
+              "page": 3,
+              "level_key": "home_university_seats_allotted_to_home_university_candidates",
+              "level_label": "Home University Seats Allotted to Home University Candidates"
+            }
+          ]
+        },
+        {
+          "category": "GOBCO",
+          "category_meaning": null,
+          "category_meaning_confidence": null,
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "CAP",
+              "closing_rank": 24968,
+              "closing_percentile": 82.701361,
+              "evidence_id": "2020-21:1005:100550310:other_than_home_university_seats_allotted_to_other_than_home:GOBCO:R1:S1",
+              "source_file": "round-1-mht-cet-2020-mh.pdf",
+              "page": 3,
+              "level_key": "other_than_home_university_seats_allotted_to_other_than_home",
+              "level_label": "Other Than Home University Seats Allotted to Other Than Home University Candidates"
+            }
+          ]
+        },
+        {
+          "category": "GOPENH",
+          "category_meaning": null,
+          "category_meaning_confidence": null,
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "CAP",
+              "closing_rank": 36956,
+              "closing_percentile": 73.4421146,
+              "evidence_id": "2020-21:1005:100550310:home_university_seats_allotted_to_home_university_candidates:GOPENH:R1:S1",
+              "source_file": "round-1-mht-cet-2020-mh.pdf",
+              "page": 3,
+              "level_key": "home_university_seats_allotted_to_home_university_candidates",
+              "level_label": "Home University Seats Allotted to Home University Candidates"
+            }
+          ]
+        },
+        {
+          "category": "GOPENO",
+          "category_meaning": null,
+          "category_meaning_confidence": null,
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "CAP",
+              "closing_rank": 13415,
+              "closing_percentile": 90.7071209,
+              "evidence_id": "2020-21:1005:100550310:other_than_home_university_seats_allotted_to_other_than_home:GOPENO:R1:S1",
+              "source_file": "round-1-mht-cet-2020-mh.pdf",
+              "page": 3,
+              "level_key": "other_than_home_university_seats_allotted_to_other_than_home",
+              "level_label": "Other Than Home University Seats Allotted to Other Than Home University Candidates"
+            },
+            {
+              "round": 2,
+              "stage": "1",
+              "list_type": "CAP",
+              "closing_rank": 20463,
+              "closing_percentile": 85.8338314,
+              "evidence_id": "2020-21:1005:100550310:other_than_home_university_seats_allotted_to_other_than_home:GOPENO:R2:S1",
+              "source_file": "2020ENGG_CAP2_CutOff.pdf",
+              "page": 3,
+              "level_key": "other_than_home_university_seats_allotted_to_other_than_home",
+              "level_label": "Other Than Home University Seats Allotted to Other Than Home University Candidates"
+            }
+          ]
+        },
+        {
+          "category": "GSCH",
+          "category_meaning": null,
+          "category_meaning_confidence": null,
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "CAP",
+              "closing_rank": 60774,
+              "closing_percentile": 48.7595983,
+              "evidence_id": "2020-21:1005:100550310:home_university_seats_allotted_to_home_university_candidates:GSCH:R1:S1",
+              "source_file": "round-1-mht-cet-2020-mh.pdf",
+              "page": 3,
+              "level_key": "home_university_seats_allotted_to_home_university_candidates",
+              "level_label": "Home University Seats Allotted to Home University Candidates"
+            }
+          ]
+        },
+        {
+          "category": "GSTH",
+          "category_meaning": null,
+          "category_meaning_confidence": null,
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "CAP",
+              "closing_rank": 58996,
+              "closing_percentile": 50.8064516,
+              "evidence_id": "2020-21:1005:100550310:home_university_seats_allotted_to_home_university_candidates:GSTH:R1:S1",
+              "source_file": "round-1-mht-cet-2020-mh.pdf",
+              "page": 3,
+              "level_key": "home_university_seats_allotted_to_home_university_candidates",
+              "level_label": "Home University Seats Allotted to Home University Candidates"
+            }
+          ]
+        },
+        {
+          "category": "GSTO",
+          "category_meaning": null,
+          "category_meaning_confidence": null,
+          "cutoffs": [
+            {
+              "round": 2,
+              "stage": "1",
+              "list_type": "CAP",
+              "closing_rank": 52564,
+              "closing_percentile": 58.7564176,
+              "evidence_id": "2020-21:1005:100550310:other_than_home_university_seats_allotted_to_other_than_home:GSTO:R2:S1",
+              "source_file": "2020ENGG_CAP2_CutOff.pdf",
+              "page": 3,
+              "level_key": "other_than_home_university_seats_allotted_to_other_than_home",
+              "level_label": "Other Than Home University Seats Allotted to Other Than Home University Candidates"
+            }
+          ]
+        },
+        {
+          "category": "LOBCH",
+          "category_meaning": null,
+          "category_meaning_confidence": null,
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "CAP",
+              "closing_rank": 36676,
+              "closing_percentile": 73.6301086,
+              "evidence_id": "2020-21:1005:100550310:home_university_seats_allotted_to_home_university_candidates:LOBCH:R1:S1",
+              "source_file": "round-1-mht-cet-2020-mh.pdf",
+              "page": 3,
+              "level_key": "home_university_seats_allotted_to_home_university_candidates",
+              "level_label": "Home University Seats Allotted to Home University Candidates"
+            }
+          ]
+        },
+        {
+          "category": "LOPENH",
+          "category_meaning": null,
+          "category_meaning_confidence": null,
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "CAP",
+              "closing_rank": 23296,
+              "closing_percentile": 83.9184061,
+              "evidence_id": "2020-21:1005:100550310:home_university_seats_allotted_to_home_university_candidates:LOPENH:R1:S1",
+              "source_file": "round-1-mht-cet-2020-mh.pdf",
+              "page": 3,
+              "level_key": "home_university_seats_allotted_to_home_university_candidates",
+              "level_label": "Home University Seats Allotted to Home University Candidates"
+            }
+          ]
+        },
+        {
+          "category": "LSCH",
+          "category_meaning": null,
+          "category_meaning_confidence": null,
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "CAP",
+              "closing_rank": 43826,
+              "closing_percentile": 67.4741077,
+              "evidence_id": "2020-21:1005:100550310:home_university_seats_allotted_to_home_university_candidates:LSCH:R1:S1",
+              "source_file": "round-1-mht-cet-2020-mh.pdf",
+              "page": 3,
+              "level_key": "home_university_seats_allotted_to_home_university_candidates",
+              "level_label": "Home University Seats Allotted to Home University Candidates"
+            }
+          ]
+        },
+        {
+          "category": "TFWS",
+          "category_meaning": null,
+          "category_meaning_confidence": null,
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "CAP",
+              "closing_rank": 17216,
+              "closing_percentile": 88.0387129,
+              "evidence_id": "2020-21:1005:100550310:state_level:TFWS:R1:S1",
+              "source_file": "round-1-mht-cet-2020-mh.pdf",
+              "page": 3,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            }
+          ]
+        }
+      ],
+      "course_code": "100550310"
+    },
+    {
+      "branch": "Oil and Paints Technology",
+      "categories": [
+        {
+          "category": "EWS",
+          "category_meaning": null,
+          "category_meaning_confidence": null,
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "CAP",
+              "closing_rank": 75665,
+              "closing_percentile": 26.547744,
+              "evidence_id": "2020-21:1005:100551710:state_level:EWS:R1:S1",
+              "source_file": "round-1-mht-cet-2020-mh.pdf",
+              "page": 4,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            }
+          ]
+        },
+        {
+          "category": "GOPENO",
+          "category_meaning": null,
+          "category_meaning_confidence": null,
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "CAP",
+              "closing_rank": 22884,
+              "closing_percentile": 84.2290812,
+              "evidence_id": "2020-21:1005:100551710:other_than_home_university_seats_allotted_to_other_than_home:GOPENO:R1:S1",
+              "source_file": "round-1-mht-cet-2020-mh.pdf",
+              "page": 4,
+              "level_key": "other_than_home_university_seats_allotted_to_other_than_home",
+              "level_label": "Other Than Home University Seats Allotted to Other Than Home University Candidates"
+            }
+          ]
+        },
+        {
+          "category": "LOBCO",
+          "category_meaning": null,
+          "category_meaning_confidence": null,
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "CAP",
+              "closing_rank": 64803,
+              "closing_percentile": 43.3153897,
+              "evidence_id": "2020-21:1005:100551710:other_than_home_university_seats_allotted_to_other_than_home:LOBCO:R1:S1",
+              "source_file": "round-1-mht-cet-2020-mh.pdf",
+              "page": 4,
+              "level_key": "other_than_home_university_seats_allotted_to_other_than_home",
+              "level_label": "Other Than Home University Seats Allotted to Other Than Home University Candidates"
+            }
+          ]
+        },
+        {
+          "category": "LOPENH",
+          "category_meaning": null,
+          "category_meaning_confidence": null,
+          "cutoffs": [
+            {
+              "round": 2,
+              "stage": "1",
+              "list_type": "CAP",
+              "closing_rank": 41889,
+              "closing_percentile": 69.4150658,
+              "evidence_id": "2020-21:1005:100551710:home_university_seats_allotted_to_other_than_home_university:LOPENH:R2:S1",
+              "source_file": "2020ENGG_CAP2_CutOff.pdf",
+              "page": 4,
+              "level_key": "home_university_seats_allotted_to_other_than_home_university",
+              "level_label": "Home University Seats Allotted to Other Than Home University Candidates"
+            }
+          ]
+        },
+        {
+          "category": "TFWS",
+          "category_meaning": null,
+          "category_meaning_confidence": null,
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "CAP",
+              "closing_rank": 33079,
+              "closing_percentile": 76.7055523,
+              "evidence_id": "2020-21:1005:100551710:state_level:TFWS:R1:S1",
+              "source_file": "round-1-mht-cet-2020-mh.pdf",
+              "page": 4,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            }
+          ]
+        }
+      ],
+      "course_code": "100551710"
+    },
+    {
+      "branch": "Paper and Pulp Technology",
+      "categories": [
+        {
+          "category": "EWS",
+          "category_meaning": null,
+          "category_meaning_confidence": null,
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "CAP",
+              "closing_rank": 50595,
+              "closing_percentile": 60.577932,
+              "evidence_id": "2020-21:1005:100552410:state_level:EWS:R1:S1",
+              "source_file": "round-1-mht-cet-2020-mh.pdf",
+              "page": 5,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            }
+          ]
+        },
+        {
+          "category": "GNT2H",
+          "category_meaning": null,
+          "category_meaning_confidence": null,
+          "cutoffs": [
+            {
+              "round": 2,
+              "stage": "1",
+              "list_type": "CAP",
+              "closing_rank": 82778,
+              "closing_percentile": 13.2928186,
+              "evidence_id": "2020-21:1005:100552410:home_university_seats_allotted_to_other_than_home_university:GNT2H:R2:S1",
+              "source_file": "2020ENGG_CAP2_CutOff.pdf",
+              "page": 5,
+              "level_key": "home_university_seats_allotted_to_other_than_home_university",
+              "level_label": "Home University Seats Allotted to Other Than Home University Candidates"
+            }
+          ]
+        },
+        {
+          "category": "GOBCO",
+          "category_meaning": null,
+          "category_meaning_confidence": null,
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "CAP",
+              "closing_rank": 77842,
+              "closing_percentile": 22.451308,
+              "evidence_id": "2020-21:1005:100552410:other_than_home_university_seats_allotted_to_other_than_home:GOBCO:R1:S1",
+              "source_file": "round-1-mht-cet-2020-mh.pdf",
+              "page": 5,
+              "level_key": "other_than_home_university_seats_allotted_to_other_than_home",
+              "level_label": "Other Than Home University Seats Allotted to Other Than Home University Candidates"
+            },
+            {
+              "round": 2,
+              "stage": "1",
+              "list_type": "CAP",
+              "closing_rank": 83532,
+              "closing_percentile": 11.8793003,
+              "evidence_id": "2020-21:1005:100552410:other_than_home_university_seats_allotted_to_other_than_home:GOBCO:R2:S1",
+              "source_file": "2020ENGG_CAP2_CutOff.pdf",
+              "page": 5,
+              "level_key": "other_than_home_university_seats_allotted_to_other_than_home",
+              "level_label": "Other Than Home University Seats Allotted to Other Than Home University Candidates"
+            }
+          ]
+        },
+        {
+          "category": "GOPENH",
+          "category_meaning": null,
+          "category_meaning_confidence": null,
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "CAP",
+              "closing_rank": 56746,
+              "closing_percentile": 53.5074466,
+              "evidence_id": "2020-21:1005:100552410:home_university_seats_allotted_to_home_university_candidates:GOPENH:R1:S1",
+              "source_file": "round-1-mht-cet-2020-mh.pdf",
+              "page": 5,
+              "level_key": "home_university_seats_allotted_to_home_university_candidates",
+              "level_label": "Home University Seats Allotted to Home University Candidates"
+            },
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "CAP",
+              "closing_rank": 72318,
+              "closing_percentile": 32.0471506,
+              "evidence_id": "2020-21:1005:100552410:home_university_seats_allotted_to_other_than_home_university:GOPENH:R1:S1",
+              "source_file": "round-1-mht-cet-2020-mh.pdf",
+              "page": 5,
+              "level_key": "home_university_seats_allotted_to_other_than_home_university",
+              "level_label": "Home University Seats Allotted to Other Than Home University Candidates"
+            },
+            {
+              "round": 2,
+              "stage": "1",
+              "list_type": "CAP",
+              "closing_rank": 72318,
+              "closing_percentile": 32.0471506,
+              "evidence_id": "2020-21:1005:100552410:home_university_seats_allotted_to_other_than_home_university:GOPENH:R2:S1",
+              "source_file": "2020ENGG_CAP2_CutOff.pdf",
+              "page": 5,
+              "level_key": "home_university_seats_allotted_to_other_than_home_university",
+              "level_label": "Home University Seats Allotted to Other Than Home University Candidates"
+            }
+          ]
+        },
+        {
+          "category": "GOPENO",
+          "category_meaning": null,
+          "category_meaning_confidence": null,
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "CAP",
+              "closing_rank": 56638,
+              "closing_percentile": 53.6290323,
+              "evidence_id": "2020-21:1005:100552410:other_than_home_university_seats_allotted_to_other_than_home:GOPENO:R1:S1",
+              "source_file": "round-1-mht-cet-2020-mh.pdf",
+              "page": 5,
+              "level_key": "other_than_home_university_seats_allotted_to_other_than_home",
+              "level_label": "Other Than Home University Seats Allotted to Other Than Home University Candidates"
+            }
+          ]
+        },
+        {
+          "category": "LOBCH",
+          "category_meaning": null,
+          "category_meaning_confidence": null,
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "CAP",
+              "closing_rank": 67655,
+              "closing_percentile": 39.4861193,
+              "evidence_id": "2020-21:1005:100552410:home_university_seats_allotted_to_other_than_home_university:LOBCH:R1:S1",
+              "source_file": "round-1-mht-cet-2020-mh.pdf",
+              "page": 5,
+              "level_key": "home_university_seats_allotted_to_other_than_home_university",
+              "level_label": "Home University Seats Allotted to Other Than Home University Candidates"
+            }
+          ]
+        },
+        {
+          "category": "LOPENH",
+          "category_meaning": null,
+          "category_meaning_confidence": null,
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "CAP",
+              "closing_rank": 57074,
+              "closing_percentile": 53.1697881,
+              "evidence_id": "2020-21:1005:100552410:home_university_seats_allotted_to_other_than_home_university:LOPENH:R1:S1",
+              "source_file": "round-1-mht-cet-2020-mh.pdf",
+              "page": 5,
+              "level_key": "home_university_seats_allotted_to_other_than_home_university",
+              "level_label": "Home University Seats Allotted to Other Than Home University Candidates"
+            }
+          ]
+        },
+        {
+          "category": "TFWS",
+          "category_meaning": null,
+          "category_meaning_confidence": null,
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "CAP",
+              "closing_rank": 36428,
+              "closing_percentile": 73.909417,
+              "evidence_id": "2020-21:1005:100552410:state_level:TFWS:R1:S1",
+              "source_file": "round-1-mht-cet-2020-mh.pdf",
+              "page": 5,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            },
+            {
+              "round": 2,
+              "stage": "1",
+              "list_type": "CAP",
+              "closing_rank": 52050,
+              "closing_percentile": 59.1576541,
+              "evidence_id": "2020-21:1005:100552410:state_level:TFWS:R2:S1",
+              "source_file": "2020ENGG_CAP2_CutOff.pdf",
+              "page": 5,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            }
+          ]
+        }
+      ],
+      "course_code": "100552410"
+    },
+    {
+      "branch": "Petro Chemical Engineering",
+      "categories": [
+        {
+          "category": "EWS",
+          "category_meaning": null,
+          "category_meaning_confidence": null,
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "CAP",
+              "closing_rank": 32415,
+              "closing_percentile": 77.095671,
+              "evidence_id": "2020-21:1005:100552710:state_level:EWS:R1:S1",
+              "source_file": "round-1-mht-cet-2020-mh.pdf",
+              "page": 6,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            }
+          ]
+        },
+        {
+          "category": "GNT2H",
+          "category_meaning": null,
+          "category_meaning_confidence": null,
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "CAP",
+              "closing_rank": 81008,
+              "closing_percentile": 16.8662506,
+              "evidence_id": "2020-21:1005:100552710:home_university_seats_allotted_to_other_than_home_university:GNT2H:R1:S1",
+              "source_file": "round-1-mht-cet-2020-mh.pdf",
+              "page": 6,
+              "level_key": "home_university_seats_allotted_to_other_than_home_university",
+              "level_label": "Home University Seats Allotted to Other Than Home University Candidates"
+            }
+          ]
+        },
+        {
+          "category": "GOBCH",
+          "category_meaning": null,
+          "category_meaning_confidence": null,
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "CAP",
+              "closing_rank": 62765,
+              "closing_percentile": 46.3475664,
+              "evidence_id": "2020-21:1005:100552710:home_university_seats_allotted_to_home_university_candidates:GOBCH:R1:S1",
+              "source_file": "round-1-mht-cet-2020-mh.pdf",
+              "page": 6,
+              "level_key": "home_university_seats_allotted_to_home_university_candidates",
+              "level_label": "Home University Seats Allotted to Home University Candidates"
+            }
+          ]
+        },
+        {
+          "category": "GOBCO",
+          "category_meaning": null,
+          "category_meaning_confidence": null,
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "CAP",
+              "closing_rank": 22532,
+              "closing_percentile": 84.4607557,
+              "evidence_id": "2020-21:1005:100552710:other_than_home_university_seats_allotted_to_other_than_home:GOBCO:R1:S1",
+              "source_file": "round-1-mht-cet-2020-mh.pdf",
+              "page": 6,
+              "level_key": "other_than_home_university_seats_allotted_to_other_than_home",
+              "level_label": "Other Than Home University Seats Allotted to Other Than Home University Candidates"
+            }
+          ]
+        },
+        {
+          "category": "GOPENH",
+          "category_meaning": null,
+          "category_meaning_confidence": null,
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "CAP",
+              "closing_rank": 52216,
+              "closing_percentile": 59.0298287,
+              "evidence_id": "2020-21:1005:100552710:home_university_seats_allotted_to_home_university_candidates:GOPENH:R1:S1",
+              "source_file": "round-1-mht-cet-2020-mh.pdf",
+              "page": 6,
+              "level_key": "home_university_seats_allotted_to_home_university_candidates",
+              "level_label": "Home University Seats Allotted to Home University Candidates"
+            }
+          ]
+        },
+        {
+          "category": "GOPENO",
+          "category_meaning": null,
+          "category_meaning_confidence": null,
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "CAP",
+              "closing_rank": 19278,
+              "closing_percentile": 86.7544428,
+              "evidence_id": "2020-21:1005:100552710:other_than_home_university_seats_allotted_to_other_than_home:GOPENO:R1:S1",
+              "source_file": "round-1-mht-cet-2020-mh.pdf",
+              "page": 6,
+              "level_key": "other_than_home_university_seats_allotted_to_other_than_home",
+              "level_label": "Other Than Home University Seats Allotted to Other Than Home University Candidates"
+            },
+            {
+              "round": 2,
+              "stage": "1",
+              "list_type": "CAP",
+              "closing_rank": 19639,
+              "closing_percentile": 86.4503649,
+              "evidence_id": "2020-21:1005:100552710:other_than_home_university_seats_allotted_to_other_than_home:GOPENO:R2:S1",
+              "source_file": "2020ENGG_CAP2_CutOff.pdf",
+              "page": 6,
+              "level_key": "other_than_home_university_seats_allotted_to_other_than_home",
+              "level_label": "Other Than Home University Seats Allotted to Other Than Home University Candidates"
+            }
+          ]
+        },
+        {
+          "category": "GSCH",
+          "category_meaning": null,
+          "category_meaning_confidence": null,
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "CAP",
+              "closing_rank": 71404,
+              "closing_percentile": 33.4193644,
+              "evidence_id": "2020-21:1005:100552710:home_university_seats_allotted_to_home_university_candidates:GSCH:R1:S1",
+              "source_file": "round-1-mht-cet-2020-mh.pdf",
+              "page": 6,
+              "level_key": "home_university_seats_allotted_to_home_university_candidates",
+              "level_label": "Home University Seats Allotted to Home University Candidates"
+            }
+          ]
+        },
+        {
+          "category": "GSCO",
+          "category_meaning": null,
+          "category_meaning_confidence": null,
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "CAP",
+              "closing_rank": 34069,
+              "closing_percentile": 75.8880425,
+              "evidence_id": "2020-21:1005:100552710:other_than_home_university_seats_allotted_to_other_than_home:GSCO:R1:S1",
+              "source_file": "round-1-mht-cet-2020-mh.pdf",
+              "page": 6,
+              "level_key": "other_than_home_university_seats_allotted_to_other_than_home",
+              "level_label": "Other Than Home University Seats Allotted to Other Than Home University Candidates"
+            },
+            {
+              "round": 2,
+              "stage": "1",
+              "list_type": "CAP",
+              "closing_rank": 47525,
+              "closing_percentile": 63.7042062,
+              "evidence_id": "2020-21:1005:100552710:other_than_home_university_seats_allotted_to_other_than_home:GSCO:R2:S1",
+              "source_file": "2020ENGG_CAP2_CutOff.pdf",
+              "page": 6,
+              "level_key": "other_than_home_university_seats_allotted_to_other_than_home",
+              "level_label": "Other Than Home University Seats Allotted to Other Than Home University Candidates"
+            }
+          ]
+        },
+        {
+          "category": "LOBCH",
+          "category_meaning": null,
+          "category_meaning_confidence": null,
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "CAP",
+              "closing_rank": 60363,
+              "closing_percentile": 49.4727527,
+              "evidence_id": "2020-21:1005:100552710:home_university_seats_allotted_to_home_university_candidates:LOBCH:R1:S1",
+              "source_file": "round-1-mht-cet-2020-mh.pdf",
+              "page": 6,
+              "level_key": "home_university_seats_allotted_to_home_university_candidates",
+              "level_label": "Home University Seats Allotted to Home University Candidates"
+            },
+            {
+              "round": 2,
+              "stage": "1",
+              "list_type": "CAP",
+              "closing_rank": 57074,
+              "closing_percentile": 53.1697881,
+              "evidence_id": "2020-21:1005:100552710:home_university_seats_allotted_to_other_than_home_university:LOBCH:R2:S1",
+              "source_file": "2020ENGG_CAP2_CutOff.pdf",
+              "page": 6,
+              "level_key": "home_university_seats_allotted_to_other_than_home_university",
+              "level_label": "Home University Seats Allotted to Other Than Home University Candidates"
+            }
+          ]
+        },
+        {
+          "category": "LOPENH",
+          "category_meaning": null,
+          "category_meaning_confidence": null,
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "CAP",
+              "closing_rank": 22306,
+              "closing_percentile": 84.6278795,
+              "evidence_id": "2020-21:1005:100552710:home_university_seats_allotted_to_home_university_candidates:LOPENH:R1:S1",
+              "source_file": "round-1-mht-cet-2020-mh.pdf",
+              "page": 6,
+              "level_key": "home_university_seats_allotted_to_home_university_candidates",
+              "level_label": "Home University Seats Allotted to Home University Candidates"
+            }
+          ]
+        },
+        {
+          "category": "LOPENO",
+          "category_meaning": null,
+          "category_meaning_confidence": null,
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "CAP",
+              "closing_rank": 26551,
+              "closing_percentile": 81.5733941,
+              "evidence_id": "2020-21:1005:100552710:other_than_home_university_seats_allotted_to_other_than_home:LOPENO:R1:S1",
+              "source_file": "round-1-mht-cet-2020-mh.pdf",
+              "page": 6,
+              "level_key": "other_than_home_university_seats_allotted_to_other_than_home",
+              "level_label": "Other Than Home University Seats Allotted to Other Than Home University Candidates"
+            },
+            {
+              "round": 2,
+              "stage": "1",
+              "list_type": "CAP",
+              "closing_rank": 42727,
+              "closing_percentile": 68.2411805,
+              "evidence_id": "2020-21:1005:100552710:other_than_home_university_seats_allotted_to_other_than_home:LOPENO:R2:S1",
+              "source_file": "2020ENGG_CAP2_CutOff.pdf",
+              "page": 6,
+              "level_key": "other_than_home_university_seats_allotted_to_other_than_home",
+              "level_label": "Other Than Home University Seats Allotted to Other Than Home University Candidates"
+            }
+          ]
+        },
+        {
+          "category": "LSCH",
+          "category_meaning": null,
+          "category_meaning_confidence": null,
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "CAP",
+              "closing_rank": 72356,
+              "closing_percentile": 32.0471506,
+              "evidence_id": "2020-21:1005:100552710:home_university_seats_allotted_to_home_university_candidates:LSCH:R1:S1",
+              "source_file": "round-1-mht-cet-2020-mh.pdf",
+              "page": 6,
+              "level_key": "home_university_seats_allotted_to_home_university_candidates",
+              "level_label": "Home University Seats Allotted to Home University Candidates"
+            }
+          ]
+        },
+        {
+          "category": "TFWS",
+          "category_meaning": null,
+          "category_meaning_confidence": null,
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "CAP",
+              "closing_rank": 29721,
+              "closing_percentile": 79.07179,
+              "evidence_id": "2020-21:1005:100552710:state_level:TFWS:R1:S1",
+              "source_file": "round-1-mht-cet-2020-mh.pdf",
+              "page": 6,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            }
+          ]
+        }
+      ],
+      "course_code": "100552710"
+    }
+  ],
+  "home_university": null,
+  "status": "University Department",
+  "source_files": [
+    "2020ENGG_CAP2_CutOff.pdf",
+    "round-1-mht-cet-2020-mh.pdf"
+  ]
+}

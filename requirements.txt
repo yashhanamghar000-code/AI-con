@@ -1,0 +1,22 @@
+# Core pipeline (always needed)
+# Standard library only for cutoff_agent.py, college_resolver.py, and orchestrator.py
+
+# Vector index / semantic search (college info retrieval)
+# Note for Windows: To install lightweight CPU-only PyTorch before installing requirements:
+#   pip install torch --index-url https://download.pytorch.org/whl/cpu
+chromadb>=0.4.0
+sentence-transformers>=2.2.0
+
+# Historical PDF Cutoff Extraction (Phase 3 historical data ingestion)
+pdfplumber>=0.10.0
+
+# Fine-tuning (optional, only if you proceed with Section 1 of MODEL_AND_RAG_PLAN.md in later phases)
+# unsloth
+# trl
+# peft
+# bitsandbytes
+
+# LLM calls (Phase 2+; left disabled in Phase 1 evidence-only mode)
+# requests          # for local Ollama
+# anthropic         # for Claude API
+# openai            # for OpenAI-compatible endpoints (vLLM, LM Studio, OpenAI)

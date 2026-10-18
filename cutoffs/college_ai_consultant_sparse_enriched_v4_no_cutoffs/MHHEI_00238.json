@@ -1,0 +1,54 @@
+{
+  "schema_version": "4.0",
+  "record_id": "MHHEI_00238",
+  "institute_code": "05497",
+  "institute_name": "P.G. College of Engineering & Technology, Nandurbar",
+  "institution_type": "Un-Aided",
+  "extracted": {
+    "identity": {
+      "verification_status": {
+        "value": "verified_government",
+        "source": "Maharashtra State CET Cell"
+      },
+      "district": {
+        "confidence": "provided_master_list",
+        "source": "Maharashtra State CET Cell"
+      },
+      "city": {
+        "confidence": "provided_master_list",
+        "source": "Maharashtra State CET Cell"
+      },
+      "state": {
+        "value": "Maharashtra",
+        "source": "scope of supplied college dataset"
+      },
+      "affiliation": {
+        "value": "Kavayitri Bahinabai Chaudhari North Maharashtra University, Jalgaon",
+        "source": "Maharashtra State CET Cell"
+      },
+      "ownership": {
+        "value": "Un-Aided",
+        "confidence": "provided_master_list",
+        "source": "Maharashtra State CET Cell"
+      },
+      "institute_code": {
+        "value": "05497",
+        "source": "Maharashtra State CET Cell"
+      },
+      "institution_type": {
+        "value": "Un-Aided",
+        "source": "Maharashtra State CET Cell"
+      }
+    },
+    "admissions": {
+      "note": "Cutoff data is intentionally excluded because it is maintained in a separate dataset."
+    },
+    "location": {
+      "state": "Maharashtra"
+    }
+  },
+  "sources_consulted": [
+    "https://fe2026.mahacet.org/StaticPages/frmInstituteSummary?InstituteCode=05497"
+  ],
+  "last_processed_at": "2026-10-09T17:06:57Z"
+}

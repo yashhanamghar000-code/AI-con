@@ -1,0 +1,54 @@
+{
+  "schema_version": "4.0",
+  "record_id": "MHHEI_00202",
+  "institute_code": "05170",
+  "institute_name": "Hindi Seva Mandal's Shri Sant Gadgebaba College of Engineering &",
+  "institution_type": "Un-Aided Linguistic Minority - Hindi",
+  "extracted": {
+    "identity": {
+      "verification_status": {
+        "value": "verified_government",
+        "source": "Maharashtra State CET Cell"
+      },
+      "district": {
+        "confidence": "provided_master_list",
+        "source": "Maharashtra State CET Cell"
+      },
+      "city": {
+        "confidence": "provided_master_list",
+        "source": "Maharashtra State CET Cell"
+      },
+      "state": {
+        "value": "Maharashtra",
+        "source": "scope of supplied college dataset"
+      },
+      "affiliation": {
+        "value": "Kavayitri Bahinabai Chaudhari North Maharashtra University, Jalgaon",
+        "source": "Maharashtra State CET Cell"
+      },
+      "ownership": {
+        "value": "Un-Aided Linguistic Minority - Hindi",
+        "confidence": "provided_master_list",
+        "source": "Maharashtra State CET Cell"
+      },
+      "institute_code": {
+        "value": "05170",
+        "source": "Maharashtra State CET Cell"
+      },
+      "institution_type": {
+        "value": "Un-Aided Linguistic Minority - Hindi",
+        "source": "Maharashtra State CET Cell"
+      }
+    },
+    "admissions": {
+      "note": "Cutoff data is intentionally excluded because it is maintained in a separate dataset."
+    },
+    "location": {
+      "state": "Maharashtra"
+    }
+  },
+  "sources_consulted": [
+    "https://fe2026.mahacet.org/StaticPages/frmInstituteSummary?InstituteCode=05170"
+  ],
+  "last_processed_at": "2026-10-09T17:06:57Z"
+}
