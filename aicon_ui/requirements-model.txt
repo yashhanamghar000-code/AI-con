@@ -1,0 +1,7 @@
+# Optional dependencies for the trained TinyLlama + LoRA runtime.
+# Install these in the same Python environment that runs aicon_ui.app.
+torch
+transformers
+peft
+accelerate
+safetensors
