@@ -1,0 +1,974 @@
+{
+  "academic_year": "2023-24",
+  "institute_code": "5172",
+  "institute_name": "R. C. Patel Institute of Technology, Shirpur",
+  "status": "Un-Aided Autonomous Linguistic Minority - Gujarathi",
+  "home_university": "Autonomous Institute",
+  "source_files": [
+    "2023ENGG_CAP1_AI_CutOff.pdf",
+    "2023ENGG_CAP1_CutOff.pdf",
+    "2023ENGG_CAP2_AI_CutOff.pdf",
+    "2023ENGG_CAP2_CutOff.pdf",
+    "2023ENGG_CAP3_AI_CutOff.pdf",
+    "2023ENGG_CAP3_CutOff.pdf"
+  ],
+  "branches": [
+    {
+      "course_code": "517292110",
+      "branch": "Artificial Intelligence and Machine Learning",
+      "branch_family": "computing",
+      "branch_family_note": "discovery only; never use to substitute cutoffs",
+      "categories": [
+        {
+          "category": "AI",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": 1,
+              "level_key": "all_india",
+              "level_label": "All India",
+              "list_type": "all_india",
+              "closing_rank": 14930,
+              "closing_percentile": 83.1058115,
+              "evidence_id": "2023-24:5172:517292110:all_india:AI:R1:S1",
+              "source_file": "2023ENGG_CAP1_AI_CutOff.pdf",
+              "page": 19,
+              "all_india_merit_no": 14930,
+              "exam": "JEE(Main)",
+              "candidature_type": "AI to AI",
+              "name_confidence": "confident"
+            },
+            {
+              "round": 2,
+              "stage": 1,
+              "level_key": "all_india",
+              "level_label": "All India",
+              "list_type": "all_india",
+              "closing_rank": 17818,
+              "closing_percentile": 80.2028565,
+              "evidence_id": "2023-24:5172:517292110:all_india:AI:R2:S1",
+              "source_file": "2023ENGG_CAP2_AI_CutOff.pdf",
+              "page": 24,
+              "all_india_merit_no": 17818,
+              "exam": "JEE(Main)",
+              "candidature_type": "AI to AI",
+              "name_confidence": "confident"
+            }
+          ],
+          "category_meaning": "All India seat",
+          "category_meaning_confidence": "best_effort"
+        },
+        {
+          "category": "GOPENS",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": 1,
+              "level_key": "state_level",
+              "level_label": "State Level",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 37078,
+              "closing_percentile": 84.4681938,
+              "evidence_id": "2023-24:5172:517292110:state_level:GOPENS:R1:S1",
+              "source_file": "2023ENGG_CAP1_CutOff.pdf",
+              "page": 818
+            }
+          ],
+          "category_meaning": "General (male), Open, State Level",
+          "category_meaning_confidence": "best_effort"
+        },
+        {
+          "category": "LOPENS",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": 1,
+              "level_key": "state_level",
+              "level_label": "State Level",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 34120,
+              "closing_percentile": 85.9227307,
+              "evidence_id": "2023-24:5172:517292110:state_level:LOPENS:R1:S1",
+              "source_file": "2023ENGG_CAP1_CutOff.pdf",
+              "page": 818
+            }
+          ],
+          "category_meaning": "Ladies, Open, State Level",
+          "category_meaning_confidence": "best_effort"
+        },
+        {
+          "category": "TFWS",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": 1,
+              "level_key": "state_level",
+              "level_label": "State Level",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 23391,
+              "closing_percentile": 90.5447224,
+              "evidence_id": "2023-24:5172:517292110:state_level:TFWS:R1:S1",
+              "source_file": "2023ENGG_CAP1_CutOff.pdf",
+              "page": 818
+            }
+          ],
+          "category_meaning": "Tuition Fee Waiver Scheme (state level)",
+          "category_meaning_confidence": "best_effort"
+        }
+      ]
+    },
+    {
+      "course_code": "517219110",
+      "branch": "Civil Engineering",
+      "branch_family": "civil",
+      "branch_family_note": "discovery only; never use to substitute cutoffs",
+      "categories": [
+        {
+          "category": "AI",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": 1,
+              "level_key": "all_india",
+              "level_label": "All India",
+              "list_type": "all_india",
+              "closing_rank": 37757,
+              "closing_percentile": 60.8015262,
+              "evidence_id": "2023-24:5172:517219110:all_india:AI:R1:S1",
+              "source_file": "2023ENGG_CAP1_AI_CutOff.pdf",
+              "page": 52,
+              "all_india_merit_no": 37757,
+              "exam": "JEE(Main)",
+              "candidature_type": "AI to AI",
+              "name_confidence": "confident"
+            },
+            {
+              "round": 2,
+              "stage": 1,
+              "level_key": "all_india",
+              "level_label": "All India",
+              "list_type": "all_india",
+              "closing_rank": 45658,
+              "closing_percentile": 52.486799,
+              "evidence_id": "2023-24:5172:517219110:all_india:AI:R2:S1",
+              "source_file": "2023ENGG_CAP2_AI_CutOff.pdf",
+              "page": 63,
+              "all_india_merit_no": 45658,
+              "exam": "JEE(Main)",
+              "candidature_type": "AI to AI",
+              "name_confidence": "confident"
+            },
+            {
+              "round": 3,
+              "stage": 1,
+              "level_key": "all_india",
+              "level_label": "All India",
+              "list_type": "all_india",
+              "closing_rank": 23293,
+              "closing_percentile": 74.8321129,
+              "evidence_id": "2023-24:5172:517219110:all_india:AI:R3:S1",
+              "source_file": "2023ENGG_CAP3_AI_CutOff.pdf",
+              "page": 30,
+              "all_india_merit_no": 23293,
+              "exam": "JEE(Main)",
+              "candidature_type": "AI to AI",
+              "name_confidence": "confident"
+            }
+          ],
+          "category_meaning": "All India seat",
+          "category_meaning_confidence": "best_effort"
+        },
+        {
+          "category": "GOPENS",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": 1,
+              "level_key": "state_level",
+              "level_label": "State Level",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 86731,
+              "closing_percentile": 58.1382561,
+              "evidence_id": "2023-24:5172:517219110:state_level:GOPENS:R1:S1",
+              "source_file": "2023ENGG_CAP1_CutOff.pdf",
+              "page": 817
+            }
+          ],
+          "category_meaning": "General (male), Open, State Level",
+          "category_meaning_confidence": "best_effort"
+        },
+        {
+          "category": "LOPENS",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": 1,
+              "level_key": "state_level",
+              "level_label": "State Level",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 79189,
+              "closing_percentile": 62.7898492,
+              "evidence_id": "2023-24:5172:517219110:state_level:LOPENS:R1:S1",
+              "source_file": "2023ENGG_CAP1_CutOff.pdf",
+              "page": 817
+            }
+          ],
+          "category_meaning": "Ladies, Open, State Level",
+          "category_meaning_confidence": "best_effort"
+        },
+        {
+          "category": "TFWS",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": 1,
+              "level_key": "state_level",
+              "level_label": "State Level",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 58769,
+              "closing_percentile": 74.1935484,
+              "evidence_id": "2023-24:5172:517219110:state_level:TFWS:R1:S1",
+              "source_file": "2023ENGG_CAP1_CutOff.pdf",
+              "page": 817
+            }
+          ],
+          "category_meaning": "Tuition Fee Waiver Scheme (state level)",
+          "category_meaning_confidence": "best_effort"
+        }
+      ]
+    },
+    {
+      "course_code": "517224510",
+      "branch": "Computer Engineering",
+      "branch_family": "computing",
+      "branch_family_note": "discovery only; never use to substitute cutoffs",
+      "categories": [
+        {
+          "category": "AI",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": 1,
+              "level_key": "all_india",
+              "level_label": "All India",
+              "list_type": "all_india",
+              "closing_rank": 14694,
+              "closing_percentile": 83.3563365,
+              "evidence_id": "2023-24:5172:517224510:all_india:AI:R1:S1",
+              "source_file": "2023ENGG_CAP1_AI_CutOff.pdf",
+              "page": 19,
+              "all_india_merit_no": 14694,
+              "exam": "JEE(Main)",
+              "candidature_type": "AI to AI",
+              "name_confidence": "confident"
+            },
+            {
+              "round": 2,
+              "stage": 1,
+              "level_key": "all_india",
+              "level_label": "All India",
+              "list_type": "all_india",
+              "closing_rank": 14930,
+              "closing_percentile": 83.1058115,
+              "evidence_id": "2023-24:5172:517224510:all_india:AI:R2:S1",
+              "source_file": "2023ENGG_CAP2_AI_CutOff.pdf",
+              "page": 19,
+              "all_india_merit_no": 14930,
+              "exam": "JEE(Main)",
+              "candidature_type": "AI to AI",
+              "name_confidence": "confident"
+            },
+            {
+              "round": 3,
+              "stage": 1,
+              "level_key": "all_india",
+              "level_label": "All India",
+              "list_type": "all_india",
+              "closing_rank": 16502,
+              "closing_percentile": 81.4811868,
+              "evidence_id": "2023-24:5172:517224510:all_india:AI:R3:S1",
+              "source_file": "2023ENGG_CAP3_AI_CutOff.pdf",
+              "page": 20,
+              "all_india_merit_no": 16502,
+              "exam": "JEE(Main)",
+              "candidature_type": "AI to AI",
+              "name_confidence": "confident"
+            }
+          ],
+          "category_meaning": "All India seat",
+          "category_meaning_confidence": "best_effort"
+        },
+        {
+          "category": "GOPENS",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": 1,
+              "level_key": "state_level",
+              "level_label": "State Level",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 29935,
+              "closing_percentile": 87.6984872,
+              "evidence_id": "2023-24:5172:517224510:state_level:GOPENS:R1:S1",
+              "source_file": "2023ENGG_CAP1_CutOff.pdf",
+              "page": 817
+            },
+            {
+              "round": 2,
+              "stage": 1,
+              "level_key": "state_level",
+              "level_label": "State Level",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 27428,
+              "closing_percentile": 88.7938441,
+              "evidence_id": "2023-24:5172:517224510:state_level:GOPENS:R2:S1",
+              "source_file": "2023ENGG_CAP2_CutOff.pdf",
+              "page": 760
+            },
+            {
+              "round": 3,
+              "stage": 1,
+              "level_key": "state_level",
+              "level_label": "State Level",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 18314,
+              "closing_percentile": 92.6711629,
+              "evidence_id": "2023-24:5172:517224510:state_level:GOPENS:R3:S1",
+              "source_file": "2023ENGG_CAP3_CutOff.pdf",
+              "page": 661
+            }
+          ],
+          "category_meaning": "General (male), Open, State Level",
+          "category_meaning_confidence": "best_effort"
+        },
+        {
+          "category": "LOPENS",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": 1,
+              "level_key": "state_level",
+              "level_label": "State Level",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 25731,
+              "closing_percentile": 89.5231349,
+              "evidence_id": "2023-24:5172:517224510:state_level:LOPENS:R1:S1",
+              "source_file": "2023ENGG_CAP1_CutOff.pdf",
+              "page": 817
+            },
+            {
+              "round": 2,
+              "stage": 1,
+              "level_key": "state_level",
+              "level_label": "State Level",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 27537,
+              "closing_percentile": 88.7549097,
+              "evidence_id": "2023-24:5172:517224510:state_level:LOPENS:R2:S1",
+              "source_file": "2023ENGG_CAP2_CutOff.pdf",
+              "page": 760
+            },
+            {
+              "round": 3,
+              "stage": 1,
+              "level_key": "state_level",
+              "level_label": "State Level",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 17793,
+              "closing_percentile": 92.8619655,
+              "evidence_id": "2023-24:5172:517224510:state_level:LOPENS:R3:S1",
+              "source_file": "2023ENGG_CAP3_CutOff.pdf",
+              "page": 661
+            }
+          ],
+          "category_meaning": "Ladies, Open, State Level",
+          "category_meaning_confidence": "best_effort"
+        },
+        {
+          "category": "MI",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": 1,
+              "level_key": "state_level",
+              "level_label": "State Level",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 118504,
+              "closing_percentile": 32.4663078,
+              "evidence_id": "2023-24:5172:517224510:state_level:MI:R1:S1",
+              "source_file": "2023ENGG_CAP1_CutOff.pdf",
+              "page": 817
+            },
+            {
+              "round": 2,
+              "stage": 1,
+              "level_key": "state_level",
+              "level_label": "State Level",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 105989,
+              "closing_percentile": 43.6615489,
+              "evidence_id": "2023-24:5172:517224510:state_level:MI:R2:S1",
+              "source_file": "2023ENGG_CAP2_CutOff.pdf",
+              "page": 760
+            },
+            {
+              "round": 3,
+              "stage": 1,
+              "level_key": "state_level",
+              "level_label": "State Level",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 115158,
+              "closing_percentile": 36.029881,
+              "evidence_id": "2023-24:5172:517224510:state_level:MI:R3:S1",
+              "source_file": "2023ENGG_CAP3_CutOff.pdf",
+              "page": 661
+            }
+          ]
+        },
+        {
+          "category": "TFWS",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": 1,
+              "level_key": "state_level",
+              "level_label": "State Level",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 18314,
+              "closing_percentile": 92.6711629,
+              "evidence_id": "2023-24:5172:517224510:state_level:TFWS:R1:S1",
+              "source_file": "2023ENGG_CAP1_CutOff.pdf",
+              "page": 817
+            },
+            {
+              "round": 2,
+              "stage": 1,
+              "level_key": "state_level",
+              "level_label": "State Level",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 18148,
+              "closing_percentile": 92.733306,
+              "evidence_id": "2023-24:5172:517224510:state_level:TFWS:R2:S1",
+              "source_file": "2023ENGG_CAP2_CutOff.pdf",
+              "page": 760
+            }
+          ],
+          "category_meaning": "Tuition Fee Waiver Scheme (state level)",
+          "category_meaning_confidence": "best_effort"
+        }
+      ]
+    },
+    {
+      "course_code": "517291210",
+      "branch": "Computer Science and Engineering(Data Science)",
+      "branch_family": "computing",
+      "branch_family_note": "discovery only; never use to substitute cutoffs",
+      "categories": [
+        {
+          "category": "AI",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": 1,
+              "level_key": "all_india",
+              "level_label": "All India",
+              "list_type": "all_india",
+              "closing_rank": 16502,
+              "closing_percentile": 81.4811868,
+              "evidence_id": "2023-24:5172:517291210:all_india:AI:R1:S1",
+              "source_file": "2023ENGG_CAP1_AI_CutOff.pdf",
+              "page": 21,
+              "all_india_merit_no": 16502,
+              "exam": "JEE(Main)",
+              "candidature_type": "AI to AI",
+              "name_confidence": "confident"
+            },
+            {
+              "round": 2,
+              "stage": 1,
+              "level_key": "all_india",
+              "level_label": "All India",
+              "list_type": "all_india",
+              "closing_rank": 17176,
+              "closing_percentile": 80.9475779,
+              "evidence_id": "2023-24:5172:517291210:all_india:AI:R2:S1",
+              "source_file": "2023ENGG_CAP2_AI_CutOff.pdf",
+              "page": 23,
+              "all_india_merit_no": 17176,
+              "exam": "JEE(Main)",
+              "candidature_type": "AI to AI",
+              "name_confidence": "confident"
+            }
+          ],
+          "category_meaning": "All India seat",
+          "category_meaning_confidence": "best_effort"
+        },
+        {
+          "category": "GOPENS",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": 1,
+              "level_key": "state_level",
+              "level_label": "State Level",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 36535,
+              "closing_percentile": 84.740951,
+              "evidence_id": "2023-24:5172:517291210:state_level:GOPENS:R1:S1",
+              "source_file": "2023ENGG_CAP1_CutOff.pdf",
+              "page": 818
+            }
+          ],
+          "category_meaning": "General (male), Open, State Level",
+          "category_meaning_confidence": "best_effort"
+        },
+        {
+          "category": "LOPENS",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": 1,
+              "level_key": "state_level",
+              "level_label": "State Level",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 37811,
+              "closing_percentile": 84.2884307,
+              "evidence_id": "2023-24:5172:517291210:state_level:LOPENS:R1:S1",
+              "source_file": "2023ENGG_CAP1_CutOff.pdf",
+              "page": 818
+            }
+          ],
+          "category_meaning": "Ladies, Open, State Level",
+          "category_meaning_confidence": "best_effort"
+        },
+        {
+          "category": "MI",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": 1,
+              "level_key": "state_level",
+              "level_label": "State Level",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 126120,
+              "closing_percentile": 24.1305891,
+              "evidence_id": "2023-24:5172:517291210:state_level:MI:R1:S1",
+              "source_file": "2023ENGG_CAP1_CutOff.pdf",
+              "page": 818
+            },
+            {
+              "round": 3,
+              "stage": 1,
+              "level_key": "state_level",
+              "level_label": "State Level",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 51103,
+              "closing_percentile": 78.3308876,
+              "evidence_id": "2023-24:5172:517291210:state_level:MI:R3:S1",
+              "source_file": "2023ENGG_CAP3_CutOff.pdf",
+              "page": 662
+            }
+          ]
+        },
+        {
+          "category": "TFWS",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": 1,
+              "level_key": "state_level",
+              "level_label": "State Level",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 20539,
+              "closing_percentile": 91.7186508,
+              "evidence_id": "2023-24:5172:517291210:state_level:TFWS:R1:S1",
+              "source_file": "2023ENGG_CAP1_CutOff.pdf",
+              "page": 818
+            }
+          ],
+          "category_meaning": "Tuition Fee Waiver Scheme (state level)",
+          "category_meaning_confidence": "best_effort"
+        }
+      ]
+    },
+    {
+      "course_code": "517229310",
+      "branch": "Electrical Engineering",
+      "branch_family": "electrical",
+      "branch_family_note": "discovery only; never use to substitute cutoffs",
+      "categories": [
+        {
+          "category": "AI",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": 1,
+              "level_key": "all_india",
+              "level_label": "All India",
+              "list_type": "all_india",
+              "closing_rank": 27922,
+              "closing_percentile": 70.289922,
+              "evidence_id": "2023-24:5172:517229310:all_india:AI:R1:S1",
+              "source_file": "2023ENGG_CAP1_AI_CutOff.pdf",
+              "page": 39,
+              "all_india_merit_no": 27922,
+              "exam": "JEE(Main)",
+              "candidature_type": "AI to AI",
+              "name_confidence": "confident"
+            },
+            {
+              "round": 2,
+              "stage": 1,
+              "level_key": "all_india",
+              "level_label": "All India",
+              "list_type": "all_india",
+              "closing_rank": 27059,
+              "closing_percentile": 71.1808399,
+              "evidence_id": "2023-24:5172:517229310:all_india:AI:R2:S1",
+              "source_file": "2023ENGG_CAP2_AI_CutOff.pdf",
+              "page": 39,
+              "all_india_merit_no": 27059,
+              "exam": "JEE(Main)",
+              "candidature_type": "AI to AI",
+              "name_confidence": "confident"
+            },
+            {
+              "round": 3,
+              "stage": 1,
+              "level_key": "all_india",
+              "level_label": "All India",
+              "list_type": "all_india",
+              "closing_rank": 26452,
+              "closing_percentile": 71.7827727,
+              "evidence_id": "2023-24:5172:517229310:all_india:AI:R3:S1",
+              "source_file": "2023ENGG_CAP3_AI_CutOff.pdf",
+              "page": 35,
+              "all_india_merit_no": 26452,
+              "exam": "JEE(Main)",
+              "candidature_type": "AI to AI",
+              "name_confidence": "confident"
+            }
+          ],
+          "category_meaning": "All India seat",
+          "category_meaning_confidence": "best_effort"
+        },
+        {
+          "category": "GOPENS",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": 1,
+              "level_key": "state_level",
+              "level_label": "State Level",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 69846,
+              "closing_percentile": 68.8122862,
+              "evidence_id": "2023-24:5172:517229310:state_level:GOPENS:R1:S1",
+              "source_file": "2023ENGG_CAP1_CutOff.pdf",
+              "page": 817
+            }
+          ],
+          "category_meaning": "General (male), Open, State Level",
+          "category_meaning_confidence": "best_effort"
+        },
+        {
+          "category": "LOPENS",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": 1,
+              "level_key": "state_level",
+              "level_label": "State Level",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 70218,
+              "closing_percentile": 68.401414,
+              "evidence_id": "2023-24:5172:517229310:state_level:LOPENS:R1:S1",
+              "source_file": "2023ENGG_CAP1_CutOff.pdf",
+              "page": 817
+            }
+          ],
+          "category_meaning": "Ladies, Open, State Level",
+          "category_meaning_confidence": "best_effort"
+        },
+        {
+          "category": "TFWS",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": 1,
+              "level_key": "state_level",
+              "level_label": "State Level",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 52859,
+              "closing_percentile": 77.4193548,
+              "evidence_id": "2023-24:5172:517229310:state_level:TFWS:R1:S1",
+              "source_file": "2023ENGG_CAP1_CutOff.pdf",
+              "page": 817
+            }
+          ],
+          "category_meaning": "Tuition Fee Waiver Scheme (state level)",
+          "category_meaning_confidence": "best_effort"
+        }
+      ]
+    },
+    {
+      "course_code": "517237210",
+      "branch": "Electronics and Telecommunication Engg",
+      "branch_family": "electronics_telecom",
+      "branch_family_note": "discovery only; never use to substitute cutoffs",
+      "categories": [
+        {
+          "category": "AI",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": 1,
+              "level_key": "all_india",
+              "level_label": "All India",
+              "list_type": "all_india",
+              "closing_rank": 24329,
+              "closing_percentile": 73.8394134,
+              "evidence_id": "2023-24:5172:517237210:all_india:AI:R1:S1",
+              "source_file": "2023ENGG_CAP1_AI_CutOff.pdf",
+              "page": 33,
+              "all_india_merit_no": 24329,
+              "exam": "JEE(Main)",
+              "candidature_type": "AI to AI",
+              "name_confidence": "confident"
+            },
+            {
+              "round": 2,
+              "stage": 1,
+              "level_key": "all_india",
+              "level_label": "All India",
+              "list_type": "all_india",
+              "closing_rank": 25917,
+              "closing_percentile": 72.2390108,
+              "evidence_id": "2023-24:5172:517237210:all_india:AI:R2:S1",
+              "source_file": "2023ENGG_CAP2_AI_CutOff.pdf",
+              "page": 37,
+              "all_india_merit_no": 25917,
+              "exam": "JEE(Main)",
+              "candidature_type": "AI to AI",
+              "name_confidence": "confident"
+            },
+            {
+              "round": 3,
+              "stage": 1,
+              "level_key": "all_india",
+              "level_label": "All India",
+              "list_type": "all_india",
+              "closing_rank": 23161,
+              "closing_percentile": 74.9476386,
+              "evidence_id": "2023-24:5172:517237210:all_india:AI:R3:S1",
+              "source_file": "2023ENGG_CAP3_AI_CutOff.pdf",
+              "page": 30,
+              "all_india_merit_no": 23161,
+              "exam": "JEE(Main)",
+              "candidature_type": "AI to AI",
+              "name_confidence": "confident"
+            }
+          ],
+          "category_meaning": "All India seat",
+          "category_meaning_confidence": "best_effort"
+        },
+        {
+          "category": "GOPENS",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": 1,
+              "level_key": "state_level",
+              "level_label": "State Level",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 54345,
+              "closing_percentile": 76.7173434,
+              "evidence_id": "2023-24:5172:517237210:state_level:GOPENS:R1:S1",
+              "source_file": "2023ENGG_CAP1_CutOff.pdf",
+              "page": 817
+            }
+          ],
+          "category_meaning": "General (male), Open, State Level",
+          "category_meaning_confidence": "best_effort"
+        },
+        {
+          "category": "LOPENS",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": 1,
+              "level_key": "state_level",
+              "level_label": "State Level",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 51756,
+              "closing_percentile": 78.0359147,
+              "evidence_id": "2023-24:5172:517237210:state_level:LOPENS:R1:S1",
+              "source_file": "2023ENGG_CAP1_CutOff.pdf",
+              "page": 817
+            }
+          ],
+          "category_meaning": "Ladies, Open, State Level",
+          "category_meaning_confidence": "best_effort"
+        },
+        {
+          "category": "MI",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": 1,
+              "level_key": "state_level",
+              "level_label": "State Level",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 128672,
+              "closing_percentile": 21.5370732,
+              "evidence_id": "2023-24:5172:517237210:state_level:MI:R1:S1",
+              "source_file": "2023ENGG_CAP1_CutOff.pdf",
+              "page": 817
+            }
+          ]
+        },
+        {
+          "category": "TFWS",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": 1,
+              "level_key": "state_level",
+              "level_label": "State Level",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 36944,
+              "closing_percentile": 84.5084815,
+              "evidence_id": "2023-24:5172:517237210:state_level:TFWS:R1:S1",
+              "source_file": "2023ENGG_CAP1_CutOff.pdf",
+              "page": 817
+            }
+          ],
+          "category_meaning": "Tuition Fee Waiver Scheme (state level)",
+          "category_meaning_confidence": "best_effort"
+        }
+      ]
+    },
+    {
+      "course_code": "517261210",
+      "branch": "Mechanical Engineering",
+      "branch_family": "mechanical",
+      "branch_family_note": "discovery only; never use to substitute cutoffs",
+      "categories": [
+        {
+          "category": "AI",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": 1,
+              "level_key": "all_india",
+              "level_label": "All India",
+              "list_type": "all_india",
+              "closing_rank": 35210,
+              "closing_percentile": 63.0505325,
+              "evidence_id": "2023-24:5172:517261210:all_india:AI:R1:S1",
+              "source_file": "2023ENGG_CAP1_AI_CutOff.pdf",
+              "page": 49,
+              "all_india_merit_no": 35210,
+              "exam": "JEE(Main)",
+              "candidature_type": "AI to AI",
+              "name_confidence": "confident"
+            },
+            {
+              "round": 2,
+              "stage": 1,
+              "level_key": "all_india",
+              "level_label": "All India",
+              "list_type": "all_india",
+              "closing_rank": 36845,
+              "closing_percentile": 61.4333159,
+              "evidence_id": "2023-24:5172:517261210:all_india:AI:R2:S1",
+              "source_file": "2023ENGG_CAP2_AI_CutOff.pdf",
+              "page": 54,
+              "all_india_merit_no": 36845,
+              "exam": "JEE(Main)",
+              "candidature_type": "AI to AI",
+              "name_confidence": "confident"
+            },
+            {
+              "round": 3,
+              "stage": 1,
+              "level_key": "all_india",
+              "level_label": "All India",
+              "list_type": "all_india",
+              "closing_rank": 29666,
+              "closing_percentile": 68.5546128,
+              "evidence_id": "2023-24:5172:517261210:all_india:AI:R3:S1",
+              "source_file": "2023ENGG_CAP3_AI_CutOff.pdf",
+              "page": 41,
+              "all_india_merit_no": 29666,
+              "exam": "JEE(Main)",
+              "candidature_type": "AI to AI",
+              "name_confidence": "confident"
+            }
+          ],
+          "category_meaning": "All India seat",
+          "category_meaning_confidence": "best_effort"
+        },
+        {
+          "category": "GOPENS",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": 1,
+              "level_key": "state_level",
+              "level_label": "State Level",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 81878,
+              "closing_percentile": 61.432847,
+              "evidence_id": "2023-24:5172:517261210:state_level:GOPENS:R1:S1",
+              "source_file": "2023ENGG_CAP1_CutOff.pdf",
+              "page": 818
+            }
+          ],
+          "category_meaning": "General (male), Open, State Level",
+          "category_meaning_confidence": "best_effort"
+        },
+        {
+          "category": "LOPENS",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": 1,
+              "level_key": "state_level",
+              "level_label": "State Level",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 80412,
+              "closing_percentile": 62.3996115,
+              "evidence_id": "2023-24:5172:517261210:state_level:LOPENS:R1:S1",
+              "source_file": "2023ENGG_CAP1_CutOff.pdf",
+              "page": 818
+            }
+          ],
+          "category_meaning": "Ladies, Open, State Level",
+          "category_meaning_confidence": "best_effort"
+        },
+        {
+          "category": "TFWS",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": 1,
+              "level_key": "state_level",
+              "level_label": "State Level",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 53455,
+              "closing_percentile": 76.8406961,
+              "evidence_id": "2023-24:5172:517261210:state_level:TFWS:R1:S1",
+              "source_file": "2023ENGG_CAP1_CutOff.pdf",
+              "page": 818
+            }
+          ],
+          "category_meaning": "Tuition Fee Waiver Scheme (state level)",
+          "category_meaning_confidence": "best_effort"
+        }
+      ]
+    }
+  ],
+  "parser_version": "0.3-flattened-output-v1",
+  "extracted_at": "2026-10-03T13:21:44.025128+00:00"
+}

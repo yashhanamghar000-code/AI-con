@@ -1,0 +1,989 @@
+{
+  "institute_code": "02250",
+  "institute_name": "Aurangabad College of Engineering, Naygaon Savangi, Aurangabad",
+  "source_institute_name": null,
+  "academic_year": "2023-24",
+  "branches": [
+    {
+      "branch": "Civil Engineering",
+      "categories": [
+        {
+          "category": "EWS",
+          "category_meaning": "Economically Weaker Section (state level)",
+          "category_meaning_confidence": "best_effort",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 141548,
+              "closing_percentile": 3.2173588,
+              "evidence_id": "2023-24:2250:225019110:state_level:EWS:R1:S1",
+              "source_file": "2023ENGG_CAP1_CutOff.pdf",
+              "page": 193,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            }
+          ]
+        },
+        {
+          "category": "GOPENH",
+          "category_meaning": "General (male), Open, Home University seats",
+          "category_meaning_confidence": "best_effort",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 132663,
+              "closing_percentile": 16.2430441,
+              "evidence_id": "2023-24:2250:225019110:home_university_seats_allotted_to_home_university_candidates:GOPENH:R1:S1",
+              "source_file": "2023ENGG_CAP1_CutOff.pdf",
+              "page": 193,
+              "level_key": "home_university_seats_allotted_to_home_university_candidates",
+              "level_label": "Home University Seats Allotted to Home University Candidates"
+            }
+          ]
+        },
+        {
+          "category": "GOPENO",
+          "category_meaning": "General (male), Open, Other than Home University seats",
+          "category_meaning_confidence": "best_effort",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 81923,
+              "closing_percentile": 61.432847,
+              "evidence_id": "2023-24:2250:225019110:other_than_home_university_seats_allotted_to_other_than_home:GOPENO:R1:S1",
+              "source_file": "2023ENGG_CAP1_CutOff.pdf",
+              "page": 193,
+              "level_key": "other_than_home_university_seats_allotted_to_other_than_home",
+              "level_label": "Other Than Home University Seats Allotted to Other Than Home University Candidates"
+            }
+          ]
+        },
+        {
+          "category": "LOPENH",
+          "category_meaning": "Ladies, Open, Home University seats",
+          "category_meaning_confidence": "best_effort",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 128837,
+              "closing_percentile": 21.2207239,
+              "evidence_id": "2023-24:2250:225019110:home_university_seats_allotted_to_home_university_candidates:LOPENH:R1:S1",
+              "source_file": "2023ENGG_CAP1_CutOff.pdf",
+              "page": 193,
+              "level_key": "home_university_seats_allotted_to_home_university_candidates",
+              "level_label": "Home University Seats Allotted to Home University Candidates"
+            }
+          ]
+        }
+      ],
+      "course_code": "225019110"
+    },
+    {
+      "branch": "Computer Science and Engineering",
+      "categories": [
+        {
+          "category": "AI",
+          "category_meaning": "All India seat",
+          "category_meaning_confidence": "best_effort",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "all_india",
+              "closing_rank": 7945,
+              "closing_percentile": 90.5338934,
+              "evidence_id": "2023-24:2250:225024210:all_india:AI:R1:S1",
+              "source_file": "2023ENGG_CAP1_AI_CutOff.pdf",
+              "page": 10,
+              "level_key": "all_india",
+              "level_label": "All India"
+            },
+            {
+              "round": 2,
+              "stage": "1",
+              "list_type": "all_india",
+              "closing_rank": 10593,
+              "closing_percentile": 87.6230886,
+              "evidence_id": "2023-24:2250:225024210:all_india:AI:R2:S1",
+              "source_file": "2023ENGG_CAP2_AI_CutOff.pdf",
+              "page": 13,
+              "level_key": "all_india",
+              "level_label": "All India"
+            },
+            {
+              "round": 3,
+              "stage": "1",
+              "list_type": "all_india",
+              "closing_rank": 8730,
+              "closing_percentile": 89.6974457,
+              "evidence_id": "2023-24:2250:225024210:all_india:AI:R3:S1",
+              "source_file": "2023ENGG_CAP3_AI_CutOff.pdf",
+              "page": 10,
+              "level_key": "all_india",
+              "level_label": "All India"
+            }
+          ]
+        },
+        {
+          "category": "DEFOPENS",
+          "category_meaning": "Defense quota, Open, State Level",
+          "category_meaning_confidence": "best_effort",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 121349,
+              "closing_percentile": 29.4111028,
+              "evidence_id": "2023-24:2250:225024210:state_level:DEFOPENS:R1:S1",
+              "source_file": "2023ENGG_CAP1_CutOff.pdf",
+              "page": 194,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            },
+            {
+              "round": 3,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 99984,
+              "closing_percentile": 49.0455617,
+              "evidence_id": "2023-24:2250:225024210:state_level:DEFOPENS:R3:S1",
+              "source_file": "2023ENGG_CAP3_CutOff.pdf",
+              "page": 144,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            }
+          ]
+        },
+        {
+          "category": "EWS",
+          "category_meaning": "Economically Weaker Section (state level)",
+          "category_meaning_confidence": "best_effort",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 46917,
+              "closing_percentile": 80.0408747,
+              "evidence_id": "2023-24:2250:225024210:state_level:EWS:R1:S1",
+              "source_file": "2023ENGG_CAP1_CutOff.pdf",
+              "page": 194,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            },
+            {
+              "round": 3,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 52972,
+              "closing_percentile": 77.0079706,
+              "evidence_id": "2023-24:2250:225024210:state_level:EWS:R3:S1",
+              "source_file": "2023ENGG_CAP3_CutOff.pdf",
+              "page": 144,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            }
+          ]
+        },
+        {
+          "category": "GOBCH",
+          "category_meaning": "General (male), Other Backward Class, Home University seats",
+          "category_meaning_confidence": "best_effort",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 68543,
+              "closing_percentile": 69.3042857,
+              "evidence_id": "2023-24:2250:225024210:home_university_seats_allotted_to_home_university_candidates:GOBCH:R1:S1",
+              "source_file": "2023ENGG_CAP1_CutOff.pdf",
+              "page": 194,
+              "level_key": "home_university_seats_allotted_to_home_university_candidates",
+              "level_label": "Home University Seats Allotted to Home University Candidates"
+            }
+          ]
+        },
+        {
+          "category": "GOPENH",
+          "category_meaning": "General (male), Open, Home University seats",
+          "category_meaning_confidence": "best_effort",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 49548,
+              "closing_percentile": 78.8754662,
+              "evidence_id": "2023-24:2250:225024210:home_university_seats_allotted_to_home_university_candidates:GOPENH:R1:S1",
+              "source_file": "2023ENGG_CAP1_CutOff.pdf",
+              "page": 194,
+              "level_key": "home_university_seats_allotted_to_home_university_candidates",
+              "level_label": "Home University Seats Allotted to Home University Candidates"
+            }
+          ]
+        },
+        {
+          "category": "GOPENO",
+          "category_meaning": "General (male), Open, Other than Home University seats",
+          "category_meaning_confidence": "best_effort",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 21647,
+              "closing_percentile": 91.2518343,
+              "evidence_id": "2023-24:2250:225024210:other_than_home_university_seats_allotted_to_other_than_home:GOPENO:R1:S1",
+              "source_file": "2023ENGG_CAP1_CutOff.pdf",
+              "page": 194,
+              "level_key": "other_than_home_university_seats_allotted_to_other_than_home",
+              "level_label": "Other Than Home University Seats Allotted to Other Than Home University Candidates"
+            },
+            {
+              "round": 2,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 44073,
+              "closing_percentile": 81.2345291,
+              "evidence_id": "2023-24:2250:225024210:other_than_home_university_seats_allotted_to_other_than_home:GOPENO:R2:S1",
+              "source_file": "2023ENGG_CAP2_CutOff.pdf",
+              "page": 173,
+              "level_key": "other_than_home_university_seats_allotted_to_other_than_home",
+              "level_label": "Other Than Home University Seats Allotted to Other Than Home University Candidates"
+            },
+            {
+              "round": 3,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 66085,
+              "closing_percentile": 70.6180504,
+              "evidence_id": "2023-24:2250:225024210:other_than_home_university_seats_allotted_to_other_than_home:GOPENO:R3:S1",
+              "source_file": "2023ENGG_CAP3_CutOff.pdf",
+              "page": 144,
+              "level_key": "other_than_home_university_seats_allotted_to_other_than_home",
+              "level_label": "Other Than Home University Seats Allotted to Other Than Home University Candidates"
+            }
+          ]
+        },
+        {
+          "category": "GSCO",
+          "category_meaning": "General (male), Scheduled Caste, Other than Home University seats",
+          "category_meaning_confidence": "best_effort",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 44969,
+              "closing_percentile": 81.0174211,
+              "evidence_id": "2023-24:2250:225024210:other_than_home_university_seats_allotted_to_other_than_home:GSCO:R1:S1",
+              "source_file": "2023ENGG_CAP1_CutOff.pdf",
+              "page": 194,
+              "level_key": "other_than_home_university_seats_allotted_to_other_than_home",
+              "level_label": "Other Than Home University Seats Allotted to Other Than Home University Candidates"
+            },
+            {
+              "round": 2,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 79455,
+              "closing_percentile": 62.7344336,
+              "evidence_id": "2023-24:2250:225024210:other_than_home_university_seats_allotted_to_other_than_home:GSCO:R2:S1",
+              "source_file": "2023ENGG_CAP2_CutOff.pdf",
+              "page": 173,
+              "level_key": "other_than_home_university_seats_allotted_to_other_than_home",
+              "level_label": "Other Than Home University Seats Allotted to Other Than Home University Candidates"
+            },
+            {
+              "round": 3,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 89450,
+              "closing_percentile": 56.656397,
+              "evidence_id": "2023-24:2250:225024210:other_than_home_university_seats_allotted_to_other_than_home:GSCO:R3:S1",
+              "source_file": "2023ENGG_CAP3_CutOff.pdf",
+              "page": 144,
+              "level_key": "other_than_home_university_seats_allotted_to_other_than_home",
+              "level_label": "Other Than Home University Seats Allotted to Other Than Home University Candidates"
+            }
+          ]
+        },
+        {
+          "category": "LNT1H",
+          "category_meaning": "Ladies, Nomadic Tribe 1, Home University seats",
+          "category_meaning_confidence": "best_effort",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 135224,
+              "closing_percentile": 13.3162279,
+              "evidence_id": "2023-24:2250:225024210:home_university_seats_allotted_to_home_university_candidates:LNT1H:R1:S1",
+              "source_file": "2023ENGG_CAP1_CutOff.pdf",
+              "page": 194,
+              "level_key": "home_university_seats_allotted_to_home_university_candidates",
+              "level_label": "Home University Seats Allotted to Home University Candidates"
+            }
+          ]
+        },
+        {
+          "category": "LOBCO",
+          "category_meaning": "Ladies, Other Backward Class, Other than Home University seats",
+          "category_meaning_confidence": "best_effort",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 70650,
+              "closing_percentile": 67.9544349,
+              "evidence_id": "2023-24:2250:225024210:other_than_home_university_seats_allotted_to_other_than_home:LOBCO:R1:S1",
+              "source_file": "2023ENGG_CAP1_CutOff.pdf",
+              "page": 194,
+              "level_key": "other_than_home_university_seats_allotted_to_other_than_home",
+              "level_label": "Other Than Home University Seats Allotted to Other Than Home University Candidates"
+            },
+            {
+              "round": 2,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 79899,
+              "closing_percentile": 62.4868401,
+              "evidence_id": "2023-24:2250:225024210:other_than_home_university_seats_allotted_to_other_than_home:LOBCO:R2:S1",
+              "source_file": "2023ENGG_CAP2_CutOff.pdf",
+              "page": 173,
+              "level_key": "other_than_home_university_seats_allotted_to_other_than_home",
+              "level_label": "Other Than Home University Seats Allotted to Other Than Home University Candidates"
+            },
+            {
+              "round": 3,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 84406,
+              "closing_percentile": 59.8623853,
+              "evidence_id": "2023-24:2250:225024210:other_than_home_university_seats_allotted_to_other_than_home:LOBCO:R3:S1",
+              "source_file": "2023ENGG_CAP3_CutOff.pdf",
+              "page": 144,
+              "level_key": "other_than_home_university_seats_allotted_to_other_than_home",
+              "level_label": "Other Than Home University Seats Allotted to Other Than Home University Candidates"
+            }
+          ]
+        },
+        {
+          "category": "LOPENH",
+          "category_meaning": "Ladies, Open, Home University seats",
+          "category_meaning_confidence": "best_effort",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 61297,
+              "closing_percentile": 73.2522683,
+              "evidence_id": "2023-24:2250:225024210:home_university_seats_allotted_to_home_university_candidates:LOPENH:R1:S1",
+              "source_file": "2023ENGG_CAP1_CutOff.pdf",
+              "page": 194,
+              "level_key": "home_university_seats_allotted_to_home_university_candidates",
+              "level_label": "Home University Seats Allotted to Home University Candidates"
+            }
+          ]
+        },
+        {
+          "category": "LSCH",
+          "category_meaning": "Ladies, Scheduled Caste, Home University seats",
+          "category_meaning_confidence": "best_effort",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 88439,
+              "closing_percentile": 56.7405028,
+              "evidence_id": "2023-24:2250:225024210:home_university_seats_allotted_to_home_university_candidates:LSCH:R1:S1",
+              "source_file": "2023ENGG_CAP1_CutOff.pdf",
+              "page": 194,
+              "level_key": "home_university_seats_allotted_to_home_university_candidates",
+              "level_label": "Home University Seats Allotted to Home University Candidates"
+            },
+            {
+              "round": 3,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 131856,
+              "closing_percentile": 17.7025465,
+              "evidence_id": "2023-24:2250:225024210:home_university_seats_allotted_to_other_than_home_university:LSCH:R3:S1",
+              "source_file": "2023ENGG_CAP3_CutOff.pdf",
+              "page": 144,
+              "level_key": "home_university_seats_allotted_to_other_than_home_university",
+              "level_label": "Home University Seats Allotted to Other Than Home University Candidates"
+            }
+          ]
+        },
+        {
+          "category": "LVJH",
+          "category_meaning": "Ladies, Vimukt Jati, Home University seats",
+          "category_meaning_confidence": "best_effort",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 93327,
+              "closing_percentile": 53.6496624,
+              "evidence_id": "2023-24:2250:225024210:home_university_seats_allotted_to_other_than_home_university:LVJH:R1:S1",
+              "source_file": "2023ENGG_CAP1_CutOff.pdf",
+              "page": 194,
+              "level_key": "home_university_seats_allotted_to_other_than_home_university",
+              "level_label": "Home University Seats Allotted to Other Than Home University Candidates"
+            }
+          ]
+        },
+        {
+          "category": "PWDOPENH",
+          "category_meaning": "Persons with Disability, Open, Home University seats",
+          "category_meaning_confidence": "best_effort",
+          "cutoffs": [
+            {
+              "round": 2,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 67666,
+              "closing_percentile": 69.6572694,
+              "evidence_id": "2023-24:2250:225024210:home_university_seats_allotted_to_other_than_home_university:PWDOPENH:R2:S1",
+              "source_file": "2023ENGG_CAP2_CutOff.pdf",
+              "page": 173,
+              "level_key": "home_university_seats_allotted_to_other_than_home_university",
+              "level_label": "Home University Seats Allotted to Other Than Home University Candidates"
+            }
+          ]
+        }
+      ],
+      "course_code": "225024210"
+    },
+    {
+      "branch": "Electrical Engineering",
+      "categories": [
+        {
+          "category": "AI",
+          "category_meaning": "All India seat",
+          "category_meaning_confidence": "best_effort",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "all_india",
+              "closing_rank": 82062,
+              "closing_percentile": 90.7704894,
+              "evidence_id": "2023-24:2250:225029310:all_india:AI:R1:S1",
+              "source_file": "2023ENGG_CAP1_AI_CutOff.pdf",
+              "page": 83,
+              "level_key": "all_india",
+              "level_label": "All India"
+            },
+            {
+              "round": 2,
+              "stage": "1",
+              "list_type": "all_india",
+              "closing_rank": 52944,
+              "closing_percentile": 44.4104033,
+              "evidence_id": "2023-24:2250:225029310:all_india:AI:R2:S1",
+              "source_file": "2023ENGG_CAP2_AI_CutOff.pdf",
+              "page": 69,
+              "level_key": "all_india",
+              "level_label": "All India"
+            }
+          ]
+        },
+        {
+          "category": "EWS",
+          "category_meaning": "Economically Weaker Section (state level)",
+          "category_meaning_confidence": "best_effort",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 139186,
+              "closing_percentile": 7.5516424,
+              "evidence_id": "2023-24:2250:225029310:state_level:EWS:R1:S1",
+              "source_file": "2023ENGG_CAP1_CutOff.pdf",
+              "page": 195,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            },
+            {
+              "round": 2,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 131710,
+              "closing_percentile": 17.8500207,
+              "evidence_id": "2023-24:2250:225029310:state_level:EWS:R2:S1",
+              "source_file": "2023ENGG_CAP2_CutOff.pdf",
+              "page": 174,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            },
+            {
+              "round": 3,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 117083,
+              "closing_percentile": 33.8201786,
+              "evidence_id": "2023-24:2250:225029310:state_level:EWS:R3:S1",
+              "source_file": "2023ENGG_CAP3_CutOff.pdf",
+              "page": 145,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            }
+          ]
+        },
+        {
+          "category": "GNT3H",
+          "category_meaning": "General (male), Nomadic Tribe 3, Home University seats",
+          "category_meaning_confidence": "best_effort",
+          "cutoffs": [
+            {
+              "round": 3,
+              "stage": "1",
+              "list_type": "all_india",
+              "closing_rank": 151294,
+              "closing_percentile": 11.0960605,
+              "evidence_id": "2023-24:2250:225029310:all_india:GNT3H:R3:S1",
+              "source_file": "2023ENGG_CAP3_AI_CutOff.pdf",
+              "page": 92,
+              "level_key": "all_india",
+              "level_label": "All India"
+            }
+          ]
+        },
+        {
+          "category": "GOPENH",
+          "category_meaning": "General (male), Open, Home University seats",
+          "category_meaning_confidence": "best_effort",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 142033,
+              "closing_percentile": 2.3390628,
+              "evidence_id": "2023-24:2250:225029310:home_university_seats_allotted_to_home_university_candidates:GOPENH:R1:S1",
+              "source_file": "2023ENGG_CAP1_CutOff.pdf",
+              "page": 195,
+              "level_key": "home_university_seats_allotted_to_home_university_candidates",
+              "level_label": "Home University Seats Allotted to Home University Candidates"
+            },
+            {
+              "round": 2,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 92887,
+              "closing_percentile": 53.8156961,
+              "evidence_id": "2023-24:2250:225029310:home_university_seats_allotted_to_home_university_candidates:GOPENH:R2:S1",
+              "source_file": "2023ENGG_CAP2_CutOff.pdf",
+              "page": 174,
+              "level_key": "home_university_seats_allotted_to_home_university_candidates",
+              "level_label": "Home University Seats Allotted to Home University Candidates"
+            },
+            {
+              "round": 3,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 88792,
+              "closing_percentile": 56.7366842,
+              "evidence_id": "2023-24:2250:225029310:home_university_seats_allotted_to_home_university_candidates:GOPENH:R3:S1",
+              "source_file": "2023ENGG_CAP3_CutOff.pdf",
+              "page": 145,
+              "level_key": "home_university_seats_allotted_to_home_university_candidates",
+              "level_label": "Home University Seats Allotted to Home University Candidates"
+            }
+          ]
+        },
+        {
+          "category": "GOPENO",
+          "category_meaning": "General (male), Open, Other than Home University seats",
+          "category_meaning_confidence": "best_effort",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 139891,
+              "closing_percentile": 6.1669865,
+              "evidence_id": "2023-24:2250:225029310:other_than_home_university_seats_allotted_to_other_than_home:GOPENO:R1:S1",
+              "source_file": "2023ENGG_CAP1_CutOff.pdf",
+              "page": 195,
+              "level_key": "other_than_home_university_seats_allotted_to_other_than_home",
+              "level_label": "Other Than Home University Seats Allotted to Other Than Home University Candidates"
+            }
+          ]
+        },
+        {
+          "category": "LOPENH",
+          "category_meaning": "Ladies, Open, Home University seats",
+          "category_meaning_confidence": "best_effort",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 129609,
+              "closing_percentile": 20.3198986,
+              "evidence_id": "2023-24:2250:225029310:home_university_seats_allotted_to_home_university_candidates:LOPENH:R1:S1",
+              "source_file": "2023ENGG_CAP1_CutOff.pdf",
+              "page": 195,
+              "level_key": "home_university_seats_allotted_to_home_university_candidates",
+              "level_label": "Home University Seats Allotted to Home University Candidates"
+            },
+            {
+              "round": 2,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 92469,
+              "closing_percentile": 54.0043616,
+              "evidence_id": "2023-24:2250:225029310:home_university_seats_allotted_to_home_university_candidates:LOPENH:R2:S1",
+              "source_file": "2023ENGG_CAP2_CutOff.pdf",
+              "page": 174,
+              "level_key": "home_university_seats_allotted_to_home_university_candidates",
+              "level_label": "Home University Seats Allotted to Home University Candidates"
+            }
+          ]
+        },
+        {
+          "category": "LOPENO",
+          "category_meaning": "Ladies, Open, Other than Home University seats",
+          "category_meaning_confidence": "best_effort",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 132899,
+              "closing_percentile": 16.2396627,
+              "evidence_id": "2023-24:2250:225029310:other_than_home_university_seats_allotted_to_other_than_home:LOPENO:R1:S1",
+              "source_file": "2023ENGG_CAP1_CutOff.pdf",
+              "page": 195,
+              "level_key": "other_than_home_university_seats_allotted_to_other_than_home",
+              "level_label": "Other Than Home University Seats Allotted to Other Than Home University Candidates"
+            }
+          ]
+        }
+      ],
+      "course_code": "225029310"
+    },
+    {
+      "branch": "Electronics and Telecommunication Engg",
+      "categories": [
+        {
+          "category": "AI",
+          "category_meaning": "All India seat",
+          "category_meaning_confidence": "best_effort",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "all_india",
+              "closing_rank": 32286,
+              "closing_percentile": 66.1170112,
+              "evidence_id": "2023-24:2250:225037210:all_india:AI:R1:S1",
+              "source_file": "2023ENGG_CAP1_AI_CutOff.pdf",
+              "page": 44,
+              "level_key": "all_india",
+              "level_label": "All India"
+            },
+            {
+              "round": 2,
+              "stage": "1",
+              "list_type": "all_india",
+              "closing_rank": 37106,
+              "closing_percentile": 61.1804012,
+              "evidence_id": "2023-24:2250:225037210:all_india:AI:R2:S1",
+              "source_file": "2023ENGG_CAP2_AI_CutOff.pdf",
+              "page": 55,
+              "level_key": "all_india",
+              "level_label": "All India"
+            },
+            {
+              "round": 3,
+              "stage": "1",
+              "list_type": "all_india",
+              "closing_rank": 54116,
+              "closing_percentile": 43.1200045,
+              "evidence_id": "2023-24:2250:225037210:all_india:AI:R3:S1",
+              "source_file": "2023ENGG_CAP3_AI_CutOff.pdf",
+              "page": 66,
+              "level_key": "all_india",
+              "level_label": "All India"
+            }
+          ]
+        },
+        {
+          "category": "EWS",
+          "category_meaning": "Economically Weaker Section (state level)",
+          "category_meaning_confidence": "best_effort",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 53703,
+              "closing_percentile": 76.8406961,
+              "evidence_id": "2023-24:2250:225037210:state_level:EWS:R1:S1",
+              "source_file": "2023ENGG_CAP1_CutOff.pdf",
+              "page": 196,
+              "level_key": "state_level",
+              "level_label": "State Level"
+            }
+          ]
+        },
+        {
+          "category": "GNT1H",
+          "category_meaning": "General (male), Nomadic Tribe 1, Home University seats",
+          "category_meaning_confidence": "best_effort",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 104204,
+              "closing_percentile": 45.8483896,
+              "evidence_id": "2023-24:2250:225037210:home_university_seats_allotted_to_home_university_candidates:GNT1H:R1:S1",
+              "source_file": "2023ENGG_CAP1_CutOff.pdf",
+              "page": 196,
+              "level_key": "home_university_seats_allotted_to_home_university_candidates",
+              "level_label": "Home University Seats Allotted to Home University Candidates"
+            },
+            {
+              "round": 2,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 107912,
+              "closing_percentile": 42.5530244,
+              "evidence_id": "2023-24:2250:225037210:home_university_seats_allotted_to_other_than_home_university:GNT1H:R2:S1",
+              "source_file": "2023ENGG_CAP2_CutOff.pdf",
+              "page": 175,
+              "level_key": "home_university_seats_allotted_to_other_than_home_university",
+              "level_label": "Home University Seats Allotted to Other Than Home University Candidates"
+            },
+            {
+              "round": 3,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 107912,
+              "closing_percentile": 42.5530244,
+              "evidence_id": "2023-24:2250:225037210:home_university_seats_allotted_to_other_than_home_university:GNT1H:R3:S1",
+              "source_file": "2023ENGG_CAP3_CutOff.pdf",
+              "page": 146,
+              "level_key": "home_university_seats_allotted_to_other_than_home_university",
+              "level_label": "Home University Seats Allotted to Other Than Home University Candidates"
+            }
+          ]
+        },
+        {
+          "category": "GOBCH",
+          "category_meaning": "General (male), Other Backward Class, Home University seats",
+          "category_meaning_confidence": "best_effort",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 108629,
+              "closing_percentile": 42.2969628,
+              "evidence_id": "2023-24:2250:225037210:home_university_seats_allotted_to_home_university_candidates:GOBCH:R1:S1",
+              "source_file": "2023ENGG_CAP1_CutOff.pdf",
+              "page": 196,
+              "level_key": "home_university_seats_allotted_to_home_university_candidates",
+              "level_label": "Home University Seats Allotted to Home University Candidates"
+            },
+            {
+              "round": 2,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 94909,
+              "closing_percentile": 52.5567137,
+              "evidence_id": "2023-24:2250:225037210:home_university_seats_allotted_to_other_than_home_university:GOBCH:R2:S1",
+              "source_file": "2023ENGG_CAP2_CutOff.pdf",
+              "page": 175,
+              "level_key": "home_university_seats_allotted_to_other_than_home_university",
+              "level_label": "Home University Seats Allotted to Other Than Home University Candidates"
+            }
+          ]
+        },
+        {
+          "category": "GOPENH",
+          "category_meaning": "General (male), Open, Home University seats",
+          "category_meaning_confidence": "best_effort",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 86211,
+              "closing_percentile": 58.5474069,
+              "evidence_id": "2023-24:2250:225037210:home_university_seats_allotted_to_home_university_candidates:GOPENH:R1:S1",
+              "source_file": "2023ENGG_CAP1_CutOff.pdf",
+              "page": 196,
+              "level_key": "home_university_seats_allotted_to_home_university_candidates",
+              "level_label": "Home University Seats Allotted to Home University Candidates"
+            }
+          ]
+        },
+        {
+          "category": "GOPENO",
+          "category_meaning": "General (male), Open, Other than Home University seats",
+          "category_meaning_confidence": "best_effort",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 63251,
+              "closing_percentile": 71.9809302,
+              "evidence_id": "2023-24:2250:225037210:other_than_home_university_seats_allotted_to_other_than_home:GOPENO:R1:S1",
+              "source_file": "2023ENGG_CAP1_CutOff.pdf",
+              "page": 196,
+              "level_key": "other_than_home_university_seats_allotted_to_other_than_home",
+              "level_label": "Other Than Home University Seats Allotted to Other Than Home University Candidates"
+            }
+          ]
+        },
+        {
+          "category": "GSCH",
+          "category_meaning": "General (male), Scheduled Caste, Home University seats",
+          "category_meaning_confidence": "best_effort",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 128365,
+              "closing_percentile": 21.7123399,
+              "evidence_id": "2023-24:2250:225037210:home_university_seats_allotted_to_home_university_candidates:GSCH:R1:S1",
+              "source_file": "2023ENGG_CAP1_CutOff.pdf",
+              "page": 196,
+              "level_key": "home_university_seats_allotted_to_home_university_candidates",
+              "level_label": "Home University Seats Allotted to Home University Candidates"
+            }
+          ]
+        },
+        {
+          "category": "GSCO",
+          "category_meaning": "General (male), Scheduled Caste, Other than Home University seats",
+          "category_meaning_confidence": "best_effort",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 130768,
+              "closing_percentile": 18.8110994,
+              "evidence_id": "2023-24:2250:225037210:other_than_home_university_seats_allotted_to_other_than_home:GSCO:R1:S1",
+              "source_file": "2023ENGG_CAP1_CutOff.pdf",
+              "page": 196,
+              "level_key": "other_than_home_university_seats_allotted_to_other_than_home",
+              "level_label": "Other Than Home University Seats Allotted to Other Than Home University Candidates"
+            }
+          ]
+        },
+        {
+          "category": "LOPENH",
+          "category_meaning": "Ladies, Open, Home University seats",
+          "category_meaning_confidence": "best_effort",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 95341,
+              "closing_percentile": 52.2466614,
+              "evidence_id": "2023-24:2250:225037210:home_university_seats_allotted_to_home_university_candidates:LOPENH:R1:S1",
+              "source_file": "2023ENGG_CAP1_CutOff.pdf",
+              "page": 196,
+              "level_key": "home_university_seats_allotted_to_home_university_candidates",
+              "level_label": "Home University Seats Allotted to Home University Candidates"
+            }
+          ]
+        }
+      ],
+      "course_code": "225037210"
+    },
+    {
+      "branch": "Mechanical Engineering",
+      "categories": [
+        {
+          "category": "AI",
+          "category_meaning": "All India seat",
+          "category_meaning_confidence": "best_effort",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "all_india",
+              "closing_rank": 25171,
+              "closing_percentile": 73.0633047,
+              "evidence_id": "2023-24:2250:225061210:all_india:AI:R1:S1",
+              "source_file": "2023ENGG_CAP1_AI_CutOff.pdf",
+              "page": 34,
+              "level_key": "all_india",
+              "level_label": "All India"
+            }
+          ]
+        },
+        {
+          "category": "GOPENH",
+          "category_meaning": "General (male), Open, Home University seats",
+          "category_meaning_confidence": "best_effort",
+          "cutoffs": [
+            {
+              "round": 1,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 136282,
+              "closing_percentile": 11.4340144,
+              "evidence_id": "2023-24:2250:225061210:home_university_seats_allotted_to_home_university_candidates:GOPENH:R1:S1",
+              "source_file": "2023ENGG_CAP1_CutOff.pdf",
+              "page": 196,
+              "level_key": "home_university_seats_allotted_to_home_university_candidates",
+              "level_label": "Home University Seats Allotted to Home University Candidates"
+            },
+            {
+              "round": 2,
+              "stage": "1",
+              "list_type": "maharashtra_minority",
+              "closing_rank": 139225,
+              "closing_percentile": 7.5516424,
+              "evidence_id": "2023-24:2250:225061210:home_university_seats_allotted_to_other_than_home_university:GOPENH:R2:S1",
+              "source_file": "2023ENGG_CAP2_CutOff.pdf",
+              "page": 175,
+              "level_key": "home_university_seats_allotted_to_other_than_home_university",
+              "level_label": "Home University Seats Allotted to Other Than Home University Candidates"
+            }
+          ]
+        }
+      ],
+      "course_code": "225061210"
+    }
+  ],
+  "home_university": "Dr. Babasaheb Ambedkar Marathwada University",
+  "status": "Un-Aided",
+  "source_files": [
+    "2023ENGG_CAP1_AI_CutOff.pdf",
+    "2023ENGG_CAP1_CutOff.pdf",
+    "2023ENGG_CAP2_AI_CutOff.pdf",
+    "2023ENGG_CAP2_CutOff.pdf",
+    "2023ENGG_CAP3_AI_CutOff.pdf",
+    "2023ENGG_CAP3_CutOff.pdf"
+  ]
+}
