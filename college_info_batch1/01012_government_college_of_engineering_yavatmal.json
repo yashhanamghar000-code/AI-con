@@ -1,0 +1,43 @@
+{
+  "institute_code": "01012",
+  "institute_name": "Government College of Engineering,Yavatmal",
+  "url": "https://gcoey.ac.in/",
+  "url_source": "claude_web_search",
+  "url_note": "Two different domains appear across sources for what may be two differently-described versions of the same institute history (see established_year conflict below). gcoey.ac.in is the domain most consistently cited by recent, specific sources (including the college's own site content in search results) and is treated as primary here; gcoeyavatmal.ac.in appears only in one lower-detail listing and may be outdated, unofficial, or a different/renamed entity - verify before relying on it.",
+  "scraped_at": "2026-10-04T00:00:00Z",
+  "extracted": {
+    "established_year": {
+      "value": null,
+      "confidence": "conflicting_sources",
+      "conflict": [
+        {"value": "2018", "detail": "established by upgrading the old Government Polytechnic, Yavatmal", "source": "https://collegedunia.com/college/63072-government-college-of-engineering-yavatmal and https://www.collegebatch.com/20621-government-college-of-engineering-in-yavatmal-fs025"},
+        {"value": "1997", "source": "https://jeecounselling.in/college/government-college-of-engineering-yavatmal"}
+      ],
+      "note": "2018 is corroborated by two independent sources with a consistent origin story (Polytechnic upgrade); 1997 appears in only one source with no supporting detail. 2018 is more likely correct but this is not confirmed against an official/primary source."
+    },
+    "affiliation": {"value": "Dr. Babasaheb Ambedkar Technological University (DBATU), Lonere", "confidence": "secondary_source", "agreement": "consistent across sources"},
+    "approved_by": {"value": "AICTE, DTE Maharashtra", "confidence": "secondary_source"},
+    "address": {"value": "Naringe Nagar, Pimpalgaon / Dhamangaon Road, Yavatmal - 445001, Maharashtra", "confidence": "secondary_source"},
+    "campus_size": {"value": "40.19 acres", "source": "https://collegedunia.com/college/63072-government-college-of-engineering-yavatmal", "confidence": "secondary_source_unverified"},
+    "branches_offered": {"value": ["Civil Engineering", "Computer Engineering", "Electrical Engineering", "Electronics and Telecommunication Engineering", "Mechanical Engineering"], "intake_per_branch": "60 (per one secondary source, year not stated)", "confidence": "secondary_source", "source": "https://gcoey.ac.in/ (search snippet) and https://dial4college.com/college/government-college-of-engineering-yavatmal-in-yavatmal"},
+    "contact": {
+      "phone": [{"value": "07232-243278 / 238683", "source": "https://gcoey.ac.in/ (search snippet)"},
+                {"value": "+91-7232-242346", "source": "https://jeecounselling.in/college/government-college-of-engineering-yavatmal (gcoeyavatmal.ac.in listing)"}],
+      "email": [{"value": "info@gcoeyavatmal.ac.in", "source": "https://jeecounselling.in/college/government-college-of-engineering-yavatmal"}]
+    },
+    "principal": {"value": "V. B. Waghmare", "source": "https://www.collegebatch.com/20621-government-college-of-engineering-in-yavatmal-fs025", "confidence": "secondary_source_unverified"},
+    "nirf_ranking": {"value": "#165 (year not stated)", "source": "https://jeecounselling.in/college/government-college-of-engineering-yavatmal", "confidence": "secondary_source_unverified"},
+    "placement_mentions": []
+  },
+  "data_gap_note": "No placement figures (package, placement rate) were found in the search results for this college - that is a real gap, not an omission. Do not infer or estimate a figure to fill it.",
+  "sources_consulted": [
+    "https://gcoey.ac.in/",
+    "https://collegedunia.com/college/63072-government-college-of-engineering-yavatmal",
+    "https://www.collegebatch.com/20621-government-college-of-engineering-in-yavatmal-fs025",
+    "https://www.shiksha.com/college/government-engineering-college-yavatmal-63365",
+    "https://zollege.in/college/222384-government-college-of-engineering-yavatmal",
+    "https://jeecounselling.in/college/government-college-of-engineering-yavatmal",
+    "https://dial4college.com/college/government-college-of-engineering-yavatmal-in-yavatmal",
+    "https://www.vidhyarthiportal.com/college/government-college-of-engineering-yavatmal-11189/"
+  ]
+}
