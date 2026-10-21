@@ -98,7 +98,16 @@ class CutoffAgent:
         self._load_all()
 
     def _load_all(self) -> None:
-        """Scan year directories and index cutoff files by institute code."""
+        """Scan year directories and index cutoff files by institute code with disk caching."""
+        cache_file = self.cutoffs_dir / "cache.pkl"
+        if cache_file.exists():
+            try:
+                import pickle
+                self._by_code = pickle.loads(cache_file.read_bytes())
+                return
+            except Exception:
+                pass
+
         for year_dir in sorted(self.cutoffs_dir.iterdir()):
             if not year_dir.is_dir() or not re.match(r"^\d{4}-\d{2}$", year_dir.name):
                 continue
@@ -118,6 +127,12 @@ class CutoffAgent:
                 # Also index with 5-digit zero-padding if applicable
                 if len(code_str) == 4 and code_str.isdigit():
                     self._by_code.setdefault(code_str.zfill(5), {})[ay] = college
+
+        try:
+            import pickle
+            cache_file.write_bytes(pickle.dumps(self._by_code))
+        except Exception:
+            pass
 
     def years_available(self, institute_code: Union[str, int]) -> List[str]:
         """Return sorted list of academic years available for an institute."""

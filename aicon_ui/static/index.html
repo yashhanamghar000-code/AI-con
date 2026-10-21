@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101b2e">
+  <title>AI-CON | Admission Intelligence</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <a class="brand" href="#dashboard" aria-label="AI-CON dashboard">
+        <span class="brand-mark"><svg viewBox="0 0 40 40" aria-hidden="true"><path d="M20 4 35 13v14L20 36 5 27V13L20 4Z" fill="none" stroke="currentColor" stroke-width="2"/><path d="m12 25 8-15 8 15M15 20h10" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <span class="brand-copy"><strong>AI-CON</strong><small>ADMISSION INTELLIGENCE</small></span>
+      </a>
+      <div class="workspace-label">WORKSPACE <span class="live-dot"></span></div>
+      <nav class="primary-nav" aria-label="Main navigation">
+        <button class="nav-item active" data-view="dashboard"><span class="nav-icon">◫</span><span>Overview</span></button>
+        <button class="nav-item" data-view="colleges"><span class="nav-icon">▦</span><span>College explorer</span><span class="nav-count" id="nav-college-count">···</span></button>
+        <button class="nav-item" data-view="counsellor"><span class="nav-icon">✳</span><span>AI counsellor</span><span class="nav-arrow">↗</span></button>
+        <button class="nav-item" data-view="cutoffs"><span class="nav-icon">⌁</span><span>Cutoff lookup</span></button>
+      </nav>
+      <div class="sidebar-spacer"></div>
+      <div class="sidebar-note">
+        <div class="note-icon">⌘</div>
+        <div><strong>Evidence first.</strong><p>Recommendations should be traceable to real college records.</p></div>
+      </div>
+      <div class="sidebar-bottom"><span class="avatar">AC</span><div class="sidebar-user"><strong>Local workspace</strong><small>Developer preview</small></div><span class="local-label">LOCAL</span></div>
+    </aside>
+
+    <main class="main-area">
+      <header class="topbar">
+        <button class="mobile-menu" id="mobile-menu" aria-label="Toggle navigation">☰</button>
+        <div class="breadcrumbs"><span>AI-CON</span><span class="crumb-slash">/</span><strong id="crumb-current">Overview</strong></div>
+        <div class="topbar-right"><span class="connection-pill" id="connection-pill"><span class="status-dot"></span><span id="connection-text">Checking local services</span></span><button class="icon-button" id="refresh-status" title="Refresh status" aria-label="Refresh status">↻</button><div class="top-avatar">Y</div></div>
+      </header>
+
+      <div class="page-wrap">
+        <section class="view active" id="view-dashboard">
+          <div class="page-heading heading-row"><div><div class="eyebrow"><span class="eyebrow-line"></span> MHT-CET · ENGINEERING ADMISSIONS</div><h1>Your next chapter,<br><span>with better evidence.</span></h1><p class="heading-subtitle">Explore Maharashtra engineering colleges, ask grounded questions, and understand what your data actually tells you.</p></div><div class="heading-art" aria-hidden="true"><div class="orb orb-one"></div><div class="orb orb-two"></div><div class="orbit orbit-one"></div><div class="orbit orbit-two"></div><div class="art-center">A<span>I</span></div><div class="art-caption">DATA × GUIDANCE</div></div></div>
+          <div class="stats-grid">
+            <article class="stat-card"><div class="stat-top"><span class="stat-label">COLLEGE RECORDS</span><span class="stat-icon icon-violet">▦</span></div><div class="stat-value" id="stat-colleges">—</div><div class="stat-foot" id="stat-colleges-foot">Checking local dataset</div></article>
+            <article class="stat-card"><div class="stat-top"><span class="stat-label">RETRIEVAL ENGINE</span><span class="stat-icon icon-green">⌘</span></div><div class="stat-value stat-word" id="stat-pipeline">Checking</div><div class="stat-foot" id="stat-pipeline-foot">Existing project pipeline</div></article>
+            <article class="stat-card"><div class="stat-top"><span class="stat-label">HISTORICAL CUTOFFS</span><span class="stat-icon icon-amber">⌁</span></div><div class="stat-value stat-word" id="stat-cutoffs">Checking</div><div class="stat-foot" id="stat-cutoffs-foot">No figures are estimated</div></article>
+            <article class="stat-card"><div class="stat-top"><span class="stat-label">TRAINED LLM</span><span class="stat-icon icon-blue">✳</span></div><div class="stat-value stat-word" id="stat-llm">Checking</div><div class="stat-foot" id="stat-llm-foot">TinyLlama + AI-CON LoRA adapter</div></article>
+          </div>
+          <div class="section-heading"><div><div class="eyebrow small-eyebrow">START HERE</div><h2>What would you like to do?</h2></div><span class="subtle-tag">LOCAL TEST ENVIRONMENT</span></div>
+          <div class="action-grid">
+            <button class="action-card action-counsellor" data-go="counsellor"><span class="action-badge badge-lilac">✳</span><span class="action-arrow">↗</span><h3>Ask the AI counsellor</h3><p>Ask a question about a college and inspect the evidence returned by the existing pipeline.</p><span class="action-link">Start a conversation <b>→</b></span></button>
+            <button class="action-card action-colleges" data-go="colleges"><span class="action-badge badge-mint">▦</span><span class="action-arrow">↗</span><h3>Explore colleges</h3><p>Search the college records discovered in your local repository. No sample records are fabricated.</p><span class="action-link">Browse college data <b>→</b></span></button>
+            <button class="action-card action-cutoffs" data-go="cutoffs"><span class="action-badge badge-amber">⌁</span><span class="action-arrow">↗</span><h3>Look up a cutoff</h3><p>Ask for an exact historical cutoff. Missing data must stay missing, never become a guess.</p><span class="action-link">Check cutoff evidence <b>→</b></span></button>
+          </div>
+          <div class="lower-grid">
+            <section class="panel service-panel"><div class="panel-header"><div><h3>Local system status</h3><p>Detected on this machine</p></div><button class="text-button" id="refresh-status-2">Refresh ↻</button></div><div id="service-list" class="service-list"><div class="empty-inline">Checking services…</div></div><div class="project-root"><span>PROJECT ROOT</span><code id="project-root">Checking repository path…</code></div></section>
+            <section class="panel principles-panel"><div class="panel-header"><div><h3>Trust rules</h3><p>How AI-CON should behave</p></div><span class="shield-icon">◇</span></div><div class="principle-row"><span class="principle-check">✓</span><div><strong>Evidence over invention</strong><p>College facts must come from retrieved records.</p></div></div><div class="principle-row"><span class="principle-check">✓</span><div><strong>No pretend probabilities</strong><p>Historical cutoffs are not guaranteed admission chances.</p></div></div><div class="principle-row"><span class="principle-check">✓</span><div><strong>Clear when data is missing</strong><p>Unavailable information is reported explicitly.</p></div></div></section>
+          </div>
+          <footer class="page-footer"><span>AI-CON · LOCAL DEVELOPER PREVIEW</span><span>Built around evidence, not admission guarantees.</span></footer>
+        </section>
+
+        <section class="view" id="view-colleges">
+          <div class="page-heading compact-heading"><div class="eyebrow"><span class="eyebrow-line"></span> COLLEGE DIRECTORY</div><h1>Find your <span>shortlist.</span></h1><p class="heading-subtitle">Search actual college records found in this repository. Profile fields may be sparse when evidence is unavailable.</p></div>
+          <div class="search-toolbar"><div class="search-field"><span>⌕</span><input id="college-search" type="search" placeholder="Search college name, CET code, district…" autocomplete="off"><kbd>/</kbd></div><button class="secondary-button" id="college-search-button">Search records</button></div>
+          <div class="directory-summary"><div><strong id="college-results-count">Loading records…</strong><span id="college-source-label">Looking for the local dataset</span></div><span class="subtle-tag">VERIFIED RECORDS ONLY</span></div>
+          <div id="college-results" class="college-grid"><div class="loading-card">Loading local college records…</div></div>
+          <div class="data-notice"><span class="notice-symbol">i</span><p>College directory records are not admission predictions. This view intentionally does not show invented fees, ranks, ratings, or cutoff values.</p></div>
+        </section>
+
+        <section class="view" id="view-counsellor">
+          <div class="page-heading compact-heading"><div class="eyebrow"><span class="eyebrow-line"></span> GROUNDED QUESTION ANSWERING</div><h1>Meet your <span>AI counsellor.</span></h1><p class="heading-subtitle">Ask about a college, its verified profile, or historical admission data. Answers use retrieved evidence and, when enabled, your trained TinyLlama adapter.</p></div>
+          <div class="chat-layout"><section class="panel chat-panel"><div class="chat-topline"><div class="assistant-identity"><div class="assistant-mark">✳</div><div><strong>AI-CON Guide</strong><div class="assistant-meta"><span class="tiny-green-dot"></span><span id="chat-engine-meta">Checking retrieval engine…</span></div></div></div><span class="evidence-badge">EVIDENCE MODE</span></div><div class="chat-messages" id="chat-messages"><div class="welcome-message"><div class="welcome-mark">✳</div><div class="welcome-title">Let's make your next move clearer.</div><p>Ask about a specific Maharashtra engineering college. I'll send your question to the existing AI-CON pipeline and show the returned evidence. Enable the trained model when you want a grounded natural-language answer.</p><div class="prompt-chips"><button data-prompt="What is the affiliation and district of Government College of Engineering, Amravati?">College affiliation & district <span>↗</span></button><button data-prompt="Tell me about institute 01002">Look up CET code 01002 <span>↗</span></button><button data-prompt="What was the GOPENS closing cutoff for Computer Engineering at Government College of Engineering, Amravati in Round 1?">Check an exact cutoff <span>↗</span></button></div></div></div><form class="chat-composer" id="chat-form"><textarea id="chat-input" rows="2" maxlength="1600" placeholder="Ask about a college, branch, affiliation, or cutoff…" required></textarea><div class="composer-bottom"><label class="llm-toggle"><input type="checkbox" id="use-llm"><span class="switch"></span><span>Use trained AI-CON model</span><span class="llm-status" id="llm-toggle-status">Checking adapter</span></label><button class="send-button" type="submit"><span>Send question</span><b>↑</b></button></div></form></section><aside class="chat-side"><div class="panel side-info"><div class="side-info-icon">⌘</div><h3>Where answers come from</h3><p>The chat calls the existing CLI pipeline. It doesn't substitute a mock response when the backend is unavailable.</p><div class="side-divider"></div><div class="source-step"><span>01</span><div><strong>Resolve the college</strong><p>Name, CET code or record ID.</p></div></div><div class="source-step"><span>02</span><div><strong>Retrieve evidence</strong><p>Search the local Chroma index or exact cutoff store.</p></div></div><div class="source-step"><span>03</span><div><strong>Return status & sources</strong><p>Inspect evidence IDs and any missing-data messages.</p></div></div></div><div class="warning-card"><span class="warning-icon">!</span><div><strong>Admission decisions need current evidence</strong><p>Past closing cutoffs do not guarantee future allotment. Always verify final decisions against official CET Cell guidance.</p></div></div></aside></div>
+        </section>
+
+        <section class="view" id="view-cutoffs">
+          <div class="page-heading compact-heading"><div class="eyebrow"><span class="eyebrow-line"></span> HISTORICAL ADMISSION DATA</div><h1>Cutoffs, <span>without guesswork.</span></h1><p class="heading-subtitle">Submit an exact question to the project's structured cutoff interface. This view never calculates a fabricated cutoff.</p></div>
+          <div class="cutoff-banner"><div class="cutoff-banner-icon">⌁</div><div><strong id="cutoff-status-title">Checking cutoff store</strong><p id="cutoff-status-copy">The local status check will report whether a structured cutoff dataset was detected.</p></div><span class="cutoff-status-chip" id="cutoff-status-chip">CHECKING</span></div>
+          <div class="panel cutoff-form-panel"><div class="panel-header"><div><h3>Exact cutoff query</h3><p>Be specific about college, branch, category, year and CAP round.</p></div><span class="form-index">01 / LOOKUP</span></div><form id="cutoff-form"><label class="field-label" for="cutoff-question">Your question</label><textarea id="cutoff-question" rows="3" maxlength="1600" placeholder="e.g. What was the GOPENS closing cutoff for Computer Engineering at Government College of Engineering, Amravati in Round 1 for 2024-25?" required></textarea><div class="query-examples"><button type="button" data-cutoff-prompt="What was the GOPENS cutoff for Computer Science and Engineering at Government College of Engineering, Amravati in 2024-25?">Sample: exact 2024-25 cutoff</button><button type="button" data-cutoff-prompt="What is the historical cutoff trend for Computer Science and Engineering at Government College of Engineering, Amravati across past years?">Sample: historical trend</button></div><div class="cutoff-form-bottom"><p>When matching records are missing, AI-CON should say so clearly.</p><button class="primary-button" type="submit">Run exact lookup <span>→</span></button></div></form></div>
+          <section class="panel cutoff-result-panel"><div class="panel-header"><div><h3>Lookup response</h3><p>Results from the real local pipeline</p></div><span class="subtle-tag">NO ESTIMATES</span></div><div id="cutoff-result" class="cutoff-result-empty"><span class="empty-search-icon">⌕</span><strong>No lookup run yet</strong><p>Your response and evidence will appear here.</p></div></section>
+        </section>
+      </div>
+    </main>
+  </div>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script src="/static/app.js" defer></script>
+</body>
+</html>
