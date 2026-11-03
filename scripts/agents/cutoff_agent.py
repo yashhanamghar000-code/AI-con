@@ -233,6 +233,67 @@ class CutoffAgent:
             )
         return "\n".join(lines)
 
+    def find_colleges(
+        self,
+        min_percentile: Optional[float] = None,
+        max_percentile: Optional[float] = None,
+        min_rank: Optional[int] = None,
+        max_rank: Optional[int] = None,
+        branch_query: Optional[str] = None,
+        category: Optional[str] = None,
+        year: Optional[str] = None,
+        round_no: Optional[int] = None,
+        list_type: Optional[str] = None,
+        stage: Optional[str] = None,
+        limit: int = 20,
+    ) -> List[Dict[str, Any]]:
+        """Search across all indexed colleges for cutoffs matching criteria.
+
+        Enables cross-college shortlisting and queries like 'GOPENS cutoff between 90 and 95 percentile'.
+        """
+        matches: List[Dict[str, Any]] = []
+        seen_codes = set()
+
+        for code in sorted(self._by_code.keys()):
+            canon_code = code.zfill(5) if len(code) == 4 and code.isdigit() else code
+            if canon_code in seen_codes:
+                continue
+            seen_codes.add(canon_code)
+
+            records = self.get_cutoffs(
+                canon_code,
+                year=year,
+                branch_query=branch_query,
+                category=category,
+                round_no=round_no,
+                list_type=list_type,
+                stage=stage,
+            )
+            for r in records:
+                p = r.get("closing_percentile")
+                rk = r.get("closing_rank")
+                if min_percentile is not None and (p is None or p < min_percentile):
+                    continue
+                if max_percentile is not None and (p is None or p > max_percentile):
+                    continue
+                if min_rank is not None and (rk is None or rk < min_rank):
+                    continue
+                if max_rank is not None and (rk is None or rk > max_rank):
+                    continue
+                matches.append(r)
+                if len(matches) >= limit * 3:
+                    break
+            if len(matches) >= limit * 3:
+                break
+
+        if min_percentile is not None or max_percentile is not None:
+            matches.sort(key=lambda x: x.get("closing_percentile") or 0.0, reverse=True)
+        elif min_rank is not None or max_rank is not None:
+            matches.sort(key=lambda x: x.get("closing_rank") or 999999)
+
+        return matches[:limit]
+
+
 
 if __name__ == "__main__":
     ap = argparse.ArgumentParser(description="Quick manual test of CutoffAgent")
