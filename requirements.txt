@@ -1,6 +1,12 @@
 # Core pipeline (always needed)
 # Standard library only for cutoff_agent.py, college_resolver.py, and orchestrator.py
 
+# Web Application & API Service (FastAPI + SPA Frontend)
+fastapi>=0.100.0
+uvicorn[standard]>=0.20.0
+pydantic>=2.0.0
+requests>=2.28.0
+
 # Vector index / semantic search (college info retrieval)
 # Note for Windows: To install lightweight CPU-only PyTorch before installing requirements:
 #   pip install torch --index-url https://download.pytorch.org/whl/cpu

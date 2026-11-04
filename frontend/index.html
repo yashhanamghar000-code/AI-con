@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI-CON — Intelligent College & Stream Consultant</title>
+  <meta name="description" content="AI-Powered Maharashtra Engineering and Admissions Consultant. Stream Discovery, Aptitude Assessment, and Verified Cutoff RAG." />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- Toast Notification Container -->
+  <div id="toastContainer" style="position: fixed; top: 20px; right: 20px; z-index: 9999; display: flex; flex-direction: column; gap: 10px;"></div>
+
+  <!-- MAIN APP CONTAINER -->
+  <div id="appRoot">
+
+    <!-- ================================================================= -->
+    <!-- VIEW 1: SPLIT-SCREEN LANDING & AUTHENTICATION (40% / 60%)         -->
+    <!-- ================================================================= -->
+    <div id="authView" class="split-auth-container">
+      
+      <!-- Left Section: 40% Authentication Form -->
+      <section class="auth-left-section">
+        <div>
+          <!-- Brand Logo Header -->
+          <div class="brand-header">
+            <div class="brand-logo-pill" onclick="App.navigateTo('auth')">
+              <div class="brand-icon-box">AI</div>
+              <span class="brand-name">AI-CON</span>
+              <span class="brand-tag">Consultant</span>
+            </div>
+          </div>
+
+          <!-- Auth Card Body -->
+          <div class="auth-card-body">
+            <div class="auth-nav-toggle">
+              <button id="toggleLoginBtn" class="auth-toggle-btn active" onclick="App.setAuthMode('login')">Sign In</button>
+              <button id="toggleRegisterBtn" class="auth-toggle-btn" onclick="App.setAuthMode('register')">Create Account</button>
+            </div>
+
+            <h2 id="authHeading" class="auth-heading">Your Future Starts With the Right Decision.</h2>
+            <p id="authSubheading" class="auth-subheading">Get personalized college guidance, understand your opportunities, and discover the academic path that matches your potential.</p>
+
+            <form id="authForm" onsubmit="App.handleAuthSubmit(event)">
+              <div id="registerNameGroup" class="form-group" style="display: none;">
+                <label class="form-label" for="authName">Full Name</label>
+                <input type="text" id="authName" class="form-input" placeholder="e.g. Aarav Sharma" />
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="authEmail">Email Address</label>
+                <input type="email" id="authEmail" class="form-input" placeholder="student@example.com" required value="aarav.sharma@example.com" />
+              </div>
+
+              <div class="form-group">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+                  <label class="form-label" for="authPassword" style="margin-bottom: 0;">Password</label>
+                  <a href="#" style="font-size: 0.75rem; color: var(--primary); text-decoration: none;" onclick="alert('Password reset link sent to registered email in demo mode.'); return false;">Forgot password?</a>
+                </div>
+                <div class="input-with-icon">
+                  <input type="password" id="authPassword" class="form-input" placeholder="Enter your password" required value="Password@123" />
+                  <span class="input-icon" onclick="App.togglePasswordVisibility('authPassword')">👁</span>
+                </div>
+              </div>
+
+              <div id="rememberGroup" style="display: flex; align-items: center; gap: 8px; margin-bottom: 20px;">
+                <input type="checkbox" id="rememberMe" checked />
+                <label for="rememberMe" style="font-size: 0.8125rem; color: var(--text-muted); cursor: pointer;">Remember this device</label>
+              </div>
+
+              <button type="submit" id="authSubmitBtn" class="btn btn-primary btn-block btn-lg">
+                <span id="authBtnText">Sign In to AI-CON</span> →
+              </button>
+            </form>
+          </div>
+        </div>
+
+        <div class="auth-footer-note">
+          Protected by AI-CON Education Security. Class 10 & 12 Guidance Platform.
+        </div>
+      </section>
+
+      <!-- Right Section: 60% AI-CON Branding & Feature Showcase -->
+      <section class="auth-right-section">
+        <div class="glow-orb glow-orb-1"></div>
+        <div class="glow-orb glow-orb-2"></div>
+
+        <!-- Top Right Nav -->
+        <div style="display: flex; justify-content: space-between; align-items: center; z-index: 2;">
+          <div class="badge-brand">✨ Next-Generation AI Guidance</div>
+          <button class="btn btn-ghost" style="color: #FFFFFF; border: 1px solid rgba(255,255,255,0.2);" onclick="App.guestDemoLogin()">Explore as Guest Student</button>
+        </div>
+
+        <!-- Main Showcase Content -->
+        <div class="brand-showcase-content">
+          <h1 class="brand-main-title">Find Your Direction.<br />Build Your Future.</h1>
+          <p class="brand-main-desc">From choosing your academic stream to finding the right college, AI-CON helps you make informed educational decisions with intelligent guidance.</p>
+
+          <!-- 3 Floating Feature Cards -->
+          <div class="feature-cards-grid">
+            <div class="floating-feature-card">
+              <div class="card-icon-pill">🎯</div>
+              <div class="card-content">
+                <h4>1. Smart Stream Discovery</h4>
+                <p>Discover your ideal academic stream (Science PCM/PCB, Commerce, Arts) through a 25-question aptitude assessment designed for Class 10 students.</p>
+              </div>
+            </div>
+
+            <div class="floating-feature-card">
+              <div class="card-icon-pill">🏛️</div>
+              <div class="card-content">
+                <h4>2. Intelligent College Recommendations</h4>
+                <p>Find engineering and higher education colleges tailored to your marks, category, location preferences, and admission eligibility.</p>
+              </div>
+            </div>
+
+            <div class="floating-feature-card">
+              <div class="card-icon-pill">📊</div>
+              <div class="card-content">
+                <h4>3. Data-Driven Guidance</h4>
+                <p>Explore 181,137 historical Maharashtra CAP cutoffs across 2020-21 through 2025-26 with grounded citations and zero hallucinations.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Footer Stats Bar -->
+        <div class="brand-footer-stats">
+          <div class="stat-item">
+            <h3>1,041</h3>
+            <p>Institutional Profiles</p>
+          </div>
+          <div class="stat-item">
+            <h3>181,137</h3>
+            <p>Verified Cutoff Records</p>
+          </div>
+          <div class="stat-item">
+            <h3>25 Qs</h3>
+            <p>Class 10 Aptitude Diagnostic</p>
+          </div>
+        </div>
+      </section>
+
+    </div>
+
+    <!-- ================================================================= -->
+    <!-- VIEW 2: GUIDED STUDENT ONBOARDING WIZARD (7 STEPS)                -->
+    <!-- ================================================================= -->
+    <div id="onboardingView" class="onboarding-page-container" style="display: none;">
+      
+      <!-- Top Wizard Header -->
+      <div class="onboarding-header-bar">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+          <div class="brand-logo-pill" onclick="App.navigateTo('dashboard')">
+            <div class="brand-icon-box">AI</div>
+            <span class="brand-name">AI-CON</span>
+            <span class="brand-tag">Onboarding</span>
+          </div>
+          <div style="display: flex; gap: 10px; align-items: center;">
+            <button class="btn btn-ghost" onclick="App.saveCurrentStepProgress(true)">Save & Exit</button>
+            <button class="btn btn-secondary" onclick="App.skipToDashboard()">Go to Dashboard →</button>
+          </div>
+        </div>
+
+        <!-- Stepper Progress Bar (7 Steps) -->
+        <div class="stepper-progress-wrapper">
+          <div class="stepper-steps-row">
+            <div class="stepper-line-track">
+              <div id="stepperLineFill" class="stepper-line-fill" style="width: 14%;"></div>
+            </div>
+
+            <div class="step-item active" id="stepIndicator1" onclick="App.goToStep(1)">
+              <div class="step-circle">1</div>
+              <span class="step-title">Personal</span>
+            </div>
+            <div class="step-item" id="stepIndicator2" onclick="App.goToStep(2)">
+              <div class="step-circle">2</div>
+              <span class="step-title">Academic</span>
+            </div>
+            <div class="step-item" id="stepIndicator3" onclick="App.goToStep(3)">
+              <div class="step-circle">3</div>
+              <span class="step-title">Marks</span>
+            </div>
+            <div class="step-item" id="stepIndicator4" onclick="App.goToStep(4)">
+              <div class="step-circle">4</div>
+              <span class="step-title">Interests</span>
+            </div>
+            <div class="step-item" id="stepIndicator5" onclick="App.goToStep(5)">
+              <div class="step-circle">5</div>
+              <span class="step-title">Aptitude (25Q)</span>
+            </div>
+            <div class="step-item" id="stepIndicator6" onclick="App.goToStep(6)">
+              <div class="step-circle">6</div>
+              <span class="step-title">Stream</span>
+            </div>
+            <div class="step-item" id="stepIndicator7" onclick="App.goToStep(7)">
+              <div class="step-circle">7</div>
+              <span class="step-title">Confirm</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Main Wizard Content Card -->
+      <main class="wizard-content-card">
+        
+        <!-- STEP 1: Personal Information -->
+        <div id="stepContent1" class="wizard-step-pane">
+          <div class="wizard-title-box">
+            <h2>Step 1: Personal Information</h2>
+            <p>Tell us a little about yourself so AI-CON can tailor state-specific admission quotas and recommendations.</p>
+          </div>
+
+          <form id="step1Form" onsubmit="App.handleStep1Submit(event)">
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+              <div class="form-group">
+                <label class="form-label">Full Name *</label>
+                <input type="text" id="pFullName" class="form-input" placeholder="Aarav Sharma" required />
+              </div>
+              <div class="form-group">
+                <label class="form-label">Date of Birth *</label>
+                <input type="date" id="pDob" class="form-input" value="2009-06-15" required />
+              </div>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px;">
+              <div class="form-group">
+                <label class="form-label">Gender</label>
+                <select id="pGender" class="form-select">
+                  <option value="Male">Male</option>
+                  <option value="Female">Female</option>
+                  <option value="Other">Other / Prefer not to say</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Mobile Number *</label>
+                <input type="tel" id="pPhone" class="form-input" placeholder="9876543210" required value="9876543210" />
+              </div>
+              <div class="form-group">
+                <label class="form-label">Preferred Language</label>
+                <select id="pLanguage" class="form-select">
+                  <option value="English">English</option>
+                  <option value="Marathi">Marathi (मराठी)</option>
+                  <option value="Hindi">Hindi (हिंदी)</option>
+                </select>
+              </div>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px;">
+              <div class="form-group">
+                <label class="form-label">State *</label>
+                <input type="text" id="pState" class="form-input" value="Maharashtra" required />
+              </div>
+              <div class="form-group">
+                <label class="form-label">District *</label>
+                <input type="text" id="pDistrict" class="form-input" placeholder="e.g. Pune, Mumbai, Nagpur" value="Pune" required />
+              </div>
+              <div class="form-group">
+                <label class="form-label">City / Town *</label>
+                <input type="text" id="pCity" class="form-input" placeholder="e.g. Pune" value="Pune" required />
+              </div>
+            </div>
+
+            <div style="display: flex; justify-content: flex-end; margin-top: 24px;">
+              <button type="submit" class="btn btn-primary btn-lg">Continue to Academic Information →</button>
+            </div>
+          </form>
+        </div>
+
+        <!-- STEP 2: Academic Information -->
+        <div id="stepContent2" class="wizard-step-pane" style="display: none;">
+          <div class="wizard-title-box">
+            <h2>Step 2: Academic Information</h2>
+            <p>Enter your current educational background. Class 10 is the primary stream discovery gateway.</p>
+          </div>
+
+          <form id="step2Form" onsubmit="App.handleStep2Submit(event)">
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+              <div class="form-group">
+                <label class="form-label">Current Education Level *</label>
+                <select id="aLevel" class="form-select">
+                  <option value="Class 10 (Secondary School)" selected>Class 10 (Completed / Appearing)</option>
+                  <option value="Class 11">Class 11 (Junior College)</option>
+                  <option value="Class 12">Class 12 (Higher Secondary)</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Education Board *</label>
+                <select id="aBoard" class="form-select">
+                  <option value="Maharashtra State Board" selected>Maharashtra State Board (SSC)</option>
+                  <option value="CBSE">Central Board of Secondary Education (CBSE)</option>
+                  <option value="ICSE">Indian Certificate of Secondary Education (ICSE)</option>
+                  <option value="Other">Other State / International Board</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Current School Name *</label>
+              <input type="text" id="aSchool" class="form-input" placeholder="e.g. D.E.S. English Medium School" value="Modern High School, Shivajinagar" required />
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+              <div class="form-group">
+                <label class="form-label">Medium of Instruction</label>
+                <select id="aMedium" class="form-select">
+                  <option value="English" selected>English</option>
+                  <option value="Semi-English">Semi-English</option>
+                  <option value="Marathi">Marathi</option>
+                  <option value="Hindi">Hindi</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Passing / Appearing Academic Year</label>
+                <select id="aYear" class="form-select">
+                  <option value="2025-26" selected>2025-26 (Current Academic Year)</option>
+                  <option value="2024-25">2024-25</option>
+                </select>
+              </div>
+            </div>
+
+            <div style="display: flex; justify-content: space-between; margin-top: 24px;">
+              <button type="button" class="btn btn-secondary" onclick="App.goToStep(1)">← Back</button>
+              <button type="submit" class="btn btn-primary btn-lg">Continue to Academic Marks →</button>
+            </div>
+          </form>
+        </div>
+
+        <!-- STEP 3: Academic Marks & Performance -->
+        <div id="stepContent3" class="wizard-step-pane" style="display: none;">
+          <div class="wizard-title-box">
+            <h2>Step 3: Academic Marks & Performance</h2>
+            <p>Enter your subject scores (out of 100). Overall percentage is computed automatically in real-time.</p>
+          </div>
+
+          <!-- Circular Performance Summary -->
+          <div class="marks-summary-container">
+            <div class="circular-progress-box">
+              <svg class="circular-progress-svg" viewBox="0 0 110 110">
+                <circle class="circular-bg-ring" cx="55" cy="55" r="45"></circle>
+                <circle id="circularFillRing" class="circular-fill-ring" cx="55" cy="55" r="45" stroke-dasharray="282.7" stroke-dashoffset="56.5"></circle>
+              </svg>
+              <div class="circular-text-val">
+                <h3 id="circularPctDisplay">80.0%</h3>
+                <span>Percentage</span>
+              </div>
+            </div>
+            <div>
+              <h4 style="font-size: 1.1rem; color: var(--dark-blue); margin-bottom: 4px;">Performance Summary</h4>
+              <p style="font-size: 0.8125rem; color: var(--text-muted); margin-bottom: 8px;">
+                Total Marks: <b id="totalMarksDisplay" class="text-primary">400</b> / <span id="maxMarksDisplay">500</span>
+              </p>
+              <div class="badge badge-success" id="performanceTierBadge">Distinction Performance</div>
+            </div>
+          </div>
+
+          <form id="step3Form" onsubmit="App.handleStep3Submit(event)">
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+              <div class="form-group">
+                <label class="form-label">Mathematics (Max 100) *</label>
+                <input type="number" id="mMaths" class="form-input" min="0" max="100" value="88" required oninput="App.recalcMarks()" />
+              </div>
+              <div class="form-group">
+                <label class="form-label">Science & Technology (Max 100) *</label>
+                <input type="number" id="mScience" class="form-input" min="0" max="100" value="85" required oninput="App.recalcMarks()" />
+              </div>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+              <div class="form-group">
+                <label class="form-label">English (Max 100) *</label>
+                <input type="number" id="mEnglish" class="form-input" min="0" max="100" value="78" required oninput="App.recalcMarks()" />
+              </div>
+              <div class="form-group">
+                <label class="form-label">Social Science (Max 100) *</label>
+                <input type="number" id="mSocial" class="form-input" min="0" max="100" value="75" required oninput="App.recalcMarks()" />
+              </div>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+              <div class="form-group">
+                <label class="form-label">Second Language / Other (Max 100) *</label>
+                <input type="number" id="mOther" class="form-input" min="0" max="100" value="74" required oninput="App.recalcMarks()" />
+              </div>
+              <div class="form-group">
+                <label class="form-label">Target MHT-CET / Admission Percentile Goal</label>
+                <input type="number" id="mGoal" class="form-input" min="0" max="100" step="0.1" value="92.0" placeholder="e.g. 90.5" />
+              </div>
+            </div>
+
+            <div style="display: flex; justify-content: space-between; margin-top: 24px;">
+              <button type="button" class="btn btn-secondary" onclick="App.goToStep(2)">← Back</button>
+              <button type="submit" class="btn btn-primary btn-lg">Continue to Interests & Expectations →</button>
+            </div>
+          </form>
+        </div>
+
+        <!-- STEP 4: Interests & Career Goals -->
+        <div id="stepContent4" class="wizard-step-pane" style="display: none;">
+          <div class="wizard-title-box">
+            <h2>Step 4: Interests, Expectations & Ambitions</h2>
+            <p>Select your areas of fascination. AI-CON correlates your interests with academic streams and career pathways.</p>
+          </div>
+
+          <form id="step4Form" onsubmit="App.handleStep4Submit(event)">
+            <label class="form-label" style="margin-bottom: 12px;">What topics excite you the most? (Select all that apply)</label>
+            <div class="selectable-grid" id="interestsGrid">
+              <div class="selectable-card selected" data-value="technology" onclick="App.toggleSelectable(this)">
+                <div class="selectable-icon">💻</div>
+                <span class="selectable-label">Technology & Software</span>
+              </div>
+              <div class="selectable-card selected" data-value="engineering" onclick="App.toggleSelectable(this)">
+                <div class="selectable-icon">⚙️</div>
+                <span class="selectable-label">Machines & Robotics</span>
+              </div>
+              <div class="selectable-card" data-value="medicine" onclick="App.toggleSelectable(this)">
+                <div class="selectable-icon">🩺</div>
+                <span class="selectable-label">Healthcare & Biology</span>
+              </div>
+              <div class="selectable-card selected" data-value="maths_puzzles" onclick="App.toggleSelectable(this)">
+                <div class="selectable-icon">📐</div>
+                <span class="selectable-label">Maths & Logic</span>
+              </div>
+              <div class="selectable-card" data-value="business" onclick="App.toggleSelectable(this)">
+                <div class="selectable-icon">📈</div>
+                <span class="selectable-label">Business & Finance</span>
+              </div>
+              <div class="selectable-card" data-value="design" onclick="App.toggleSelectable(this)">
+                <div class="selectable-icon">🎨</div>
+                <span class="selectable-label">Art & Creative Media</span>
+              </div>
+              <div class="selectable-card" data-value="law_civics" onclick="App.toggleSelectable(this)">
+                <div class="selectable-icon">⚖️</div>
+                <span class="selectable-label">Law & Public Policy</span>
+              </div>
+              <div class="selectable-card selected" data-value="practical_labs" onclick="App.toggleSelectable(this)">
+                <div class="selectable-icon">🔬</div>
+                <span class="selectable-label">Hands-on Experiments</span>
+              </div>
+            </div>
+
+            <div class="form-group" style="margin-top: 20px;">
+              <label class="form-label" for="futureAmbitions">Tell AI-CON about your future ambitions (Optional)</label>
+              <textarea id="futureAmbitions" class="form-textarea" rows="3" placeholder="e.g. I want to build AI software, launch a tech startup, or pursue Computer Engineering at a top government college in Pune like COEP."></textarea>
+              <span class="form-hint">AI-CON uses this to provide contextual college advice in your dashboard.</span>
+            </div>
+
+            <div style="display: flex; justify-content: space-between; margin-top: 24px;">
+              <button type="button" class="btn btn-secondary" onclick="App.goToStep(3)">← Back</button>
+              <button type="submit" class="btn btn-primary btn-lg">Start 25-Question Aptitude Assessment →</button>
+            </div>
+          </form>
+        </div>
+
+        <!-- STEP 5: 25-Question Aptitude Assessment -->
+        <div id="stepContent5" class="wizard-step-pane" style="display: none;">
+          <div class="quiz-container-box">
+            <div class="quiz-top-meta">
+              <div>
+                <span id="quizCounterDisplay" class="quiz-q-counter">Question 01 / 25</span>
+              </div>
+              <div>
+                <span id="quizCategoryBadge" class="quiz-q-tag">Logical Reasoning</span>
+              </div>
+            </div>
+
+            <!-- Quiz Progress Bar -->
+            <div class="quiz-progress-track">
+              <div id="quizProgressBar" class="quiz-progress-bar" style="width: 4%;"></div>
+            </div>
+
+            <!-- Question & Options -->
+            <h3 id="quizQuestionText" class="quiz-question-text">Loading question...</h3>
+
+            <div id="quizOptionsList" class="quiz-options-list">
+              <!-- Dynamically populated options -->
+            </div>
+
+            <div id="quizHintBox" class="evidence-badge-box" style="display: none; margin-bottom: 20px;">
+              <span id="quizHintText"></span>
+            </div>
+
+            <!-- Quiz Controls -->
+            <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--border-color); padding-top: 20px;">
+              <button type="button" id="quizPrevBtn" class="btn btn-secondary" onclick="App.prevQuizQuestion()">← Previous Question</button>
+              <div style="display: flex; gap: 10px;">
+                <button type="button" class="btn btn-ghost" onclick="App.toggleQuizHint()">💡 Hint</button>
+                <button type="button" id="quizNextBtn" class="btn btn-primary btn-lg" onclick="App.nextQuizQuestion()">Next Question →</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- STEP 6: Stream Recommendation Engine Results -->
+        <div id="stepContent6" class="wizard-step-pane" style="display: none;">
+          <div class="recommendation-banner">
+            <div class="rec-banner-info">
+              <div class="badge badge-brand" style="margin-bottom: 8px;">🎯 AI-CON Diagnostic Analysis</div>
+              <h2 id="recPrimaryTitle">Recommended: Science (PCM)</h2>
+              <p id="recPrimaryHeadline">Physics, Chemistry, Mathematics — Ideal for Engineering & Technology</p>
+            </div>
+            <div class="rec-score-pill">
+              <h3 id="recPrimaryScore">94.5%</h3>
+              <span>Match Fit</span>
+            </div>
+          </div>
+
+          <h3 style="font-size: 1.15rem; color: var(--dark-blue); margin-bottom: 16px;">Detailed Stream Pathways & Subject Strengths</h3>
+          <div id="streamCardsList" class="stream-cards-grid">
+            <!-- Dynamically populated stream cards -->
+          </div>
+
+          <div style="display: flex; justify-content: space-between; margin-top: 32px;">
+            <button type="button" class="btn btn-secondary" onclick="App.goToStep(5)">← Review Assessment</button>
+            <button type="button" class="btn btn-primary btn-lg" onclick="App.confirmSelectedStream()">Proceed with Selected Stream →</button>
+          </div>
+        </div>
+
+        <!-- STEP 7: Student Profile Confirmation -->
+        <div id="stepContent7" class="wizard-step-pane" style="display: none;">
+          <div class="wizard-title-box">
+            <h2>Step 7: Profile Review & Confirmation</h2>
+            <p>Please review your academic profile and selected stream before saving your permanent student record.</p>
+          </div>
+
+          <div id="confirmationSummaryCard" style="background: #F8FAFC; border: 1px solid var(--border-color); border-radius: var(--radius-lg); padding: 24px; margin-bottom: 28px;">
+            <!-- Populated dynamically by App.renderConfirmationSummary() -->
+          </div>
+
+          <div style="display: flex; justify-content: space-between; align-items: center;">
+            <button type="button" class="btn btn-secondary" onclick="App.goToStep(1)">✏️ Edit Profile</button>
+            <button type="button" class="btn btn-primary btn-lg" onclick="App.finalizeAndEnterDashboard()">Confirm & Launch Dashboard →</button>
+          </div>
+        </div>
+
+      </main>
+
+    </div>
+
+    <!-- ================================================================= -->
+    <!-- VIEW 3: MAIN STUDENT DASHBOARD & AI CONSULTANT                    -->
+    <!-- ================================================================= -->
+    <div id="dashboardView" style="display: none;">
+      
+      <!-- Top Sticky Navigation Bar -->
+      <nav class="dashboard-navbar">
+        <div class="brand-logo-pill" onclick="App.navigateTo('dashboard')">
+          <div class="brand-icon-box">AI</div>
+          <span class="brand-name">AI-CON</span>
+          <span class="brand-tag">Student Hub</span>
+        </div>
+
+        <div class="nav-links-row">
+          <button class="nav-link-btn active" id="navDashBtn" onclick="App.switchDashboardTab('overview')">Dashboard</button>
+          <button class="nav-link-btn" id="navChatBtn" onclick="App.switchDashboardTab('chat')">AI Consultant</button>
+          <button class="nav-link-btn" id="navExploreBtn" onclick="App.switchDashboardTab('explore')">Explore Colleges</button>
+          <button class="nav-link-btn" id="navCutoffBtn" onclick="App.switchDashboardTab('cutoffs')">Cutoff Predictor</button>
+          <button class="nav-link-btn" id="navProfileBtn" onclick="App.switchDashboardTab('profile')">My Profile</button>
+        </div>
+
+        <div style="display: flex; align-items: center; gap: 14px;">
+          <div style="text-align: right;">
+            <div id="navUserName" style="font-size: 0.8125rem; font-weight: 700; color: var(--dark-blue);">Aarav Sharma</div>
+            <div id="navUserStream" style="font-size: 0.7rem; color: var(--primary);">Science (PCM)</div>
+          </div>
+          <div class="chat-avatar" style="cursor: pointer;" onclick="App.switchDashboardTab('profile')">AS</div>
+          <button class="btn btn-ghost" style="padding: 6px 10px; font-size: 0.75rem;" onclick="App.logout()">Logout</button>
+        </div>
+      </nav>
+
+      <!-- Main Dashboard Container -->
+      <div class="dashboard-container">
+        
+        <!-- Welcome Banner -->
+        <div class="dashboard-welcome-banner">
+          <div class="welcome-text">
+            <h1 id="dashWelcomeTitle">Welcome back, Aarav!</h1>
+            <p id="dashWelcomeDesc">Let's plan your academic future with AI-CON's verified admissions intelligence.</p>
+          </div>
+          <div style="display: flex; gap: 12px;">
+            <button class="btn btn-primary" onclick="App.switchDashboardTab('chat')">Ask AI Consultant 💬</button>
+            <button class="btn btn-secondary" style="background: rgba(255,255,255,0.15); color: #FFFFFF; border-color: rgba(255,255,255,0.25);" onclick="App.navigateTo('onboarding')">Retake Assessment 🎯</button>
+          </div>
+        </div>
+
+        <!-- TAB 1: OVERVIEW & 6 INTERACTIVE DASHBOARD CARDS -->
+        <div id="tabOverview">
+          <div class="dash-cards-grid">
+            <div class="dash-card" onclick="App.switchDashboardTab('profile')">
+              <div>
+                <div class="dash-card-icon">🎓</div>
+                <h3>My Academic Profile</h3>
+                <p id="cardProfileDesc">Class 10 SSC | 80.0% Aggregate Marks | Pune District</p>
+              </div>
+              <div style="margin-top: 16px; font-size: 0.75rem; color: var(--primary); font-weight: 600;">View Full Profile →</div>
+            </div>
+
+            <div class="dash-card" onclick="App.switchDashboardTab('profile')">
+              <div>
+                <div class="dash-card-icon">🧠</div>
+                <h3>My Aptitude Assessment</h3>
+                <p id="cardAptitudeDesc">25 Questions Completed | High Numerical & Logical Problem-Solving Score</p>
+              </div>
+              <div style="margin-top: 16px; font-size: 0.75rem; color: var(--primary); font-weight: 600;">View Score Matrix →</div>
+            </div>
+
+            <div class="dash-card" onclick="App.switchDashboardTab('profile')">
+              <div>
+                <div class="dash-card-icon">🧭</div>
+                <h3>My Recommended Stream</h3>
+                <p id="cardStreamDesc">Science (PCM) — 94.5% Match Fit | Engineering & Computer Tech</p>
+              </div>
+              <div style="margin-top: 16px; font-size: 0.75rem; color: var(--primary); font-weight: 600;">Explore Careers →</div>
+            </div>
+
+            <div class="dash-card" onclick="App.switchDashboardTab('explore')">
+              <div>
+                <div class="dash-card-icon">🏛️</div>
+                <h3>Explore Colleges</h3>
+                <p>Browse 1,041 verified Maharashtra engineering institutes, affiliations, and autonomy details.</p>
+              </div>
+              <div style="margin-top: 16px; font-size: 0.75rem; color: var(--primary); font-weight: 600;">Browse Directory →</div>
+            </div>
+
+            <div class="dash-card" onclick="App.switchDashboardTab('cutoffs')">
+              <div>
+                <div class="dash-card-icon">📊</div>
+                <h3>College Cutoff Analysis</h3>
+                <p>Inspect 181,137 historical CAP closing ranks across GOPENS, TFWS, and reserved categories.</p>
+              </div>
+              <div style="margin-top: 16px; font-size: 0.75rem; color: var(--primary); font-weight: 600;">Check Cutoffs →</div>
+            </div>
+
+            <div class="dash-card" style="border-color: var(--primary); background: #FAF5FF;" onclick="App.switchDashboardTab('chat')">
+              <div>
+                <div class="dash-card-icon" style="background: var(--primary); color: #FFFFFF;">💬</div>
+                <h3 style="color: var(--primary);">AI College Consultant</h3>
+                <p>Evidence-grounded RAG answers. Ask about admission cutoffs, branches, and CAP rounds.</p>
+              </div>
+              <div style="margin-top: 16px; font-size: 0.75rem; color: var(--primary); font-weight: 700;">Start Chatting Now →</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- TAB 2: AI CONSULTANT CHAT INTERFACE (Connected to Orchestrator) -->
+        <div id="tabChat" style="display: none;">
+          <div class="chat-section-card">
+            <!-- Chat Header -->
+            <div class="chat-header-bar">
+              <div class="chat-bot-meta">
+                <div class="chat-avatar">AI</div>
+                <div>
+                  <h4 style="font-size: 0.95rem; margin-bottom: 2px;">AI-CON Admissions Consultant</h4>
+                  <span style="font-size: 0.7rem; color: var(--success); font-weight: 600;">● Online | Grounded in 181,137 Records</span>
+                </div>
+              </div>
+              <div style="display: flex; gap: 8px;">
+                <button class="btn btn-ghost" style="font-size: 0.75rem;" onclick="App.clearChat()">Clear Chat</button>
+              </div>
+            </div>
+
+            <!-- Chat Message Feed -->
+            <div id="chatMessagesFeed" class="chat-messages-container">
+              <div class="chat-bubble assistant">
+                Hello <b>Aarav</b>! I am your <b>AI-CON College Consultant</b>. I can assist you with:
+                <ul style="margin: 8px 0 8px 18px; font-size: 0.8125rem;">
+                  <li>Exact historical closing percentiles and ranks across CAP Rounds</li>
+                  <li>Finding colleges matching your target percentile and location</li>
+                  <li>Verifying autonomy, affiliation, and branch offerings</li>
+                  <li>Explaining Maharashtra CAP rules (Auto-Freeze, Betterment, TFWS)</li>
+                </ul>
+                What would you like to explore today?
+              </div>
+            </div>
+
+            <!-- Suggested Prompt Pills -->
+            <div class="suggested-prompts-row">
+              <span style="font-size: 0.75rem; color: var(--text-muted); align-self: center; font-weight: 600;">Suggested:</span>
+              <button class="prompt-pill" onclick="App.sendPromptText(this.innerText)">What was the GOPENS cutoff for Computer Engineering at COEP in 2024?</button>
+              <button class="prompt-pill" onclick="App.sendPromptText(this.innerText)">List colleges where the GOPENS cutoff for Computer Engineering was between 90 and 95 percentile</button>
+              <button class="prompt-pill" onclick="App.sendPromptText(this.innerText)">Explain the difference between Auto-Freeze and Betterment in CAP rounds</button>
+              <button class="prompt-pill" onclick="App.sendPromptText(this.innerText)">Is Government College of Engineering, Amravati autonomous?</button>
+            </div>
+
+            <!-- Chat Input Box -->
+            <form class="chat-input-row" onsubmit="App.handleChatSubmit(event)">
+              <div class="chat-input-box">
+                <input type="text" id="chatQueryInput" class="form-input" placeholder="Ask about colleges, percentiles, branches, or CAP rules..." autocomplete="off" />
+              </div>
+              <button type="submit" id="chatSendBtn" class="btn btn-primary" style="padding: 10px 22px;">Send ↵</button>
+            </form>
+          </div>
+        </div>
+
+        <!-- TAB 3: EXPLORE COLLEGES DIRECTORY -->
+        <div id="tabExplore" style="display: none;">
+          <div style="background: #FFFFFF; border: 1px solid var(--border-color); border-radius: var(--radius-xl); padding: 28px; box-shadow: var(--shadow-sm); margin-bottom: 24px;">
+            <h3 style="font-size: 1.25rem; margin-bottom: 8px;">Maharashtra College Directory</h3>
+            <p style="font-size: 0.875rem; margin-bottom: 20px;">Search across 1,041 institutional profiles verified by Maharashtra Higher Education authorities.</p>
+
+            <div style="display: flex; gap: 12px; margin-bottom: 24px;">
+              <input type="text" id="collegeSearchInput" class="form-input" placeholder="Search by college name, district, or institute code (e.g. COEP, VJTI, 01002)..." onkeyup="if(event.key==='Enter') App.searchCollegesDirectory()" />
+              <button class="btn btn-primary" onclick="App.searchCollegesDirectory()">Search</button>
+            </div>
+
+            <div id="collegesDirectoryResults" style="display: flex; flex-direction: column; gap: 12px;">
+              <!-- Populated by App.searchCollegesDirectory() -->
+            </div>
+          </div>
+        </div>
+
+        <!-- TAB 4: CUTOFF PREDICTOR & HISTORICAL ANALYSIS -->
+        <div id="tabCutoffs" style="display: none;">
+          <div style="background: #FFFFFF; border: 1px solid var(--border-color); border-radius: var(--radius-xl); padding: 28px; box-shadow: var(--shadow-sm); margin-bottom: 24px;">
+            <h3 style="font-size: 1.25rem; margin-bottom: 8px;">Historical Cutoff Lookup</h3>
+            <p style="font-size: 0.875rem; margin-bottom: 20px;">Query 181,137 verified CAP cutoffs across percentiles, categories, and engineering branches.</p>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr 1fr 1fr auto; gap: 12px; margin-bottom: 24px; align-items: flex-end;">
+              <div class="form-group" style="margin-bottom: 0;">
+                <label class="form-label">Branch</label>
+                <select id="cutoffBranchSelect" class="form-select">
+                  <option value="Computer">Computer Engineering / CS</option>
+                  <option value="Information Technology">Information Technology</option>
+                  <option value="Artificial Intelligence">AI & Data Science</option>
+                  <option value="Civil">Civil Engineering</option>
+                  <option value="Mechanical">Mechanical Engineering</option>
+                  <option value="Electrical">Electrical Engineering</option>
+                </select>
+              </div>
+              <div class="form-group" style="margin-bottom: 0;">
+                <label class="form-label">Category / Quota</label>
+                <select id="cutoffCategorySelect" class="form-select">
+                  <option value="GOPENS">GOPENS (General Open)</option>
+                  <option value="TFWS">TFWS (Tuition Fee Waiver)</option>
+                  <option value="GOBCS">GOBCS (OBC)</option>
+                  <option value="GSECS">GSECS (SC)</option>
+                  <option value="EWS">EWS</option>
+                </select>
+              </div>
+              <div class="form-group" style="margin-bottom: 0;">
+                <label class="form-label">Min Percentile</label>
+                <input type="number" id="cutoffMinPerc" class="form-input" placeholder="85.0" value="85.0" step="0.5" />
+              </div>
+              <div class="form-group" style="margin-bottom: 0;">
+                <label class="form-label">Max Percentile</label>
+                <input type="number" id="cutoffMaxPerc" class="form-input" placeholder="95.0" value="95.0" step="0.5" />
+              </div>
+              <button class="btn btn-primary" onclick="App.searchCutoffsDirect()">Find Cutoffs</button>
+            </div>
+
+            <div id="cutoffResultsList" style="display: flex; flex-direction: column; gap: 10px;">
+              <!-- Populated by App.searchCutoffsDirect() -->
+            </div>
+          </div>
+        </div>
+
+        <!-- TAB 5: MY PROFILE & ASSESSMENT SUMMARY -->
+        <div id="tabProfile" style="display: none;">
+          <div style="background: #FFFFFF; border: 1px solid var(--border-color); border-radius: var(--radius-xl); padding: 28px; box-shadow: var(--shadow-sm);">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px;">
+              <div>
+                <h3 style="font-size: 1.25rem;">My Verified Student Profile</h3>
+                <p style="font-size: 0.8125rem;">Your persistent academic record, marks, and aptitude evaluation.</p>
+              </div>
+              <button class="btn btn-secondary" onclick="App.navigateTo('onboarding')">Retake Onboarding / Edit</button>
+            </div>
+            <div id="profileDetailedView">
+              <!-- Populated by App.renderProfileDetailed() -->
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- Assessment Questions Definition & Client Application Script -->
+  <script src="questions.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

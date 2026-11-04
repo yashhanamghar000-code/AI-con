@@ -49,3 +49,14 @@ desktop.ini
 .ipynb_checkpoints/
 *.pkl
 cache.pkl
+
+# Application SQLite Database
+*.db
+ai_con_app.db
+
+# Large Model Weights (Keep local / HuggingFace)
+*.gguf
+*.bin
+*.pt
+*.safetensors
+
