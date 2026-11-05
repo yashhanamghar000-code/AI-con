@@ -310,7 +310,14 @@ class Orchestrator:
 
     def _requested_branch_in_query(self, question: str) -> Optional[str]:
         """Check if user query mentions a specific engineering discipline and return its clean canonical title."""
-        # 1. Search for discipline phrases preceding engineering/technology/tech/branch
+        q_lower = question.lower()
+        # 1. Check known disciplines first (avoids greedy regex eating preceding cutoff/range words)
+        for disc, canonical_name in sorted(KNOWN_DISCIPLINES.items(), key=lambda x: len(x[0]), reverse=True):
+            pattern = rf"\b{re.escape(disc)}(?:\s+engineering|\s+technology)?\b"
+            if re.search(pattern, q_lower):
+                return canonical_name
+
+        # 2. Search for discipline phrases preceding engineering/technology/tech/branch
         matches = list(re.finditer(r"\b([a-zA-Z\s]{2,40}?)\s+(engineering|technology|tech|branch)\b", question, re.I))
         for m in matches:
             prefix_raw = m.group(1).strip()
@@ -350,17 +357,127 @@ class Orchestrator:
 
             return f"{_format_branch_title(clean_stem)} {suffix_title}"
 
-        # 2. Fallback: check for standalone discipline keywords in the query
+        return None
+
+    def _handle_cross_college_query(self, question: str) -> Optional[Dict[str, Any]]:
+        """Handles multi-college search, cutoff filtering, or shortlist requests."""
         q_lower = question.lower()
-        for disc, canonical_name in sorted(KNOWN_DISCIPLINES.items(), key=lambda x: len(x[0]), reverse=True):
-            pattern = rf"\b{re.escape(disc)}\b"
-            if re.search(pattern, q_lower):
-                return canonical_name
+
+        # 1. Check for percentile range: between X and Y
+        min_perc, max_perc = None, None
+        m_range = re.search(r"between\s+(\d+(?:\.\d+)?)\s*(?:and|to)\s*(\d+(?:\.\d+)?)\s*(?:percentile|%)?", q_lower)
+        if m_range:
+            min_perc = float(m_range.group(1))
+            max_perc = float(m_range.group(2))
+        else:
+            m_below = re.search(r"(?:below|under|less than|within)\s+(\d+(?:\.\d+)?)\s*(?:percentile|%)", q_lower)
+            if m_below:
+                max_perc = float(m_below.group(1))
+            m_above = re.search(r"(?:above|greater than|at least)\s+(\d+(?:\.\d+)?)\s*(?:percentile|%)", q_lower)
+            if m_above:
+                min_perc = float(m_above.group(1))
+
+        # 2. Check for rank range
+        min_rank, max_rank = None, None
+        m_rank_above = re.search(r"(?:closing\s+)?rank\s*(?:above|greater than|>=|>)\s*([\d,]+)", q_lower)
+        if m_rank_above:
+            min_rank = int(m_rank_above.group(1).replace(",", ""))
+        m_rank_below = re.search(r"(?:closing\s+)?rank\s*(?:below|less than|<=|<)\s*([\d,]+)", q_lower)
+        if m_rank_below:
+            max_rank = int(m_rank_below.group(1).replace(",", ""))
+
+        category = self.extract_category(question)
+        branch = self._requested_branch_in_query(question)
+        branch_stem = branch
+        if branch and "computer" in branch.lower():
+            branch_stem = "Computer"
+        elif branch and branch.endswith(" Engineering"):
+            branch_stem = branch[:-12].strip()
+
+        year = self.extract_academic_year(question)
+        round_no = self.extract_round(question)
+
+        # If numerical cutoff search criteria exist and cutoff_agent supports find_colleges
+        if (min_perc is not None or max_perc is not None or min_rank is not None or max_rank is not None) and self.cutoff_agent and hasattr(self.cutoff_agent, "find_colleges"):
+            matches = self.cutoff_agent.find_colleges(
+                min_percentile=min_perc,
+                max_percentile=max_perc,
+                min_rank=min_rank,
+                max_rank=max_rank,
+                branch_query=branch_stem,
+                category=category,
+                year=year,
+                round_no=round_no,
+                limit=15,
+            )
+            if matches:
+                evidence_text = self.cutoff_agent.as_evidence_text(matches)
+                return {
+                    "status": "evidence_only",
+                    "intent": "cutoff",
+                    "query_type": "cross_college_search",
+                    "matched_college": f"Multiple Institutes ({len(matches)} matching cutoffs)",
+                    "institute_code": None,
+                    "record_id": None,
+                    "evidence": "CROSS-COLLEGE CUTOFF EVIDENCE:\n" + evidence_text,
+                    "total_matches": len(matches),
+                }
+            else:
+                criteria_str = []
+                if branch: criteria_str.append(f"branch: '{branch}'")
+                if category: criteria_str.append(f"category: '{category}'")
+                if min_perc is not None or max_perc is not None: criteria_str.append(f"percentile: [{min_perc}, {max_perc}]")
+                if min_rank is not None or max_rank is not None: criteria_str.append(f"rank: [{min_rank}, {max_rank}]")
+                if year: criteria_str.append(f"year: '{year}'")
+                if round_no: criteria_str.append(f"round: {round_no}")
+                return {
+                    "status": "unavailable",
+                    "intent": "cutoff",
+                    "query_type": "cross_college_search",
+                    "matched_college": None,
+                    "institute_code": None,
+                    "record_id": None,
+                    "message": f"No cutoff records found matching criteria ({', '.join(criteria_str)}).",
+                    "evidence": "CUTOFF EVIDENCE:\nNo matching cutoff records found across colleges.",
+                }
+
+        # If it's a general shortlist / recommendation query without specific college:
+        if any(k in q_lower for k in ["shortlist", "recommend", "give me a list", "which options", "chances", "attainable", "safe"]):
+            return {
+                "status": "needs_clarification",
+                "intent": "option_plan",
+                "query_type": "shortlist_request",
+                "matched_college": None,
+                "institute_code": None,
+                "record_id": None,
+                "message": (
+                    "To build a personalized college shortlist, please specify: "
+                    "(1) Your MHT-CET percentile or merit rank, "
+                    "(2) Preferred branch (e.g. Computer Engineering, IT), "
+                    "(3) Category/Seat quota (e.g. GOPENS, TFWS, EWS, OBC), and "
+                    "(4) Preferred districts or locations (e.g. Pune, Mumbai). "
+                    "Alternatively, you may provide specific college names to evaluate their cutoffs."
+                ),
+                "candidates": [],
+            }
 
         return None
 
     def answer(self, question: str, institute_hint: Optional[str] = None) -> Dict[str, Any]:
         """Process student question through resolution, retrieval, and structured formatting."""
+        # Check if query is explicitly a cross-college or multi-college search
+        q_lower = question.lower()
+        is_multi_college_query = (
+            q_lower.startswith(("list colleges", "which colleges", "compare colleges", "give me a shortlist", "show me every college", "rank colleges"))
+            or ("top " in q_lower and "colleges" in q_lower)
+            or ("shortlist" in q_lower)
+            or ("between " in q_lower and "percentile" in q_lower)
+        )
+        if is_multi_college_query and not institute_hint:
+            cross_res = self._handle_cross_college_query(question)
+            if cross_res is not None:
+                return cross_res
+
         resolution: CollegeResolution
         if institute_hint:
             resolution = self.resolver.resolve(institute_hint)
@@ -382,6 +499,9 @@ class Orchestrator:
             }
 
         if not resolution.matched:
+            cross_res = self._handle_cross_college_query(question)
+            if cross_res is not None:
+                return cross_res
             return {
                 "status": "needs_clarification",
                 "message": (
@@ -393,6 +513,7 @@ class Orchestrator:
 
         matched_name = resolution.institute_name
         code = resolution.institute_code
+
         record_id = resolution.record_id
 
         intent = self.classify_intent(question)
