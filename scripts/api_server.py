@@ -93,6 +93,27 @@ app.include_router(college_router)
 if FRONTEND_DIR.is_dir():
     app.mount("/frontend", StaticFiles(directory=str(FRONTEND_DIR)), name="frontend_assets")
 
+    @app.get("/styles.css")
+    def serve_styles():
+        target = FRONTEND_DIR / "styles.css"
+        if target.is_file():
+            return FileResponse(str(target), media_type="text/css")
+        raise HTTPException(status_code=404, detail="styles.css not found")
+
+    @app.get("/app.js")
+    def serve_app_js():
+        target = FRONTEND_DIR / "app.js"
+        if target.is_file():
+            return FileResponse(str(target), media_type="application/javascript")
+        raise HTTPException(status_code=404, detail="app.js not found")
+
+    @app.get("/questions.js")
+    def serve_questions_js():
+        target = FRONTEND_DIR / "questions.js"
+        if target.is_file():
+            return FileResponse(str(target), media_type="application/javascript")
+        raise HTTPException(status_code=404, detail="questions.js not found")
+
 @app.on_event("startup")
 def on_startup():
     print("[Neev Backend] API Server online and ready. Decoupled micro-services operational.")

@@ -72,7 +72,8 @@ const App = {
   init() {
     this.loadStateFromStorage();
     this.recalcMarks();
-    this.setupSplashModal();
+    this.setupLandingHover();
+    this.updateLandingNav();
     
     // Check URL parameters for direct view navigation (e.g. ?view=onboarding&step=3 or ?view=dashboard)
     const urlParams = new URLSearchParams(window.location.search);
@@ -84,58 +85,78 @@ const App = {
       if (requestedView === "onboarding") {
         this.goToStep(requestedStep || 1);
       }
-    } else if (this.state.token && this.state.profile.isConfirmed) {
-      this.navigateTo("dashboard");
-    } else if (this.state.token) {
-      this.navigateTo("onboarding");
-      this.goToStep(this.state.currentOnboardingStep || 1);
     } else {
-      this.navigateTo("auth");
+      // By default open the premium 3D hover landing page first!
+      this.navigateTo("landing");
     }
 
     console.log("Neev (नींव) Career Foundation Initialized successfully.");
   },
 
-  setupSplashModal() {
-    const modal = document.getElementById("neevSplashModal");
-    const card = document.getElementById("neevSplashCard");
-    const logoBox = document.getElementById("neevInteractiveLogo");
+  setupLandingHover() {
+    const hero = document.getElementById("landingHero") || document.querySelector(".landing-hero");
+    const logoWrap = document.getElementById("heroLogoWrap");
+    const cards = document.querySelectorAll(".lf-card");
 
-    // Interactive 3D tilt hover effect on splash card
-    if (card) {
+    if (hero && logoWrap) {
+      hero.addEventListener("mousemove", (e) => {
+        const rect = hero.getBoundingClientRect();
+        const x = (e.clientX - rect.left) / rect.width - 0.5;
+        const y = (e.clientY - rect.top) / rect.height - 0.5;
+        
+        logoWrap.style.transform = `perspective(900px) rotateY(${x * 26}deg) rotateX(${-y * 26}deg) scale(1.08)`;
+        logoWrap.style.filter = `drop-shadow(${x * 22}px ${y * 22}px 32px rgba(129, 140, 248, 0.75))`;
+      });
+
+      hero.addEventListener("mouseleave", () => {
+        logoWrap.style.transform = "perspective(900px) rotateY(0deg) rotateX(0deg) scale(1)";
+        logoWrap.style.filter = "";
+      });
+    }
+
+    cards.forEach(card => {
       card.addEventListener("mousemove", (e) => {
         const rect = card.getBoundingClientRect();
         const x = (e.clientX - rect.left) / rect.width - 0.5;
         const y = (e.clientY - rect.top) / rect.height - 0.5;
-        card.style.transform = `perspective(1000px) rotateY(${x * 12}deg) rotateX(${-y * 12}deg) scale(1.02)`;
+        card.style.transform = `perspective(700px) rotateY(${x * 14}deg) rotateX(${-y * 14}deg) translateY(-8px)`;
       });
-
       card.addEventListener("mouseleave", () => {
-        card.style.transform = "perspective(1000px) rotateY(0deg) rotateX(0deg) scale(1)";
+        card.style.transform = "perspective(700px) rotateY(0deg) rotateX(0deg) translateY(0)";
       });
-    }
+    });
+  },
 
-    // Auto-open on initial session load if not closed previously in this session
-    const hasSeenSplash = sessionStorage.getItem("neev_splash_dismissed");
-    if (modal && !hasSeenSplash) {
-      modal.classList.add("active");
+  updateLandingNav() {
+    const navLinks = document.querySelector(".landing-nav-links");
+    if (!navLinks) return;
+    if (this.state.token) {
+      navLinks.innerHTML = `
+        <a href="#lf-features" class="lnav-link" onclick="event.preventDefault(); document.getElementById('lf-features').scrollIntoView({behavior:'smooth'})">Features</a>
+        <a href="#lf-how" class="lnav-link" onclick="event.preventDefault(); document.getElementById('lf-how').scrollIntoView({behavior:'smooth'})">How it Works</a>
+        <button class="lnav-signin-btn" onclick="App.navigateTo('dashboard')" style="background: linear-gradient(135deg, #4F46E5, #6366F1); color: #fff;">Open Dashboard &rarr;</button>
+        <button class="lnav-signin-btn" onclick="App.goToAuth()">Sign In</button>
+      `;
     }
   },
 
-  openSplashModal() {
-    const modal = document.getElementById("neevSplashModal");
-    if (modal) {
-      modal.classList.add("active");
-    }
+  goToLanding() {
+    this.navigateTo("landing");
   },
 
-  closeSplashModal() {
-    const modal = document.getElementById("neevSplashModal");
-    if (modal) {
-      modal.classList.remove("active");
-      sessionStorage.setItem("neev_splash_dismissed", "true");
-    }
+  goToAuth() {
+    this.setAuthMode("login");
+    this.navigateTo("auth");
   },
+
+  goToRegister() {
+    this.setAuthMode("register");
+    this.navigateTo("auth");
+  },
+
+  setupSplashModal() {},
+  openSplashModal() { this.goToLanding(); },
+  closeSplashModal() { this.goToAuth(); },
 
   loadStateFromStorage() {
     try {
@@ -181,10 +202,12 @@ const App = {
   // =========================================================================
   navigateTo(viewName) {
     this.state.currentView = viewName;
+    const landingView = document.getElementById("landingView");
     const authView = document.getElementById("authView");
     const onboardingView = document.getElementById("onboardingView");
     const dashboardView = document.getElementById("dashboardView");
 
+    if (landingView) landingView.style.display = viewName === "landing" ? "block" : "none";
     if (authView) authView.style.display = viewName === "auth" ? "flex" : "none";
     if (onboardingView) onboardingView.style.display = viewName === "onboarding" ? "flex" : "none";
     if (dashboardView) dashboardView.style.display = viewName === "dashboard" ? "block" : "none";
