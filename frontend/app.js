@@ -1,6 +1,6 @@
 /**
- * AI-CON Student Onboarding & Dashboard Application
- * Production-ready modular frontend powering the AI College Consultant.
+ * Neev (नींव) Student Career Foundation & Admissions Guidance Application
+ * Production-ready modular frontend powering the Neev AI College Consultant.
  */
 
 const API_BASE = window.location.origin;
@@ -72,6 +72,7 @@ const App = {
   init() {
     this.loadStateFromStorage();
     this.recalcMarks();
+    this.setupSplashModal();
     
     // Check URL parameters for direct view navigation (e.g. ?view=onboarding&step=3 or ?view=dashboard)
     const urlParams = new URLSearchParams(window.location.search);
@@ -92,12 +93,53 @@ const App = {
       this.navigateTo("auth");
     }
 
-    console.log("AI-CON Frontend Initialized successfully.");
+    console.log("Neev (नींव) Career Foundation Initialized successfully.");
+  },
+
+  setupSplashModal() {
+    const modal = document.getElementById("neevSplashModal");
+    const card = document.getElementById("neevSplashCard");
+    const logoBox = document.getElementById("neevInteractiveLogo");
+
+    // Interactive 3D tilt hover effect on splash card
+    if (card) {
+      card.addEventListener("mousemove", (e) => {
+        const rect = card.getBoundingClientRect();
+        const x = (e.clientX - rect.left) / rect.width - 0.5;
+        const y = (e.clientY - rect.top) / rect.height - 0.5;
+        card.style.transform = `perspective(1000px) rotateY(${x * 12}deg) rotateX(${-y * 12}deg) scale(1.02)`;
+      });
+
+      card.addEventListener("mouseleave", () => {
+        card.style.transform = "perspective(1000px) rotateY(0deg) rotateX(0deg) scale(1)";
+      });
+    }
+
+    // Auto-open on initial session load if not closed previously in this session
+    const hasSeenSplash = sessionStorage.getItem("neev_splash_dismissed");
+    if (modal && !hasSeenSplash) {
+      modal.classList.add("active");
+    }
+  },
+
+  openSplashModal() {
+    const modal = document.getElementById("neevSplashModal");
+    if (modal) {
+      modal.classList.add("active");
+    }
+  },
+
+  closeSplashModal() {
+    const modal = document.getElementById("neevSplashModal");
+    if (modal) {
+      modal.classList.remove("active");
+      sessionStorage.setItem("neev_splash_dismissed", "true");
+    }
   },
 
   loadStateFromStorage() {
     try {
-      const saved = localStorage.getItem("aicon_student_profile_v2");
+      const saved = localStorage.getItem("neev_student_profile_v2") || localStorage.getItem("aicon_student_profile_v2");
       if (saved) {
         const parsed = JSON.parse(saved);
         this.state.profile = { ...this.state.profile, ...parsed };
@@ -109,11 +151,16 @@ const App = {
 
   saveStateToStorage() {
     try {
-      localStorage.setItem("aicon_student_profile_v2", JSON.stringify(this.state.profile));
+      const profileJson = JSON.stringify(this.state.profile);
+      localStorage.setItem("neev_student_profile_v2", profileJson);
+      localStorage.setItem("aicon_student_profile_v2", profileJson); // backward compat
       if (this.state.user) {
-        localStorage.setItem("aicon_user", JSON.stringify(this.state.user));
+        const userJson = JSON.stringify(this.state.user);
+        localStorage.setItem("neev_user", userJson);
+        localStorage.setItem("aicon_user", userJson);
       }
       if (this.state.token) {
+        localStorage.setItem("neev_token", this.state.token);
         localStorage.setItem("aicon_token", this.state.token);
       }
     } catch (e) {
@@ -164,14 +211,14 @@ const App = {
     document.getElementById("rememberGroup").style.display = isRegister ? "none" : "flex";
     
     document.getElementById("authHeading").innerText = isRegister 
-      ? "Create Your AI-CON Account."
+      ? "Create Your Neev Account."
       : "Your Future Starts With the Right Decision.";
       
     document.getElementById("authSubheading").innerText = isRegister
       ? "Sign up in 30 seconds to start your guided academic stream and college discovery journey."
       : "Get personalized college guidance, understand your opportunities, and discover the academic path that matches your potential.";
       
-    document.getElementById("authBtnText").innerText = isRegister ? "Create Account & Continue" : "Sign In to AI-CON";
+    document.getElementById("authBtnText").innerText = isRegister ? "Create Account & Continue" : "Sign In to Neev";
   },
 
   togglePasswordVisibility(fieldId) {
@@ -207,7 +254,7 @@ const App = {
       this.state.profile.personal.fullName = data.user.name;
       this.saveStateToStorage();
 
-      this.showToast(isRegister ? "Account created successfully!" : "Welcome back to AI-CON!", "success");
+      this.showToast(isRegister ? "Account created successfully!" : "Welcome back to Neev!", "success");
 
       // Check if profile is already confirmed
       if (this.state.profile.isConfirmed) {
@@ -795,7 +842,7 @@ const App = {
   finalizeAndEnterDashboard() {
     this.state.profile.isConfirmed = true;
     this.saveCurrentStepProgress();
-    this.showToast("Profile finalized! Welcome to your AI-CON Student Dashboard.", "success");
+    this.showToast("Profile finalized! Welcome to your Neev Student Dashboard.", "success");
     this.navigateTo("dashboard");
   },
 
@@ -1073,7 +1120,7 @@ const App = {
         </div>
       `).join("");
     } catch (e) {
-      container.innerHTML = '<div style="color: var(--text-muted); font-size: 0.8125rem;">Cutoff search active. Please start the AI-CON API server on port 8000.</div>';
+      container.innerHTML = '<div style="color: var(--text-muted); font-size: 0.8125rem;">Cutoff search active. Please start the Neev API server on port 8000.</div>';
     }
   },
 
