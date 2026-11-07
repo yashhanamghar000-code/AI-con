@@ -13,105 +13,6 @@
   <!-- Toast Notification Container -->
   <div id="toastContainer" style="position: fixed; top: 20px; right: 20px; z-index: 9999; display: flex; flex-direction: column; gap: 10px;"></div>
 
-  <!-- ================================================================= -->
-  <!-- FULL COLOR SCREEN — NEEV 3D LOGO HOVER EXPERIENCE                -->
-  <!-- ================================================================= -->
-  <div id="landingView" class="neev-fullcolor-screen">
-    
-    <!-- Ambient Animated Glow Orbs -->
-    <div class="nfc-glow-orb nfc-orb-1"></div>
-    <div class="nfc-glow-orb nfc-orb-2"></div>
-    <div class="nfc-glow-orb nfc-orb-3"></div>
-    <div class="nfc-grid-mesh"></div>
-
-    <!-- Top Floating Minimal Bar -->
-    <div class="nfc-top-bar">
-      <div class="nfc-badge">
-        <span class="nfc-badge-dot"></span>
-        <span>Maharashtra Engineering &amp; Career Foundation &nbsp;|&nbsp; 2024-25</span>
-      </div>
-      <button class="nfc-skip-btn" onclick="App.goToAuth()">Sign In Directly &rarr;</button>
-    </div>
-
-    <!-- Central Showcase Card (Interactive 3D Hover) -->
-    <div class="nfc-card-wrapper" id="nfcCardWrapper">
-      <div class="nfc-card" id="nfcCard">
-        
-        <div class="nfc-logo-container" id="nfcLogoBox" title="Neev — मजबूत नींव, आपके सपनों का करियर">
-          <div class="nfc-logo-glow"></div>
-          <svg class="nfc-logo-svg" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <defs>
-              <linearGradient id="nfcG1" x1="10%" y1="0%" x2="90%" y2="100%">
-                <stop offset="0%" stop-color="#818CF8" />
-                <stop offset="100%" stop-color="#4F46E5" />
-              </linearGradient>
-              <linearGradient id="nfcG2" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stop-color="#38BDF8" />
-                <stop offset="100%" stop-color="#6366F1" />
-              </linearGradient>
-              <linearGradient id="nfcG3" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stop-color="#C084FC" />
-                <stop offset="100%" stop-color="#7C3AED" />
-              </linearGradient>
-              <filter id="nfcSvgGlow" x="-20%" y="-20%" width="140%" height="140%">
-                <feGaussianBlur stdDeviation="3" result="blur" />
-                <feMerge>
-                  <feMergeNode in="blur" />
-                  <feMergeNode in="SourceGraphic" />
-                </feMerge>
-              </filter>
-            </defs>
-            <!-- Foundation 3D isometric base -->
-            <path d="M15 65 L50 82 L85 65 L50 48 Z" fill="url(#nfcG1)" opacity="0.95" filter="url(#nfcSvgGlow)" />
-            <!-- Left facet -->
-            <path d="M22 61 L42 51 L42 22 L22 32 Z" fill="url(#nfcG2)" />
-            <!-- Center facet -->
-            <path d="M42 51 L58 43 L78 53 L62 61 Z" fill="url(#nfcG3)" opacity="0.95" />
-            <!-- Right facet -->
-            <path d="M58 43 L78 33 L78 62 L58 72 Z" fill="url(#nfcG2)" />
-            <!-- Radiant summit sphere -->
-            <circle cx="50" cy="18" r="8" fill="#38BDF8" filter="url(#nfcSvgGlow)" />
-            <circle cx="50" cy="18" r="4" fill="#FFFFFF" />
-            <!-- Star compass point -->
-            <path d="M50 6 L52 15 L61 18 L52 21 L50 30 L48 21 L39 18 L48 15 Z" fill="#FFFFFF" />
-          </svg>
-        </div>
-
-        <h1 class="nfc-brand-title">Neev<span class="nfc-dot">.</span><span class="nfc-badge-ai">AI</span></h1>
-        <div class="nfc-devanagari">&#2344;&#2368;&#2306;&#2357; &mdash; मजबूत नींव, आपके सपनों का करियर</div>
-
-        <p class="nfc-description">
-          AI-Powered Maharashtra Admissions &amp; Career Foundation.<br />
-          Smart Stream Discovery, Aptitude Assessment, and Verified MHT-CET Cutoff Intelligence.
-        </p>
-
-        <!-- Feature Pills -->
-        <div class="nfc-pills-row">
-          <div class="nfc-pill">🧭 Smart Stream Discovery</div>
-          <div class="nfc-pill">📊 181,137 Verified Cutoffs</div>
-          <div class="nfc-pill">🎯 Category &amp; Quota Planner</div>
-          <div class="nfc-pill">🔒 Private Student AI</div>
-        </div>
-
-        <!-- Action CTAs -->
-        <div class="nfc-action-group">
-          <button class="nfc-btn-primary" onclick="App.goToAuth()">
-            <span>Enter Platform &nbsp;&rarr;</span>
-          </button>
-          <button class="nfc-btn-secondary" onclick="App.goToRegister()">
-            <span>Create New Account</span>
-          </button>
-        </div>
-
-        <div class="nfc-footer-note">
-          Neev (formerly AI-CON) &nbsp;&bull;&nbsp; 100% Free for Maharashtra Students
-        </div>
-
-      </div>
-    </div>
-
-  </div><!-- /landingView -->
-
   <!-- MAIN APP CONTAINER -->
   <div id="appRoot">
 
@@ -136,7 +37,7 @@
               <span class="brand-name">Neev<span style="color: #4F46E5;">.</span>AI</span>
               <span class="brand-tag">Foundation</span>
             </div>
-            <button type="button" class="btn btn-ghost btn-sm" onclick="App.goToLanding()" style="font-size: 0.8125rem; color: var(--text-muted); padding: 5px 12px; border-radius: var(--radius-full); border: 1px solid var(--border-color); cursor: pointer;">&larr; Welcome Screen</button>
+            
           </div>
 
           <!-- Auth Card Body -->

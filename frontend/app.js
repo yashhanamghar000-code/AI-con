@@ -72,8 +72,6 @@ const App = {
   init() {
     this.loadStateFromStorage();
     this.recalcMarks();
-    this.setupLandingHover();
-    this.updateLandingNav();
     
     // Check URL parameters for direct view navigation (e.g. ?view=onboarding&step=3 or ?view=dashboard)
     const urlParams = new URLSearchParams(window.location.search);
@@ -85,101 +83,24 @@ const App = {
       if (requestedView === "onboarding") {
         this.goToStep(requestedStep || 1);
       }
+    } else if (this.state.token && this.state.profile.isConfirmed) {
+      this.navigateTo("dashboard");
+    } else if (this.state.token) {
+      this.navigateTo("onboarding");
+      this.goToStep(this.state.currentOnboardingStep || 1);
     } else {
-      // By default open the premium 3D hover landing page first!
-      this.navigateTo("landing");
+      this.navigateTo("auth");
     }
 
     console.log("Neev (नींव) Career Foundation Initialized successfully.");
   },
 
-  setupLandingHover() {
-    const screen = document.getElementById("landingView");
-    const card = document.getElementById("nfcCard");
-    const logoBox = document.getElementById("nfcLogoBox");
-
-    if (screen && card) {
-      screen.addEventListener("mousemove", (e) => {
-        const rect = screen.getBoundingClientRect();
-        const x = (e.clientX - rect.left) / rect.width - 0.5;
-        const y = (e.clientY - rect.top) / rect.height - 0.5;
-
-        // Dynamic 3D perspective tilt with physics
-        card.style.transform = `perspective(1000px) rotateY(${x * 20}deg) rotateX(${-y * 20}deg) translateY(-2px)`;
-        card.style.boxShadow = `
-          ${-x * 30}px ${-y * 30}px 70px rgba(0, 0, 0, 0.7),
-          0 0 60px rgba(99, 102, 241, 0.35),
-          inset 0 1px 1px rgba(255, 255, 255, 0.25)
-        `;
-
-        if (logoBox) {
-          logoBox.style.transform = `translateZ(50px) rotateY(${x * 32}deg) rotateX(${-y * 32}deg) scale(1.08)`;
-        }
-      });
-
-      screen.addEventListener("mouseleave", () => {
-        card.style.transform = "perspective(1000px) rotateY(0deg) rotateX(0deg) translateY(0)";
-        card.style.boxShadow = `
-          0 25px 60px -15px rgba(0, 0, 0, 0.7),
-          0 0 50px rgba(99, 102, 241, 0.28),
-          inset 0 1px 1px rgba(255, 255, 255, 0.22)
-        `;
-        if (logoBox) {
-          logoBox.style.transform = "translateZ(40px) rotateY(0deg) rotateX(0deg) scale(1)";
-        }
-      });
-    }
-  },
-
-  goToLanding() {
-    this.navigateTo("landing");
-  },
-
-  goToAuth() {
-    const landing = document.getElementById("landingView");
-    if (landing && landing.style.display !== "none") {
-      landing.classList.add("nfc-exit");
-      setTimeout(() => {
-        landing.classList.remove("nfc-exit");
-        this.setAuthMode("login");
-        this.navigateTo("auth");
-      }, 280);
-    } else {
-      this.setAuthMode("login");
-      this.navigateTo("auth");
-    }
-  },
-
-  goToRegister() {
-    const landing = document.getElementById("landingView");
-    if (landing && landing.style.display !== "none") {
-      landing.classList.add("nfc-exit");
-      setTimeout(() => {
-        landing.classList.remove("nfc-exit");
-        this.setAuthMode("register");
-        this.navigateTo("auth");
-      }, 280);
-    } else {
-      this.setAuthMode("register");
-      this.navigateTo("auth");
-    }
-  },
-
   setupSplashModal() {},
-  openSplashModal() { this.goToLanding(); },
-  closeSplashModal() { this.goToAuth(); },
-
-  loadStateFromStorage() {
-    try {
-      const saved = localStorage.getItem("neev_student_profile_v2") || localStorage.getItem("aicon_student_profile_v2");
-      if (saved) {
-        const parsed = JSON.parse(saved);
-        this.state.profile = { ...this.state.profile, ...parsed };
-      }
-    } catch (e) {
-      console.warn("Could not parse saved profile:", e);
-    }
-  },
+  openSplashModal() {},
+  closeSplashModal() {},
+  goToLanding() { this.navigateTo("auth"); },
+  goToAuth() { this.setAuthMode("login"); this.navigateTo("auth"); },
+  goToRegister() { this.setAuthMode("register"); this.navigateTo("auth"); },
 
   saveStateToStorage() {
     try {
@@ -213,12 +134,10 @@ const App = {
   // =========================================================================
   navigateTo(viewName) {
     this.state.currentView = viewName;
-    const landingView = document.getElementById("landingView");
     const authView = document.getElementById("authView");
     const onboardingView = document.getElementById("onboardingView");
     const dashboardView = document.getElementById("dashboardView");
 
-    if (landingView) landingView.style.display = viewName === "landing" ? "flex" : "none";
     if (authView) authView.style.display = viewName === "auth" ? "flex" : "none";
     if (onboardingView) onboardingView.style.display = viewName === "onboarding" ? "flex" : "none";
     if (dashboardView) dashboardView.style.display = viewName === "dashboard" ? "block" : "none";
