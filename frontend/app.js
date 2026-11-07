@@ -1,6 +1,6 @@
 /**
- * AI-CON Student Onboarding & Dashboard Application
- * Production-ready modular frontend powering the AI College Consultant.
+ * Neev (नींव) Student Career Foundation & Admissions Guidance Application
+ * Production-ready modular frontend powering the Neev AI College Consultant.
  */
 
 const API_BASE = window.location.origin;
@@ -92,33 +92,41 @@ const App = {
       this.navigateTo("auth");
     }
 
-    console.log("AI-CON Frontend Initialized successfully.");
+    console.log("Neev (नींव) Career Foundation Initialized successfully.");
   },
 
-  loadStateFromStorage() {
-    try {
-      const saved = localStorage.getItem("aicon_student_profile_v2");
-      if (saved) {
-        const parsed = JSON.parse(saved);
-        this.state.profile = { ...this.state.profile, ...parsed };
-      }
-    } catch (e) {
-      console.warn("Could not parse saved profile:", e);
-    }
-  },
+  setupSplashModal() {},
+  openSplashModal() {},
+  closeSplashModal() {},
+  goToLanding() { this.navigateTo("auth"); },
+  goToAuth() { this.setAuthMode("login"); this.navigateTo("auth"); },
+  goToRegister() { this.setAuthMode("register"); this.navigateTo("auth"); },
 
   saveStateToStorage() {
     try {
-      localStorage.setItem("aicon_student_profile_v2", JSON.stringify(this.state.profile));
+      const profileJson = JSON.stringify(this.state.profile);
+      localStorage.setItem("neev_student_profile_v2", profileJson);
+      localStorage.setItem("aicon_student_profile_v2", profileJson); // backward compat
       if (this.state.user) {
-        localStorage.setItem("aicon_user", JSON.stringify(this.state.user));
+        const userJson = JSON.stringify(this.state.user);
+        localStorage.setItem("neev_user", userJson);
+        localStorage.setItem("aicon_user", userJson);
       }
       if (this.state.token) {
+        localStorage.setItem("neev_token", this.state.token);
         localStorage.setItem("aicon_token", this.state.token);
       }
     } catch (e) {
       console.warn("Storage save error:", e);
     }
+  },
+
+  getAuthHeaders() {
+    const headers = { "Content-Type": "application/json" };
+    if (this.state.token) {
+      headers["Authorization"] = `Bearer ${this.state.token}`;
+    }
+    return headers;
   },
 
   // =========================================================================
@@ -156,14 +164,14 @@ const App = {
     document.getElementById("rememberGroup").style.display = isRegister ? "none" : "flex";
     
     document.getElementById("authHeading").innerText = isRegister 
-      ? "Create Your AI-CON Account."
+      ? "Create Your Neev Account."
       : "Your Future Starts With the Right Decision.";
       
     document.getElementById("authSubheading").innerText = isRegister
       ? "Sign up in 30 seconds to start your guided academic stream and college discovery journey."
       : "Get personalized college guidance, understand your opportunities, and discover the academic path that matches your potential.";
       
-    document.getElementById("authBtnText").innerText = isRegister ? "Create Account & Continue" : "Sign In to AI-CON";
+    document.getElementById("authBtnText").innerText = isRegister ? "Create Account & Continue" : "Sign In to Neev";
   },
 
   togglePasswordVisibility(fieldId) {
@@ -199,7 +207,7 @@ const App = {
       this.state.profile.personal.fullName = data.user.name;
       this.saveStateToStorage();
 
-      this.showToast(isRegister ? "Account created successfully!" : "Welcome back to AI-CON!", "success");
+      this.showToast(isRegister ? "Account created successfully!" : "Welcome back to Neev!", "success");
 
       // Check if profile is already confirmed
       if (this.state.profile.isConfirmed) {
@@ -290,9 +298,10 @@ const App = {
     try {
       await fetch(API_BASE + "/api/onboarding/save", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: this.getAuthHeaders(),
         body: JSON.stringify({
           user_id: this.state.user.id,
+          token: this.state.token,
           current_step: this.state.currentOnboardingStep,
           personal_info: this.state.profile.personal,
           academic_info: this.state.profile.academic,
@@ -786,7 +795,7 @@ const App = {
   finalizeAndEnterDashboard() {
     this.state.profile.isConfirmed = true;
     this.saveCurrentStepProgress();
-    this.showToast("Profile finalized! Welcome to your AI-CON Student Dashboard.", "success");
+    this.showToast("Profile finalized! Welcome to your Neev Student Dashboard.", "success");
     this.navigateTo("dashboard");
   },
 
@@ -902,10 +911,11 @@ const App = {
     try {
       const resp = await fetch(API_BASE + "/api/chat", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: this.getAuthHeaders(),
         body: JSON.stringify({
           query,
           user_id: this.state.user.id,
+          token: this.state.token,
           stream_context: this.state.profile.selectedStream
         })
       });
@@ -919,7 +929,15 @@ const App = {
         return;
       }
 
-      let contentHtml = `<div>${this.formatMarkdownText(data.message)}</div>`;
+      let contentHtml = "";
+      if (data.student_context_applied) {
+        contentHtml += `
+          <div style="display: inline-flex; align-items: center; gap: 6px; font-size: 0.725rem; font-weight: 700; color: #1D4ED8; background: #EFF6FF; border: 1px solid #BFDBFE; padding: 3px 10px; border-radius: 9999px; margin-bottom: 8px;">
+            <span>🎯 Personalized for ${data.personalized_for || this.state.user.name}</span>
+          </div>
+        `;
+      }
+      contentHtml += `<div>${this.formatMarkdownText(data.message)}</div>`;
 
       // If candidates list exists for clarification
       if (data.candidates && data.candidates.length) {
@@ -1055,7 +1073,7 @@ const App = {
         </div>
       `).join("");
     } catch (e) {
-      container.innerHTML = '<div style="color: var(--text-muted); font-size: 0.8125rem;">Cutoff search active. Please start the AI-CON API server on port 8000.</div>';
+      container.innerHTML = '<div style="color: var(--text-muted); font-size: 0.8125rem;">Cutoff search active. Please start the Neev API server on port 8000.</div>';
     }
   },
 

@@ -3,8 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>AI-CON — Intelligent College & Stream Consultant</title>
-  <meta name="description" content="AI-Powered Maharashtra Engineering and Admissions Consultant. Stream Discovery, Aptitude Assessment, and Verified Cutoff RAG." />
+  <title>Neev (AI-CON) &#8212; &#2344;&#2368;&#2306;&#2357; | Build Your Career Foundation</title>
+  <meta name="description" content="Neev (formerly AI-CON): AI-Powered Maharashtra Admissions &amp; Career Foundation. Smart Stream Discovery, Aptitude Assessment, and Verified MHT-CET Cutoff Intelligence." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
@@ -24,12 +25,19 @@
       <section class="auth-left-section">
         <div>
           <!-- Brand Logo Header -->
-          <div class="brand-header">
-            <div class="brand-logo-pill" onclick="App.navigateTo('auth')">
-              <div class="brand-icon-box">AI</div>
-              <span class="brand-name">AI-CON</span>
-              <span class="brand-tag">Consultant</span>
+          <div class="brand-header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px;">
+            <div class="brand-logo-pill" onclick="App.goToLanding()" title="Return to Neev Home" style="cursor: pointer;">
+              <svg class="neev-logo-svg" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M15 65 L50 82 L85 65 L50 48 Z" fill="#4F46E5" opacity="0.9" />
+                <path d="M22 61 L42 51 L42 22 L22 32 Z" fill="#2563EB" />
+                <path d="M42 51 L58 43 L78 53 L62 61 Z" fill="#7C3AED" />
+                <path d="M58 43 L78 33 L78 62 L58 72 Z" fill="#2563EB" />
+                <circle cx="50" cy="18" r="7" fill="#38BDF8" />
+              </svg>
+              <span class="brand-name">Neev<span style="color: #4F46E5;">.</span>AI</span>
+              <span class="brand-tag">Foundation</span>
             </div>
+            
           </div>
 
           <!-- Auth Card Body -->
@@ -70,18 +78,18 @@
               </div>
 
               <button type="submit" id="authSubmitBtn" class="btn btn-primary btn-block btn-lg">
-                <span id="authBtnText">Sign In to AI-CON</span> →
+                <span id="authBtnText">Sign In to Neev</span> →
               </button>
             </form>
           </div>
         </div>
 
         <div class="auth-footer-note">
-          Protected by AI-CON Education Security. Class 10 & 12 Guidance Platform.
+          Protected by Neev Education Security. Class 10 & 12 Career Foundation Platform.
         </div>
       </section>
 
-      <!-- Right Section: 60% AI-CON Branding & Feature Showcase -->
+      <!-- Right Section: 60% Neev Branding & Feature Showcase -->
       <section class="auth-right-section">
         <div class="glow-orb glow-orb-1"></div>
         <div class="glow-orb glow-orb-2"></div>
@@ -94,8 +102,8 @@
 
         <!-- Main Showcase Content -->
         <div class="brand-showcase-content">
-          <h1 class="brand-main-title">Find Your Direction.<br />Build Your Future.</h1>
-          <p class="brand-main-desc">From choosing your academic stream to finding the right college, AI-CON helps you make informed educational decisions with intelligent guidance.</p>
+          <h1 class="brand-main-title">Build Your Strong Foundation.<br />Find Your True Direction.</h1>
+          <p class="brand-main-desc">From choosing your academic stream to finding the right college, Neev helps you make data-driven educational decisions with intelligent counseling.</p>
 
           <!-- 3 Floating Feature Cards -->
           <div class="feature-cards-grid">
@@ -152,9 +160,15 @@
       <!-- Top Wizard Header -->
       <div class="onboarding-header-bar">
         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
-          <div class="brand-logo-pill" onclick="App.navigateTo('dashboard')">
-            <div class="brand-icon-box">AI</div>
-            <span class="brand-name">AI-CON</span>
+          <div class="brand-logo-pill" onclick="App.openSplashModal()" title="View Neev Overview">
+            <svg class="neev-logo-svg" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M15 65 L50 82 L85 65 L50 48 Z" fill="#4F46E5" opacity="0.9" />
+              <path d="M22 61 L42 51 L42 22 L22 32 Z" fill="#2563EB" />
+              <path d="M42 51 L58 43 L78 53 L62 61 Z" fill="#7C3AED" />
+              <path d="M58 43 L78 33 L78 62 L58 72 Z" fill="#2563EB" />
+              <circle cx="50" cy="18" r="7" fill="#38BDF8" />
+            </svg>
+            <span class="brand-name">Neev<span style="color: #4F46E5;">.</span>AI</span>
             <span class="brand-tag">Onboarding</span>
           </div>
           <div style="display: flex; gap: 10px; align-items: center;">
@@ -209,7 +223,7 @@
         <div id="stepContent1" class="wizard-step-pane">
           <div class="wizard-title-box">
             <h2>Step 1: Personal Information</h2>
-            <p>Tell us a little about yourself so AI-CON can tailor state-specific admission quotas and recommendations.</p>
+            <p>Tell us a little about yourself so Neev can tailor state-specific admission quotas and recommendations.</p>
           </div>
 
           <form id="step1Form" onsubmit="App.handleStep1Submit(event)">
@@ -400,7 +414,7 @@
         <div id="stepContent4" class="wizard-step-pane" style="display: none;">
           <div class="wizard-title-box">
             <h2>Step 4: Interests, Expectations & Ambitions</h2>
-            <p>Select your areas of fascination. AI-CON correlates your interests with academic streams and career pathways.</p>
+            <p>Select your areas of fascination. Neev correlates your interests with academic streams and career pathways.</p>
           </div>
 
           <form id="step4Form" onsubmit="App.handleStep4Submit(event)">
@@ -441,9 +455,9 @@
             </div>
 
             <div class="form-group" style="margin-top: 20px;">
-              <label class="form-label" for="futureAmbitions">Tell AI-CON about your future ambitions (Optional)</label>
+              <label class="form-label" for="futureAmbitions">Tell Neev about your future ambitions (Optional)</label>
               <textarea id="futureAmbitions" class="form-textarea" rows="3" placeholder="e.g. I want to build AI software, launch a tech startup, or pursue Computer Engineering at a top government college in Pune like COEP."></textarea>
-              <span class="form-hint">AI-CON uses this to provide contextual college advice in your dashboard.</span>
+              <span class="form-hint">Neev uses this to provide contextual college advice in your dashboard.</span>
             </div>
 
             <div style="display: flex; justify-content: space-between; margin-top: 24px;">
@@ -496,7 +510,7 @@
         <div id="stepContent6" class="wizard-step-pane" style="display: none;">
           <div class="recommendation-banner">
             <div class="rec-banner-info">
-              <div class="badge badge-brand" style="margin-bottom: 8px;">🎯 AI-CON Diagnostic Analysis</div>
+              <div class="badge badge-brand" style="margin-bottom: 8px;">🎯 Neev Diagnostic Analysis</div>
               <h2 id="recPrimaryTitle">Recommended: Science (PCM)</h2>
               <p id="recPrimaryHeadline">Physics, Chemistry, Mathematics — Ideal for Engineering & Technology</p>
             </div>
@@ -545,9 +559,15 @@
       
       <!-- Top Sticky Navigation Bar -->
       <nav class="dashboard-navbar">
-        <div class="brand-logo-pill" onclick="App.navigateTo('dashboard')">
-          <div class="brand-icon-box">AI</div>
-          <span class="brand-name">AI-CON</span>
+        <div class="brand-logo-pill" onclick="App.openSplashModal()" title="View Neev Overview">
+          <svg class="neev-logo-svg" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M15 65 L50 82 L85 65 L50 48 Z" fill="#4F46E5" opacity="0.9" />
+            <path d="M22 61 L42 51 L42 22 L22 32 Z" fill="#2563EB" />
+            <path d="M42 51 L58 43 L78 53 L62 61 Z" fill="#7C3AED" />
+            <path d="M58 43 L78 33 L78 62 L58 72 Z" fill="#2563EB" />
+            <circle cx="50" cy="18" r="7" fill="#38BDF8" />
+          </svg>
+          <span class="brand-name">Neev<span style="color: #4F46E5;">.</span>AI</span>
           <span class="brand-tag">Student Hub</span>
         </div>
 
@@ -560,6 +580,7 @@
         </div>
 
         <div style="display: flex; align-items: center; gap: 14px;">
+          <button class="btn btn-ghost" style="padding: 6px 12px; font-size: 0.75rem; border: 1px solid var(--border-color);" onclick="App.openSplashModal()">✨ About Neev</button>
           <div style="text-align: right;">
             <div id="navUserName" style="font-size: 0.8125rem; font-weight: 700; color: var(--dark-blue);">Aarav Sharma</div>
             <div id="navUserStream" style="font-size: 0.7rem; color: var(--primary);">Science (PCM)</div>
@@ -576,10 +597,10 @@
         <div class="dashboard-welcome-banner">
           <div class="welcome-text">
             <h1 id="dashWelcomeTitle">Welcome back, Aarav!</h1>
-            <p id="dashWelcomeDesc">Let's plan your academic future with AI-CON's verified admissions intelligence.</p>
+            <p id="dashWelcomeDesc">Let's build your strong career foundation with Neev's verified admissions intelligence.</p>
           </div>
           <div style="display: flex; gap: 12px;">
-            <button class="btn btn-primary" onclick="App.switchDashboardTab('chat')">Ask AI Consultant 💬</button>
+            <button class="btn btn-primary" onclick="App.switchDashboardTab('chat')">Ask Neev Consultant 💬</button>
             <button class="btn btn-secondary" style="background: rgba(255,255,255,0.15); color: #FFFFFF; border-color: rgba(255,255,255,0.25);" onclick="App.navigateTo('onboarding')">Retake Assessment 🎯</button>
           </div>
         </div>
@@ -649,9 +670,9 @@
             <!-- Chat Header -->
             <div class="chat-header-bar">
               <div class="chat-bot-meta">
-                <div class="chat-avatar">AI</div>
+                <div class="chat-avatar" style="background: linear-gradient(135deg, #4F46E5, #7C3AED); color: #fff;">NV</div>
                 <div>
-                  <h4 style="font-size: 0.95rem; margin-bottom: 2px;">AI-CON Admissions Consultant</h4>
+                  <h4 style="font-size: 0.95rem; margin-bottom: 2px;">Neev Admissions Consultant</h4>
                   <span style="font-size: 0.7rem; color: var(--success); font-weight: 600;">● Online | Grounded in 181,137 Records</span>
                 </div>
               </div>
@@ -663,10 +684,10 @@
             <!-- Chat Message Feed -->
             <div id="chatMessagesFeed" class="chat-messages-container">
               <div class="chat-bubble assistant">
-                Hello <b>Aarav</b>! I am your <b>AI-CON College Consultant</b>. I can assist you with:
+                Hello <b>Aarav</b>! I am your <b>Neev Admissions Consultant</b>. I can assist you with:
                 <ul style="margin: 8px 0 8px 18px; font-size: 0.8125rem;">
                   <li>Exact historical closing percentiles and ranks across CAP Rounds</li>
-                  <li>Finding colleges matching your target percentile and location</li>
+                  <li>Finding colleges matching your target percentile, category (OBC, SC, ST, TFWS, EWS), and location</li>
                   <li>Verifying autonomy, affiliation, and branch offerings</li>
                   <li>Explaining Maharashtra CAP rules (Auto-Freeze, Betterment, TFWS)</li>
                 </ul>
