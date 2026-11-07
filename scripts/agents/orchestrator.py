@@ -463,9 +463,115 @@ class Orchestrator:
 
         return None
 
-    def answer(self, question: str, institute_hint: Optional[str] = None) -> Dict[str, Any]:
+    def _handle_personalized_student_query(self, question: str, student_context: Dict[str, Any]) -> Optional[Dict[str, Any]]:
+        """Synthesize personalized, grounded admission advice based on authenticated student onboarding profile."""
+        q_lower = question.lower()
+        name = student_context.get("name") or "Student"
+        raw_cat = str(student_context.get("category") or "OPEN").strip().upper()
+        raw_pct = student_context.get("percentage") or student_context.get("percentile") or 85.0
+        try:
+            pct = float(raw_pct)
+        except Exception:
+            pct = 85.0
+        district = student_context.get("district") or "Maharashtra"
+        stream = student_context.get("stream") or "Science (PCM)"
+        ambitions = student_context.get("ambitions") or ""
+
+        # Map to CET CAP Category Token
+        if "OBC" in raw_cat:
+            cat_token = "GOBCS"
+        elif "SC" in raw_cat:
+            cat_token = "GSCS"
+        elif "ST" in raw_cat:
+            cat_token = "GSTS"
+        elif "TFWS" in raw_cat:
+            cat_token = "TFWS"
+        elif "EWS" in raw_cat:
+            cat_token = "EWS"
+        else:
+            cat_token = "GOPENS"
+
+        # 1. TFWS Eligibility Queries
+        if "tfws" in q_lower or "tuition fee waiver" in q_lower or "fee waiver" in q_lower:
+            msg = (
+                f"Hello {name}, here is your personalized TFWS (Tuition Fee Waiver Scheme) Assessment:\n\n"
+                f"1. Your Category: {raw_cat} (All Maharashtra state candidates are eligible regardless of caste).\n"
+                f"2. Income Requirement: Annual family income must be under INR 8.0 Lakhs from all sources.\n"
+                f"3. Seat Allocation: 5% supernumerary seats in approved Maharashtra CAP engineering colleges.\n"
+                f"4. Required Documentation: Valid Income Certificate issued by Tahsildar / SDO for the current financial year.\n"
+                f"5. CAP Strategy: When filling your Option Form, select the specific 'T' choice code (e.g., TFWS seat) for your preferred branches in {district}.\n\n"
+                f"Note: TFWS seats have high demand; closing cutoffs are typically higher than general seats."
+            )
+            return {
+                "status": "answered",
+                "query_type": "personalized_eligibility",
+                "matched_college": None,
+                "total_matches": 1,
+                "message": msg,
+                "evidence": f"TFWS Rules: Category={raw_cat}, Statutory Income Limit <= 8,00,000 INR, 5% supernumerary seats.",
+                "student_context_applied": True
+            }
+
+        # 2. Recommendation / Shortlist Queries
+        if self.cutoff_agent and hasattr(self.cutoff_agent, "find_colleges"):
+            branch_q = "Computer" if ("pcm" in stream.lower() or "tech" in str(student_context).lower()) else "Engineering"
+            min_p = max(0.0, pct - 10.0)
+            max_p = min(100.0, pct + 3.0)
+
+            matches = self.cutoff_agent.find_colleges(
+                min_percentile=min_p,
+                max_percentile=max_p,
+                branch_query=branch_q,
+                category=cat_token,
+                limit=8
+            )
+            if not matches:
+                # Try fallback category GOPENS if specific quota yielded few
+                matches = self.cutoff_agent.find_colleges(
+                    min_percentile=min_p,
+                    max_percentile=max_p,
+                    branch_query=branch_q,
+                    category="GOPENS",
+                    limit=8
+                )
+
+            if matches:
+                lines = [
+                    f"Personalized College Shortlist for {name}:",
+                    f"• Admission Category: {raw_cat} (CAP Quota Token: {cat_token})",
+                    f"• Academic Profile: {pct:.1f}%",
+                    f"• Recommended Stream: {stream}",
+                    f"• Target Region: {district}",
+                    "",
+                    "Verified Attainable Engineering Options (CAP Cutoff Records):"
+                ]
+                ev_lines = []
+                for idx, m in enumerate(matches, 1):
+                    c_name = m.get("institute_name", "College")
+                    code = m.get("institute_code", "")
+                    b = m.get("branch", branch_q)
+                    cp = m.get("closing_percentile", "N/A")
+                    cr = m.get("closing_rank", "N/A")
+                    lines.append(f"{idx}. {c_name} (Code: {code}) - {b}")
+                    lines.append(f"   Closing Cutoff: {cp}%ile (Rank: {cr}) | Quota: {m.get('category', cat_token)}")
+                    ev_lines.append(f"[{m.get('source_file', 'CUTOFF-EV')}] {code}: {c_name} - {b} ({m.get('category', cat_token)}) - Cutoff: {cp}")
+
+                lines.append("\nAdvice: Use this shortlist to structure your preference form into Safe, Attainable, and Reach options.")
+                return {
+                    "status": "answered",
+                    "query_type": "personalized_recommendation",
+                    "matched_college": None,
+                    "total_matches": len(matches),
+                    "message": "\n".join(lines),
+                    "evidence": "\n".join(ev_lines),
+                    "student_context_applied": True
+                }
+
+        return None
+
+    def answer(self, question: str, institute_hint: Optional[str] = None, student_context: Optional[Dict[str, Any]] = None) -> Dict[str, Any]:
         """Process student question through resolution, retrieval, and structured formatting."""
-        # Check if query is explicitly a cross-college or multi-college search
+        # 0. Check if personalized student context query can be handled directly
         q_lower = question.lower()
         is_multi_college_query = (
             q_lower.startswith(("list colleges", "which colleges", "compare colleges", "give me a shortlist", "show me every college", "rank colleges"))
@@ -473,6 +579,15 @@ class Orchestrator:
             or ("shortlist" in q_lower)
             or ("between " in q_lower and "percentile" in q_lower)
         )
+
+        if student_context and (
+            is_multi_college_query or 
+            any(k in q_lower for k in ("my marks", "my profile", "can i get", "for me", "suggest", "recommend", "what can i get", "eligible for tfws", "tfws"))
+        ):
+            pers_res = self._handle_personalized_student_query(question, student_context)
+            if pers_res is not None:
+                return pers_res
+
         if is_multi_college_query and not institute_hint:
             cross_res = self._handle_cross_college_query(question)
             if cross_res is not None:
@@ -699,6 +814,18 @@ class Orchestrator:
         # Evidence-only mode (Phase 1 default)
         if not self.llm_call:
             payload["status"] = "evidence_only"
+            if student_context:
+                name = student_context.get("name") or "Student"
+                raw_cat = str(student_context.get("category") or "OPEN").strip()
+                pct = student_context.get("percentage") or student_context.get("percentile")
+                pct_str = f"{float(pct):.1f}%" if pct else "Declared"
+                pers_note = (
+                    f"\n\n--- Personalized Admission Context for {name} ---\n"
+                    f"Candidate Category: {raw_cat} | Academic Score: {pct_str}\n"
+                    f"Recommendation: Review this institute's category cutoff against your option form priority."
+                )
+                payload["personalized_note"] = pers_note
+                payload["evidence"] = evidence + pers_note
             return payload
 
         # LLM inference mode (Phase 2+)

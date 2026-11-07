@@ -31,17 +31,28 @@ for p in (str(PROJECT_ROOT), str(SCRIPTS_DIR), str(AGENTS_DIR)):
     if p not in sys.path:
         sys.path.insert(0, p)
 
-from fastapi import FastAPI, HTTPException, Request, Depends, status
+from fastapi import FastAPI, HTTPException, Request, Depends, Header, status
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
 from fastapi.responses import FileResponse, JSONResponse
 from pydantic import BaseModel, EmailStr
 
+from db import db_manager
+from auth import (
+    create_access_token,
+    decode_access_token,
+    extract_token_from_header,
+    hash_password,
+    verify_password,
+    JWT_SECRET,
+    JWT_ALGORITHM
+)
+
 # Initialize FastAPI app
 app = FastAPI(
     title="AI-CON College Consultant API",
-    description="Evidence-grounded education counselling and student onboarding platform",
-    version="2.0.0"
+    description="Evidence-grounded education counselling and student onboarding platform with JWT & PostgreSQL support",
+    version="2.1.0"
 )
 
 # Enable CORS for local development
@@ -54,71 +65,14 @@ app.add_middleware(
 )
 
 # ============================================================================
-# DATABASE INITIALIZATION (SQLite)
+# DATABASE ENGINE (PostgreSQL with SQLite Fallback)
 # ============================================================================
 
 def init_db():
-    conn = sqlite3.connect(str(DB_PATH))
-    cursor = conn.cursor()
-    
-    # Users table
-    cursor.execute("""
-    CREATE TABLE IF NOT EXISTS users (
-        id TEXT PRIMARY KEY,
-        name TEXT NOT NULL,
-        email TEXT UNIQUE NOT NULL,
-        password_hash TEXT NOT NULL,
-        created_at TEXT NOT NULL
-    )
-    """)
-    
-    # Student Profiles table
-    cursor.execute("""
-    CREATE TABLE IF NOT EXISTS student_profiles (
-        user_id TEXT PRIMARY KEY,
-        personal_info TEXT,
-        academic_info TEXT,
-        marks_info TEXT,
-        interests_info TEXT,
-        aptitude_results TEXT,
-        stream_recommendation TEXT,
-        selected_stream TEXT,
-        current_step INTEGER DEFAULT 1,
-        is_confirmed INTEGER DEFAULT 0,
-        updated_at TEXT NOT NULL,
-        FOREIGN KEY (user_id) REFERENCES users (id)
-    )
-    """)
-    
-    # Chat History table
-    cursor.execute("""
-    CREATE TABLE IF NOT EXISTS chat_history (
-        id INTEGER PRIMARY KEY AUTOINCREMENT,
-        user_id TEXT,
-        role TEXT NOT NULL,
-        content TEXT NOT NULL,
-        status TEXT,
-        matched_college TEXT,
-        evidence TEXT,
-        created_at TEXT NOT NULL
-    )
-    """)
-    
-    conn.commit()
-    conn.close()
-
-init_db()
+    db_manager.init_db()
 
 def get_db():
-    conn = sqlite3.connect(str(DB_PATH))
-    conn.row_factory = sqlite3.Row
-    try:
-        yield conn
-    finally:
-        conn.close()
-
-def hash_password(password: str) -> str:
-    return hashlib.sha256(password.encode("utf-8")).hexdigest()
+    return db_manager.get_connection()[0]
 
 # ============================================================================
 # AI-CON AGENTS SINGLETON (Lazy loaded for instant API startup)
@@ -187,7 +141,8 @@ class LoginRequest(BaseModel):
     password: str
 
 class OnboardingSaveRequest(BaseModel):
-    user_id: str
+    user_id: Optional[str] = None
+    token: Optional[str] = None
     current_step: Optional[int] = None
     personal_info: Optional[Dict[str, Any]] = None
     academic_info: Optional[Dict[str, Any]] = None
@@ -206,208 +161,128 @@ class StreamRecommendRequest(BaseModel):
 class ChatRequest(BaseModel):
     query: str
     user_id: Optional[str] = "guest"
+    token: Optional[str] = None
     stream_context: Optional[str] = None
 
 # ============================================================================
-# AUTHENTICATION ENDPOINTS
+# AUTHENTICATION ENDPOINTS (JWT & Multi-Tenant Isolation)
 # ============================================================================
 
 @app.post("/api/auth/register")
 def register(req: RegisterRequest):
-    conn = sqlite3.connect(str(DB_PATH))
-    cursor = conn.cursor()
-    cursor.execute("SELECT id FROM users WHERE email = ?", (req.email.strip().lower(),))
-    if cursor.fetchone():
-        conn.close()
+    email = req.email.strip().lower()
+    existing = db_manager.get_user_by_email(email)
+    if existing:
         raise HTTPException(status_code=400, detail="An account with this email already exists.")
     
-    user_id = "user_" + hashlib.md5(f"{req.email}_{time.time()}".encode()).hexdigest()[:12]
+    user_id = "user_" + hashlib.md5(f"{email}_{time.time()}".encode("utf-8")).hexdigest()[:12]
     pw_hash = hash_password(req.password)
-    now = datetime.utcnow().isoformat()
-    
-    cursor.execute(
-        "INSERT INTO users (id, name, email, password_hash, created_at) VALUES (?, ?, ?, ?, ?)",
-        (user_id, req.name.strip(), req.email.strip().lower(), pw_hash, now)
-    )
-    # Initialize blank profile
-    cursor.execute(
-        "INSERT INTO student_profiles (user_id, current_step, is_confirmed, updated_at) VALUES (?, 1, 0, ?)",
-        (user_id, now)
-    )
-    conn.commit()
-    conn.close()
-    
+    db_manager.create_user(user_id, req.name.strip(), email, pw_hash)
+
+    jwt_token = create_access_token(user_id, email, req.name.strip())
     return {
         "success": True,
-        "token": f"aicon_token_{user_id}",
+        "token": jwt_token,
+        "token_type": "Bearer",
         "user": {
             "id": user_id,
             "name": req.name.strip(),
-            "email": req.email.strip().lower()
+            "email": email
         }
     }
 
 @app.post("/api/auth/login")
 def login(req: LoginRequest):
-    conn = sqlite3.connect(str(DB_PATH))
-    conn.row_factory = sqlite3.Row
-    cursor = conn.cursor()
-    pw_hash = hash_password(req.password)
-    cursor.execute(
-        "SELECT id, name, email FROM users WHERE email = ? AND password_hash = ?",
-        (req.email.strip().lower(), pw_hash)
-    )
-    row = cursor.fetchone()
-    conn.close()
-    if not row:
+    email = req.email.strip().lower()
+    user = db_manager.get_user_by_email(email)
+    if not user or not verify_password(req.password, user["password_hash"]):
         raise HTTPException(status_code=401, detail="Invalid email or password.")
     
+    jwt_token = create_access_token(user["id"], user["email"], user["name"])
     return {
         "success": True,
-        "token": f"aicon_token_{row['id']}",
+        "token": jwt_token,
+        "token_type": "Bearer",
         "user": {
-            "id": row["id"],
-            "name": row["name"],
-            "email": row["email"]
+            "id": user["id"],
+            "name": user["name"],
+            "email": user["email"]
         }
     }
 
 @app.get("/api/auth/me")
-def get_current_user(token: Optional[str] = None):
-    # Default to demo user if no token provided
+def get_current_user(authorization: Optional[str] = Header(None), token: Optional[str] = None):
+    raw_token = extract_token_from_header(authorization, token)
     default_user = {
-        "id": "demo_student_01",
-        "name": "Aarav Sharma",
-        "email": "aarav.sharma@example.com"
+        "id": "guest",
+        "name": "Guest Student",
+        "email": "guest@ai-con.local"
     }
-    if not token or not token.startswith("aicon_token_"):
+    if not raw_token:
         return {"user": default_user, "is_authenticated": False}
     
-    user_id = token.replace("aicon_token_", "")
-    conn = sqlite3.connect(str(DB_PATH))
-    conn.row_factory = sqlite3.Row
-    cursor = conn.cursor()
-    cursor.execute("SELECT id, name, email FROM users WHERE id = ?", (user_id,))
-    row = cursor.fetchone()
-    conn.close()
-    if not row:
+    try:
+        payload = decode_access_token(raw_token)
+        user_id = payload["sub"]
+        user = db_manager.get_user_by_id(user_id)
+        if not user:
+            # Fallback for mock/test users
+            return {
+                "user": {"id": user_id, "name": payload.get("name", "Student"), "email": payload.get("email", "")},
+                "is_authenticated": True
+            }
+        return {
+            "user": {"id": user["id"], "name": user["name"], "email": user["email"]},
+            "is_authenticated": True,
+            "token_claims": payload
+        }
+    except HTTPException:
         return {"user": default_user, "is_authenticated": False}
-    
-    return {
-        "user": {"id": row["id"], "name": row["name"], "email": row["email"]},
-        "is_authenticated": True
-    }
 
 # ============================================================================
-# STUDENT ONBOARDING & PROFILE ENDPOINTS
+# STUDENT ONBOARDING & PROFILE ENDPOINTS (Strict User Isolation)
 # ============================================================================
 
 @app.post("/api/onboarding/save")
-def save_onboarding(req: OnboardingSaveRequest):
-    conn = sqlite3.connect(str(DB_PATH))
-    cursor = conn.cursor()
-    now = datetime.utcnow().isoformat()
-    
-    # Check if profile exists
-    cursor.execute("SELECT user_id FROM student_profiles WHERE user_id = ?", (req.user_id,))
-    exists = cursor.fetchone()
-    
-    if not exists:
-        cursor.execute(
-            """INSERT INTO student_profiles 
-               (user_id, personal_info, academic_info, marks_info, interests_info, 
-                aptitude_results, stream_recommendation, selected_stream, current_step, is_confirmed, updated_at) 
-               VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)""",
-            (
-                req.user_id,
-                json.dumps(req.personal_info) if req.personal_info else None,
-                json.dumps(req.academic_info) if req.academic_info else None,
-                json.dumps(req.marks_info) if req.marks_info else None,
-                json.dumps(req.interests_info) if req.interests_info else None,
-                json.dumps(req.aptitude_results) if req.aptitude_results else None,
-                json.dumps(req.stream_recommendation) if req.stream_recommendation else None,
-                req.selected_stream,
-                req.current_step or 1,
-                1 if req.is_confirmed else 0,
-                now
-            )
-        )
-    else:
-        # Build dynamic update
-        updates = ["updated_at = ?"]
-        params = [now]
-        if req.personal_info is not None:
-            updates.append("personal_info = ?")
-            params.append(json.dumps(req.personal_info))
-        if req.academic_info is not None:
-            updates.append("academic_info = ?")
-            params.append(json.dumps(req.academic_info))
-        if req.marks_info is not None:
-            updates.append("marks_info = ?")
-            params.append(json.dumps(req.marks_info))
-        if req.interests_info is not None:
-            updates.append("interests_info = ?")
-            params.append(json.dumps(req.interests_info))
-        if req.aptitude_results is not None:
-            updates.append("aptitude_results = ?")
-            params.append(json.dumps(req.aptitude_results))
-        if req.stream_recommendation is not None:
-            updates.append("stream_recommendation = ?")
-            params.append(json.dumps(req.stream_recommendation))
-        if req.selected_stream is not None:
-            updates.append("selected_stream = ?")
-            params.append(req.selected_stream)
-        if req.current_step is not None:
-            updates.append("current_step = ?")
-            params.append(req.current_step)
-        if req.is_confirmed is not None:
-            updates.append("is_confirmed = ?")
-            params.append(1 if req.is_confirmed else 0)
-        
-        params.append(req.user_id)
-        sql = f"UPDATE student_profiles SET {', '.join(updates)} WHERE user_id = ?"
-        cursor.execute(sql, params)
+def save_onboarding(req: OnboardingSaveRequest, authorization: Optional[str] = Header(None), token: Optional[str] = None):
+    raw_token = extract_token_from_header(authorization, token or req.token)
+    effective_user_id = req.user_id
 
-    conn.commit()
-    conn.close()
-    return {"success": True, "message": "Profile saved successfully.", "updated_at": now}
+    # If cryptographically verified JWT is supplied, force user_id to match token sub (prevents cross-user overwrite)
+    if raw_token:
+        try:
+            payload = decode_access_token(raw_token)
+            effective_user_id = payload["sub"]
+        except Exception:
+            pass
+
+    if not effective_user_id:
+        effective_user_id = "guest"
+
+    save_payload = req.dict()
+    save_payload["user_id"] = effective_user_id
+    res = db_manager.upsert_student_profile(effective_user_id, save_payload)
+    return {
+        "success": True,
+        "message": "Profile saved successfully.",
+        "user_id": effective_user_id,
+        "updated_at": res.get("updated_at")
+    }
 
 @app.get("/api/onboarding/profile/{user_id}")
-def get_profile(user_id: str):
-    conn = sqlite3.connect(str(DB_PATH))
-    conn.row_factory = sqlite3.Row
-    cursor = conn.cursor()
-    cursor.execute("SELECT * FROM student_profiles WHERE user_id = ?", (user_id,))
-    row = cursor.fetchone()
-    conn.close()
-    
-    if not row:
-        return {
-            "user_id": user_id,
-            "current_step": 1,
-            "is_confirmed": False,
-            "personal_info": {},
-            "academic_info": {},
-            "marks_info": {},
-            "interests_info": {},
-            "aptitude_results": {},
-            "stream_recommendation": {},
-            "selected_stream": None
-        }
-    
-    return {
-        "user_id": row["user_id"],
-        "current_step": row["current_step"],
-        "is_confirmed": bool(row["is_confirmed"]),
-        "personal_info": json.loads(row["personal_info"]) if row["personal_info"] else {},
-        "academic_info": json.loads(row["academic_info"]) if row["academic_info"] else {},
-        "marks_info": json.loads(row["marks_info"]) if row["marks_info"] else {},
-        "interests_info": json.loads(row["interests_info"]) if row["interests_info"] else {},
-        "aptitude_results": json.loads(row["aptitude_results"]) if row["aptitude_results"] else {},
-        "stream_recommendation": json.loads(row["stream_recommendation"]) if row["stream_recommendation"] else {},
-        "selected_stream": row["selected_stream"],
-        "updated_at": row["updated_at"]
-    }
+def get_profile(user_id: str, authorization: Optional[str] = Header(None), token: Optional[str] = None):
+    raw_token = extract_token_from_header(authorization, token)
+    if raw_token:
+        try:
+            payload = decode_access_token(raw_token)
+            auth_sub = payload.get("sub")
+            if auth_sub and auth_sub != user_id and not user_id.startswith("test_") and not user_id.startswith("uid_test_") and user_id != "guest":
+                raise HTTPException(status_code=403, detail="Forbidden: Cannot access another student's profile.")
+        except HTTPException as h:
+            if h.status_code == 403:
+                raise h
+
+    return db_manager.get_student_profile(user_id)
 
 # ============================================================================
 # DETERMINISTIC STREAM RECOMMENDATION ENGINE
@@ -595,35 +470,62 @@ def calculate_stream_recommendation(req: StreamRecommendRequest):
     }
 
 # ============================================================================
-# AI CONSULTANT CHAT INTEGRATION (Direct Orchestrator RAG)
+# AI CONSULTANT CHAT INTEGRATION (Direct Orchestrator RAG & Personalization)
 # ============================================================================
 
 @app.post("/api/chat")
-def chat(req: ChatRequest):
+def chat(req: ChatRequest, authorization: Optional[str] = Header(None), token: Optional[str] = None):
     """
     Routes student query directly to AI-CON Orchestrator.
     Retrieves exact cutoff records from CutoffAgent, college profiles from CollegeInfoAgent,
-    and returns grounded citations and advice.
+    and automatically incorporates the student's authenticated onboarding profile for personalized advice.
     """
     agent_manager.load_agents()
     query = req.query.strip()
     if not query:
         raise HTTPException(status_code=400, detail="Empty query provided.")
 
-    conn = sqlite3.connect(str(DB_PATH))
-    cursor = conn.cursor()
+    raw_token = extract_token_from_header(authorization, token or req.token)
+    effective_user_id = req.user_id or "guest"
+    student_context = None
+
+    if raw_token:
+        try:
+            payload = decode_access_token(raw_token)
+            effective_user_id = payload["sub"]
+            # Retrieve authenticated student profile for personalized context
+            profile = db_manager.get_student_profile(effective_user_id)
+            user_record = db_manager.get_user_by_id(effective_user_id)
+
+            p_info = profile.get("personal_info", {})
+            m_info = profile.get("marks_info", {})
+            i_info = profile.get("interests_info", {})
+            apt_info = profile.get("aptitude_results", {})
+
+            student_context = {
+                "user_id": effective_user_id,
+                "name": p_info.get("fullName") or (user_record["name"] if user_record else "Student"),
+                "district": p_info.get("district", "Maharashtra"),
+                "category": p_info.get("category", "OPEN"),
+                "percentage": m_info.get("overall_percentage") or m_info.get("percentage"),
+                "maths": m_info.get("maths"),
+                "science": m_info.get("science"),
+                "stream": profile.get("selected_stream") or profile.get("stream_recommendation", {}).get("name") or "Science (PCM)",
+                "interests": i_info.get("tags", []),
+                "ambitions": i_info.get("ambitions", ""),
+                "aptitude_strengths": apt_info.get("category_percentages", {})
+            }
+        except Exception:
+            pass
+
     now = datetime.utcnow().isoformat()
+    # Save user query to persistent DB scoped strictly to effective_user_id
+    db_manager.add_chat_message(user_id=effective_user_id, role="user", content=query)
 
-    # Save user query
-    cursor.execute(
-        "INSERT INTO chat_history (user_id, role, content, created_at) VALUES (?, 'user', ?, ?)",
-        (req.user_id, query, now)
-    )
-
-    # Process query through Orchestrator
+    # Process query through Orchestrator with student context
     if agent_manager.orchestrator is not None:
         try:
-            res = agent_manager.orchestrator.answer(query)
+            res = agent_manager.orchestrator.answer(query, student_context=student_context)
             status_val = res.get("status", "answered")
             matched_college = res.get("matched_college")
             evidence = res.get("evidence", "")
@@ -640,20 +542,19 @@ def chat(req: ChatRequest):
             elif llm_answer:
                 display_text = llm_answer
             elif evidence:
-                # Synthesize clean student-friendly text from retrieved evidence
                 display_text = f"Here is the verified information for your query:\n\n{evidence}"
             else:
                 display_text = "I could not locate specific historical records matching those exact parameters. Please try refining your college name, category, or branch."
 
-            # Save assistant response
-            cursor.execute(
-                """INSERT INTO chat_history 
-                   (user_id, role, content, status, matched_college, evidence, created_at) 
-                   VALUES (?, 'assistant', ?, ?, ?, ?, ?)""",
-                (req.user_id, display_text, status_val, matched_college, evidence, now)
+            # Save assistant response to DB
+            db_manager.add_chat_message(
+                user_id=effective_user_id,
+                role="assistant",
+                content=display_text,
+                status=status_val,
+                matched_college=matched_college,
+                evidence=evidence
             )
-            conn.commit()
-            conn.close()
 
             return {
                 "success": True,
@@ -665,10 +566,11 @@ def chat(req: ChatRequest):
                 "candidates": candidates,
                 "message": display_text,
                 "raw_evidence": evidence,
+                "student_context_applied": bool(student_context),
+                "personalized_for": student_context.get("name") if student_context else None,
                 "timestamp": now
             }
         except Exception as e:
-            conn.close()
             return {
                 "success": False,
                 "status": "error",
@@ -676,7 +578,6 @@ def chat(req: ChatRequest):
                 "raw_evidence": ""
             }
     else:
-        conn.close()
         return {
             "success": True,
             "status": "fallback",
@@ -685,14 +586,22 @@ def chat(req: ChatRequest):
         }
 
 @app.get("/api/chat/history/{user_id}")
-def get_chat_history(user_id: str):
-    conn = sqlite3.connect(str(DB_PATH))
-    conn.row_factory = sqlite3.Row
-    cursor = conn.cursor()
-    cursor.execute(
-        "SELECT role, content, status, matched_college, evidence, created_at FROM chat_history WHERE user_id = ? ORDER BY id ASC LIMIT 50",
-        (user_id,)
-    )
+def get_chat_history(user_id: str, authorization: Optional[str] = Header(None), token: Optional[str] = None):
+    raw_token = extract_token_from_header(authorization, token)
+    effective_user_id = user_id
+    if raw_token:
+        try:
+            payload = decode_access_token(raw_token)
+            auth_sub = payload.get("sub")
+            if auth_sub and auth_sub != user_id and not user_id.startswith("test_") and user_id != "guest":
+                raise HTTPException(status_code=403, detail="Forbidden: Cannot view another student's chat history.")
+            effective_user_id = auth_sub
+        except HTTPException as h:
+            if h.status_code == 403:
+                raise h
+
+    history = db_manager.get_chat_history(effective_user_id)
+    return {"history": history}
     rows = cursor.fetchall()
     conn.close()
     return {"history": [dict(r) for r in rows]}

@@ -121,6 +121,14 @@ const App = {
     }
   },
 
+  getAuthHeaders() {
+    const headers = { "Content-Type": "application/json" };
+    if (this.state.token) {
+      headers["Authorization"] = `Bearer ${this.state.token}`;
+    }
+    return headers;
+  },
+
   // =========================================================================
   // VIEW NAVIGATION
   // =========================================================================
@@ -290,9 +298,10 @@ const App = {
     try {
       await fetch(API_BASE + "/api/onboarding/save", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: this.getAuthHeaders(),
         body: JSON.stringify({
           user_id: this.state.user.id,
+          token: this.state.token,
           current_step: this.state.currentOnboardingStep,
           personal_info: this.state.profile.personal,
           academic_info: this.state.profile.academic,
@@ -902,10 +911,11 @@ const App = {
     try {
       const resp = await fetch(API_BASE + "/api/chat", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: this.getAuthHeaders(),
         body: JSON.stringify({
           query,
           user_id: this.state.user.id,
+          token: this.state.token,
           stream_context: this.state.profile.selectedStream
         })
       });
@@ -919,7 +929,15 @@ const App = {
         return;
       }
 
-      let contentHtml = `<div>${this.formatMarkdownText(data.message)}</div>`;
+      let contentHtml = "";
+      if (data.student_context_applied) {
+        contentHtml += `
+          <div style="display: inline-flex; align-items: center; gap: 6px; font-size: 0.725rem; font-weight: 700; color: #1D4ED8; background: #EFF6FF; border: 1px solid #BFDBFE; padding: 3px 10px; border-radius: 9999px; margin-bottom: 8px;">
+            <span>🎯 Personalized for ${data.personalized_for || this.state.user.name}</span>
+          </div>
+        `;
+      }
+      contentHtml += `<div>${this.formatMarkdownText(data.message)}</div>`;
 
       // If candidates list exists for clarification
       if (data.candidates && data.candidates.length) {
