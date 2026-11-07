@@ -94,49 +94,40 @@ const App = {
   },
 
   setupLandingHover() {
-    const hero = document.getElementById("landingHero") || document.querySelector(".landing-hero");
-    const logoWrap = document.getElementById("heroLogoWrap");
-    const cards = document.querySelectorAll(".lf-card");
+    const screen = document.getElementById("landingView");
+    const card = document.getElementById("nfcCard");
+    const logoBox = document.getElementById("nfcLogoBox");
 
-    if (hero && logoWrap) {
-      hero.addEventListener("mousemove", (e) => {
-        const rect = hero.getBoundingClientRect();
+    if (screen && card) {
+      screen.addEventListener("mousemove", (e) => {
+        const rect = screen.getBoundingClientRect();
         const x = (e.clientX - rect.left) / rect.width - 0.5;
         const y = (e.clientY - rect.top) / rect.height - 0.5;
-        
-        logoWrap.style.transform = `perspective(900px) rotateY(${x * 26}deg) rotateX(${-y * 26}deg) scale(1.08)`;
-        logoWrap.style.filter = `drop-shadow(${x * 22}px ${y * 22}px 32px rgba(129, 140, 248, 0.75))`;
+
+        // Dynamic 3D perspective tilt with physics
+        card.style.transform = `perspective(1000px) rotateY(${x * 20}deg) rotateX(${-y * 20}deg) translateY(-2px)`;
+        card.style.boxShadow = `
+          ${-x * 30}px ${-y * 30}px 70px rgba(0, 0, 0, 0.7),
+          0 0 60px rgba(99, 102, 241, 0.35),
+          inset 0 1px 1px rgba(255, 255, 255, 0.25)
+        `;
+
+        if (logoBox) {
+          logoBox.style.transform = `translateZ(50px) rotateY(${x * 32}deg) rotateX(${-y * 32}deg) scale(1.08)`;
+        }
       });
 
-      hero.addEventListener("mouseleave", () => {
-        logoWrap.style.transform = "perspective(900px) rotateY(0deg) rotateX(0deg) scale(1)";
-        logoWrap.style.filter = "";
+      screen.addEventListener("mouseleave", () => {
+        card.style.transform = "perspective(1000px) rotateY(0deg) rotateX(0deg) translateY(0)";
+        card.style.boxShadow = `
+          0 25px 60px -15px rgba(0, 0, 0, 0.7),
+          0 0 50px rgba(99, 102, 241, 0.28),
+          inset 0 1px 1px rgba(255, 255, 255, 0.22)
+        `;
+        if (logoBox) {
+          logoBox.style.transform = "translateZ(40px) rotateY(0deg) rotateX(0deg) scale(1)";
+        }
       });
-    }
-
-    cards.forEach(card => {
-      card.addEventListener("mousemove", (e) => {
-        const rect = card.getBoundingClientRect();
-        const x = (e.clientX - rect.left) / rect.width - 0.5;
-        const y = (e.clientY - rect.top) / rect.height - 0.5;
-        card.style.transform = `perspective(700px) rotateY(${x * 14}deg) rotateX(${-y * 14}deg) translateY(-8px)`;
-      });
-      card.addEventListener("mouseleave", () => {
-        card.style.transform = "perspective(700px) rotateY(0deg) rotateX(0deg) translateY(0)";
-      });
-    });
-  },
-
-  updateLandingNav() {
-    const navLinks = document.querySelector(".landing-nav-links");
-    if (!navLinks) return;
-    if (this.state.token) {
-      navLinks.innerHTML = `
-        <a href="#lf-features" class="lnav-link" onclick="event.preventDefault(); document.getElementById('lf-features').scrollIntoView({behavior:'smooth'})">Features</a>
-        <a href="#lf-how" class="lnav-link" onclick="event.preventDefault(); document.getElementById('lf-how').scrollIntoView({behavior:'smooth'})">How it Works</a>
-        <button class="lnav-signin-btn" onclick="App.navigateTo('dashboard')" style="background: linear-gradient(135deg, #4F46E5, #6366F1); color: #fff;">Open Dashboard &rarr;</button>
-        <button class="lnav-signin-btn" onclick="App.goToAuth()">Sign In</button>
-      `;
     }
   },
 
@@ -145,13 +136,33 @@ const App = {
   },
 
   goToAuth() {
-    this.setAuthMode("login");
-    this.navigateTo("auth");
+    const landing = document.getElementById("landingView");
+    if (landing && landing.style.display !== "none") {
+      landing.classList.add("nfc-exit");
+      setTimeout(() => {
+        landing.classList.remove("nfc-exit");
+        this.setAuthMode("login");
+        this.navigateTo("auth");
+      }, 280);
+    } else {
+      this.setAuthMode("login");
+      this.navigateTo("auth");
+    }
   },
 
   goToRegister() {
-    this.setAuthMode("register");
-    this.navigateTo("auth");
+    const landing = document.getElementById("landingView");
+    if (landing && landing.style.display !== "none") {
+      landing.classList.add("nfc-exit");
+      setTimeout(() => {
+        landing.classList.remove("nfc-exit");
+        this.setAuthMode("register");
+        this.navigateTo("auth");
+      }, 280);
+    } else {
+      this.setAuthMode("register");
+      this.navigateTo("auth");
+    }
   },
 
   setupSplashModal() {},
@@ -207,7 +218,7 @@ const App = {
     const onboardingView = document.getElementById("onboardingView");
     const dashboardView = document.getElementById("dashboardView");
 
-    if (landingView) landingView.style.display = viewName === "landing" ? "block" : "none";
+    if (landingView) landingView.style.display = viewName === "landing" ? "flex" : "none";
     if (authView) authView.style.display = viewName === "auth" ? "flex" : "none";
     if (onboardingView) onboardingView.style.display = viewName === "onboarding" ? "flex" : "none";
     if (dashboardView) dashboardView.style.display = viewName === "dashboard" ? "block" : "none";
