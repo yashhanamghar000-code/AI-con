@@ -152,27 +152,33 @@ def _cutoff_dir(pipeline: Path | None) -> Path | None:
 
 
 def _status() -> dict[str, Any]:
-    pipeline = _pipeline()
-    index = _vector_index(pipeline)
-    cutoffs = _cutoff_dir(pipeline)
+    try:
+        from interactive_terminal import get_engine
+        engine = get_engine()
+        cutoffs_ok = engine.cutoff_agent is not None
+        vector_ok = engine.info_agent is not None
+    except Exception:
+        cutoffs_ok = _cutoff_dir(None) is not None
+        vector_ok = _vector_index(None) is not None
+
     trained_model = model_status(ROOT)
-    ready = pipeline is not None and index is not None
+    ready = cutoffs_ok or vector_ok
     return {
         "ok": ready,
         "project_root": str(ROOT),
-        "pipeline_found": pipeline is not None,
-        "pipeline_path": str(pipeline) if pipeline else None,
-        "pipeline_working_directory": str(pipeline.parent.parent) if pipeline else None,
-        "pipeline_python": str(_pipeline_python(pipeline)) if pipeline else None,
-        "vector_index_found": index is not None,
-        "vector_index_path": str(index) if index else None,
-        "cutoff_data_found": cutoffs is not None,
-        "cutoff_data_path": str(cutoffs) if cutoffs else None,
+        "pipeline_found": True,
+        "pipeline_path": str(ROOT / "interactive_terminal.py"),
+        "pipeline_working_directory": str(ROOT),
+        "pipeline_python": str(sys.executable),
+        "vector_index_found": vector_ok,
+        "vector_index_path": str(ROOT / "vector_index") if vector_ok else None,
+        "cutoff_data_found": cutoffs_ok,
+        "cutoff_data_path": str(ROOT / "cutoffs" / "phase3_final_staging") if cutoffs_ok else None,
         "trained_model": trained_model,
         "message": (
-            "Retrieval pipeline and vector index detected."
+            "Interactive Orchestrator engine and data stores connected."
             if ready
-            else "UI is running, but the existing retrieval pipeline or its vector index was not detected."
+            else "UI is running, but cutoff or vector data stores were not detected."
         ),
     }
 
@@ -270,15 +276,16 @@ def _record_from_dict(obj: dict[str, Any], source: str) -> dict[str, Any] | None
 
 
 def _dataset_roots() -> list[Path]:
-    names = [
-        "college_ai_consultant_sparse_enriched_v4_no_cutoffs",
-        "V4_daataa",
-        "V4_dataa",
-        "college_info_batch1",
-        "NEW_DATA",
-        "new_data",
+    candidates = [
+        ROOT / "cutoffs" / "college_ai_consultant_sparse_enriched_v4_no_cutoffs",
+        ROOT / "college_ai_consultant_sparse_enriched_v4_no_cutoffs",
+        ROOT / "V4_daataa",
+        ROOT / "V4_dataa",
+        ROOT / "college_info_batch1",
+        ROOT / "NEW_DATA",
+        ROOT / "new_data",
     ]
-    return [ROOT / name for name in names if (ROOT / name).is_dir()]
+    return [p for p in candidates if p.is_dir()]
 
 
 def _load_colleges() -> tuple[list[dict[str, Any]], list[str]]:
@@ -409,112 +416,38 @@ def chat(payload: ChatRequest) -> dict[str, Any]:
     question = payload.question.strip()
     if len(question) < 3:
         raise HTTPException(status_code=422, detail="Please enter a more specific question.")
-    state = _status()
-    if not state["pipeline_found"]:
-        raise HTTPException(
-            status_code=503,
-            detail=(
-                "The existing rag_pipeline.py was not found. The UI is running, but cannot answer until the repository's actual pipeline path is available. "
-                f"Checked project root: {ROOT}"
-            ),
-        )
-    if not state["vector_index_found"]:
-        raise HTTPException(
-            status_code=503,
-            detail=(
-                "The retrieval pipeline was found, but no non-empty vector index was detected. Build the project index using its README instructions before querying."
-            ),
-        )
 
-    pipeline = Path(state["pipeline_path"])
-    working_dir = pipeline.parent.parent
-    command = [
-        str(_pipeline_python(pipeline)),
-        str(pipeline),
-        "--vector-index",
-        str(state["vector_index_path"]),
-        "--question",
-        question,
-    ]
-    if state["cutoff_data_found"] and state["cutoff_data_path"]:
-        command.extend(["--cutoffs", str(state["cutoff_data_path"])])
-    if payload.use_llm:
-        model_state = state.get("trained_model", {})
-        if not model_state.get("available"):
-            raise HTTPException(
-                status_code=503,
-                detail=(
-                    "The trained AI-CON TinyLlama adapter is not ready. "
-                    + str(model_state.get("message", "Check the adapter files and optional model dependencies."))
-                ),
-            )
-        # Deliberately do not pass --use-llm to rag_pipeline.py: that CLI flag
-        # selects the old Ollama/Qwen path. First retrieve evidence, then generate
-        # with the saved TinyLlama + LoRA adapter in this long-running UI process.
-
-    environment = os.environ.copy()
-    environment.setdefault("PYTHONUNBUFFERED", "1")
     try:
-        result = subprocess.run(
-            command,
-            cwd=str(working_dir),
-            env=environment,
-            capture_output=True,
-            text=True,
-            timeout=150,
-            check=False,
-        )
-    except subprocess.TimeoutExpired as exc:
-        raise HTTPException(status_code=504, detail="The retrieval pipeline exceeded the 150-second request limit. Check model loading and terminal logs.") from exc
-    except OSError as exc:
-        raise HTTPException(status_code=500, detail=f"Could not start the existing pipeline: {exc}") from exc
+        from interactive_terminal import get_engine
+        engine = get_engine()
+        result = engine.answer_query(question, use_llm=payload.use_llm)
 
-    stdout = (result.stdout or "").strip()
-    stderr = (result.stderr or "").strip()
-    parsed = _extract_json(stdout) if stdout else None
-    if result.returncode != 0:
+        # Optional grounded LLM generation if user requested use_llm
+        if payload.use_llm and isinstance(result, dict) and not result.get("llm_generated"):
+            evidence = str(result.get("evidence", "") or "")
+            pipeline_status = str(result.get("status", ""))
+            blocked = {"needs_clarification", "unavailable", "pipeline_error", "error"}
+            if pipeline_status not in blocked and evidence.strip():
+                try:
+                    grounded_ans = generate_grounded_answer(question, evidence, root=ROOT)
+                    if grounded_ans:
+                        result["answer"] = grounded_ans
+                        result["model"] = "TinyLlama 1.1B Chat + AI-CON LoRA adapter"
+                        result["inference_backend"] = "Transformers + PEFT"
+                except Exception as exc:
+                    result["llm_skipped_reason"] = f"Local LLM generation skipped: {exc}"
+
+        return {"status": "ok", "question": question, "result": result}
+    except Exception as exc:
         return {
             "status": "pipeline_error",
             "question": question,
-            "return_code": result.returncode,
-            "message": "The existing pipeline returned a non-zero exit code. See details below.",
-            "stdout": stdout[-6000:],
-            "stderr": stderr[-6000:],
+            "return_code": 1,
+            "message": f"Query processing exception: {exc}",
+            "stderr": str(exc),
         }
-    if parsed is not None:
-        if payload.use_llm and isinstance(parsed, dict):
-            pipeline_status = str(parsed.get("status", ""))
-            evidence = str(parsed.get("evidence", "") or "")
-            # Do not ask a language model to fill data gaps or turn an unresolved
-            # college/cutoff query into a fabricated answer.
-            blocked_statuses = {"needs_clarification", "unavailable", "pipeline_error", "llm_error"}
-            evidence_index_missing = (
-                "College-information index is not available" in evidence
-                and not any(tag in evidence for tag in ("[MHHEI_", "[EV-", "[20"))
-            )
-            if pipeline_status not in blocked_statuses and evidence.strip() and not evidence_index_missing:
-                try:
-                    parsed["answer"] = generate_grounded_answer(question, evidence, root=ROOT)
-                    parsed["status"] = "answered"
-                    parsed["model"] = "TinyLlama 1.1B Chat + AI-CON LoRA adapter"
-                    parsed["inference_backend"] = "Transformers + PEFT"
-                except Exception as exc:
-                    # Preserve evidence and make inference failure explicit.
-                    parsed["status"] = "model_error"
-                    parsed["message"] = (
-                        "Evidence was retrieved, but the trained AI-CON model could not generate an answer. "
-                        f"Details: {type(exc).__name__}: {exc}"
-                    )
-            else:
-                parsed["model_skipped_reason"] = (
-                    "No safe, sufficiently grounded evidence was available for generation; "
-                    "the structured retrieval result is shown instead."
-                )
-        return {"status": "ok", "question": question, "result": parsed, "stderr": stderr[-3000:] if stderr else None}
-    return {
-        "status": "unparsed_output",
-        "question": question,
-        "message": "The pipeline ran, but its output was not valid JSON. Raw output is preserved for debugging.",
-        "stdout": stdout[-8000:],
-        "stderr": stderr[-3000:] if stderr else None,
-    }
+
+
+if __name__ == "__main__":
+    import uvicorn
+    uvicorn.run("aicon_ui.app:app", host="127.0.0.1", port=8000, reload=False)

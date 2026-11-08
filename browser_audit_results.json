@@ -1,0 +1,134 @@
+{
+  "landing_auth_desktop": {
+    "viewport": "1440x900",
+    "url": "http://127.0.0.1:8000/?view=auth",
+    "render_time_sec": 1.77,
+    "screenshot_bytes": 471877,
+    "dom_length": 42655,
+    "checks": {
+      "has_aicon_brand": true,
+      "has_container": true,
+      "screenshot_valid": true
+    }
+  },
+  "landing_auth_laptop": {
+    "viewport": "1366x768",
+    "url": "http://127.0.0.1:8000/?view=auth",
+    "render_time_sec": 1.47,
+    "screenshot_bytes": 393468,
+    "dom_length": 42655,
+    "checks": {
+      "has_aicon_brand": true,
+      "has_container": true,
+      "screenshot_valid": true
+    }
+  },
+  "landing_auth_tablet": {
+    "viewport": "768x1024",
+    "url": "http://127.0.0.1:8000/?view=auth",
+    "render_time_sec": 1.27,
+    "screenshot_bytes": 219074,
+    "dom_length": 42655,
+    "checks": {
+      "has_aicon_brand": true,
+      "has_container": true,
+      "screenshot_valid": true
+    }
+  },
+  "landing_auth_mobile": {
+    "viewport": "390x844",
+    "url": "http://127.0.0.1:8000/?view=auth",
+    "render_time_sec": 1.23,
+    "screenshot_bytes": 83728,
+    "dom_length": 42655,
+    "checks": {
+      "has_aicon_brand": true,
+      "has_container": true,
+      "screenshot_valid": true
+    }
+  },
+  "wizard_step3_marks_desktop": {
+    "viewport": "1440x900",
+    "url": "http://127.0.0.1:8000/?view=onboarding&step=3",
+    "render_time_sec": 1.29,
+    "screenshot_bytes": 65287,
+    "dom_length": 42699,
+    "checks": {
+      "has_aicon_brand": true,
+      "has_container": true,
+      "screenshot_valid": true
+    }
+  },
+  "wizard_step3_marks_mobile": {
+    "viewport": "390x844",
+    "url": "http://127.0.0.1:8000/?view=onboarding&step=3",
+    "render_time_sec": 1.23,
+    "screenshot_bytes": 39970,
+    "dom_length": 42699,
+    "checks": {
+      "has_aicon_brand": true,
+      "has_container": true,
+      "screenshot_valid": true
+    }
+  },
+  "wizard_step5_aptitude_desktop": {
+    "viewport": "1440x900",
+    "url": "http://127.0.0.1:8000/?view=onboarding&step=5",
+    "render_time_sec": 1.27,
+    "screenshot_bytes": 51415,
+    "dom_length": 43321,
+    "checks": {
+      "has_aicon_brand": true,
+      "has_container": true,
+      "screenshot_valid": true
+    }
+  },
+  "wizard_step6_stream_desktop": {
+    "viewport": "1440x900",
+    "url": "http://127.0.0.1:8000/?view=onboarding&step=6",
+    "render_time_sec": 1.38,
+    "screenshot_bytes": 148917,
+    "dom_length": 42729,
+    "checks": {
+      "has_aicon_brand": true,
+      "has_container": true,
+      "screenshot_valid": true
+    }
+  },
+  "dashboard_desktop": {
+    "viewport": "1440x900",
+    "url": "http://127.0.0.1:8000/?view=dashboard",
+    "render_time_sec": 1.34,
+    "screenshot_bytes": 151714,
+    "dom_length": 42667,
+    "checks": {
+      "has_aicon_brand": true,
+      "has_container": true,
+      "screenshot_valid": true
+    }
+  },
+  "dashboard_tablet": {
+    "viewport": "768x1024",
+    "url": "http://127.0.0.1:8000/?view=dashboard",
+    "render_time_sec": 1.3,
+    "screenshot_bytes": 122692,
+    "dom_length": 42667,
+    "checks": {
+      "has_aicon_brand": true,
+      "has_container": true,
+      "screenshot_valid": true
+    }
+  },
+  "dashboard_mobile": {
+    "viewport": "390x844",
+    "url": "http://127.0.0.1:8000/?view=dashboard",
+    "render_time_sec": 1.24,
+    "screenshot_bytes": 68454,
+    "dom_length": 42667,
+    "checks": {
+      "has_aicon_brand": true,
+      "has_container": true,
+      "screenshot_valid": true
+    }
+  }
+}

@@ -1,0 +1,134 @@
+{
+  "server_startup": {
+    "status": "healthy",
+    "service": "AI-CON College Consultant",
+    "agents_loaded": false,
+    "cutoffs_indexed_institutes": 0,
+    "vector_profiles_indexed": 0,
+    "database": "sqlite:ai_con_app.db",
+    "timestamp": "2026-11-02T18:06:12.654790"
+  },
+  "frontend_assets": {
+    "index.html": {
+      "status": 200,
+      "bytes": 42506
+    },
+    "styles.css": {
+      "status": 200,
+      "bytes": 26913
+    },
+    "app.js": {
+      "status": 200,
+      "bytes": 45733
+    },
+    "questions.js": {
+      "status": 200,
+      "bytes": 19721
+    }
+  },
+  "authentication": {
+    "status": "passed",
+    "user_id": "user_6d12e8a29117",
+    "token": "aicon_token_user_6d12e8a29117",
+    "email": "e2e_student_1793642772@example.com"
+  },
+  "onboarding_persistence": {
+    "status": "passed",
+    "verified_step": 7,
+    "is_confirmed": true,
+    "selected_stream": "science_pcm",
+    "overall_percentage": 88.0
+  },
+  "stream_engine_profiles": {
+    "Profile A (PCM Engineering Aspirant)": {
+      "recommended_stream": "Science (PCM)",
+      "score": 98.0,
+      "alternatives": [
+        "Science (PCB)",
+        "Vocational / Applied Polytechnic"
+      ]
+    },
+    "Profile B (PCB Medical / Life Sciences Aspirant)": {
+      "recommended_stream": "Science (PCB)",
+      "score": 96.4,
+      "alternatives": [
+        "Vocational / Applied Polytechnic",
+        "Arts / Humanities"
+      ]
+    },
+    "Profile C (Commerce & Corporate Finance Aspirant)": {
+      "recommended_stream": "Commerce (with Mathematics)",
+      "score": 98.0,
+      "alternatives": [
+        "Arts / Humanities",
+        "Science (PCM)"
+      ]
+    },
+    "Profile D (Arts, Humanities & Legal Studies Aspirant)": {
+      "recommended_stream": "Arts / Humanities",
+      "score": 98.0,
+      "alternatives": [
+        "Vocational / Applied Polytechnic",
+        "Commerce (with Mathematics)"
+      ]
+    },
+    "Profile E (Applied Vocational / Polytechnic Aspirant)": {
+      "recommended_stream": "Vocational / Applied Polytechnic",
+      "score": 88.9,
+      "alternatives": [
+        "Science (PCB)",
+        "Science (PCM)"
+      ]
+    }
+  },
+  "ai_consultant_chat": {
+    "Q1_percentile_cutoff": {
+      "query": "Which engineering colleges can I get with 90 percentile in Computer Engineering in Pune for GOPENS?",
+      "status": "needs_clarification",
+      "response_time_sec": 18.66,
+      "response_sample": "Query matched multiple colleges: ISBM College Of Engineering Pune, Keystone School of Engineering, Pune, WATUMULL INSTITUTE OF ELECTRONICS ENGINEERING & COMPUTER, MIT Academy of Engineering,Alandi, Pu...",
+      "raw_evidence_length": 0
+    },
+    "Q2_branch_directory": {
+      "query": "Show colleges offering Computer Engineering or Artificial Intelligence in Maharashtra.",
+      "status": "needs_clarification",
+      "response_time_sec": 0.1,
+      "response_sample": "I couldn't confidently match a college name or institute code in that question. Which college do you mean?...",
+      "raw_evidence_length": 0
+    },
+    "Q3_cap_process": {
+      "query": "Explain the Maharashtra CAP admission process and how college option form preferences work.",
+      "status": "needs_clarification",
+      "response_time_sec": 0.05,
+      "response_sample": "I couldn't confidently match a college name or institute code in that question. Which college do you mean?...",
+      "raw_evidence_length": 0
+    },
+    "Q4_compare_colleges": {
+      "query": "Compare College of Engineering Pune (COEP) and Veermata Jijabai Technological Institute (VJTI) Mumbai.",
+      "status": "evidence_only",
+      "response_time_sec": 0.16,
+      "response_sample": "Here is the verified information for your query:\n\nCOLLEGE INFO EVIDENCE:\n[MHHEI_00064:MHHEI_00064_profile] (profile, source: https://fe2026.mahacet.org/StaticPages/frmInstituteSummary?InstituteCode=03...",
+      "raw_evidence_length": 475
+    },
+    "Q5_historical_cutoffs": {
+      "query": "What are the historical cutoffs for Government College of Engineering, Amravati for Computer Science?",
+      "status": "evidence_only",
+      "response_time_sec": 0.03,
+      "response_sample": "Here is the verified information for your query:\n\nCUTOFF EVIDENCE:\n[2020-21:01002:0100224210:state_level:DEFOPENS:R1:S1] 2020-21 Government College of Engineering, Amravati - Computer Science and Engi...",
+      "raw_evidence_length": 48330
+    }
+  },
+  "cutoff_search": {
+    "percentile_query_matches": 10,
+    "sample_college": "Thakur College of Engineering and Technology, Kandivali, Mumbai",
+    "sample_percentile": 94.8280929,
+    "directory_query_matches": 4,
+    "empty_query_handled_safely": true
+  },
+  "security_audit": {
+    "password_hash_algorithm": "SHA-256",
+    "plaintext_leaks": false,
+    "token_tampering_rejected": true,
+    "ghost_profile_graceful": true
+  }
+}
