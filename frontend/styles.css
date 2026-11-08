@@ -1253,3 +1253,232 @@ p {
     padding: 0 16px;
   }
 }
+
+/* ==========================================================================
+   NEEV (????) BRANDING & 3D INTERACTIVE SPLASH MODAL
+   ========================================================================== */
+.neev-logo-svg {
+  width: 32px;
+  height: 32px;
+  display: inline-block;
+  vertical-align: middle;
+  filter: drop-shadow(0 2px 4px rgba(79, 70, 229, 0.25));
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.brand-logo-pill:hover .neev-logo-svg {
+  transform: scale(1.1) rotate(4deg);
+}
+
+/* Splash Modal Overlay */
+.neev-splash-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(15, 23, 42, 0.75);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.4s ease, visibility 0.4s ease;
+  perspective: 1200px;
+}
+.neev-splash-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* 3D Splash Card */
+.neev-splash-card {
+  position: relative;
+  background: linear-gradient(145deg, #FFFFFF, #F8FAFC);
+  border: 1px solid rgba(219, 234, 254, 0.8);
+  border-radius: 28px;
+  padding: 44px 48px;
+  max-width: 580px;
+  width: 90%;
+  box-shadow: 0 25px 60px -15px rgba(15, 23, 42, 0.35), 0 0 40px rgba(79, 70, 229, 0.2);
+  text-align: center;
+  transform-style: preserve-3d;
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
+  overflow: hidden;
+}
+
+/* Ambient Animated Glow */
+.neev-splash-glow {
+  position: absolute;
+  top: -40%;
+  left: -20%;
+  width: 140%;
+  height: 140%;
+  background: radial-gradient(circle at 50% 30%, rgba(99, 102, 241, 0.18) 0%, rgba(124, 58, 237, 0.12) 40%, transparent 70%);
+  pointer-events: none;
+  animation: neevGlowRotate 12s linear infinite;
+  z-index: 0;
+}
+@keyframes neevGlowRotate {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Close Button */
+.neev-splash-close {
+  position: absolute;
+  top: 18px;
+  right: 22px;
+  background: #F1F5F9;
+  border: none;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  z-index: 10;
+}
+.neev-splash-close:hover {
+  background: #E2E8F0;
+  color: var(--dark-blue);
+  transform: rotate(90deg);
+}
+
+/* Interactive Logo Block with Hover Effect */
+.neev-interactive-logo-box {
+  position: relative;
+  z-index: 2;
+  margin-bottom: 24px;
+  cursor: pointer;
+  display: inline-block;
+  padding: 16px 28px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(226, 232, 240, 0.8);
+  box-shadow: 0 10px 25px -5px rgba(79, 70, 229, 0.15);
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: translateZ(40px);
+}
+.neev-interactive-logo-box:hover {
+  transform: translateZ(60px) scale(1.05);
+  box-shadow: 0 20px 35px -5px rgba(79, 70, 229, 0.3), 0 0 30px rgba(99, 102, 241, 0.35);
+  border-color: #6366F1;
+}
+
+.neev-hero-svg {
+  width: 72px;
+  height: 72px;
+  margin: 0 auto 12px auto;
+  display: block;
+  filter: drop-shadow(0 8px 16px rgba(79, 70, 229, 0.35));
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.neev-interactive-logo-box:hover .neev-hero-svg {
+  transform: scale(1.12) rotate(-5deg);
+}
+
+.neev-giant-title {
+  font-size: 2.75rem;
+  font-weight: 900;
+  letter-spacing: -0.04em;
+  background: linear-gradient(135deg, #1E1B4B 0%, #312E81 25%, #4F46E5 60%, #7C3AED 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  line-height: 1.1;
+  transition: all 0.3s ease;
+}
+.neev-giant-title .neev-dot {
+  color: #4F46E5;
+  -webkit-text-fill-color: #4F46E5;
+}
+.neev-giant-title .neev-ai-pill {
+  font-size: 0.95rem;
+  font-weight: 800;
+  padding: 3px 9px;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #4F46E5, #7C3AED);
+  color: #FFFFFF;
+  -webkit-text-fill-color: #FFFFFF;
+  letter-spacing: 0.05em;
+  margin-left: 6px;
+  vertical-align: middle;
+  box-shadow: 0 2px 8px rgba(79, 70, 229, 0.4);
+}
+
+.neev-devanagari-subtitle {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #4F46E5;
+  letter-spacing: 0.03em;
+  margin-top: 4px;
+}
+
+.neev-splash-description {
+  position: relative;
+  z-index: 2;
+  font-size: 0.9375rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+  margin-bottom: 24px;
+}
+
+.neev-splash-feature-pills {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 30px;
+}
+.neev-pill {
+  padding: 8px 14px;
+  background: #EFF6FF;
+  border: 1px solid #DBEAFE;
+  border-radius: var(--radius-full);
+  font-size: 0.785rem;
+  font-weight: 600;
+  color: #1E40AF;
+  box-shadow: 0 1px 3px rgba(37, 99, 235, 0.08);
+  transition: all 0.2s ease;
+}
+.neev-pill:hover {
+  background: #DBEAFE;
+  border-color: #93C5FD;
+  transform: translateY(-2px);
+}
+
+.neev-splash-actions {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: center;
+}
+.neev-enter-btn {
+  width: 100%;
+  max-width: 320px;
+  padding: 14px 28px;
+  font-size: 1rem;
+  background: linear-gradient(135deg, #4F46E5, #6366F1);
+  box-shadow: 0 6px 20px rgba(79, 70, 229, 0.35);
+  border-radius: var(--radius-md);
+  font-weight: 700;
+}
+.neev-enter-btn:hover {
+  background: linear-gradient(135deg, #4338CA, #4F46E5);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(79, 70, 229, 0.45);
+}

@@ -131,7 +131,13 @@ python scripts/train_model.py
 ### 4. Run Full Unit Test Regression Suite
 ```powershell
 python -m unittest discover tests
-# Output: Ran 111 tests in 0.48s -> OK (skipped=2)
+# Output: Ran 123 tests in ~124s -> OK (skipped=2)
+```
+
+### 5. Start the Native FastAPI Server & Single-Page Application
+```powershell
+python scripts/api_server.py --port 8000
+# Accessible at http://127.0.0.1:8000 with interactive Swagger docs at http://127.0.0.1:8000/docs
 ```
 
 ### 5. Run 5-Level Progressive Benchmark Test

@@ -210,6 +210,107 @@ class TestFrontendAPIServer(unittest.TestCase):
         self.assertIn("APTITUDE_QUESTIONS", q_text)
         self.assertIn("Logical Reasoning", q_text)
 
+    def test_jwt_cryptographic_verification(self):
+        from scripts.auth import decode_access_token, JWT_SECRET
+        import jwt
+
+        unique_email = f"jwt_student_{int(time.time() * 1000)}@example.com"
+        reg_res = register(RegisterRequest(name="Kavita Joshi", email=unique_email, password="SecurePassword123"))
+        token = reg_res["token"]
+
+        # 1. Decode token and verify claims
+        claims = decode_access_token(token)
+        self.assertEqual(claims["email"], unique_email)
+        self.assertEqual(claims["name"], "Kavita Joshi")
+        self.assertIn("exp", claims)
+        self.assertIn("iat", claims)
+
+        # 2. Tampered token must fail
+        tampered = token[:-4] + "abcd"
+        with self.assertRaises(Exception):
+            decode_access_token(tampered)
+
+        # 3. get_current_user with valid token
+        auth_me = get_current_user(token=token)
+        self.assertTrue(auth_me["is_authenticated"])
+        self.assertEqual(auth_me["user"]["email"], unique_email)
+
+    def test_multi_tenant_user_isolation(self):
+        # Verify complete data isolation between User 1 and User 2 (like ChatGPT / Claude)
+        t = int(time.time() * 1000)
+        u1_res = register(RegisterRequest(name="User One", email=f"u1_{t}@test.com", password="Password123"))
+        u2_res = register(RegisterRequest(name="User Two", email=f"u2_{t}@test.com", password="Password123"))
+
+        u1_id, u1_token = u1_res["user"]["id"], u1_res["token"]
+        u2_id, u2_token = u2_res["user"]["id"], u2_res["token"]
+
+        # Save User 1 profile
+        save_onboarding(OnboardingSaveRequest(
+            user_id=u1_id,
+            personal_info={"fullName": "User One", "district": "Mumbai", "category": "OPEN"},
+            marks_info={"overall_percentage": 92.0}
+        ), token=u1_token)
+
+        # Save User 2 profile
+        save_onboarding(OnboardingSaveRequest(
+            user_id=u2_id,
+            personal_info={"fullName": "User Two", "district": "Nagpur", "category": "SC"},
+            marks_info={"overall_percentage": 82.0}
+        ), token=u2_token)
+
+        # User 1 reads their own profile
+        p1 = get_profile(u1_id, token=u1_token)
+        self.assertEqual(p1["personal_info"]["fullName"], "User One")
+        self.assertEqual(p1["personal_info"]["district"], "Mumbai")
+
+        # User 2 reads their own profile
+        p2 = get_profile(u2_id, token=u2_token)
+        self.assertEqual(p2["personal_info"]["fullName"], "User Two")
+        self.assertEqual(p2["personal_info"]["district"], "Nagpur")
+
+        # User 1 attempts to access User 2's profile with User 1's token -> Must be rejected with 403 Forbidden!
+        from fastapi import HTTPException
+        with self.assertRaises(HTTPException) as cm:
+            get_profile(u2_id, token=u1_token)
+        self.assertEqual(cm.exception.status_code, 403)
+
+        # Chat isolation: User 1 sends message
+        chat(ChatRequest(query="My private question from User One", user_id=u1_id, token=u1_token))
+
+        # User 2 checks chat history -> User 1's message must NOT exist in User 2's history!
+        from scripts.api_server import get_chat_history
+        u2_history = get_chat_history(u2_id, token=u2_token)
+        for msg in u2_history["history"]:
+            self.assertNotIn("User One", msg["content"])
+
+    def test_personalized_chatbot_context(self):
+        # Test that chatbot actively incorporates authenticated student onboarding facts
+        t = int(time.time() * 1000)
+        reg = register(RegisterRequest(name="Ananya Kulkarni", email=f"ananya_{t}@test.com", password="Password123"))
+        uid = reg["user"]["id"]
+        token = reg["token"]
+
+        # Onboard student with OBC category, Pune district, 88.0% marks
+        save_onboarding(OnboardingSaveRequest(
+            user_id=uid,
+            personal_info={"fullName": "Ananya Kulkarni", "district": "Pune", "category": "OBC"},
+            marks_info={"overall_percentage": 88.0, "maths": 94, "science": 92},
+            interests_info={"tags": ["technology", "engineering"], "ambitions": "COEP Pune"},
+            selected_stream="science_pcm"
+        ), token=token)
+
+        # Query chatbot
+        chat_res = chat(ChatRequest(
+            query="Which engineering colleges can I get in Pune?",
+            user_id=uid,
+            token=token
+        ))
+        self.assertTrue(chat_res["success"])
+        self.assertTrue(chat_res.get("student_context_applied"))
+        self.assertEqual(chat_res.get("personalized_for"), "Ananya Kulkarni")
+        self.assertIn("Personalized", chat_res["message"])
+        self.assertTrue("OBC" in chat_res["message"] or "GOBCS" in chat_res["message"] or "Ananya" in chat_res["message"])
+
 
 if __name__ == "__main__":
     unittest.main()
