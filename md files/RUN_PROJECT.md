@@ -1,6 +1,6 @@
 # AI-CON: End-to-End Execution & Setup Guide (Windows PowerShell)
 
-This guide provides exact, tested Windows PowerShell commands to run the entire **AI-con** Maharashtra Engineering Admissions Counselling pipeline from scratch — from raw cutoff processing to model training, evaluation, and interactive question-answering.
+This guide provides exact, tested Windows PowerShell commands to run the entire **AI-con** Maharashtra Engineering Admissions Counselling pipeline from scratch — from raw cutoff processing and multi-agent RAG to model training, evaluation, web interface, and interactive API server.
 
 ---
 
@@ -8,7 +8,8 @@ This guide provides exact, tested Windows PowerShell commands to run the entire 
 
 - **Operating System:** Windows 10 / 11 (64-bit)
 - **Shell:** PowerShell 5.1 / PowerShell 7+
-- **Python Version:** Python 3.11 (64-bit)
+- **Python Version:** Python 3.11 (64-bit) (or Python 3.12)
+- **Virtual Environment:** `.\.venv\Scripts\python.exe`
 - **Hardware Acceleration:** Compatible with CPU and NVIDIA GPUs (RTX 4060 Laptop tested)
 - **Local LLM Engine:** Ollama (Pre-installed at `C:\Users\<user>\AppData\Local\Programs\Ollama\ollama.exe`)
 
@@ -19,23 +20,51 @@ This guide provides exact, tested Windows PowerShell commands to run the entire 
 Open PowerShell and navigate to the project directory:
 
 ```powershell
-# Navigate to the core workspace directory
-Set-Location -Path "C:\Users\Yash Hanamghar.Nyai\Downloads\AI-cons\AI-cons\AI-cons\model_rag_agent_plan"
+# Navigate to the workspace directory
+Set-Location -Path "C:\Users\om70c\Downloads\AI_CON_Project_Clean"
 
 # Verify Python version and virtual environment
 .\.venv\Scripts\python.exe --version
 ```
 
-### Step 1: Run Offline Regression & Unit Tests (111 Tests)
-Verify that all resolvers, schemas, rules engines, analyzers, and adapters are functioning properly:
+### Step 1: Run Full Regression & Unit Tests (123 Tests)
+Verify that all resolvers, schemas, rules engines, analyzers, adapters, cross-college cutoff search, and the frontend FastAPI server are functioning properly:
 ```powershell
 .\.venv\Scripts\python.exe -m unittest discover tests -v
 ```
-*Expected Result:* 111 tests ran, 109 passing, 2 skipped, 0 failures (`OK (skipped=2)`).
+*Expected Result:* 123 tests ran, 121 passing, 2 skipped (GPU conditional), 0 failures (`OK (skipped=2)`).
 
 ---
 
-### Step 2: Validate Raw Datasets
+### Step 2: Start the Web Application Server & UI
+
+#### Option A: Running with Docker (Recommended for Containerized Deployment)
+Build and run the entire project with a single command:
+```powershell
+# Using Docker Compose:
+docker compose up --build
+
+# Or using plain Docker CLI:
+docker build -t aicon-app .
+docker run -p 8000:8000 --name aicon_consultant aicon-app
+```
+
+#### Option B: Running Locally via PowerShell
+```powershell
+.\.venv\Scripts\python.exe scripts/api_server.py --port 8000
+```
+- **Web Interface:** Open `http://127.0.0.1:8000` in any browser.
+- **Health Check Endpoint:** `http://127.0.0.1:8000/api/health`
+- **Interactive Swagger Docs:** `http://127.0.0.1:8000/docs`
+- **Features Active:**
+  - 7-Step student onboarding and profile persistence (SQLite: `ai_con_app.db`)
+  - 25-Question Class 10 aptitude assessment and stream recommendation engine
+  - Multi-agent conversational RAG for cutoffs and institutional facts
+  - Cross-college cutoff search by percentile and rank thresholds
+
+---
+
+### Step 3: Validate Raw Datasets
 Audit the 1,041 verified college qualitative profiles and 181,137 historical cutoff records:
 
 ```powershell
@@ -51,7 +80,7 @@ Audit the 1,041 verified college qualitative profiles and 181,137 historical cut
 
 ---
 
-### Step 3: Build the Vector Database (ChromaDB)
+### Step 4: Build the Vector Database (ChromaDB)
 Create persistent vector embeddings (`all-MiniLM-L6-v2`) over verified institutional profiles:
 
 ```powershell
@@ -61,7 +90,7 @@ Create persistent vector embeddings (`all-MiniLM-L6-v2`) over verified instituti
 
 ---
 
-### Step 4: Generate Training Datasets
+### Step 5: Generate Training Datasets
 Convert raw cutoff and college data into ML-ready formats:
 
 ```powershell
@@ -90,7 +119,7 @@ print(f'Train split: {split}, Val split: {len(lines) - split}')
 
 ---
 
-### Step 5: Train Models & Save Artifacts
+### Step 6: Train Models & Save Artifacts
 
 #### Task B: Train Tabular Cutoff Predictor (HistGradientBoosting)
 Trains regression models on 116,744 cutoff records to predict closing ranks and closing percentiles:

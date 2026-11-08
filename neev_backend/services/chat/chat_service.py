@@ -10,6 +10,10 @@ from neev_backend.core.interfaces.repository_interface import IChatRepository, I
 from neev_backend.core.interfaces.auth_interface import ITokenProvider
 from neev_backend.core.interfaces.chat_interface import IContextBuilder
 
+
+# Module-level shortlist cache for PDF exports across student sessions
+USER_SHORTLIST_CACHE: Dict[str, Dict[str, Any]] = {}
+
 class ChatService:
     """Manages conversational student interactions with evidence-grounded AI reasoning."""
 
@@ -56,7 +60,18 @@ class ChatService:
                         college_ag = CollegeInfoAgent(vector_index_dir, model=local_model)
                     except Exception:
                         pass
-                self._orchestrator = Orchestrator(cutoff_ag, college_ag)
+                llm_call = None
+                try:
+                    import urllib.request
+                    req = urllib.request.Request("http://localhost:11434/api/tags", method="GET")
+                    with urllib.request.urlopen(req, timeout=0.8) as resp:
+                        if resp.status == 200:
+                            from scripts.rag_pipeline import call_llm
+                            llm_call = lambda sys_p, usr_p: call_llm(sys_p, usr_p, model="qwen2.5:7b")
+                except Exception:
+                    llm_call = None
+
+                self._orchestrator = Orchestrator(cutoff_ag, college_ag, llm_call=llm_call)
             except Exception as e:
                 print(f"[Warning] Orchestrator initialization: {e}")
         return self._orchestrator
@@ -125,6 +140,19 @@ class ChatService:
                 status_val = "error"
                 display_text = f"An issue occurred while processing your request: {str(e)}"
 
+        offer_pdf = False
+        shortlist_data = []
+        if isinstance(res, dict):
+            offer_pdf = bool(res.get("offer_pdf", False))
+            shortlist_data = res.get("shortlist", [])
+
+        if offer_pdf or shortlist_data:
+            USER_SHORTLIST_CACHE[effective_uid] = {
+                "shortlist": shortlist_data,
+                "query": clean_query,
+                "user_context": student_context or {"user_id": effective_uid}
+            }
+
         # 3. Save assistant response strictly partitioned by effective_uid
         self.chat_repo.add_message(
             user_id=effective_uid,
@@ -145,9 +173,39 @@ class ChatService:
             "candidates": candidates,
             "message": display_text,
             "raw_evidence": evidence,
+            "offer_pdf": offer_pdf,
+            "pdf_url": f"/api/chat/pdf/{effective_uid}" if offer_pdf else None,
+            "shortlist": shortlist_data,
             "student_context_applied": bool(student_context),
             "personalized_for": student_context.get("name") if student_context else None
         }
+
+    def get_shortlist_pdf(self, user_id: str) -> Optional[bytes]:
+        entry = USER_SHORTLIST_CACHE.get(user_id)
+        if not entry or not entry.get("shortlist"):
+            if self.orchestrator and getattr(self.orchestrator, "_conv_context", {}).get("last_shortlist"):
+                entry = {
+                    "shortlist": self.orchestrator._conv_context["last_shortlist"],
+                    "query": "College Shortlist Report",
+                    "user_context": {
+                        "location": self.orchestrator._conv_context.get("location"),
+                        "category": self.orchestrator._conv_context.get("category"),
+                        "percentile": self.orchestrator._conv_context.get("percentile"),
+                        "preferred_branches": self.orchestrator._conv_context.get("preferred_branches"),
+                    }
+                }
+            else:
+                return None
+        try:
+            from scripts.pdf_generator import generate_college_list_pdf
+            return generate_college_list_pdf(
+                query_title=entry.get("query", "College Shortlist Report"),
+                colleges=entry["shortlist"],
+                user_context=entry.get("user_context")
+            )
+        except Exception as e:
+            print(f"[PDF Generation Error] {e}")
+            return None
 
     def get_user_history(self, user_id: str, authenticated_uid: Optional[str] = None, limit: int = 50) -> Dict[str, Any]:
         if authenticated_uid and user_id != authenticated_uid:

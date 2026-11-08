@@ -939,6 +939,18 @@ const App = {
       }
       contentHtml += `<div>${this.formatMarkdownText(data.message)}</div>`;
 
+      // If PDF export is offered for a college list
+      if (data.offer_pdf && data.pdf_url) {
+        contentHtml += `
+          <div style="margin-top: 14px; margin-bottom: 10px;">
+            <a href="${data.pdf_url}" target="_blank" download="AI_CON_College_Shortlist.pdf" class="btn btn-primary" style="display: inline-flex; align-items: center; gap: 8px; font-size: 0.85rem; font-weight: 700; padding: 10px 18px; border-radius: 8px; text-decoration: none; box-shadow: 0 4px 6px -1px rgba(37,99,235,0.25); background: linear-gradient(135deg, #1D4ED8 0%, #2563EB 100%); color: #ffffff;">
+              <span style="font-size: 1.1rem;">📄</span>
+              <span>Download College Shortlist PDF (Cutoffs, ML Predictions & ROI)</span>
+            </a>
+          </div>
+        `;
+      }
+
       // If candidates list exists for clarification
       if (data.candidates && data.candidates.length) {
         contentHtml += `

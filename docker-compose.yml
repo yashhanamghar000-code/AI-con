@@ -1,0 +1,15 @@
+services:
+  aicon-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: aicon_consultant
+    ports:
+      - "8000:8000"
+    environment:
+      - PORT=8000
+      - PYTHONUNBUFFERED=1
+    volumes:
+      - ./ai_con_app.db:/app/ai_con_app.db
+    restart: unless-stopped
+
