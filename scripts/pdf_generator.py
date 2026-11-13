@@ -151,7 +151,8 @@ def generate_college_list_pdf(
             pop_str = f"<b>Pop: {c['popularity_score']}/100</b><br/>"
         else:
             pop_str = "<b>Pop: N/A</b><br/><font color='#64748B' size='6'>Unverified</font><br/>"
-        pop_str += f"<font color='#059669'>ROI: {c.get('roi_tier', 'High')}</font><br/>"
+        roi_val = c.get("roi_tier") or "Not computable"
+        pop_str += f"<font color='#059669'>ROI: {roi_val}</font><br/>"
         if c.get("median_package"):
             pop_str += f"<font color='#475569'>Median: {c.get('median_package')}</font>"
 
@@ -184,9 +185,9 @@ def generate_college_list_pdf(
     # Notes & Statutory Compliance Footer
     disclaimer = (
         "<b>Notice & Compliance:</b> All cutoff figures, institute codes, and reservation quotas are grounded in "
-        "verified Maharashtra CET Cell Centralized Admission Process (CAP) official datasets. Popularity scores and "
-        "ROI tiers represent analytical decision-support indices based on closing percentiles, fee structure ratios, "
-        "and verified statutory records. No cutoffs or admissions are guaranteed."
+        "verified Maharashtra CET Cell Centralized Admission Process (CAP) official datasets. Popularity data and "
+        "ROI estimates are marked N/A or 'Not computable' when official choice-form preferences or audited fee/placement reports "
+        "are unpublished in CAP cutoff bulletins. No cutoffs or admissions are guaranteed."
     )
     story.append(Paragraph(disclaimer, ParagraphStyle('Disc', parent=styles['Normal'], fontSize=7.5, leading=10, textColor=colors.HexColor('#64748B'))))
 

@@ -56,6 +56,22 @@ except ImportError:
         PopularityRankingService = None
 
 try:
+    from roi_service import ROIService
+except ImportError:
+    try:
+        from scripts.roi_service import ROIService
+    except ImportError:
+        ROIService = None
+
+try:
+    from ml_inference_service import MLInferenceService
+except ImportError:
+    try:
+        from scripts.ml_inference_service import MLInferenceService
+    except ImportError:
+        MLInferenceService = None
+
+try:
     from admission_rules import AdmissionRulesEngine, EligibilityResult, StudentProfile
     from cutoff_analyzer import CutoffAnalyzer
     from option_planner import OptionFormPlanner
@@ -276,6 +292,8 @@ class Orchestrator:
         self.discovery_service = StructuredCollegeDiscoveryService(cutoff_agent) if (StructuredCollegeDiscoveryService is not None and cutoff_agent is not None) else None
         self.branch_service = BranchTaxonomyService() if BranchTaxonomyService is not None else None
         self.popularity_service = PopularityRankingService() if PopularityRankingService is not None else None
+        self.roi_service = ROIService() if ROIService is not None else None
+        self.ml_inference_service = MLInferenceService() if MLInferenceService is not None else None
         self._conv_context: Dict[str, Any] = {}
         self._current_session_id: str = "default_session" 
 
@@ -641,45 +659,21 @@ class Orchestrator:
         cap_round: int = 1,
         stage: int = 1,
         list_type: str = "CAP",
+        diagnostic: bool = False,
     ) -> Dict[str, Any]:
-        """Predict expected next-year (2026-27) closing cutoff percentile and rank via ML models."""
-        if not getattr(self, "_tabular_models_loaded", False) or not self._rank_model or not self._pct_model:
-            return {"predicted": False}
-        try:
-            import numpy as np
-            enc = self._encoder_info["encoder"]
-            # Task 6 / Defect 4 fix: encoder was trained on 4-digit codes and
-            # list_type values 'all_india'/'maharashtra_minority', not 'CAP'.
-            # Normalize inputs to match training data encoding.
-            raw_code = str(institute_code).strip()
-            inst_str_5 = raw_code.zfill(5)  # 5-digit for course_code construction
-            inst_str_4 = raw_code.lstrip('0') or raw_code  # bare 4-digit as encoder saw it
-            # Use 4-digit code form the encoder was trained on
-            inst_str = inst_str_4 if len(inst_str_4) == 4 else raw_code
-            c_code = str(course_code) if course_code else f"{inst_str_5}24510"
-            s_type = str(seat_type).upper()
-            # Normalize list_type to match encoder training values
-            _lt_norm = str(list_type).lower().strip()
-            if _lt_norm in ('cap', 'state_level', 'maharashtra', 'state level'):
-                l_type = 'all_india'  # encoder canonical value for state/CAP pool
-            elif _lt_norm in ('minority', 'maharashtra_minority', 'maharashtra & minority seats'):
-                l_type = 'maharashtra_minority'
-            else:
-                l_type = str(list_type).lower().strip()
-
-            cat_vals = np.array([[inst_str, c_code, s_type, l_type]])
-            encoded_cat = enc.transform(cat_vals)
-            row = np.array([[encoded_cat[0][0], encoded_cat[0][1], encoded_cat[0][2], cap_round, stage, encoded_cat[0][3]]])
-            pred_rank = max(1, int(round(float(self._rank_model.predict(row)[0]))))
-            pred_pct = round(float(np.clip(self._pct_model.predict(row)[0], 0.0, 99.99)), 2)
-            return {
-                "predicted": True,
-                "predicted_rank": pred_rank,
-                "predicted_percentile": pred_pct,
-                "target_year": "2026-27",
-            }
-        except Exception as e:
-            return {"predicted": False, "error": str(e)}
+        """Predict expected next-year (2026-27) closing cutoff percentile and rank via audited ML service."""
+        if self.ml_inference_service is not None and self.ml_inference_service.is_loaded:
+            res = self.ml_inference_service.predict(
+                institute_code=institute_code,
+                course_code=course_code,
+                seat_type=seat_type,
+                cap_round=cap_round,
+                stage=stage,
+                list_type=list_type,
+                diagnostic=diagnostic,
+            )
+            return res.to_dict()
+        return {"predicted": False, "status": "model_not_loaded"}
 
     def _handle_multi_college_discovery(
         self,
@@ -821,10 +815,10 @@ class Orchestrator:
             hist_pct = float(_raw_pct) if _raw_pct is not None else None
             hist_rk = int(_raw_rk) if _raw_rk is not None else None
 
-            # Predict Next-Year (2026-27) expected cutoff using ML models
-            pred_info = self.predict_next_year_cutoff(code, seat_type=category)
-            pred_pct = pred_info.get("predicted_percentile", hist_pct) if pred_info.get("predicted") else hist_pct
-            pred_rk = pred_info.get("predicted_rank", hist_rk) if pred_info.get("predicted") else hist_rk
+            # Predict Next-Year (2026-27) expected cutoff using audited ML service
+            pred_info = self.predict_next_year_cutoff(code, course_code=c.get("course_code"), seat_type=category)
+            pred_pct = pred_info.get("predicted_percentile") if pred_info.get("predicted") else None
+            pred_rk = pred_info.get("predicted_rank") if pred_info.get("predicted") else None
 
             autonomy = "Affiliated"
             if "autonomous" in name.lower():
@@ -852,12 +846,17 @@ class Orchestrator:
                 alt_metric_name = "Historical Closing Cutoff Competitiveness (Round 1 GOPENS Percentile)"
                 alt_metric_val = hist_pct
 
-            if autonomy == "Government":
-                roi_tier = "Exceptional (Tier 1 Govt)"
-            elif (pop_score is not None and pop_score >= 88) or (hist_pct is not None and hist_pct >= 95.0):
-                roi_tier = "High (Tier 1 Private)"
+            if self.roi_service is not None:
+                roi_eval = self.roi_service.evaluate_college(c)
+                roi_tier = roi_eval.display_summary
+                roi_computable = roi_eval.is_computable
+                roi_ratio = roi_eval.ratio_proxy
+                roi_limitations = roi_eval.limitations
             else:
-                roi_tier = "Moderate (Tier 2)"
+                roi_tier = "Not Computable (Data unavailable)"
+                roi_computable = False
+                roi_ratio = None
+                roi_limitations = ["ROI service unavailable."]
 
             # Task 7: Deterministic transparent tiers with configurable heuristics
             if percentile is not None and hist_pct is not None:
@@ -900,6 +899,9 @@ class Orchestrator:
                 "alternative_metric": alt_metric_name,
                 "alternative_metric_value": alt_metric_val,
                 "roi_tier": roi_tier,
+                "roi_computable": roi_computable,
+                "roi_ratio": roi_ratio,
+                "roi_limitations": roi_limitations,
                 "tier": tier,
                 "evidence_id": c.get("evidence_id") or f"EV-{code}-{category}-R1",
             })
@@ -971,11 +973,15 @@ class Orchestrator:
                     pop_display = f"{c['popularity_score']}/100"
                 else:
                     pop_display = "Data unavailable"
+                if c.get("predicted_cutoff") is not None and c.get("predicted_rank") is not None:
+                    pred_str = f"**~{c['predicted_cutoff']:.2f}%** (Rank: #{c['predicted_rank']:,})"
+                else:
+                    pred_str = "*Prediction unavailable (unseen category/course)*"
                 out.append(
                     f"{i}. **{c['institute_name']}** (Code: `{c['institute_code']}`)  \n"
                     f"   • **Branch:** {c['branch']}  \n"
                     f"   • **Latest Cutoff:** **{c['cutoff_percentile']:.2f}%** (Closing Rank: #{c['closing_rank']:,})  \n"
-                    f"   • **Predicted 2026-27 Cutoff:** **~{c['predicted_cutoff']:.2f}%** (Rank: #{c['predicted_rank']:,})  \n"
+                    f"   • **Predicted 2026-27 Cutoff:** {pred_str}  \n"
                     f"   • **Popularity:** {pop_display} | **ROI:** {c['roi_tier']}"
                 )
             out.append("")
@@ -1087,7 +1093,7 @@ class Orchestrator:
         }
 
     def _handle_shortlist_roi_ranking(self, question: str, parsed: Dict[str, Any]) -> Dict[str, Any]:
-        """Re-ranks previous shortlist by verified popularity/cutoff competitiveness and ROI tier."""
+        """Re-ranks previous shortlist by verified ROI and cutoff competitiveness without fabricated tiers."""
         shortlist = self._conv_context.get("last_shortlist") or []
         if not shortlist:
             return {
@@ -1097,31 +1103,35 @@ class Orchestrator:
                 "evidence": "No active college shortlist found in session context."
             }
 
-        # Check if verified popularity data is available across shortlist
-        has_popularity = any(c.get("popularity_score") is not None for c in shortlist)
+        roi_rank_res = self.roi_service.rank_by_roi(shortlist) if self.roi_service else {
+            "computable_count": 0,
+            "not_computable_count": len(shortlist),
+            "ranked_colleges": [],
+            "unranked_colleges": shortlist,
+            "total_count": len(shortlist),
+        }
 
-        if has_popularity:
-            ranked = sorted(
-                shortlist,
-                key=lambda x: (x.get("popularity_score") or 0.0, x.get("cutoff_percentile") or 0.0),
-                reverse=True
-            )
-            heading = "### 🏆 Shortlist Ranked by Verified Popularity & ROI"
-            subheading = "Ranked using verified applicant demand signals and institutional autonomy/ROI:"
-            evidence_note = "Rankings derived from verified applicant demand indicators and statutory institutional data."
+        computable_colleges = roi_rank_res.get("ranked_colleges", [])
+        unranked_colleges = roi_rank_res.get("unranked_colleges", [])
+
+        if computable_colleges:
+            ranked = computable_colleges + unranked_colleges
+            heading = "### 🏆 Shortlist Ranked by Verified ROI Proxy Ratio"
+            subheading = "Colleges ranked by verified Package-to-Total-Tuition proxy ratio (Annual Package / 4-Year Tuition):"
+            evidence_note = "Ranked by verifiable package-to-tuition ratios with source provenance."
         else:
-            # Fallback to clearly named measurable criterion: cutoff competitiveness
             ranked = sorted(
                 shortlist,
                 key=lambda x: (x.get("cutoff_percentile") is not None, x.get("cutoff_percentile") or -1.0),
                 reverse=True
             )
-            heading = "### 🏆 Shortlist Ranked by Historical Cutoff Competitiveness & ROI"
+            heading = "### ⚠️ Verified ROI Data Unavailable — Sorted by Historical Cutoff Competitiveness"
             subheading = (
-                "Verified applicant preference counts (popularity data) are not published by CET Cell. "
-                "Colleges are ranked by Historical Closing Cutoff Competitiveness (Round 1 GOPENS) and Institutional Autonomy/ROI:"
+                "Official Maharashtra CET Cell CAP cutoff publications do not report audited fee structures or NIRF placement packages. "
+                "Per anti-hallucination rules, arbitrary ROI tiers ('Tier 1/2', 'Moderate', 'High') are strictly withheld. "
+                "Colleges are displayed by Historical Closing Cutoff Competitiveness:"
             )
-            evidence_note = "Popularity data unavailable in official DTE reports; sorted by verified closing cutoff competitiveness."
+            evidence_note = "Audited fees/placements and popularity data unavailable in CET Cell cutoff datasets; sorted by closing cutoff competitiveness with arbitrary tiers withheld."
 
         self._conv_context["last_shortlist"] = ranked
 
@@ -1132,11 +1142,13 @@ class Orchestrator:
             else:
                 pop_text = "*Data unavailable (no official preference stats)*"
 
+            roi_display = c.get("roi_tier") or "Not Computable (Data unavailable)"
+            pred_desc = f"~{c['predicted_cutoff']:.2f}%" if c.get('predicted_cutoff') is not None else "Unavailable"
             lines.append(
                 f"{idx}. **{c['institute_name']}** (Code: `{c['institute_code']}`)  \n"
                 f"   • **Popularity:** {pop_text}  \n"
-                f"   • **ROI Classification:** **{c['roi_tier']}** ({c['autonomy_type']})  \n"
-                f"   • **Cutoff Benchmark:** {c['cutoff_percentile']:.2f}% (Rank #{c['closing_rank']:,}) | Next-Year Pred: ~{c['predicted_cutoff']:.2f}%"
+                f"   • **ROI Evaluation:** **{roi_display}** ({c.get('autonomy_type', 'Unspecified')})  \n"
+                f"   • **Cutoff Benchmark:** {c['cutoff_percentile']:.2f}% (Rank #{c['closing_rank']:,}) | Next-Year Pred: {pred_desc}"
             )
 
         lines.append("\n📄 *Your PDF shortlist has been updated with this ranking order.*")
