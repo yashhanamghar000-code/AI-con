@@ -73,7 +73,8 @@ class DiscoveredCollege:
     total_matching_branches: int = 0
     best_cutoff_percentile: Optional[float] = None
     best_closing_rank: Optional[int] = None
-    popularity_score: Optional[int] = None
+    popularity_score: Optional[float] = None
+    popularity_available: bool = False
     roi_tier: Optional[str] = None
     evidence_id: Optional[str] = None
 
@@ -90,6 +91,7 @@ class DiscoveredCollege:
             "cutoff_percentile": self.best_cutoff_percentile,
             "closing_rank": self.best_closing_rank,
             "popularity_score": self.popularity_score,
+            "popularity_available": self.popularity_available,
             "roi_tier": self.roi_tier,
             "evidence_id": self.evidence_id,
         }

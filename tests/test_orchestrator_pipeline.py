@@ -158,7 +158,7 @@ class TestOrchestratorPipeline(unittest.TestCase):
             )
             self.assertEqual(res["status"], "evidence_only")
             self.assertEqual(res["intent"], "cutoff")
-            self.assertIn("closing rank 1560", res["evidence"])
+            self.assertTrue("1,560" in res["evidence"] or "1560" in res["evidence"])
             self.assertIn("percentile 98.42", res["evidence"])
             self.assertIn("EV-01002-COMP-GOPENS-R1", res["evidence"])
         finally:

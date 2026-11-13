@@ -48,6 +48,14 @@ except ImportError:
         BranchTaxonomyService = None
 
 try:
+    from popularity_service import PopularityRankingService
+except ImportError:
+    try:
+        from scripts.popularity_service import PopularityRankingService
+    except ImportError:
+        PopularityRankingService = None
+
+try:
     from admission_rules import AdmissionRulesEngine, EligibilityResult, StudentProfile
     from cutoff_analyzer import CutoffAnalyzer
     from option_planner import OptionFormPlanner
@@ -267,6 +275,7 @@ class Orchestrator:
         self.memory_store = ConversationMemoryStore() if ConversationMemoryStore is not None else None
         self.discovery_service = StructuredCollegeDiscoveryService(cutoff_agent) if (StructuredCollegeDiscoveryService is not None and cutoff_agent is not None) else None
         self.branch_service = BranchTaxonomyService() if BranchTaxonomyService is not None else None
+        self.popularity_service = PopularityRankingService() if PopularityRankingService is not None else None
         self._conv_context: Dict[str, Any] = {}
         self._current_session_id: str = "default_session" 
 
@@ -823,20 +832,29 @@ class Orchestrator:
             elif "government" in name.lower() or "govt" in name.lower():
                 autonomy = "Government"
 
-            pop_score = 75
-            if hist_rk and hist_rk < 5000:
-                pop_score += 18
-            elif hist_rk and hist_rk < 15000:
-                pop_score += 10
-            elif hist_rk and hist_rk < 30000:
-                pop_score += 5
-            if autonomy in ("Government", "Autonomous"):
-                pop_score += 5
-            pop_score = min(98, pop_score)
+            # Task 8: Popularity ranking with evidence - strictly eliminate fabricated scores
+            if self.popularity_service is not None:
+                pop_ev = self.popularity_service.evaluate_college(
+                    institute_code=code,
+                    institute_name=name,
+                    cutoff_percentile=hist_pct,
+                    closing_rank=hist_rk
+                )
+                pop_score = pop_ev.popularity_score
+                pop_avail = pop_ev.is_available
+                pop_explanation = pop_ev.explanation
+                alt_metric_name = pop_ev.alternative_metric_name
+                alt_metric_val = pop_ev.alternative_metric_value
+            else:
+                pop_score = None
+                pop_avail = False
+                pop_explanation = "Popularity data unavailable (no verified applicant preference records)."
+                alt_metric_name = "Historical Closing Cutoff Competitiveness (Round 1 GOPENS Percentile)"
+                alt_metric_val = hist_pct
 
             if autonomy == "Government":
                 roi_tier = "Exceptional (Tier 1 Govt)"
-            elif pop_score >= 88:
+            elif (pop_score is not None and pop_score >= 88) or (hist_pct is not None and hist_pct >= 95.0):
                 roi_tier = "High (Tier 1 Private)"
             else:
                 roi_tier = "Moderate (Tier 2)"
@@ -877,6 +895,10 @@ class Orchestrator:
                 "predicted_rank": pred_rk,
                 "predicted_next_year": "2026-27",
                 "popularity_score": pop_score,
+                "popularity_available": pop_avail,
+                "popularity_explanation": pop_explanation,
+                "alternative_metric": alt_metric_name,
+                "alternative_metric_value": alt_metric_val,
                 "roi_tier": roi_tier,
                 "tier": tier,
                 "evidence_id": c.get("evidence_id") or f"EV-{code}-{category}-R1",
@@ -945,12 +967,16 @@ class Orchestrator:
                 return []
             out = [f"#### {title}", f"*{desc}*", ""]
             for i, c in enumerate(items[:6], 1):
+                if c.get("popularity_score") is not None:
+                    pop_display = f"{c['popularity_score']}/100"
+                else:
+                    pop_display = "Data unavailable"
                 out.append(
                     f"{i}. **{c['institute_name']}** (Code: `{c['institute_code']}`)  \n"
                     f"   • **Branch:** {c['branch']}  \n"
                     f"   • **Latest Cutoff:** **{c['cutoff_percentile']:.2f}%** (Closing Rank: #{c['closing_rank']:,})  \n"
                     f"   • **Predicted 2026-27 Cutoff:** **~{c['predicted_cutoff']:.2f}%** (Rank: #{c['predicted_rank']:,})  \n"
-                    f"   • **Popularity Score:** {c['popularity_score']}/100 | **ROI:** {c['roi_tier']}"
+                    f"   • **Popularity:** {pop_display} | **ROI:** {c['roi_tier']}"
                 )
             out.append("")
             return out
@@ -1061,7 +1087,7 @@ class Orchestrator:
         }
 
     def _handle_shortlist_roi_ranking(self, question: str, parsed: Dict[str, Any]) -> Dict[str, Any]:
-        """Re-ranks previous shortlist by popularity score and ROI tier."""
+        """Re-ranks previous shortlist by verified popularity/cutoff competitiveness and ROI tier."""
         shortlist = self._conv_context.get("last_shortlist") or []
         if not shortlist:
             return {
@@ -1071,18 +1097,44 @@ class Orchestrator:
                 "evidence": "No active college shortlist found in session context."
             }
 
-        ranked = sorted(shortlist, key=lambda x: (x.get("popularity_score", 0), x.get("cutoff_percentile", 0)), reverse=True)
+        # Check if verified popularity data is available across shortlist
+        has_popularity = any(c.get("popularity_score") is not None for c in shortlist)
+
+        if has_popularity:
+            ranked = sorted(
+                shortlist,
+                key=lambda x: (x.get("popularity_score") or 0.0, x.get("cutoff_percentile") or 0.0),
+                reverse=True
+            )
+            heading = "### 🏆 Shortlist Ranked by Verified Popularity & ROI"
+            subheading = "Ranked using verified applicant demand signals and institutional autonomy/ROI:"
+            evidence_note = "Rankings derived from verified applicant demand indicators and statutory institutional data."
+        else:
+            # Fallback to clearly named measurable criterion: cutoff competitiveness
+            ranked = sorted(
+                shortlist,
+                key=lambda x: (x.get("cutoff_percentile") is not None, x.get("cutoff_percentile") or -1.0),
+                reverse=True
+            )
+            heading = "### 🏆 Shortlist Ranked by Historical Cutoff Competitiveness & ROI"
+            subheading = (
+                "Verified applicant preference counts (popularity data) are not published by CET Cell. "
+                "Colleges are ranked by Historical Closing Cutoff Competitiveness (Round 1 GOPENS) and Institutional Autonomy/ROI:"
+            )
+            evidence_note = "Popularity data unavailable in official DTE reports; sorted by verified closing cutoff competitiveness."
+
         self._conv_context["last_shortlist"] = ranked
 
-        lines = [
-            "### 🏆 Shortlist Ranked by Reputation & Return on Investment (ROI)",
-            "Based on institutional autonomy, closing merit selectivity, government grant-in-aid status, and placement strength:",
-            ""
-        ]
+        lines = [heading, subheading, ""]
         for idx, c in enumerate(ranked, 1):
+            if c.get("popularity_score") is not None:
+                pop_text = f"**{c['popularity_score']}/100**"
+            else:
+                pop_text = "*Data unavailable (no official preference stats)*"
+
             lines.append(
                 f"{idx}. **{c['institute_name']}** (Code: `{c['institute_code']}`)  \n"
-                f"   • **Popularity / Reputation Score:** **{c['popularity_score']}/100**  \n"
+                f"   • **Popularity:** {pop_text}  \n"
                 f"   • **ROI Classification:** **{c['roi_tier']}** ({c['autonomy_type']})  \n"
                 f"   • **Cutoff Benchmark:** {c['cutoff_percentile']:.2f}% (Rank #{c['closing_rank']:,}) | Next-Year Pred: ~{c['predicted_cutoff']:.2f}%"
             )
@@ -1093,9 +1145,9 @@ class Orchestrator:
             "status": "answered",
             "intent": "reputation_roi_ranking",
             "query_type": "shortlist_followup",
-            "matched_college": "Shortlist Re-ranked by ROI",
+            "matched_college": "Shortlist Re-ranked by ROI & Competitiveness",
             "message": "\n".join(lines),
-            "evidence": "ROI & Popularity rankings derived from institutional autonomy, government fee structures, and merit cutoffs.",
+            "evidence": evidence_note,
             "total_matches": len(ranked),
             "offer_pdf": True,
             "shortlist": ranked

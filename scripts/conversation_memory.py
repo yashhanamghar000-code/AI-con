@@ -29,7 +29,8 @@ class ShortlistRecord(BaseModel):
     closing_rank: Optional[int] = None
     predicted_cutoff: Optional[float] = None
     predicted_rank: Optional[int] = None
-    popularity_score: Optional[int] = None
+    popularity_score: Optional[float] = None
+    popularity_available: bool = False
     roi_tier: Optional[str] = None
     tier: Optional[str] = None
     evidence_id: Optional[str] = None

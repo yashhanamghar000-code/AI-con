@@ -147,7 +147,10 @@ def generate_college_list_pdf(
         else:
             cutoff_info = "<font color='#64748B'>Cutoffs in detailed records</font>"
 
-        pop_str = f"<b>Pop: {c.get('popularity_score', 85)}/100</b><br/>"
+        if c.get("popularity_score") is not None:
+            pop_str = f"<b>Pop: {c['popularity_score']}/100</b><br/>"
+        else:
+            pop_str = "<b>Pop: N/A</b><br/><font color='#64748B' size='6'>Unverified</font><br/>"
         pop_str += f"<font color='#059669'>ROI: {c.get('roi_tier', 'High')}</font><br/>"
         if c.get("median_package"):
             pop_str += f"<font color='#475569'>Median: {c.get('median_package')}</font>"
