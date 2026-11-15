@@ -48,24 +48,24 @@ class RankingObjective(str, Enum):
 
 # Common geographic districts and municipal areas in Maharashtra
 COMMON_LOCATIONS: Dict[str, List[str]] = {
-    "pune": ["pune", "alandi", "wagholi", "pimpri", "chinchwad", "hadapsar", "baramati", "talegaon", "lavasa", "bavdhan"],
-    "mumbai": ["mumbai", "navi mumbai", "bandra", "andheri", "dadar", "chembur", "matunga", "sion", "borivali", "vile parle"],
-    "thane": ["thane", "kalyan", "dombivli", "ulhasnagar", "mumbra", "bhiwandi"],
-    "nagpur": ["nagpur", "ramtek", "kamptee"],
-    "nashik": ["nashik", "panchavati", "malegaon", "dindori"],
-    "amravati": ["amravati", "badnera", "achpur"],
-    "aurangabad": ["aurangabad", "chhatrapati sambhajinagar", "chhatrapati-sambhajinagar", "sambhajinagar"],
-    "kolhapur": ["kolhapur", "ichalkaranji", "jaysingpur"],
-    "sangli": ["sangli", "miraj", "kupwad", "islampur"],
-    "solapur": ["solapur", "pandharpur", "barshi"],
-    "satara": ["satara", "karad", "wai", "phaltan"],
-    "ahmednagar": ["ahmednagar", "shirdi", "kopargaon", "sangamner"],
-    "jalgaon": ["jalgaon", "bhusawal", "amalner"],
-    "nanded": ["nanded"],
-    "latur": ["latur"],
-    "dhule": ["dhule"],
-    "chandrapur": ["chandrapur"],
-    "raigad": ["raigad", "panvel", "alibag"],
+    "pune": ["pune", "alandi", "wagholi", "pimpri", "chinchwad", "hadapsar", "baramati", "talegaon", "lavasa", "bavdhan", "पुणे", "पुण्यात", "पुण्यामध्ये", "पिंपरी", "चिंचवड", "आळंदी", "वाघोली"],
+    "mumbai": ["mumbai", "navi mumbai", "bandra", "andheri", "dadar", "chembur", "matunga", "sion", "borivali", "vile parle", "मुंबई", "मुंबईत", "मुंबईमध्ये", "नवी मुंबई", "ठाणे"],
+    "thane": ["thane", "kalyan", "dombivli", "ulhasnagar", "mumbra", "bhiwandi", "कल्याण", "डोंबिवली"],
+    "nagpur": ["nagpur", "ramtek", "kamptee", "नागपूर", "नागपुरात", "नागपूरमध्ये"],
+    "nashik": ["nashik", "panchavati", "malegaon", "dindori", "नाशिक", "नाशिकमध्ये"],
+    "amravati": ["amravati", "badnera", "achpur", "अमरावती"],
+    "aurangabad": ["aurangabad", "chhatrapati sambhajinagar", "chhatrapati-sambhajinagar", "sambhajinagar", "संभाजीनगर", "औरंगाबाद", "संभाजीनगरात", "छत्रपती संभाजीनगर"],
+    "kolhapur": ["kolhapur", "ichalkaranji", "jaysingpur", "कोल्हापूर"],
+    "sangli": ["sangli", "miraj", "kupwad", "islampur", "सांगली"],
+    "solapur": ["solapur", "pandharpur", "barshi", "सोलापूर"],
+    "satara": ["satara", "karad", "wai", "phaltan", "सातारा", "कराड"],
+    "ahmednagar": ["ahmednagar", "shirdi", "kopargaon", "sangamner", "अहमदनगर", "नगर"],
+    "jalgaon": ["jalgaon", "bhusawal", "amalner", "जळगाव"],
+    "nanded": ["nanded", "नांदेड"],
+    "latur": ["latur", "लातूर"],
+    "dhule": ["dhule", "धुळे"],
+    "chandrapur": ["chandrapur", "चंद्रपूर"],
+    "raigad": ["raigad", "panvel", "alibag", "रायगड", "पनवेल"],
 }
 
 # Raw Category to normalized CAP Quota token mappings
@@ -90,6 +90,14 @@ CATEGORY_NORMALIZATION: Dict[str, str] = {
     "nt3": "GNT3S",
     "tfws": "TFWS",
     "ews": "EWS",
+    # Marathi Devanagari categories
+    "ओपन": "GOPENS",
+    "खुला": "GOPENS",
+    "ओबीसी": "GOBCS",
+    "एससी": "GSCS",
+    "एसटी": "GSTS",
+    "ईडब्ल्यूएस": "EWS",
+    "टीएफडब्ल्यूएस": "TFWS",
 }
 
 # Canonical branch definitions
@@ -117,6 +125,17 @@ CANONICAL_BRANCH_MAP: Dict[str, str] = {
     "entc": "Electronics and Telecommunication Engg",
     "electronics": "Electronics and Telecommunication Engg",
     "electronics and telecommunication": "Electronics and Telecommunication Engg",
+    # Marathi Devanagari branches
+    "कॉम्प्युटर": "Computer Engineering",
+    "संगणक": "Computer Engineering",
+    "आयटी": "Information Technology",
+    "माहिती तंत्रज्ञान": "Information Technology",
+    "मेकॅनिकल": "Mechanical Engineering",
+    "सिव्हिल": "Civil Engineering",
+    "इलेक्ट्रिकल": "Electrical Engineering",
+    "इलेक्ट्रॉनिक्स": "Electronics and Telecommunication Engg",
+    "एआय": "Artificial Intelligence and Data Science",
+    "डेटा सायन्स": "Computer Science and Engineering (Data Science)",
 }
 
 
@@ -138,6 +157,7 @@ class ParsedAdmissionQuery(BaseModel):
     is_multi_college: bool = False
     is_follow_up: bool = False
     target_college: Optional[str] = None
+    detected_language: str = "en"
     ambiguities: List[str] = Field(default_factory=list)
 
     @field_validator("percentile")
@@ -247,9 +267,9 @@ class QueryIntelligenceParser:
 
         # 4. Extract Percentile
         percentile: Optional[float] = None
-        m_perc = re.search(r"(\d+(?:\.\d+)?)\s*(?:percentile|%|pr\b)", q_lower)
+        m_perc = re.search(r"(\d+(?:\.\d+)?)\s*(?:percentile|%|pr\b|पर्सेंटाईल|टक्के|गुण)", q_lower)
         if not m_perc:
-            m_perc = re.search(r"\b(?:percentile|score|pct)\s*(?:is|=|of|to)?\s*(\d+(?:\.\d+)?)\b", q_lower)
+            m_perc = re.search(r"\b(?:percentile|score|pct|पर्सेंटाईल|गुण)\s*(?:is|=|of|to|आहे)?\s*(\d+(?:\.\d+)?)\b", q_lower)
         if m_perc:
             try:
                 p_val = float(m_perc.group(1))
@@ -281,7 +301,11 @@ class QueryIntelligenceParser:
             category_raw = m_cat.group(1).upper()
         else:
             for raw_c in CATEGORY_NORMALIZATION:
-                if re.search(r"\b" + re.escape(raw_c) + r"\b", q_lower):
+                if any(ord(c) > 127 for c in raw_c):
+                    if raw_c in q_lower:
+                        category_raw = raw_c
+                        break
+                elif re.search(r"\b" + re.escape(raw_c) + r"\b", q_lower):
                     category_raw = raw_c.upper()
                     break
 
@@ -296,11 +320,18 @@ class QueryIntelligenceParser:
         scope_notes: Optional[str] = None
         for dist_key, aliases in COMMON_LOCATIONS.items():
             for alias in aliases:
-                if re.search(r"\b" + re.escape(alias) + r"\b", q_lower):
+                matched = False
+                if any(ord(c) > 127 for c in alias):
+                    if alias in q_lower:
+                        matched = True
+                elif re.search(r"\b" + re.escape(alias) + r"\b", q_lower):
+                    matched = True
+
+                if matched:
                     location = dist_key.capitalize()
-                    if alias in ("alandi", "wagholi", "pimpri", "chinchwad"):
+                    if alias in ("alandi", "wagholi", "pimpri", "chinchwad", "पिंपरी", "चिंचवड"):
                         scope_notes = f"Matched locality '{alias.capitalize()}' within Pune district scope."
-                    elif alias in ("navi mumbai", "bandra", "andheri", "dadar"):
+                    elif alias in ("navi mumbai", "bandra", "andheri", "dadar", "नवी मुंबई"):
                         scope_notes = f"Matched locality '{alias.capitalize()}' within Mumbai metropolitan scope."
                     break
             if location:
@@ -406,6 +437,8 @@ class QueryIntelligenceParser:
         if intent == AdmissionIntent.COLLEGE_DISCOVERY and not location and not percentile and not rank:
             ambiguities.append("No location or score provided for discovery.")
 
+        detected_lang = "mr" if bool(re.search(r"[\u0900-\u097F]", query)) else "en"
+
         return ParsedAdmissionQuery(
             raw_query=query,
             intent=intent,
@@ -424,5 +457,6 @@ class QueryIntelligenceParser:
             is_multi_college=is_multi_college,
             is_follow_up=is_follow_up,
             target_college=None,
+            detected_language=detected_lang,
             ambiguities=ambiguities,
         )
