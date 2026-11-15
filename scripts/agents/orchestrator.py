@@ -1010,13 +1010,35 @@ class Orchestrator:
             "status": status_mode,
             "intent": "multi_college_discovery",
             "query_type": "multi_college_discovery",
+            "request_id": self._current_session_id,
+            "session_id": self._current_session_id,
+            "parsed_student_profile": {
+                "percentile": percentile,
+                "merit_rank": rank,
+                "category": category,
+                "location": location,
+                "preferred_branches": preferred_branches,
+            },
+            "geographic_scope": location or "Maharashtra",
+            "requested_unique_colleges": parsed.get("requested_unique_colleges") or parsed.get("requested_count") or 30,
+            "actual_unique_colleges_count": len(college_list),
+            "ranking_method": "Historical Closing Cutoff Competitiveness (Round 1 GOPENS Percentile)",
             "matched_college": f"Multiple Colleges ({len(college_list)} institutes in {location or 'Maharashtra'})",
             "institute_code": None,
             "total_matches": len(college_list),
             "shortlist": college_list,
+            "ordered_colleges": college_list,
             "offer_pdf": True,
             "message": full_message,
             "evidence": evidence_text,
+            "citations": [
+                "Government of Maharashtra State Common Entrance Test Cell (CET Cell)",
+                "Official Centralized Admission Process (CAP) Cutoff Gazettes (2020-2025)",
+            ],
+            "warnings": [
+                "Admission allotment depends strictly on official CET Cell merit lists and student submitted option forms.",
+                "Cutoff percentiles represent past historical benchmarks and do not guarantee future admission.",
+            ],
         }
 
     def _handle_shortlist_cutoff_analysis(self, question: str, parsed: Dict[str, Any]) -> Dict[str, Any]:

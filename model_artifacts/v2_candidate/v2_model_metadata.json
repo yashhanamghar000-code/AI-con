@@ -1,0 +1,25 @@
+{
+  "version": "2.0-candidate",
+  "training_strategy": "Chronological holdout validation on unseen 2025-26 academic year",
+  "rank_target_transformation": "log1p with expm1 inverse transformation",
+  "sample_counts": {
+    "train_samples": 3000,
+    "holdout_samples": 1000
+  },
+  "holdout_metrics": {
+    "rank_mae": 51282.3,
+    "rank_rmse": 67289.3,
+    "rank_r2": -0.2567,
+    "rank_residual_std": 52695.5,
+    "pct_mae": 19.5,
+    "pct_rmse": 24.58,
+    "pct_r2": 0.2396,
+    "pct_residual_std": 24.4
+  },
+  "saved_artifacts": [
+    "model_artifacts\\v2_candidate\\cutoff_regressor_log_rank.joblib",
+    "model_artifacts\\v2_candidate\\cutoff_regressor_percentile.joblib",
+    "model_artifacts\\v2_candidate\\label_encoders.joblib"
+  ],
+  "duration_seconds": 4.24
+}

@@ -14,13 +14,64 @@ Data returned is cleaned and structured to match the AI-CON schema.
 """
 from __future__ import annotations
 
+import json
+import logging
 import re
 import time
-import logging
-from typing import Any, Dict, List, Optional
+from dataclasses import asdict, dataclass, field
+from datetime import datetime, timezone
+from typing import Any, Dict, List, Optional, Tuple
 from urllib.parse import quote_plus
 
 logger = logging.getLogger(__name__)
+
+
+# ─────────────────────────────────────────────
+# Task 15: Sourced Scraped Field Model & Cache
+# ─────────────────────────────────────────────
+
+@dataclass
+class ScrapedField:
+    field_name: str
+    value: Any
+    source_url: str
+    publisher: str
+    retrieval_timestamp: str = field(default_factory=lambda: datetime.now(timezone.utc).isoformat())
+    academic_or_placement_year: str = "2024-25"
+    extraction_method: str = "regex_v1"
+    verification_status: str = "secondary_unverified"  # "primary_verified", "secondary_unverified", "disputed"
+    field_scope: str = "college_level"  # "college_level" | "branch_level"
+    is_primary_source: bool = False
+
+    def to_dict(self) -> Dict[str, Any]:
+        return asdict(self)
+
+
+class ScraperCache:
+    """In-memory and file-backed cache with explicit TTL expiry for scraped facts."""
+
+    def __init__(self, ttl_seconds: int = 86400 * 7):  # Default 7 days TTL
+        self.ttl_seconds = ttl_seconds
+        self._cache: Dict[str, Dict[str, Any]] = {}
+
+    def get(self, key: str) -> Optional[Dict[str, Any]]:
+        entry = self._cache.get(key)
+        if not entry:
+            return None
+        cached_time = entry.get("_timestamp", 0)
+        if time.time() - cached_time > self.ttl_seconds:
+            del self._cache[key]
+            return None
+        return entry.get("data")
+
+    def set(self, key: str, data: Dict[str, Any]) -> None:
+        self._cache[key] = {
+            "data": data,
+            "_timestamp": time.time(),
+        }
+
+    def clear(self) -> None:
+        self._cache.clear()
 
 
 # ─────────────────────────────────────────────
@@ -265,9 +316,10 @@ class CollegeWebScraper:
         result  = scraper.fetch("COEP Pune", institute_code="1002")
     """
 
-    def __init__(self, delay_secs: float = 1.0):
+    def __init__(self, delay_secs: float = 1.0, cache_ttl_seconds: int = 86400 * 7):
         self._session = _make_session()
         self._delay = delay_secs
+        self.cache = ScraperCache(ttl_seconds=cache_ttl_seconds)
 
     def fetch(self, college_name: str, institute_code: Optional[str] = None) -> Dict[str, Any]:
         """Scrape college info from multiple web sources. Returns merged dict."""
@@ -349,3 +401,63 @@ class CollegeWebScraper:
             "metadata": meta,
             "id": doc_id,
         }
+
+    def enrich_missing_fields_safely(
+        self,
+        college_record: Dict[str, Any],
+        target_fields: Optional[List[str]] = None,
+    ) -> Dict[str, Any]:
+        """Task 15: Fallback enrichment strictly for missing non-cutoff fields without overwriting authoritative cutoffs."""
+        PROTECTED_AUTHORITATIVE_FIELDS = {
+            "institute_code", "institute_name", "cutoff_percentile", "closing_rank",
+            "historical_cutoffs", "matching_branches", "predicted_cutoff", "predicted_rank"
+        }
+
+        enriched = dict(college_record)
+        scraped_fields_provenance = enriched.setdefault("scraped_provenance", {})
+
+        fields_to_check = target_fields or ["naac_grade", "nirf_rank", "established_year", "affiliation"]
+        missing_fields = [f for f in fields_to_check if not enriched.get(f) and f not in PROTECTED_AUTHORITATIVE_FIELDS]
+
+        if not missing_fields:
+            return enriched
+
+        name = enriched.get("institute_name") or enriched.get("college_name", "")
+        code = str(enriched.get("institute_code", ""))
+        cache_key = f"{code}_{name}"
+
+        scraped_data = self.cache.get(cache_key)
+        if scraped_data is None:
+            scraped_data = self.fetch(name, institute_code=code)
+            self.cache.set(cache_key, scraped_data)
+
+        field_mapping = {
+            "naac_grade": "naac_grade_scraped",
+            "nirf_rank": "nirf_rank_scraped",
+            "established_year": "established_scraped",
+            "affiliation": "affiliation_scraped",
+        }
+
+        for target in missing_fields:
+            scraped_k = field_mapping.get(target)
+            if scraped_k and scraped_data.get(scraped_k):
+                val = scraped_data[scraped_k]
+                source_urls = scraped_data.get("_sources", ["secondary_web"])
+                src = source_urls[0] if source_urls else "secondary_web"
+
+                sc_field = ScrapedField(
+                    field_name=target,
+                    value=val,
+                    source_url=src,
+                    publisher="Secondary Web Directory",
+                    retrieval_timestamp=datetime.now(timezone.utc).isoformat(),
+                    academic_or_placement_year="2024-25",
+                    extraction_method="regex_pattern",
+                    verification_status="secondary_unverified",
+                    field_scope="college_level",
+                    is_primary_source=False,
+                )
+                enriched[target] = val
+                scraped_fields_provenance[target] = sc_field.to_dict()
+
+        return enriched

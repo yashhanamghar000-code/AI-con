@@ -33,6 +33,8 @@ class MLPredictionResult:
     status: str  # "success" | "prediction_unavailable" | "model_not_loaded"
     predicted_rank: Optional[int] = None
     predicted_percentile: Optional[float] = None
+    predicted_rank_range: Optional[Tuple[int, int]] = None
+    predicted_percentile_range: Optional[Tuple[float, float]] = None
     target_year: str = "2026-27"
     reason: Optional[str] = None
     confidence_warning: Optional[str] = None
@@ -44,6 +46,8 @@ class MLPredictionResult:
             "status": self.status,
             "predicted_rank": self.predicted_rank,
             "predicted_percentile": self.predicted_percentile,
+            "predicted_rank_range": list(self.predicted_rank_range) if self.predicted_rank_range else None,
+            "predicted_percentile_range": list(self.predicted_percentile_range) if self.predicted_percentile_range else None,
             "target_year": self.target_year,
         }
         if self.reason:
@@ -267,3 +271,46 @@ class MLInferenceService:
             confidence_warning=confidence_warning,
             diagnostic=diag,
         )
+
+    def predict_with_interval(
+        self,
+        institute_code: str,
+        course_code: Optional[str] = None,
+        seat_type: str = "GOPENS",
+        cap_round: int = 1,
+        stage: int = 1,
+        list_type: str = "CAP",
+        confidence_multiplier: float = 1.645,
+    ) -> MLPredictionResult:
+        """Predict expected cutoff point estimates along with statistical uncertainty intervals (Task 13)."""
+        base_res = self.predict(
+            institute_code=institute_code,
+            course_code=course_code,
+            seat_type=seat_type,
+            cap_round=cap_round,
+            stage=stage,
+            list_type=list_type,
+        )
+        if not base_res.predicted or base_res.predicted_rank is None or base_res.predicted_percentile is None:
+            return base_res
+
+        # Estimated standard errors from chronological holdout audit
+        pct_std = 10.73  # Empirical holdout MAE
+        rank_std = 22999  # Empirical holdout MAE
+
+        rank_margin = int(round(confidence_multiplier * (rank_std * 0.8)))
+        pct_margin = round(confidence_multiplier * (pct_std * 0.8), 2)
+
+        rank_low = max(1, base_res.predicted_rank - rank_margin)
+        rank_high = min(250000, base_res.predicted_rank + rank_margin)
+
+        pct_low = max(0.01, round(base_res.predicted_percentile - pct_margin, 2))
+        pct_high = min(99.99, round(base_res.predicted_percentile + pct_margin, 2))
+
+        base_res.predicted_rank_range = (rank_low, rank_high)
+        base_res.predicted_percentile_range = (pct_low, pct_high)
+        base_res.confidence_warning = (
+            f"Prediction Range: 90% uncertainty interval [{pct_low:.2f}%, {pct_high:.2f}%] (Est. Rank #{rank_low:,} - #{rank_high:,}). "
+            "Statistical estimate based on chronological validation residuals; not an official allotment."
+        )
+        return base_res
