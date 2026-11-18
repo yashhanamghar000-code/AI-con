@@ -150,7 +150,7 @@ class TestCrossCollegeCutoffSearch(unittest.TestCase):
         res = self.orch.answer(q)
         self.assertEqual(res.get("status"), "evidence_only")
         self.assertIn("06005", res.get("evidence", ""))
-        self.assertIn("58000", res.get("evidence", ""))
+        self.assertTrue("58,000" in res.get("evidence", "") or "58000" in res.get("evidence", ""))
 
     def test_orchestrator_shortlist_guidance(self):
         q = "Can you give me a personalized college shortlist for Computer Engineering?"

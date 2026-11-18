@@ -98,7 +98,16 @@ class CutoffAgent:
         self._load_all()
 
     def _load_all(self) -> None:
-        """Scan year directories and index cutoff files by institute code."""
+        """Scan year directories and index cutoff files by institute code with disk caching."""
+        cache_file = self.cutoffs_dir / "cache.pkl"
+        if cache_file.exists():
+            try:
+                import pickle
+                self._by_code = pickle.loads(cache_file.read_bytes())
+                return
+            except Exception:
+                pass
+
         for year_dir in sorted(self.cutoffs_dir.iterdir()):
             if not year_dir.is_dir() or not re.match(r"^\d{4}-\d{2}$", year_dir.name):
                 continue
@@ -118,6 +127,12 @@ class CutoffAgent:
                 # Also index with 5-digit zero-padding if applicable
                 if len(code_str) == 4 and code_str.isdigit():
                     self._by_code.setdefault(code_str.zfill(5), {})[ay] = college
+
+        try:
+            import pickle
+            cache_file.write_bytes(pickle.dumps(self._by_code))
+        except Exception:
+            pass
 
     def years_available(self, institute_code: Union[str, int]) -> List[str]:
         """Return sorted list of academic years available for an institute."""
@@ -167,7 +182,11 @@ class CutoffAgent:
                     for cutoff in cat.get("cutoffs", []):
                         if round_no and cutoff.get("round") != round_no:
                             continue
-                        if cutoff.get("closing_rank") is None:
+                                 # Task 6 fix: only skip when BOTH rank AND percentile are None.
+                        # Previously this silently discarded all percentile-only rows.
+                        _cr6 = cutoff.get("closing_rank")
+                        _cp6 = cutoff.get("closing_percentile")
+                        if _cr6 is None and _cp6 is None:
                             continue
                         if list_type and canonical_list_type(cutoff.get("list_type")) != canonical_list_type(list_type):
                             continue
@@ -228,8 +247,12 @@ class CutoffAgent:
             lines.append(
                 f"[{ev_id}] {r['academic_year']} {r['institute_name']} - "
                 f"{r['branch']} - {r['category']}{meaning}: "
-                f"round {r.get('round')} stage {r.get('stage')}, closing rank {r['closing_rank']}, "
-                f"percentile {r.get('closing_percentile')}, list type {r.get('list_type')}{src_str}"
+                # Task 6 fix: guard None rank/percentile — never display fabricated values.
+                # Note: local vars use _r6/_p6 to avoid shadowing outer 'r'
+                f"round {r.get('round')} stage {r.get('stage')}, "
+                f"closing rank {'#{:,}'.format(r['closing_rank']) if r.get('closing_rank') is not None else 'N/A'}, "
+                f"percentile {'{:.4f}%'.format(r['closing_percentile']) if r.get('closing_percentile') is not None else 'N/A'}, "
+                f"list type {r.get('list_type')}{src_str}"
             )
         return "\n".join(lines)
 
@@ -241,6 +264,7 @@ class CutoffAgent:
         max_rank: Optional[int] = None,
         branch_query: Optional[str] = None,
         category: Optional[str] = None,
+        location: Optional[str] = None,
         year: Optional[str] = None,
         round_no: Optional[int] = None,
         list_type: Optional[str] = None,
@@ -253,12 +277,23 @@ class CutoffAgent:
         """
         matches: List[Dict[str, Any]] = []
         seen_codes = set()
+        loc_clean = location.strip().lower() if location else None
 
         for code in sorted(self._by_code.keys()):
             canon_code = code.zfill(5) if len(code) == 4 and code.isdigit() else code
             if canon_code in seen_codes:
                 continue
             seen_codes.add(canon_code)
+
+            if loc_clean:
+                years_map = self._by_code.get(code, {})
+                inst_name = ""
+                for y_data in years_map.values():
+                    inst_name = y_data.get("institute_name", "")
+                    if inst_name:
+                        break
+                if loc_clean not in inst_name.lower():
+                    continue
 
             records = self.get_cutoffs(
                 canon_code,

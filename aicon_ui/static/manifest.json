@@ -1,0 +1,24 @@
+{
+  "name": "AI-CON: Maharashtra Engineering Admissions AI Counselling System",
+  "short_name": "AI-CON",
+  "description": "Grounded admission intelligence, historical CET Cell cutoffs, and CAP option form planning.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0c121e",
+  "theme_color": "#101b2e",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/static/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/static/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

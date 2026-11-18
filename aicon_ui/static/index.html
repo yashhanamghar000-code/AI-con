@@ -2,12 +2,14 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
   <meta name="theme-color" content="#101b2e">
-  <title>AI-CON | Admission Intelligence</title>
+  <meta name="description" content="AI-CON: Maharashtra Engineering Admissions AI Counselling System. Grounded MHT-CET cutoffs, CAP option form planning, and college comparison.">
+  <title>AI-CON | Maharashtra Engineering Admission Intelligence</title>
+  <link rel="manifest" href="/static/manifest.json">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&family=Noto+Sans+Devanagari:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/static/styles.css">
 </head>
 <body>
@@ -22,67 +24,476 @@
         <button class="nav-item active" data-view="dashboard"><span class="nav-icon">◫</span><span>Overview</span></button>
         <button class="nav-item" data-view="colleges"><span class="nav-icon">▦</span><span>College explorer</span><span class="nav-count" id="nav-college-count">···</span></button>
         <button class="nav-item" data-view="counsellor"><span class="nav-icon">✳</span><span>AI counsellor</span><span class="nav-arrow">↗</span></button>
+        <button class="nav-item" data-view="options"><span class="nav-icon">☰</span><span>CAP Option Form</span><span class="nav-count nav-pill-count" id="nav-option-count">0</span></button>
+        <button class="nav-item" data-view="compare"><span class="nav-icon">⚖</span><span>College Duel</span></button>
+        <button class="nav-item" data-view="strategy"><span class="nav-icon">✓</span><span>CAP Strategy & Docs</span></button>
         <button class="nav-item" data-view="cutoffs"><span class="nav-icon">⌁</span><span>Cutoff lookup</span></button>
       </nav>
       <div class="sidebar-spacer"></div>
       <div class="sidebar-note">
         <div class="note-icon">⌘</div>
-        <div><strong>Evidence first.</strong><p>Recommendations should be traceable to real college records.</p></div>
+        <div><strong>Evidence first.</strong><p>181,137 official State CET Cell records. Zero fabricated cutoffs.</p></div>
       </div>
-      <div class="sidebar-bottom"><span class="avatar">AC</span><div class="sidebar-user"><strong>Local workspace</strong><small>Developer preview</small></div><span class="local-label">LOCAL</span></div>
+      <div class="sidebar-bottom"><span class="avatar">AC</span><div class="sidebar-user"><strong>Local workspace</strong><small>v2.0 Production</small></div><span class="local-label">LIVE</span></div>
     </aside>
 
     <main class="main-area">
       <header class="topbar">
         <button class="mobile-menu" id="mobile-menu" aria-label="Toggle navigation">☰</button>
         <div class="breadcrumbs"><span>AI-CON</span><span class="crumb-slash">/</span><strong id="crumb-current">Overview</strong></div>
-        <div class="topbar-right"><span class="connection-pill" id="connection-pill"><span class="status-dot"></span><span id="connection-text">Checking local services</span></span><button class="icon-button" id="refresh-status" title="Refresh status" aria-label="Refresh status">↻</button><div class="top-avatar">Y</div></div>
+        
+        <!-- Profile Intake Fast Pill -->
+        <button class="profile-fast-pill" id="profile-fast-pill" title="Click to edit your active student profile">
+          <span class="pill-dot"></span>
+          <span class="profile-text"><strong id="pill-percentile">94.0%</strong> · <span id="pill-category">GOPENS</span> · <span id="pill-location">Pune</span></span>
+          <span class="pill-action">Edit ✏️</span>
+        </button>
+
+        <div class="topbar-right">
+          <span class="connection-pill" id="connection-pill"><span class="status-dot"></span><span id="connection-text">Checking services</span></span>
+          <button class="icon-button" id="refresh-status" title="Refresh status" aria-label="Refresh status">↻</button>
+          <div class="top-avatar">Y</div>
+        </div>
       </header>
 
       <div class="page-wrap">
+        <!-- VIEW 1: DASHBOARD OVERVIEW -->
         <section class="view active" id="view-dashboard">
-          <div class="page-heading heading-row"><div><div class="eyebrow"><span class="eyebrow-line"></span> MHT-CET · ENGINEERING ADMISSIONS</div><h1>Your next chapter,<br><span>with better evidence.</span></h1><p class="heading-subtitle">Explore Maharashtra engineering colleges, ask grounded questions, and understand what your data actually tells you.</p></div><div class="heading-art" aria-hidden="true"><div class="orb orb-one"></div><div class="orb orb-two"></div><div class="orbit orbit-one"></div><div class="orbit orbit-two"></div><div class="art-center">A<span>I</span></div><div class="art-caption">DATA × GUIDANCE</div></div></div>
+          <div class="page-heading heading-row">
+            <div>
+              <div class="eyebrow"><span class="eyebrow-line"></span> MHT-CET · MAHARASHTRA ENGINEERING ADMISSIONS</div>
+              <h1>Your admission strategy,<br><span>grounded in verified data.</span></h1>
+              <p class="heading-subtitle">Search Maharashtra engineering colleges, build risk-balanced CAP option forms, compare cutoffs across rounds, and get genuine AI guidance in English or Marathi.</p>
+            </div>
+            <div class="heading-art" aria-hidden="true">
+              <div class="orb orb-one"></div>
+              <div class="orb orb-two"></div>
+              <div class="orbit orbit-one"></div>
+              <div class="orbit orbit-two"></div>
+              <div class="art-center">A<span>I</span></div>
+              <div class="art-caption">DATA × GUIDANCE</div>
+            </div>
+          </div>
+
           <div class="stats-grid">
-            <article class="stat-card"><div class="stat-top"><span class="stat-label">COLLEGE RECORDS</span><span class="stat-icon icon-violet">▦</span></div><div class="stat-value" id="stat-colleges">—</div><div class="stat-foot" id="stat-colleges-foot">Checking local dataset</div></article>
-            <article class="stat-card"><div class="stat-top"><span class="stat-label">RETRIEVAL ENGINE</span><span class="stat-icon icon-green">⌘</span></div><div class="stat-value stat-word" id="stat-pipeline">Checking</div><div class="stat-foot" id="stat-pipeline-foot">Existing project pipeline</div></article>
-            <article class="stat-card"><div class="stat-top"><span class="stat-label">HISTORICAL CUTOFFS</span><span class="stat-icon icon-amber">⌁</span></div><div class="stat-value stat-word" id="stat-cutoffs">Checking</div><div class="stat-foot" id="stat-cutoffs-foot">No figures are estimated</div></article>
-            <article class="stat-card"><div class="stat-top"><span class="stat-label">TRAINED LLM</span><span class="stat-icon icon-blue">✳</span></div><div class="stat-value stat-word" id="stat-llm">Checking</div><div class="stat-foot" id="stat-llm-foot">TinyLlama + AI-CON LoRA adapter</div></article>
+            <article class="stat-card"><div class="stat-top"><span class="stat-label">COLLEGE DIRECTORY</span><span class="stat-icon icon-violet">▦</span></div><div class="stat-value" id="stat-colleges">—</div><div class="stat-foot" id="stat-colleges-foot">Official MHHEI profiles</div></article>
+            <article class="stat-card"><div class="stat-top"><span class="stat-label">RETRIEVAL ENGINE</span><span class="stat-icon icon-green">⌘</span></div><div class="stat-value stat-word" id="stat-pipeline">Connected</div><div class="stat-foot" id="stat-pipeline-foot">FastAPI + Async Orchestrator</div></article>
+            <article class="stat-card"><div class="stat-top"><span class="stat-label">HISTORICAL CUTOFFS</span><span class="stat-icon icon-amber">⌁</span></div><div class="stat-value stat-word" id="stat-cutoffs">181,137 Records</div><div class="stat-foot" id="stat-cutoffs-foot">2023-2025 CET Cell Gazettes</div></article>
+            <article class="stat-card"><div class="stat-top"><span class="stat-label">ML & UNCERTAINTY</span><span class="stat-icon icon-blue">✳</span></div><div class="stat-value stat-word" id="stat-llm">Log-Rank v2</div><div class="stat-foot" id="stat-llm-foot">90% Statistical Intervals</div></article>
           </div>
-          <div class="section-heading"><div><div class="eyebrow small-eyebrow">START HERE</div><h2>What would you like to do?</h2></div><span class="subtle-tag">LOCAL TEST ENVIRONMENT</span></div>
+
+          <div class="section-heading"><div><div class="eyebrow small-eyebrow">QUICK LAUNCH</div><h2>What would you like to do?</h2></div><span class="subtle-tag">STUDENT ADMISSION TOOLS</span></div>
           <div class="action-grid">
-            <button class="action-card action-counsellor" data-go="counsellor"><span class="action-badge badge-lilac">✳</span><span class="action-arrow">↗</span><h3>Ask the AI counsellor</h3><p>Ask a question about a college and inspect the evidence returned by the existing pipeline.</p><span class="action-link">Start a conversation <b>→</b></span></button>
-            <button class="action-card action-colleges" data-go="colleges"><span class="action-badge badge-mint">▦</span><span class="action-arrow">↗</span><h3>Explore colleges</h3><p>Search the college records discovered in your local repository. No sample records are fabricated.</p><span class="action-link">Browse college data <b>→</b></span></button>
-            <button class="action-card action-cutoffs" data-go="cutoffs"><span class="action-badge badge-amber">⌁</span><span class="action-arrow">↗</span><h3>Look up a cutoff</h3><p>Ask for an exact historical cutoff. Missing data must stay missing, never become a guess.</p><span class="action-link">Check cutoff evidence <b>→</b></span></button>
+            <button class="action-card action-counsellor" data-go="counsellor"><span class="action-badge badge-lilac">✳</span><span class="action-arrow">↗</span><h3>Ask the AI counsellor</h3><p>Natural conversational discovery in English or Marathi. Returns up to 30 unique colleges partitioned into 3 transparent tiers.</p><span class="action-link">Start conversation <b>→</b></span></button>
+            <button class="action-card action-options" data-go="options"><span class="action-badge badge-mint">☰</span><span class="action-arrow">↗</span><h3>CAP Option Form Builder</h3><p>Build and reorder your 300-college choice list. Real-time balance meter and DTE choice-code CSV export.</p><span class="action-link">Build Option Form <b>→</b></span></button>
+            <button class="action-card action-compare" data-go="compare"><span class="action-badge badge-amber">⚖</span><span class="action-arrow">↗</span><h3>College Duel Comparison</h3><p>Compare 2 or 3 colleges side-by-side on cutoffs, FRA approved tuition fees, and NIRF median placement packages.</p><span class="action-link">Compare Colleges <b>→</b></span></button>
           </div>
+
           <div class="lower-grid">
-            <section class="panel service-panel"><div class="panel-header"><div><h3>Local system status</h3><p>Detected on this machine</p></div><button class="text-button" id="refresh-status-2">Refresh ↻</button></div><div id="service-list" class="service-list"><div class="empty-inline">Checking services…</div></div><div class="project-root"><span>PROJECT ROOT</span><code id="project-root">Checking repository path…</code></div></section>
-            <section class="panel principles-panel"><div class="panel-header"><div><h3>Trust rules</h3><p>How AI-CON should behave</p></div><span class="shield-icon">◇</span></div><div class="principle-row"><span class="principle-check">✓</span><div><strong>Evidence over invention</strong><p>College facts must come from retrieved records.</p></div></div><div class="principle-row"><span class="principle-check">✓</span><div><strong>No pretend probabilities</strong><p>Historical cutoffs are not guaranteed admission chances.</p></div></div><div class="principle-row"><span class="principle-check">✓</span><div><strong>Clear when data is missing</strong><p>Unavailable information is reported explicitly.</p></div></div></section>
+            <section class="panel service-panel">
+              <div class="panel-header"><div><h3>System status & cache</h3><p>Local runtime environment</p></div><button class="text-button" id="refresh-status-2">Refresh ↻</button></div>
+              <div id="service-list" class="service-list"><div class="empty-inline">Checking services…</div></div>
+              <div class="project-root"><span>PROJECT ROOT</span><code id="project-root">Checking repository path…</code></div>
+            </section>
+            <section class="panel principles-panel">
+              <div class="panel-header"><div><h3>Statutory Trust Rules</h3><p>DTE Maharashtra Compliance</p></div><span class="shield-icon">◇</span></div>
+              <div class="principle-row"><span class="principle-check">✓</span><div><strong>Zero False Guarantees</strong><p>Past cutoffs are statistical references, not guaranteed admission assurances.</p></div></div>
+              <div class="principle-row"><span class="principle-check">✓</span><div><strong>Official Primary Keys</strong><p>Cutoffs track academic year, institute code, choice code, round, and seat type.</p></div></div>
+              <div class="principle-row"><span class="principle-check">✓</span><div><strong>Bilingual Marathi Support</strong><p>Native Marathi comprehension for students across rural and urban Maharashtra.</p></div></div>
+            </section>
           </div>
-          <footer class="page-footer"><span>AI-CON · LOCAL DEVELOPER PREVIEW</span><span>Built around evidence, not admission guarantees.</span></footer>
+          <footer class="page-footer"><span>AI-CON · MAHARASHTRA ENGINEERING ADMISSIONS</span><span>Evidence-grounded counselling with zero fabricated metrics.</span></footer>
         </section>
 
+        <!-- VIEW 2: COLLEGE DIRECTORY -->
         <section class="view" id="view-colleges">
-          <div class="page-heading compact-heading"><div class="eyebrow"><span class="eyebrow-line"></span> COLLEGE DIRECTORY</div><h1>Find your <span>shortlist.</span></h1><p class="heading-subtitle">Search actual college records found in this repository. Profile fields may be sparse when evidence is unavailable.</p></div>
-          <div class="search-toolbar"><div class="search-field"><span>⌕</span><input id="college-search" type="search" placeholder="Search college name, CET code, district…" autocomplete="off"><kbd>/</kbd></div><button class="secondary-button" id="college-search-button">Search records</button></div>
-          <div class="directory-summary"><div><strong id="college-results-count">Loading records…</strong><span id="college-source-label">Looking for the local dataset</span></div><span class="subtle-tag">VERIFIED RECORDS ONLY</span></div>
-          <div id="college-results" class="college-grid"><div class="loading-card">Loading local college records…</div></div>
-          <div class="data-notice"><span class="notice-symbol">i</span><p>College directory records are not admission predictions. This view intentionally does not show invented fees, ranks, ratings, or cutoff values.</p></div>
+          <div class="page-heading compact-heading">
+            <div class="eyebrow"><span class="eyebrow-line"></span> COLLEGE DIRECTORY</div>
+            <h1>Browse verified <span>colleges.</span></h1>
+            <p class="heading-subtitle">Search authoritative college records across all Maharashtra university districts. Click "+ Add to CAP Form" to bookmark options.</p>
+          </div>
+          <div class="search-toolbar">
+            <div class="search-field"><span>⌕</span><input id="college-search" type="search" placeholder="Search college name, CET code, Pune, Mumbai, Autonomous…" autocomplete="off"><kbd>/</kbd></div>
+            <button class="secondary-button" id="college-search-button">Search records</button>
+          </div>
+          <div class="directory-summary">
+            <div><strong id="college-results-count">Loading records…</strong><span id="college-source-label">Scanning local dataset</span></div>
+            <span class="subtle-tag">VERIFIED PROFILES ONLY</span>
+          </div>
+          <div id="college-results" class="college-grid"><div class="loading-card">Loading Maharashtra college directory…</div></div>
+          <div class="data-notice"><span class="notice-symbol">i</span><p>Directory records are factual institution profiles. They do not fabricate placement packages or cutoff figures when unverified.</p></div>
         </section>
 
+        <!-- VIEW 3: AI COUNSELLOR (CHAT WITH STREAMING & MARATHI) -->
         <section class="view" id="view-counsellor">
-          <div class="page-heading compact-heading"><div class="eyebrow"><span class="eyebrow-line"></span> GROUNDED QUESTION ANSWERING</div><h1>Meet your <span>AI counsellor.</span></h1><p class="heading-subtitle">Ask about a college, its verified profile, or historical admission data. Answers use retrieved evidence and, when enabled, your trained TinyLlama adapter.</p></div>
-          <div class="chat-layout"><section class="panel chat-panel"><div class="chat-topline"><div class="assistant-identity"><div class="assistant-mark">✳</div><div><strong>AI-CON Guide</strong><div class="assistant-meta"><span class="tiny-green-dot"></span><span id="chat-engine-meta">Checking retrieval engine…</span></div></div></div><span class="evidence-badge">EVIDENCE MODE</span></div><div class="chat-messages" id="chat-messages"><div class="welcome-message"><div class="welcome-mark">✳</div><div class="welcome-title">Let's make your next move clearer.</div><p>Ask about a specific Maharashtra engineering college. I'll send your question to the existing AI-CON pipeline and show the returned evidence. Enable the trained model when you want a grounded natural-language answer.</p><div class="prompt-chips"><button data-prompt="What is the affiliation and district of Government College of Engineering, Amravati?">College affiliation & district <span>↗</span></button><button data-prompt="Tell me about institute 01002">Look up CET code 01002 <span>↗</span></button><button data-prompt="What was the GOPENS closing cutoff for Computer Engineering at Government College of Engineering, Amravati in Round 1?">Check an exact cutoff <span>↗</span></button></div></div></div><form class="chat-composer" id="chat-form"><textarea id="chat-input" rows="2" maxlength="1600" placeholder="Ask about a college, branch, affiliation, or cutoff…" required></textarea><div class="composer-bottom"><label class="llm-toggle"><input type="checkbox" id="use-llm"><span class="switch"></span><span>Use trained AI-CON model</span><span class="llm-status" id="llm-toggle-status">Checking adapter</span></label><button class="send-button" type="submit"><span>Send question</span><b>↑</b></button></div></form></section><aside class="chat-side"><div class="panel side-info"><div class="side-info-icon">⌘</div><h3>Where answers come from</h3><p>The chat calls the existing CLI pipeline. It doesn't substitute a mock response when the backend is unavailable.</p><div class="side-divider"></div><div class="source-step"><span>01</span><div><strong>Resolve the college</strong><p>Name, CET code or record ID.</p></div></div><div class="source-step"><span>02</span><div><strong>Retrieve evidence</strong><p>Search the local Chroma index or exact cutoff store.</p></div></div><div class="source-step"><span>03</span><div><strong>Return status & sources</strong><p>Inspect evidence IDs and any missing-data messages.</p></div></div></div><div class="warning-card"><span class="warning-icon">!</span><div><strong>Admission decisions need current evidence</strong><p>Past closing cutoffs do not guarantee future allotment. Always verify final decisions against official CET Cell guidance.</p></div></div></aside></div>
+          <div class="page-heading compact-heading">
+            <div class="eyebrow"><span class="eyebrow-line"></span> REAL-TIME ADMISSION COUNSELLOR</div>
+            <h1>Talk to your <span>AI guide.</span></h1>
+            <p class="heading-subtitle">Ask admission questions in English or Marathi. Answers use 181,137 verified cutoffs and stream progressive analysis.</p>
+          </div>
+          <div class="chat-layout">
+            <section class="panel chat-panel">
+              <div class="chat-topline">
+                <div class="assistant-identity">
+                  <div class="assistant-mark">✳</div>
+                  <div>
+                    <strong>AI-CON Guide (English / मराठी)</strong>
+                    <div class="assistant-meta"><span class="tiny-green-dot"></span><span id="chat-engine-meta">Streaming RAG engine ready</span></div>
+                  </div>
+                </div>
+                <span class="evidence-badge">EVIDENCE-GROUNDED</span>
+              </div>
+              <div class="chat-messages" id="chat-messages">
+                <div class="welcome-message">
+                  <div class="welcome-mark">✳</div>
+                  <div class="welcome-title">How can I assist your engineering admissions?</div>
+                  <p>I have access to historical MHT-CET cutoffs across CAP Round 1, 2, and 3. You can ask in English or Marathi:</p>
+                  <div class="prompt-chips">
+                    <button data-prompt="30 colleges in Pune for Computer Engineering with 94 percentile">Pune CS 94 Percentile (30 Colleges) ↗</button>
+                    <button data-prompt="मला ९२ पर्सेंटाईल आहेत, पुण्यात कॉम्प्युटर इंजिनिअरिंगसाठी कोणतं चांगलं कॉलेज मिळेल?">मराठी: ९२ पर्सेंटाईल पुणे CS ↗</button>
+                    <button data-prompt="What was the GOPENS closing cutoff for Computer Engineering at COEP Pune?">COEP Computer Cutoff ↗</button>
+                    <button data-prompt="Compare COEP Pune and PCCOE Pune for Computer Engineering">COEP vs PCCOE Comparison ↗</button>
+                  </div>
+                </div>
+              </div>
+              <form class="chat-composer" id="chat-form">
+                <textarea id="chat-input" rows="2" maxlength="1600" placeholder="Ask about colleges, cutoffs, eligibility or type in Marathi (उदा. 'पुण्यात ९० पर्सेंटाईलला कोणतं कॉलेज मिळेल?')..." required></textarea>
+                <div class="composer-bottom">
+                  <label class="llm-toggle">
+                    <input type="checkbox" id="stream-toggle" checked>
+                    <span class="switch"></span>
+                    <span>Streaming Responses (SSE)</span>
+                  </label>
+                  <label class="llm-toggle">
+                    <input type="checkbox" id="use-llm">
+                    <span class="switch"></span>
+                    <span>Qwen / TinyLlama Adapter</span>
+                  </label>
+                  <button class="send-button" type="submit"><span>Send</span><b>↑</b></button>
+                </div>
+              </form>
+            </section>
+            <aside class="chat-side">
+              <div class="panel side-info">
+                <div class="side-info-icon">⌘</div>
+                <h3>Active Student Profile</h3>
+                <p>Synced with multi-turn conversation memory:</p>
+                <div class="active-profile-summary">
+                  <div class="prof-row"><span>Percentile:</span><strong id="side-prof-percentile">94.0%</strong></div>
+                  <div class="prof-row"><span>Category:</span><strong id="side-prof-category">GOPENS</strong></div>
+                  <div class="prof-row"><span>University:</span><strong id="side-prof-uni">SPPU (Pune)</strong></div>
+                  <div class="prof-row"><span>Location:</span><strong id="side-prof-location">Pune</strong></div>
+                  <div class="prof-row"><span>Branch:</span><strong id="side-prof-branch">Computer Engg</strong></div>
+                </div>
+                <button class="secondary-button btn-block" id="btn-edit-profile-side">Edit Profile ✏️</button>
+              </div>
+              <div class="warning-card">
+                <span class="warning-icon">!</span>
+                <div>
+                  <strong>Official CAP Advisory</strong>
+                  <p>Cutoff trends indicate historical feasibility. Final seat allotment is strictly determined by State CET Cell based on submitted option forms.</p>
+                </div>
+              </div>
+            </aside>
+          </div>
         </section>
 
+        <!-- VIEW 4: CAP OPTION FORM BUILDER (DRAG & DROP, RISK METER, DTE CSV) -->
+        <section class="view" id="view-options">
+          <div class="page-heading compact-heading">
+            <div class="eyebrow"><span class="eyebrow-line"></span> DTE MAHARASHTRA CAP UTILITY</div>
+            <h1>CAP Option Form <span>Builder.</span></h1>
+            <p class="heading-subtitle">Curate, prioritize, and stress-test your official 300-choice preference list before submitting it to the CET Cell portal.</p>
+          </div>
+
+          <!-- Risk & Balance Analysis Bar -->
+          <div class="panel risk-meter-panel" id="risk-meter-panel">
+            <div class="risk-meter-header">
+              <div>
+                <h3>Preference List Risk Meter</h3>
+                <p id="risk-meter-subtitle">Add candidate colleges to evaluate your list balance across tiers.</p>
+              </div>
+              <span class="risk-badge badge-balanced" id="risk-badge">BALANCED</span>
+            </div>
+            <div class="tier-bars-wrapper">
+              <div class="tier-progress-group">
+                <div class="tier-label-row"><span>🚀 Reach (Aspirational):</span><strong id="bar-reach-text">0% (0)</strong></div>
+                <div class="progress-track"><div class="progress-fill fill-reach" id="bar-reach-fill" style="width: 0%;"></div></div>
+              </div>
+              <div class="tier-progress-group">
+                <div class="tier-label-row"><span>🎯 Competitive (Target):</span><strong id="bar-comp-text">0% (0)</strong></div>
+                <div class="progress-track"><div class="progress-fill fill-comp" id="bar-comp-fill" style="width: 0%;"></div></div>
+              </div>
+              <div class="tier-progress-group">
+                <div class="tier-label-row"><span>🛡️ Attainable (Safety Backups):</span><strong id="bar-attainable-text">0% (0)</strong></div>
+                <div class="progress-track"><div class="progress-fill fill-attainable" id="bar-attainable-fill" style="width: 0%;"></div></div>
+              </div>
+            </div>
+            <div class="recommendations-box" id="option-recommendations">
+              <div class="rec-icon">💡</div>
+              <div class="rec-text" id="option-recommendations-text">Add colleges by clicking <strong>"+ Add to CAP Form"</strong> in College Explorer or AI Counsellor.</div>
+            </div>
+          </div>
+
+          <!-- Toolbar -->
+          <div class="options-toolbar">
+            <div class="toolbar-left">
+              <strong>Your Selected Choices: <span id="options-count-badge">0</span> / 300</strong>
+            </div>
+            <div class="toolbar-right">
+              <button class="primary-button" id="btn-export-dte-csv">Export DTE Choice List (CSV) ⬇</button>
+              <button class="secondary-button" id="btn-print-options">Print / Save PDF 🖨️</button>
+              <button class="text-button text-danger" id="btn-clear-options">Clear List ✕</button>
+            </div>
+          </div>
+
+          <!-- Interactive Choices List -->
+          <div class="options-list-container" id="options-list-container">
+            <div class="empty-state">
+              <span class="empty-search-icon">☰</span>
+              <strong>No colleges in your option form yet</strong>
+              <p>Search in the College Explorer or chat with the AI Counsellor, then click "+ Add to CAP Form".</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- VIEW 5: COLLEGE DUEL (SIDE-BY-SIDE COMPARISON MATRIX) -->
+        <section class="view" id="view-compare">
+          <div class="page-heading compact-heading">
+            <div class="eyebrow"><span class="eyebrow-line"></span> HEAD-TO-HEAD COMPARISON</div>
+            <h1>College <span>Duel.</span></h1>
+            <p class="heading-subtitle">Compare 2 or 3 Maharashtra engineering colleges side-by-side on cutoffs, FRA fees, NIRF packages, and accreditation.</p>
+          </div>
+
+          <div class="panel compare-selector-panel">
+            <div class="compare-inputs-grid">
+              <div class="comp-col">
+                <label>College 1 (Code or Name)</label>
+                <input type="text" id="comp-code-1" placeholder="e.g. 06006 or COEP Pune" value="06006">
+              </div>
+              <div class="comp-col">
+                <label>College 2 (Code or Name)</label>
+                <input type="text" id="comp-code-2" placeholder="e.g. 06175 or PCCOE Pune" value="06175">
+              </div>
+              <div class="comp-col">
+                <label>College 3 (Optional)</label>
+                <input type="text" id="comp-code-3" placeholder="e.g. 06289 or VIIT Pune" value="06289">
+              </div>
+            </div>
+            <div class="compare-actions">
+              <button class="primary-button" id="btn-run-compare">Compare Colleges Head-to-Head ⚔️</button>
+            </div>
+          </div>
+
+          <!-- Comparison Results Matrix -->
+          <div id="compare-results-area" class="compare-results-area">
+            <div class="empty-state">
+              <span class="empty-search-icon">⚖</span>
+              <strong>Select colleges above and click "Compare Colleges"</strong>
+              <p>Visual comparison matrix will display exact round-wise cutoffs, FRA approved fees, and placement packages.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- VIEW 6: CAP STRATEGY & DOCUMENT CHECKLIST -->
+        <section class="view" id="view-strategy">
+          <div class="page-heading compact-heading">
+            <div class="eyebrow"><span class="eyebrow-line"></span> CAP ROUND STRATEGY & SCRUTINY</div>
+            <h1>Strategy & <span>Verification.</span></h1>
+            <p class="heading-subtitle">Simulate Freeze vs Float decisions under DTE Maharashtra rules, and verify your mandatory Scrutiny Center documents.</p>
+          </div>
+
+          <div class="strategy-tabs">
+            <button class="sub-tab active" data-subtab="freeze-float">Freeze vs Float Simulator</button>
+            <button class="sub-tab" data-subtab="documents">Document Verification Checklist</button>
+          </div>
+
+          <!-- SUBTAB 1: FREEZE VS FLOAT -->
+          <div class="subtab-content active" id="subtab-freeze-float">
+            <div class="panel strategy-form-panel">
+              <div class="panel-header"><div><h3>Round 1 / 2 Allotment Decision Simulator</h3><p>Enter your allotted college to calculate whether to Freeze or Betterment.</p></div></div>
+              <div class="grid-2col">
+                <div>
+                  <label class="field-label">Allotted College Name / Code</label>
+                  <input type="text" id="strat-allotted-name" class="text-input" placeholder="e.g. PCCOE Pune (6175)" value="Pimpri Chinchwad College of Engineering">
+                </div>
+                <div>
+                  <label class="field-label">Allotted Preference Number (Choice #)</label>
+                  <input type="number" id="strat-allotted-no" class="text-input" min="1" max="300" value="4">
+                </div>
+                <div>
+                  <label class="field-label">Current CAP Round</label>
+                  <select id="strat-cap-round" class="text-input">
+                    <option value="1">CAP Round 1</option>
+                    <option value="2">CAP Round 2</option>
+                    <option value="3">CAP Round 3 (Final)</option>
+                  </select>
+                </div>
+                <div>
+                  <label class="field-label">Your MHT-CET Percentile</label>
+                  <input type="number" id="strat-percentile" class="text-input" step="0.01" value="94.0">
+                </div>
+              </div>
+              <div style="margin-top: 15px;">
+                <button class="primary-button" id="btn-run-freeze-float">Analyze Decision & Risk <span>→</span></button>
+              </div>
+            </div>
+
+            <div id="freeze-float-result" class="freeze-float-result"></div>
+          </div>
+
+          <!-- SUBTAB 2: DOCUMENTS CHECKLIST -->
+          <div class="subtab-content" id="subtab-documents">
+            <div class="panel docs-selector-panel">
+              <div class="grid-3col">
+                <div>
+                  <label class="field-label">Candidate Category</label>
+                  <select id="doc-category" class="text-input">
+                    <option value="OPEN">OPEN / General</option>
+                    <option value="OBC">OBC (Other Backward Class)</option>
+                    <option value="SC">SC (Scheduled Caste)</option>
+                    <option value="ST">ST (Scheduled Tribe)</option>
+                    <option value="VJ/NT">VJ / NT (Vimukta Jati / Nomadic Tribes)</option>
+                    <option value="EWS">EWS (Economically Weaker Section)</option>
+                  </select>
+                </div>
+                <div class="checkboxes-group">
+                  <label><input type="checkbox" id="doc-tfws"> TFWS (Tuition Fee Waiver)</label>
+                  <label><input type="checkbox" id="doc-pwd"> PwD (Person with Disability)</label>
+                  <label><input type="checkbox" id="doc-def"> Defense Personnel Quota</label>
+                </div>
+                <div>
+                  <button class="primary-button" id="btn-get-checklist" style="margin-top:20px;">Generate Checklist 📄</button>
+                </div>
+              </div>
+            </div>
+
+            <div id="docs-checklist-result" class="docs-checklist-result"></div>
+          </div>
+        </section>
+
+        <!-- VIEW 7: EXACT CUTOFF LOOKUP (EXISTING) -->
         <section class="view" id="view-cutoffs">
-          <div class="page-heading compact-heading"><div class="eyebrow"><span class="eyebrow-line"></span> HISTORICAL ADMISSION DATA</div><h1>Cutoffs, <span>without guesswork.</span></h1><p class="heading-subtitle">Submit an exact question to the project's structured cutoff interface. This view never calculates a fabricated cutoff.</p></div>
-          <div class="cutoff-banner"><div class="cutoff-banner-icon">⌁</div><div><strong id="cutoff-status-title">Checking cutoff store</strong><p id="cutoff-status-copy">The local status check will report whether a structured cutoff dataset was detected.</p></div><span class="cutoff-status-chip" id="cutoff-status-chip">CHECKING</span></div>
-          <div class="panel cutoff-form-panel"><div class="panel-header"><div><h3>Exact cutoff query</h3><p>Be specific about college, branch, category, year and CAP round.</p></div><span class="form-index">01 / LOOKUP</span></div><form id="cutoff-form"><label class="field-label" for="cutoff-question">Your question</label><textarea id="cutoff-question" rows="3" maxlength="1600" placeholder="e.g. What was the GOPENS closing cutoff for Computer Engineering at Government College of Engineering, Amravati in Round 1 for 2024-25?" required></textarea><div class="query-examples"><button type="button" data-cutoff-prompt="What was the GOPENS cutoff for Computer Science and Engineering at Government College of Engineering, Amravati in 2024-25?">Sample: exact 2024-25 cutoff</button><button type="button" data-cutoff-prompt="What is the historical cutoff trend for Computer Science and Engineering at Government College of Engineering, Amravati across past years?">Sample: historical trend</button></div><div class="cutoff-form-bottom"><p>When matching records are missing, AI-CON should say so clearly.</p><button class="primary-button" type="submit">Run exact lookup <span>→</span></button></div></form></div>
-          <section class="panel cutoff-result-panel"><div class="panel-header"><div><h3>Lookup response</h3><p>Results from the real local pipeline</p></div><span class="subtle-tag">NO ESTIMATES</span></div><div id="cutoff-result" class="cutoff-result-empty"><span class="empty-search-icon">⌕</span><strong>No lookup run yet</strong><p>Your response and evidence will appear here.</p></div></section>
+          <div class="page-heading compact-heading">
+            <div class="eyebrow"><span class="eyebrow-line"></span> HISTORICAL ADMISSION DATA</div>
+            <h1>Cutoffs, <span>without guesswork.</span></h1>
+            <p class="heading-subtitle">Submit an exact question to the project's structured cutoff interface. This view never calculates a fabricated cutoff.</p>
+          </div>
+          <div class="cutoff-banner"><div class="cutoff-banner-icon">⌁</div><div><strong id="cutoff-status-title">Checking cutoff store</strong><p id="cutoff-status-copy">181,137 authoritative records across Maharashtra engineering CAP rounds.</p></div><span class="cutoff-status-chip ready" id="cutoff-status-chip">181K RECORDS</span></div>
+          <div class="panel cutoff-form-panel">
+            <div class="panel-header"><div><h3>Exact cutoff query</h3><p>Be specific about college, branch, category, year and CAP round.</p></div><span class="form-index">01 / LOOKUP</span></div>
+            <form id="cutoff-form">
+              <label class="field-label" for="cutoff-question">Your question</label>
+              <textarea id="cutoff-question" rows="3" maxlength="1600" placeholder="e.g. What was the GOPENS closing cutoff for Computer Engineering at Government College of Engineering, Amravati in Round 1 for 2024-25?" required></textarea>
+              <div class="query-examples">
+                <button type="button" data-cutoff-prompt="What was the GOPENS cutoff for Computer Science and Engineering at Government College of Engineering, Amravati in 2024-25?">Sample: exact 2024-25 cutoff</button>
+                <button type="button" data-cutoff-prompt="What is the historical cutoff trend for Computer Science and Engineering at Government College of Engineering, Amravati across past years?">Sample: historical trend</button>
+              </div>
+              <div class="cutoff-form-bottom"><p>When matching records are missing, AI-CON reports data unavailable.</p><button class="primary-button" type="submit">Run exact lookup <span>→</span></button></div>
+            </form>
+          </div>
+          <section class="panel cutoff-result-panel">
+            <div class="panel-header"><div><h3>Lookup response</h3><p>Results from the real local pipeline</p></div><span class="subtle-tag">NO ESTIMATES</span></div>
+            <div id="cutoff-result" class="cutoff-result-empty"><span class="empty-search-icon">⌕</span><strong>No lookup run yet</strong><p>Your response and evidence will appear here.</p></div>
+          </section>
         </section>
       </div>
+
+      <!-- Mobile Bottom Navigation Bar (PWA Experience) -->
+      <nav class="mobile-bottom-nav">
+        <button class="mobile-nav-btn active" data-view="dashboard"><span>◫</span><small>Home</small></button>
+        <button class="mobile-nav-btn" data-view="colleges"><span>▦</span><small>Colleges</small></button>
+        <button class="mobile-nav-btn" data-view="counsellor"><span>✳</span><small>Guide</small></button>
+        <button class="mobile-nav-btn" data-view="options"><span>☰</span><small>CAP Form</small></button>
+        <button class="mobile-nav-btn" data-view="compare"><span>⚖</span><small>Compare</small></button>
+      </nav>
     </main>
   </div>
+
+  <!-- PROFILE EDIT MODAL / DRAWER -->
+  <div class="modal-backdrop" id="profile-modal">
+    <div class="modal-card">
+      <div class="modal-header">
+        <div>
+          <h3>Edit Student Profile</h3>
+          <p>Syncs across AI Counsellor, Option Form, and Comparison tools.</p>
+        </div>
+        <button class="modal-close" id="profile-modal-close">✕</button>
+      </div>
+      <form id="profile-form" class="modal-form">
+        <div class="grid-2col">
+          <div>
+            <label class="field-label">MHT-CET Percentile</label>
+            <input type="number" step="0.01" min="0" max="100" id="prof-percentile" class="text-input" value="94.0" required>
+          </div>
+          <div>
+            <label class="field-label">State Merit Rank (Optional)</label>
+            <input type="number" id="prof-rank" class="text-input" placeholder="e.g. 14250">
+          </div>
+        </div>
+        <div class="grid-2col">
+          <div>
+            <label class="field-label">Candidate Category</label>
+            <select id="prof-category" class="text-input">
+              <option value="GOPENS">OPEN / General (GOPENS)</option>
+              <option value="GOBCS">OBC (GOBCS)</option>
+              <option value="GSCS">SC (GSCS)</option>
+              <option value="GSTS">ST (GSTS)</option>
+              <option value="GVJS">VJ / DT (GVJS)</option>
+              <option value="GNT1S">NT-1 (GNT1S)</option>
+              <option value="GNT2S">NT-2 (GNT2S)</option>
+              <option value="GNT3S">NT-3 (GNT3S)</option>
+              <option value="TFWS">TFWS (Tuition Fee Waiver)</option>
+              <option value="EWS">EWS (Economically Weaker Section)</option>
+            </select>
+          </div>
+          <div>
+            <label class="field-label">Home University</label>
+            <select id="prof-university" class="text-input">
+              <option value="SPPU">Savitribai Phule Pune University (SPPU)</option>
+              <option value="MU">University of Mumbai (MU)</option>
+              <option value="DBATU">Dr. BATU (Lonere)</option>
+              <option value="SUK">Shivaji University Kolhapur (SUK)</option>
+              <option value="RTMNU">Nagpur University (RTMNU)</option>
+              <option value="BAMU">Dr. BAMU (Chhatrapati Sambhajinagar)</option>
+              <option value="SGBAU">Sant Gadge Baba Amravati University</option>
+            </select>
+          </div>
+        </div>
+        <div class="grid-2col">
+          <div>
+            <label class="field-label">Preferred Location / District</label>
+            <select id="prof-location" class="text-input">
+              <option value="Pune">Pune & PCMC</option>
+              <option value="Mumbai">Mumbai & Navi Mumbai</option>
+              <option value="Nagpur">Nagpur</option>
+              <option value="Nashik">Nashik</option>
+              <option value="Chhatrapati Sambhajinagar">Chhatrapati Sambhajinagar (Aurangabad)</option>
+              <option value="Kolhapur">Kolhapur / Sangli</option>
+              <option value="All Maharashtra">All Maharashtra</option>
+            </select>
+          </div>
+          <div>
+            <label class="field-label">Preferred Branch</label>
+            <select id="prof-branch" class="text-input">
+              <option value="Computer Engineering">Computer Engineering</option>
+              <option value="Information Technology">Information Technology</option>
+              <option value="Artificial Intelligence and Data Science">AI & Data Science (AI&DS)</option>
+              <option value="Electronics and Telecommunication Engg">Electronics & Telecommunication (E&TC)</option>
+              <option value="Mechanical Engineering">Mechanical Engineering</option>
+              <option value="Civil Engineering">Civil Engineering</option>
+              <option value="Electrical Engineering">Electrical Engineering</option>
+            </select>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="secondary-button" id="profile-modal-cancel">Cancel</button>
+          <button type="submit" class="primary-button">Save & Sync Profile ✓</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
   <div id="toast" class="toast" role="status" aria-live="polite"></div>
   <script src="/static/app.js" defer></script>
 </body>

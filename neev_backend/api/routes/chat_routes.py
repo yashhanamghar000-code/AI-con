@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from fastapi import APIRouter, Depends, HTTPException, Header, Query, status
+from fastapi import APIRouter, Depends, HTTPException, Header, Query, Response, status
 from typing import Optional
 from neev_backend.api.schemas.chat_schemas import ChatRequest
 from neev_backend.api.dependencies import get_chat_service, get_token_provider
@@ -52,3 +52,23 @@ def get_student_chat_history(
         )
     except AuthorizationError as e:
         raise HTTPException(status_code=status.HTTP_403_FORBIDDEN, detail=str(e))
+
+
+@router.get("/pdf/{user_id}")
+def download_shortlist_pdf(
+    user_id: str,
+    chat_service=Depends(get_chat_service)
+):
+    pdf_bytes = chat_service.get_shortlist_pdf(user_id)
+    if not pdf_bytes:
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail="No college shortlist available to export. Please ask for a college list in the chat first."
+        )
+    return Response(
+        content=pdf_bytes,
+        media_type="application/pdf",
+        headers={
+            "Content-Disposition": 'attachment; filename="AI_CON_College_Shortlist.pdf"'
+        }
+    )

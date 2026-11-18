@@ -117,20 +117,22 @@ The codebase is organized into four logical subsystems:
 
 ## 6. Unit Testing Suite (`tests/`)
 
-The test suite contains **111 unit tests** executed via Python's standard `unittest` framework:
+The test suite contains **123 unit tests** executed via Python's standard `unittest` framework:
 
 ```powershell
 .\.venv\Scripts\python.exe -m unittest discover tests
 ```
 
 ### Verified Test Breakdown:
-- `test_college_resolver.py` (4,885 bytes): Tests alias matching, abbreviation resolution (COEP, VJTI, SPIT), and ambiguity handling.
-- `test_college_adapter.py` (6,549 bytes): Tests schema validation across heterogeneous raw college JSON objects.
-- `test_chroma_indexing.py` (5,498 bytes): Tests vector store insertion, similarity search, and temporary collection teardown.
-- `test_orchestrator_pipeline.py` (7,047 bytes): End-to-end test of query routing and evidence formatting.
-- `test_phase1a_college_info.py` (12,139 bytes): Tests profile retrieval and district/autonomy parsing.
-- `test_phase2_llm_rag.py` (26,159 bytes): Tests LLM prompt construction, citation grounding, and mock client fallbacks.
-- `test_phase3_admission_intelligence.py` (79,521 bytes): Comprehensive battery testing statutory reservation rules, TFWS quotas, and multi-round seat matrix absorption.
-- `test_validation.py` (5,394 bytes): Tests dataset verification schemas.
+- `test_college_resolver.py`: Tests alias matching, abbreviation resolution (COEP, VJTI, SPIT), and ambiguity handling.
+- `test_college_adapter.py`: Tests schema validation across heterogeneous raw college JSON objects.
+- `test_chroma_indexing.py`: Tests vector store insertion, similarity search, and temporary collection teardown.
+- `test_orchestrator_pipeline.py`: End-to-end test of query routing and evidence formatting.
+- `test_phase1a_college_info.py`: Tests profile retrieval and district/autonomy parsing.
+- `test_phase2_llm_rag.py`: Tests LLM prompt construction, citation grounding, and mock client fallbacks.
+- `test_phase3_admission_intelligence.py`: Comprehensive battery testing statutory reservation rules, TFWS quotas, and multi-round seat matrix absorption.
+- `test_validation.py`: Tests dataset verification schemas.
+- `test_cross_college_cutoff_search.py`: Cross-college percentile range and closing rank cutoff search queries.
+- `test_frontend_api_server.py`: Complete FastAPI endpoint validation (auth, student onboarding lifecycle, stream recommendation, RAG chat).
 
-**Test Execution Status:** 109 Passed, 2 Skipped (conditional on live GPU), 0 Failed.
+**Test Execution Status:** 121 Passed, 2 Skipped (conditional on live GPU), 0 Failed.

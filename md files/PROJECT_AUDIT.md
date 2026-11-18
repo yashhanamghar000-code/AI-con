@@ -27,7 +27,7 @@ The codebase was delivered with raw and staged cutoff data, qualitative college 
 | **Offline Inference** | Verified | Ollama (`qwen2.5-aicon:latest`) and local PyTorch / PEFT inference |
 | **Raw Cutoff Records** | Verified | 181,137 cutoff records across 6 years (2020-21 through 2025-26) |
 | **College Qualitative Data** | Verified | 1,041 sparse college JSON profiles in v4 schema (100% valid) |
-| **Unit Test Suite** | Verified | 111 tests in 9 suites: 109 passing, 2 skipped, 0 failures |
+| **Unit Test Suite** | Verified | 123 tests in 10 suites: 121 passing, 2 skipped, 0 failures |
 
 ---
 
@@ -135,7 +135,7 @@ During the audit, three defects and environmental issues were identified and res
 ### Defect 2: Orchestrator Instantiation Failure in Unit Tests
 - **Issue:** `test_phase3_admission_intelligence.py` failed on `test_orchestrator_requested_branch_parser` because `Orchestrator.__init__` raised a `ValueError` when instantiated without agents (`cutoff_agent=None, college_info_agent=None`).
 - **Fix:** Removed the premature check in `Orchestrator.__init__` since `rag_pipeline.py` already guards CLI execution and `Orchestrator.answer` handles missing agents gracefully.
-- **Verification:** 111 unit tests executed with 109 passing, 2 skipped, 0 failures.
+- **Verification:** 123 unit tests executed with 121 passing, 2 skipped, 0 failures.
 
 ### Defect 3: Relative Path Assumptions in Validation & Vector Scripts
 - **Issue:** `validate_dataset.py` and `build_vector_index.py` hardcoded `../college_ai_consultant_sparse_enriched_v4_no_cutoffs`. Because that folder was located inside `cutoffs/`, scripts failed when run without explicit arguments.

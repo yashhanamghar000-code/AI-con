@@ -249,7 +249,85 @@ def index_college_files(
         f"Indexed {total_docs} chunks from {indexed_colleges} colleges "
         f"({skipped} skipped) into {out_dir}"
     )
+
+    # Task 10: Persist index manifest recording embedding model, record counts, and build time
+    try:
+        from datetime import datetime, timezone
+        model_id = getattr(embedding_function, "name", lambda: model)() if hasattr(embedding_function, "name") else model
+        manifest = {
+            "embedding_model": str(model_id),
+            "model_name": str(model),
+            "chunk_count": total_docs,
+            "college_count": indexed_colleges,
+            "skipped_count": skipped,
+            "built_at": datetime.now(timezone.utc).isoformat(),
+            "format_version": "1.0",
+        }
+        (out_path / "index_manifest.json").write_text(json.dumps(manifest, indent=2), encoding="utf-8")
+    except Exception as exc:
+        print(f"Warning: could not write index_manifest.json: {exc}")
+
     return {"chunks": total_docs, "colleges": indexed_colleges, "skipped": skipped}
+
+
+def safe_rebuild_vector_index(
+    college_info_dir: Union[str, Path],
+    out_dir: Union[str, Path],
+    model: str = "sentence-transformers/all-MiniLM-L6-v2",
+    limit: int = 0,
+    embedding_function: Any = None,
+    backup_dir: Optional[Union[str, Path]] = None,
+) -> Dict[str, Any]:
+    """Safely rebuild vector index in a staging directory, validate it, and atomically swap with backup preservation."""
+    import time
+    out_path = Path(out_dir).resolve()
+    timestamp = int(time.time())
+    staging_path = out_path.parent / f"{out_path.name}_staging_{timestamp}"
+    backup_path = Path(backup_dir).resolve() if backup_dir else out_path.parent / f"{out_path.name}_backup"
+
+    # 1. Build into isolated staging directory
+    stats = index_college_files(
+        college_info_dir=college_info_dir,
+        out_dir=staging_path,
+        model=model,
+        limit=limit,
+        embedding_function=embedding_function,
+        rebuild=True,
+    )
+
+    # 2. Validation gate: must contain indexed chunks and valid manifest
+    manifest_file = staging_path / "index_manifest.json"
+    if stats["chunks"] == 0 or stats["colleges"] == 0 or not manifest_file.exists():
+        shutil.rmtree(staging_path, ignore_errors=True)
+        raise ValueError(
+            f"Index validation failed: chunks={stats['chunks']}, colleges={stats['colleges']}. "
+            "Staging directory cleaned; live index preserved untouched for safety."
+        )
+
+    # 3. Safe rotation: preserve previous index for rollback
+    try:
+        import gc
+        gc.collect()
+        if out_path.exists():
+            if backup_path.exists():
+                shutil.rmtree(backup_path, ignore_errors=True)
+            out_path.rename(backup_path)
+        staging_path.rename(out_path)
+    except (PermissionError, OSError):
+        # On Windows, SQLite connection handles may temporarily lock directory rename
+        if out_path.exists():
+            shutil.copytree(out_path, backup_path, dirs_exist_ok=True)
+            shutil.copytree(staging_path, out_path, dirs_exist_ok=True)
+            shutil.rmtree(staging_path, ignore_errors=True)
+        else:
+            staging_path.rename(out_path)
+    return {
+        "status": "success",
+        "chunks": stats["chunks"],
+        "colleges": stats["colleges"],
+        "backup_path": str(backup_path) if backup_path.exists() else None,
+        "active_path": str(out_path),
+    }
 
 
 def main():

@@ -47,10 +47,11 @@ desktop.ini
 # Logs and checkpoints
 *.log
 .ipynb_checkpoints/
+*.pkl
+cache.pkl
 
 # Application SQLite Database
 *.db
-*.sqlite3
 ai_con_app.db
 
 # Large Model Weights (Keep local / HuggingFace)
@@ -58,3 +59,4 @@ ai_con_app.db
 *.bin
 *.pt
 *.safetensors
+

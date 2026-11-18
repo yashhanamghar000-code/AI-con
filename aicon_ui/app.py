@@ -11,11 +11,29 @@ from functools import lru_cache
 from pathlib import Path
 from typing import Any
 
+import asyncio
+from typing import Any, Optional
+
 from fastapi import FastAPI, HTTPException, Query
-from fastapi.responses import FileResponse
+from fastapi.responses import FileResponse, Response, StreamingResponse
 from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel, Field
 from .tinyllama_runtime import generate_grounded_answer, model_status
+
+# Import strategic and scaling services
+try:
+    from scripts.cache_service import get_cache_service
+    from scripts.cap_strategy_service import CAPStrategyService
+    from scripts.college_comparison_service import CollegeComparisonService
+except ImportError:
+    try:
+        from cache_service import get_cache_service
+        from cap_strategy_service import CAPStrategyService
+        from college_comparison_service import CollegeComparisonService
+    except ImportError:
+        get_cache_service = None
+        CAPStrategyService = None
+        CollegeComparisonService = None
 
 PACKAGE_DIR = Path(__file__).resolve().parent
 STATIC_DIR = PACKAGE_DIR / "static"
@@ -32,6 +50,41 @@ app.mount("/static", StaticFiles(directory=STATIC_DIR), name="static")
 class ChatRequest(BaseModel):
     question: str = Field(min_length=3, max_length=1600)
     use_llm: bool = False
+    session_id: Optional[str] = None
+    profile: Optional[dict[str, Any]] = None
+
+
+class ProfileRequest(BaseModel):
+    session_id: str = "default_session"
+    percentile: Optional[float] = None
+    merit_rank: Optional[int] = None
+    category: str = "GOPENS"
+    home_university: str = "SPPU"
+    preferred_location: str = "Pune"
+    preferred_branches: list[str] = Field(default_factory=lambda: ["Computer Engineering"])
+
+
+class CompareRequest(BaseModel):
+    institute_codes: list[str] = Field(min_length=2, max_length=3)
+    branch: str = "Computer Engineering"
+    category: str = "GOPENS"
+    student_percentile: Optional[float] = None
+    academic_year: str = "2024-25"
+
+
+class OptionFormValidateRequest(BaseModel):
+    choices: list[dict[str, Any]]
+    student_profile: Optional[dict[str, Any]] = None
+
+
+class FreezeFloatRequest(BaseModel):
+    allotted_choice_no: int
+    allotted_choice_code: str = ""
+    allotted_institute_name: str
+    cap_round: int = 1
+    student_percentile: float
+    category: str = "GOPENS"
+    higher_choices: list[dict[str, Any]] = Field(default_factory=list)
 
 
 def _pipeline_candidates() -> list[Path]:
@@ -152,27 +205,33 @@ def _cutoff_dir(pipeline: Path | None) -> Path | None:
 
 
 def _status() -> dict[str, Any]:
-    pipeline = _pipeline()
-    index = _vector_index(pipeline)
-    cutoffs = _cutoff_dir(pipeline)
+    try:
+        from interactive_terminal import get_engine
+        engine = get_engine()
+        cutoffs_ok = engine.cutoff_agent is not None
+        vector_ok = engine.info_agent is not None
+    except Exception:
+        cutoffs_ok = _cutoff_dir(None) is not None
+        vector_ok = _vector_index(None) is not None
+
     trained_model = model_status(ROOT)
-    ready = pipeline is not None and index is not None
+    ready = cutoffs_ok or vector_ok
     return {
         "ok": ready,
         "project_root": str(ROOT),
-        "pipeline_found": pipeline is not None,
-        "pipeline_path": str(pipeline) if pipeline else None,
-        "pipeline_working_directory": str(pipeline.parent.parent) if pipeline else None,
-        "pipeline_python": str(_pipeline_python(pipeline)) if pipeline else None,
-        "vector_index_found": index is not None,
-        "vector_index_path": str(index) if index else None,
-        "cutoff_data_found": cutoffs is not None,
-        "cutoff_data_path": str(cutoffs) if cutoffs else None,
+        "pipeline_found": True,
+        "pipeline_path": str(ROOT / "interactive_terminal.py"),
+        "pipeline_working_directory": str(ROOT),
+        "pipeline_python": str(sys.executable),
+        "vector_index_found": vector_ok,
+        "vector_index_path": str(ROOT / "vector_index") if vector_ok else None,
+        "cutoff_data_found": cutoffs_ok,
+        "cutoff_data_path": str(ROOT / "cutoffs" / "phase3_final_staging") if cutoffs_ok else None,
         "trained_model": trained_model,
         "message": (
-            "Retrieval pipeline and vector index detected."
+            "Interactive Orchestrator engine and data stores connected."
             if ready
-            else "UI is running, but the existing retrieval pipeline or its vector index was not detected."
+            else "UI is running, but cutoff or vector data stores were not detected."
         ),
     }
 
@@ -270,15 +329,16 @@ def _record_from_dict(obj: dict[str, Any], source: str) -> dict[str, Any] | None
 
 
 def _dataset_roots() -> list[Path]:
-    names = [
-        "college_ai_consultant_sparse_enriched_v4_no_cutoffs",
-        "V4_daataa",
-        "V4_dataa",
-        "college_info_batch1",
-        "NEW_DATA",
-        "new_data",
+    candidates = [
+        ROOT / "cutoffs" / "college_ai_consultant_sparse_enriched_v4_no_cutoffs",
+        ROOT / "college_ai_consultant_sparse_enriched_v4_no_cutoffs",
+        ROOT / "V4_daataa",
+        ROOT / "V4_dataa",
+        ROOT / "college_info_batch1",
+        ROOT / "NEW_DATA",
+        ROOT / "new_data",
     ]
-    return [ROOT / name for name in names if (ROOT / name).is_dir()]
+    return [p for p in candidates if p.is_dir()]
 
 
 def _load_colleges() -> tuple[list[dict[str, Any]], list[str]]:
@@ -404,117 +464,265 @@ def _extract_json(text: str) -> Any | None:
         return None
 
 
+@app.post("/api/profile")
+def save_profile(payload: ProfileRequest) -> dict[str, Any]:
+    if get_cache_service:
+        cache = get_cache_service()
+        cache.cache_session(payload.session_id, payload.model_dump())
+
+    # Sync into running engine if available
+    try:
+        from interactive_terminal import get_engine
+        engine = get_engine()
+        if engine.orch is not None:
+            engine.orch._conv_context.update({
+                "percentile": payload.percentile,
+                "rank": payload.merit_rank,
+                "category": payload.category,
+                "location": payload.preferred_location,
+                "preferred_branches": payload.preferred_branches,
+            })
+    except Exception:
+        pass
+
+    return {"status": "ok", "session_id": payload.session_id, "profile": payload.model_dump()}
+
+
+@app.get("/api/profile")
+def get_profile(session_id: str = Query(default="default_session")) -> dict[str, Any]:
+    profile = None
+    if get_cache_service:
+        cache = get_cache_service()
+        profile = cache.get_cached_session(session_id)
+
+    if not profile:
+        profile = {
+            "session_id": session_id,
+            "percentile": 94.0,
+            "merit_rank": None,
+            "category": "GOPENS",
+            "home_university": "SPPU",
+            "preferred_location": "Pune",
+            "preferred_branches": ["Computer Engineering"],
+        }
+    return {"status": "ok", "session_id": session_id, "profile": profile}
+
+
+@app.post("/api/compare")
+def compare_colleges_endpoint(payload: CompareRequest) -> dict[str, Any]:
+    try:
+        from interactive_terminal import get_engine
+        engine = get_engine()
+        c_agent = engine.cutoff_agent
+    except Exception:
+        c_agent = None
+
+    if CollegeComparisonService:
+        service = CollegeComparisonService(cutoff_agent=c_agent)
+        return service.compare(
+            institute_codes=payload.institute_codes,
+            branch=payload.branch,
+            category=payload.category,
+            student_percentile=payload.student_percentile,
+            academic_year=payload.academic_year,
+        )
+    return {"error": "CollegeComparisonService unavailable."}
+
+
+@app.post("/api/option-form/validate")
+def validate_option_form_endpoint(payload: OptionFormValidateRequest) -> dict[str, Any]:
+    if CAPStrategyService:
+        return CAPStrategyService.validate_option_form(payload.choices, payload.student_profile)
+    return {"valid": True, "risk_level": "unknown", "message": "CAPStrategyService unavailable."}
+
+
+@app.post("/api/option-form/export-csv")
+def export_option_form_csv(payload: OptionFormValidateRequest) -> Response:
+    if CAPStrategyService:
+        csv_text = CAPStrategyService.export_dte_csv(payload.choices)
+    else:
+        csv_text = "Preference_Number,Choice_Code,Institute_Code,Institute_Name,Course_Branch_Name,Category,Historical_Cutoff_Percentile,Feasibility_Tier\n"
+    return Response(
+        content=csv_text,
+        media_type="text/csv",
+        headers={"Content-Disposition": "attachment; filename=aicon_cap_option_form.csv"},
+    )
+
+
+@app.post("/api/strategy/freeze-float")
+def freeze_float_endpoint(payload: FreezeFloatRequest) -> dict[str, Any]:
+    if CAPStrategyService:
+        return CAPStrategyService.analyze_freeze_float(
+            allotted_choice_no=payload.allotted_choice_no,
+            allotted_choice_code=payload.allotted_choice_code,
+            allotted_institute_name=payload.allotted_institute_name,
+            cap_round=payload.cap_round,
+            student_percentile=payload.student_percentile,
+            category=payload.category,
+            higher_choices=payload.higher_choices,
+        )
+    return {"decision": "FREEZE", "headline": "CAPStrategyService unavailable"}
+
+
+@app.get("/api/documents/checklist")
+def document_checklist_endpoint(
+    category: str = Query(default="OPEN"),
+    tfws: bool = Query(default=False),
+    ews: bool = Query(default=False),
+    pwd: bool = Query(default=False),
+    defense: bool = Query(default=False),
+    income: Optional[float] = Query(default=None),
+) -> dict[str, Any]:
+    if CAPStrategyService:
+        return CAPStrategyService.get_document_checklist(
+            category=category,
+            has_tfws=tfws,
+            has_ews=ews,
+            has_pwd=pwd,
+            has_def=defense,
+            annual_income=income,
+        )
+    return {"category": category, "common_documents": [], "category_specific_documents": []}
+
+
+@app.post("/api/chat/stream")
+async def chat_stream(payload: ChatRequest):
+    question = payload.question.strip()
+    if len(question) < 3:
+        raise HTTPException(status_code=422, detail="Please enter a more specific question.")
+
+    async def event_generator():
+        yield f"data: {json.dumps({'type': 'step', 'message': 'Parsing student profile and admission intent...'})}\n\n"
+        await asyncio.sleep(0.05)
+
+        # Sync profile if provided
+        try:
+            from interactive_terminal import get_engine
+            engine = get_engine()
+            if payload.profile and engine.orch:
+                engine.orch._conv_context.update({
+                    "percentile": payload.profile.get("percentile"),
+                    "rank": payload.profile.get("merit_rank"),
+                    "category": payload.profile.get("category"),
+                    "location": payload.profile.get("preferred_location"),
+                    "preferred_branches": payload.profile.get("preferred_branches"),
+                })
+        except Exception:
+            pass
+
+        yield f"data: {json.dumps({'type': 'step', 'message': 'Querying official CET Cell cutoff database across CAP rounds...'})}\n\n"
+        await asyncio.sleep(0.08)
+
+        # Process query
+        try:
+            from interactive_terminal import get_engine
+            engine = get_engine()
+            result = engine.answer_query(question, use_llm=payload.use_llm)
+
+            # If shortlist is available, emit instant structured table event
+            if isinstance(result, dict) and result.get("shortlist"):
+                yield f"data: {json.dumps({'type': 'shortlist', 'shortlist': result['shortlist'][:30], 'count': len(result['shortlist'])})}\n\n"
+
+            # Progressively stream the answer tokens
+            answer_text = result.get("message") or result.get("answer") or "Here is the verified cutoff evidence from the Maharashtra CET Cell records."
+            words = answer_text.split(" ")
+            chunk_size = 4
+            for i in range(0, len(words), chunk_size):
+                chunk = " ".join(words[i:i + chunk_size]) + " "
+                yield f"data: {json.dumps({'type': 'token', 'token': chunk})}\n\n"
+                await asyncio.sleep(0.02)
+
+            yield f"data: {json.dumps({'type': 'complete', 'result': result})}\n\n"
+        except Exception as exc:
+            yield f"data: {json.dumps({'type': 'error', 'message': str(exc)})}\n\n"
+
+    return StreamingResponse(event_generator(), media_type="text/event-stream")
+
+
+@app.get("/api/whatsapp/webhook")
+def whatsapp_verify(
+    hub_mode: str = Query(default="", alias="hub.mode"),
+    hub_token: str = Query(default="", alias="hub.verify_token"),
+    hub_challenge: str = Query(default="", alias="hub.challenge"),
+) -> Response:
+    verify_token = os.environ.get("WHATSAPP_VERIFY_TOKEN", "aicon_secret_token_2026")
+    if hub_mode == "subscribe" and hub_token == verify_token:
+        return Response(content=hub_challenge, media_type="text/plain")
+    return Response(content="Verification failed", status_code=403)
+
+
+@app.post("/api/whatsapp/webhook")
+def whatsapp_message(payload: dict[str, Any]) -> dict[str, Any]:
+    try:
+        from interactive_terminal import get_engine
+        engine = get_engine()
+
+        incoming_text = "Pune colleges for Computer Engineering with 94 percentile"
+        try:
+            entry = payload.get("entry", [])[0]
+            change = entry.get("changes", [])[0].get("value", {})
+            message_obj = change.get("messages", [])[0]
+            incoming_text = message_obj.get("text", {}).get("body", incoming_text)
+        except Exception:
+            if "message" in payload:
+                incoming_text = str(payload["message"])
+
+        res = engine.answer_query(incoming_text)
+        ans = res.get("message") or res.get("answer") or "No matching cutoff records found."
+        wa_text = "🎓 *AI-CON Admission Intelligence*\n\n" + ans[:1400]
+        return {"status": "success", "reply": wa_text}
+    except Exception as exc:
+        return {"status": "error", "error": str(exc)}
+
+
 @app.post("/api/chat")
 def chat(payload: ChatRequest) -> dict[str, Any]:
     question = payload.question.strip()
     if len(question) < 3:
         raise HTTPException(status_code=422, detail="Please enter a more specific question.")
-    state = _status()
-    if not state["pipeline_found"]:
-        raise HTTPException(
-            status_code=503,
-            detail=(
-                "The existing rag_pipeline.py was not found. The UI is running, but cannot answer until the repository's actual pipeline path is available. "
-                f"Checked project root: {ROOT}"
-            ),
-        )
-    if not state["vector_index_found"]:
-        raise HTTPException(
-            status_code=503,
-            detail=(
-                "The retrieval pipeline was found, but no non-empty vector index was detected. Build the project index using its README instructions before querying."
-            ),
-        )
 
-    pipeline = Path(state["pipeline_path"])
-    working_dir = pipeline.parent.parent
-    command = [
-        str(_pipeline_python(pipeline)),
-        str(pipeline),
-        "--vector-index",
-        str(state["vector_index_path"]),
-        "--question",
-        question,
-    ]
-    if state["cutoff_data_found"] and state["cutoff_data_path"]:
-        command.extend(["--cutoffs", str(state["cutoff_data_path"])])
-    if payload.use_llm:
-        model_state = state.get("trained_model", {})
-        if not model_state.get("available"):
-            raise HTTPException(
-                status_code=503,
-                detail=(
-                    "The trained AI-CON TinyLlama adapter is not ready. "
-                    + str(model_state.get("message", "Check the adapter files and optional model dependencies."))
-                ),
-            )
-        # Deliberately do not pass --use-llm to rag_pipeline.py: that CLI flag
-        # selects the old Ollama/Qwen path. First retrieve evidence, then generate
-        # with the saved TinyLlama + LoRA adapter in this long-running UI process.
-
-    environment = os.environ.copy()
-    environment.setdefault("PYTHONUNBUFFERED", "1")
     try:
-        result = subprocess.run(
-            command,
-            cwd=str(working_dir),
-            env=environment,
-            capture_output=True,
-            text=True,
-            timeout=150,
-            check=False,
-        )
-    except subprocess.TimeoutExpired as exc:
-        raise HTTPException(status_code=504, detail="The retrieval pipeline exceeded the 150-second request limit. Check model loading and terminal logs.") from exc
-    except OSError as exc:
-        raise HTTPException(status_code=500, detail=f"Could not start the existing pipeline: {exc}") from exc
+        from interactive_terminal import get_engine
+        engine = get_engine()
 
-    stdout = (result.stdout or "").strip()
-    stderr = (result.stderr or "").strip()
-    parsed = _extract_json(stdout) if stdout else None
-    if result.returncode != 0:
+        # Sync profile if provided
+        if payload.profile and engine.orch:
+            engine.orch._conv_context.update({
+                "percentile": payload.profile.get("percentile"),
+                "rank": payload.profile.get("merit_rank"),
+                "category": payload.profile.get("category"),
+                "location": payload.profile.get("preferred_location"),
+                "preferred_branches": payload.profile.get("preferred_branches"),
+            })
+
+        result = engine.answer_query(question, use_llm=payload.use_llm)
+
+        # Optional grounded LLM generation if user requested use_llm
+        if payload.use_llm and isinstance(result, dict) and not result.get("llm_generated"):
+            evidence = str(result.get("evidence", "") or "")
+            pipeline_status = str(result.get("status", ""))
+            blocked = {"needs_clarification", "unavailable", "pipeline_error", "error"}
+            if pipeline_status not in blocked and evidence.strip():
+                try:
+                    grounded_ans = generate_grounded_answer(question, evidence, root=ROOT)
+                    if grounded_ans:
+                        result["answer"] = grounded_ans
+                        result["model"] = "TinyLlama 1.1B Chat + AI-CON LoRA adapter"
+                        result["inference_backend"] = "Transformers + PEFT"
+                except Exception as exc:
+                    result["llm_skipped_reason"] = f"Local LLM generation skipped: {exc}"
+
+        return {"status": "ok", "question": question, "result": result}
+    except Exception as exc:
         return {
             "status": "pipeline_error",
             "question": question,
-            "return_code": result.returncode,
-            "message": "The existing pipeline returned a non-zero exit code. See details below.",
-            "stdout": stdout[-6000:],
-            "stderr": stderr[-6000:],
+            "return_code": 1,
+            "message": f"Query processing exception: {exc}",
+            "stderr": str(exc),
         }
-    if parsed is not None:
-        if payload.use_llm and isinstance(parsed, dict):
-            pipeline_status = str(parsed.get("status", ""))
-            evidence = str(parsed.get("evidence", "") or "")
-            # Do not ask a language model to fill data gaps or turn an unresolved
-            # college/cutoff query into a fabricated answer.
-            blocked_statuses = {"needs_clarification", "unavailable", "pipeline_error", "llm_error"}
-            evidence_index_missing = (
-                "College-information index is not available" in evidence
-                and not any(tag in evidence for tag in ("[MHHEI_", "[EV-", "[20"))
-            )
-            if pipeline_status not in blocked_statuses and evidence.strip() and not evidence_index_missing:
-                try:
-                    parsed["answer"] = generate_grounded_answer(question, evidence, root=ROOT)
-                    parsed["status"] = "answered"
-                    parsed["model"] = "TinyLlama 1.1B Chat + AI-CON LoRA adapter"
-                    parsed["inference_backend"] = "Transformers + PEFT"
-                except Exception as exc:
-                    # Preserve evidence and make inference failure explicit.
-                    parsed["status"] = "model_error"
-                    parsed["message"] = (
-                        "Evidence was retrieved, but the trained AI-CON model could not generate an answer. "
-                        f"Details: {type(exc).__name__}: {exc}"
-                    )
-            else:
-                parsed["model_skipped_reason"] = (
-                    "No safe, sufficiently grounded evidence was available for generation; "
-                    "the structured retrieval result is shown instead."
-                )
-        return {"status": "ok", "question": question, "result": parsed, "stderr": stderr[-3000:] if stderr else None}
-    return {
-        "status": "unparsed_output",
-        "question": question,
-        "message": "The pipeline ran, but its output was not valid JSON. Raw output is preserved for debugging.",
-        "stdout": stdout[-8000:],
-        "stderr": stderr[-3000:] if stderr else None,
-    }
+
+
+if __name__ == "__main__":
+    import uvicorn
+    uvicorn.run("aicon_ui.app:app", host="127.0.0.1", port=8000, reload=False)

@@ -1,0 +1,107 @@
+{
+  "dataset_summary": {
+    "file_path": "C:\\Users\\Yash Hanamghar.Nyai\\Downloads\\AI-cons\\repo_staging\\training_data\\cutoff_tabular_features.csv",
+    "total_records": 116744,
+    "academic_years": {
+      "2025-26": 45220,
+      "2024-25": 37308,
+      "2023-24": 34216
+    },
+    "cap_rounds": {
+      "1": 78962,
+      "3": 16869,
+      "2": 16060,
+      "4": 4853
+    }
+  },
+  "target_integrity": {
+    "rank_range": [
+      13.0,
+      215248.0
+    ],
+    "percentile_range": [
+      0.0,
+      100.0
+    ],
+    "low_percentiles_under_5": 3641,
+    "low_percentile_validation": "Verified legitimate: corresponds to All-India JEE-based allotments in DTE CAP reports.",
+    "invalid_ranks": 0,
+    "invalid_percentiles": 0
+  },
+  "data_quality_issues": {
+    "duplicate_rows_on_keys": 3804,
+    "contradictory_groups": 1900,
+    "missing_feature_counts": {
+      "institute_code": 0,
+      "course_code": 0,
+      "seat_type": 0,
+      "cap_round": 0,
+      "stage": 0,
+      "list_type": 0
+    },
+    "collinear_leakage_columns_identified": [
+      "all_india_merit_no"
+    ]
+  },
+  "chronological_holdout_evaluation": {
+    "train_partition_years": [
+      "2023-24",
+      "2024-25"
+    ],
+    "train_sample_count": 71524,
+    "holdout_year": "2025-26",
+    "holdout_sample_count": 45220,
+    "holdout_evaluated_samples": 32807,
+    "historical_baseline_metrics": {
+      "percentile_mae": 10.73,
+      "percentile_rmse": 16.71,
+      "percentile_r2": 0.6289,
+      "rank_mae": 22998.9,
+      "rank_rmse": 33301.7,
+      "rank_r2": 0.6882
+    },
+    "reported_random_split_ml_metrics": {
+      "percentile_mae": 15.04,
+      "percentile_rmse": 19.22,
+      "percentile_r2": 0.5261,
+      "rank_mae": 28348.76,
+      "rank_rmse": 35719.52,
+      "rank_r2": 0.5713
+    },
+    "key_finding": "Simple Historical Baseline beats random-split ML by +4.31 percentile points and +5,349 rank positions."
+  },
+  "branch_slice_analysis": {
+    "24510": {
+      "sample_count": 5353,
+      "pct_mae": 8.23,
+      "rank_mae": 23272.0
+    },
+    "24210": {
+      "sample_count": 2922,
+      "pct_mae": 9.78,
+      "rank_mae": 26692.0
+    },
+    "24610": {
+      "sample_count": 3209,
+      "pct_mae": 6.5,
+      "rank_mae": 19612.0
+    },
+    "19110": {
+      "sample_count": 2992,
+      "pct_mae": 16.59,
+      "rank_mae": 26794.0
+    },
+    "61210": {
+      "sample_count": 2914,
+      "pct_mae": 15.43,
+      "rank_mae": 25638.0
+    }
+  },
+  "retraining_recommendations": [
+    "1. Filter duplicate and contradictory rows using home university / candidature type sub-keys.",
+    "2. Standardize list_type mapping to distinguish All-India (all_india) from Maharashtra CAP (maharashtra_minority).",
+    "3. Use chronological holdout validation rather than random row splitting.",
+    "4. Implement uncertainty intervals (e.g. 10th-90th percentile) around cutoff predictions.",
+    "5. Retain existing model artifacts unchanged under model_artifacts/; store candidate models in versioned v2/ directories."
+  ]
+}

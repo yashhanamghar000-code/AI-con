@@ -402,6 +402,20 @@ class CollegeResolver:
                         message=f"Multiple colleges match your query: {', '.join(matching_colleges[:4])}. Please specify the exact college name or institute code.",
                     )
 
+        # If the query indicates a multi-college discovery or list request, do NOT attempt single-college fuzzy/token resolution
+        q_clean = query.lower()
+        discovery_patterns = [
+            "college list", "colleges in", "list colleges", "suggest colleges",
+            "which colleges", "options for", "chances in", "shortlist", "give me a list",
+            "recommend colleges", "colleges for", "percentile"
+        ]
+        if any(pat in q_clean for pat in discovery_patterns):
+            return CollegeResolution(
+                matched=False,
+                status="multi_college_query",
+                message="Query indicates a multi-college discovery or shortlist request.",
+            )
+
         # 6. Token Overlap Search
         query_tokens = extract_significant_tokens(query)
         if query_tokens:
@@ -418,6 +432,15 @@ class CollegeResolver:
             if token_candidates:
                 token_candidates.sort(key=lambda x: x[0], reverse=True)
                 top_score, top_name = token_candidates[0]
+
+                # Guard: Do not resolve generic short names like 'College of Computer' with missing code
+                top_entry = self._name_index.get(top_name, {})
+                if not top_entry.get("institute_code") and len(name_tokens) <= 2 and top_score < 1.0:
+                    return CollegeResolution(
+                        matched=False,
+                        status="not_found",
+                        message="College name could not be resolved with sufficient specificity.",
+                    )
 
                 close_candidates = [
                     name for score, name in token_candidates if (top_score - score) < 0.15 and score >= 0.4
@@ -444,6 +467,14 @@ class CollegeResolver:
 
                 if top_score >= 0.5:
                     entry = self._name_index[top_name]
+                    # Also require institute_code if query is long sentence
+                    if not entry.get("institute_code") and len(query.split()) > 5:
+                        return CollegeResolution(
+                            matched=False,
+                            status="not_found",
+                            message="No verified institute code matches this descriptive sentence.",
+                        )
+
                     return CollegeResolution(
                         matched=True,
                         status="resolved",
