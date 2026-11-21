@@ -1,4 +1,4 @@
-/**
+﻿/**
  * Neev (नींव) Student Career Foundation & Admissions Guidance Application
  * Production-ready modular frontend powering the Neev AI College Consultant.
  */
@@ -906,12 +906,17 @@ const App = {
 
     // Show loading indicator
     this.state.isChatLoading = true;
-    const loadingBubble = this.appendChatBubble("assistant", '<div style="display: flex; align-items: center; gap: 8px;"><span>Consulting 181,137 historical records...</span> <span class="badge badge-blue">RAG Active</span></div>', true);
+    const loadingBubble = this.appendChatBubble("assistant", '<div style="display: flex; align-items: center; gap: 8px;"><span>Consulting 181,137 historical records... (may take 15–30 s)</span> <span class="badge badge-blue">RAG Active</span></div>', true);
 
+    // Split into fetch-catch (network) + parse-catch (processing) for precise error reporting
+    let _resp, _data;
     try {
-      const resp = await fetch(API_BASE + "/api/chat", {
+      const controller = new AbortController();
+      const tid = setTimeout(() => controller.abort(), 120000);
+      _resp = await fetch(API_BASE + "/api/chat", {
         method: "POST",
         headers: this.getAuthHeaders(),
+        signal: controller.signal,
         body: JSON.stringify({
           query,
           user_id: this.state.user.id,
@@ -919,7 +924,20 @@ const App = {
           stream_context: this.state.profile.selectedStream
         })
       });
-      const data = await resp.json();
+      clearTimeout(tid);
+      _data = await _resp.json();
+    } catch (fetchErr) {
+      console.error("Chat API network/parse error:", fetchErr.name, fetchErr.message, fetchErr);
+      loadingBubble.remove();
+      this.state.isChatLoading = false;
+      const em = fetchErr.name === "AbortError"
+        ? "Request timed out after 2 minutes. The server may still be processing — please try again."
+        : "Network error: " + fetchErr.message + ". Please refresh the page (Ctrl+Shift+R) and ensure the server is running.";
+      this.appendChatBubble("assistant", "&#9888;&#65039; " + em);
+      return;
+    }
+    const resp = _resp, data = _data;
+    try {
 
       loadingBubble.remove();
       this.state.isChatLoading = false;
@@ -977,11 +995,14 @@ const App = {
       }
 
       this.appendChatBubble("assistant", contentHtml);
-    } catch (err) {
-      console.warn("Chat API error:", err);
+    } catch (procErr) {
+      console.error("Chat response processing error:", procErr.name, procErr.message, procErr);
       loadingBubble.remove();
       this.state.isChatLoading = false;
-      this.appendChatBubble("assistant", `I am currently operating in offline demonstrator mode. For the query: <i>"${query}"</i>, you can inspect verified cutoff records in the **Cutoff Predictor** tab.`);
+      this.appendChatBubble("assistant",
+        "⚠️ Response rendering error: " + procErr.message +
+        "<br/><small>The server returned data but it could not be displayed. Check browser console (F12) for details.</small>"
+      );
     }
   },
 
@@ -1007,11 +1028,21 @@ const App = {
 
   formatMarkdownText(text) {
     if (!text) return "";
+    // Convert backtick code spans to <code> tags (prevents template-literal breakage)
+    text = text.replace(/`([^`\r\n]+)`/g, function(m, inner) {
+      return '<code style="background:#f1f5f9;padding:1px 5px;border-radius:3px;font-family:monospace;font-size:0.82em;">'
+        + inner.replace(/</g, "&lt;").replace(/>/g, "&gt;") + '</code>';
+    });
+    // Convert markdown headers (###, ##, #)
+    text = text.replace(/^#{3}\s+(.+)$/gm, '<b style="font-size:1em;display:block;margin-top:8px;color:var(--dark-blue);">$1</b>');
+    text = text.replace(/^#{2}\s+(.+)$/gm, '<b style="font-size:1.05em;display:block;margin-top:10px;color:var(--dark-blue);">$1</b>');
+    text = text.replace(/^#\s+(.+)$/gm, '<b style="font-size:1.1em;display:block;margin-top:12px;color:var(--dark-blue);">$1</b>');
     return text
       .replace(/\n\n/g, "<br/><br/>")
       .replace(/\n/g, "<br/>")
-      .replace(/\*\*(.*?)\*\*/g, "<b>$1</b>")
-      .replace(/\*(.*?)\*/g, "<i>$1</i>");
+      .replace(/\*\*(.*?)\*\*/gs, "<b>$1</b>")
+      .replace(/\*(.*?)\*/gs, "<i>$1</i>")
+      .replace(/^\s*[-*]\s+/gm, '<span style="margin-left:12px;">• </span>');
   },
 
   // =========================================================================

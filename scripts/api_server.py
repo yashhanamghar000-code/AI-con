@@ -74,9 +74,11 @@ app = FastAPI(
 )
 
 # Enable CORS for frontend and local development
+# Note: allow_credentials=True is incompatible with allow_origins=["*"] per CORS spec.
+# Since the app is served from the same origin, this is safe. Using explicit origins for safety.
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=["http://localhost:8000", "http://127.0.0.1:8000", "http://0.0.0.0:8000"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -97,21 +99,24 @@ if FRONTEND_DIR.is_dir():
     def serve_styles():
         target = FRONTEND_DIR / "styles.css"
         if target.is_file():
-            return FileResponse(str(target), media_type="text/css")
+            return FileResponse(str(target), media_type="text/css",
+                                headers={"Cache-Control": "no-cache, no-store, must-revalidate", "Pragma": "no-cache"})
         raise HTTPException(status_code=404, detail="styles.css not found")
 
     @app.get("/app.js")
     def serve_app_js():
         target = FRONTEND_DIR / "app.js"
         if target.is_file():
-            return FileResponse(str(target), media_type="application/javascript")
+            return FileResponse(str(target), media_type="application/javascript",
+                                headers={"Cache-Control": "no-cache, no-store, must-revalidate", "Pragma": "no-cache"})
         raise HTTPException(status_code=404, detail="app.js not found")
 
     @app.get("/questions.js")
     def serve_questions_js():
         target = FRONTEND_DIR / "questions.js"
         if target.is_file():
-            return FileResponse(str(target), media_type="application/javascript")
+            return FileResponse(str(target), media_type="application/javascript",
+                                headers={"Cache-Control": "no-cache, no-store, must-revalidate", "Pragma": "no-cache"})
         raise HTTPException(status_code=404, detail="questions.js not found")
 
 @app.on_event("startup")
@@ -341,5 +346,16 @@ class AgentManagerFacade:
 agent_manager = AgentManagerFacade(container.chat_service)
 
 if __name__ == "__main__":
-    import uvicorn
-    uvicorn.run("api_server:app", host="127.0.0.1", port=8000, reload=True)
+    import argparse, uvicorn
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--host", default="0.0.0.0")
+    parser.add_argument("--port", type=int, default=8000)
+    args, _ = parser.parse_known_args()
+    uvicorn.run(
+        "api_server:app",
+        host=args.host,
+        port=args.port,
+        timeout_keep_alive=120,   # keep connections alive for 2 min (supports long recommendations)
+        timeout_graceful_shutdown=30,
+        reload=False
+    )

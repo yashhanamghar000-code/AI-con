@@ -22,8 +22,10 @@ RUN pip install torch --index-url https://download.pytorch.org/whl/cpu
 COPY requirements.txt .
 RUN pip install -r requirements.txt
 
-# Copy application files
+# Copy application backend modules and scripts
 COPY scripts/ ./scripts/
+COPY neev_backend/ ./neev_backend/
+COPY model_artifacts/ ./model_artifacts/
 COPY cutoffs/ ./cutoffs/
 COPY vector_index/ ./vector_index/
 COPY frontend/ ./frontend/
@@ -38,4 +40,3 @@ HEALTHCHECK --interval=30s --timeout=10s --start-period=30s --retries=3 \
 
 # Start FastAPI application
 CMD ["python", "scripts/api_server.py", "--host", "0.0.0.0", "--port", "8000"]
-

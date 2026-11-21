@@ -113,6 +113,10 @@ class StructuredCollegeDiscoveryService:
         if not location:
             return True
         loc_clean = location.strip().lower()
+        # Bug-Fix-5: state-wide sentinel
+        if loc_clean in ("maharashtra", "mh", "across maharashtra", "in maharashtra",
+                         "throughout maharashtra", "all over maharashtra"):
+            return True
         target_localities = DISTRICT_LOCALITIES.get(loc_clean, {loc_clean})
 
         code_str = str(institute_code).zfill(5)
@@ -264,6 +268,29 @@ class StructuredCollegeDiscoveryService:
 
         total_matching_unique_institutes = len(discovered_institutes)
         shortlist = discovered_institutes[:limit]
+
+        # Bug-Fix-6: attach historical cutoffs (all years) for each shortlisted college
+        for inst in shortlist:
+            code = inst.institute_code
+            hist = {}
+            yr_map = self.cutoff_agent._by_code.get(code, {})
+            for hist_yr, yr_data in sorted(yr_map.items()):
+                for br in yr_data.get("branches", []):
+                    if not any(req_b.lower() in br.get("branch", "").lower() for req_b in req_branches):
+                        continue
+                    for cat_d in br.get("categories", []):
+                        if cat_d.get("category", "").upper() != cat_upper:
+                            continue
+                        for cut in cat_d.get("cutoffs", []):
+                            yr_key = f"{hist_yr} R{cut.get('round', 1)}"
+                            if yr_key not in hist and cut.get("closing_percentile"):
+                                hist[yr_key] = {
+                                    "closing_percentile": round(float(cut["closing_percentile"]), 4),
+                                    "closing_rank": cut.get("closing_rank"),
+                                    "evidence_id": cut.get("evidence_id", ""),
+                                }
+            # Store historical cutoffs as an attribute (dynamic attachment)
+            inst.__dict__["historical_cutoffs"] = hist
 
         return {
             "status": "success",

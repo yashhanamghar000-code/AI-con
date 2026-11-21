@@ -523,8 +523,15 @@ class Orchestrator:
                     "evidence": "CUTOFF EVIDENCE:\nNo matching cutoff records found across colleges.",
                 }
 
-        # If it's a general shortlist / recommendation query without specific college:
-        if any(k in q_lower for k in ["shortlist", "recommend", "give me a list", "which options", "chances", "attainable", "safe"]):
+        # If it's a general shortlist / recommendation query without a score already given:
+        # Only trigger clarification when the parsed query has NO percentile or rank (Bug-Fix-3).
+        # Bug-Fix-3: use locally-extracted score variables — no 'parsed' in this scope
+        _has_score_local = (
+            min_perc is not None or max_perc is not None or
+            min_rank is not None or max_rank is not None or
+            bool(re.search(r'\b(\d{1,3}\.\d+)\s*(?:percentile|%|pct)\b', q_lower))
+        )
+        if any(k in q_lower for k in ['shortlist', 'recommend', 'give me a list', 'which options', 'chances', 'attainable', 'safe']) and not _has_score_local:
             return {
                 "status": "needs_clarification",
                 "intent": "option_plan",
@@ -779,6 +786,8 @@ class Orchestrator:
                     "matching_branches": [b.canonical_name for b in d_col.matching_branches],
                     "total_matching_branches": d_col.total_matching_branches,
                     "evidence_id": d_col.evidence_id,
+                    # Bug-Fix-6c: propagate historical cutoffs collected by discover_colleges
+                    "historical_cutoffs": getattr(d_col, "historical_cutoffs", None) or d_col.__dict__.get("historical_cutoffs", {}),
                 })
         else:
             matches: List[Dict[str, Any]] = []
@@ -904,6 +913,8 @@ class Orchestrator:
                 "roi_limitations": roi_limitations,
                 "tier": tier,
                 "evidence_id": c.get("evidence_id") or f"EV-{code}-{category}-R1",
+                # Bug-Fix-6c: historical cutoffs per year (official CAP data, not fabricated)
+                "historical_cutoffs": c.get("historical_cutoffs") or {},
             })
 
         # Task 6 fix: None-safe sort
@@ -968,7 +979,7 @@ class Orchestrator:
             if not items:
                 return []
             out = [f"#### {title}", f"*{desc}*", ""]
-            for i, c in enumerate(items[:6], 1):
+            for i, c in enumerate(items, 1):  # Bug-Fix-4: removed [:6] cap to show all colleges
                 if c.get("popularity_score") is not None:
                     pop_display = f"{c['popularity_score']}/100"
                 else:
@@ -976,13 +987,33 @@ class Orchestrator:
                 if c.get("predicted_cutoff") is not None and c.get("predicted_rank") is not None:
                     pred_str = f"**~{c['predicted_cutoff']:.2f}%** (Rank: #{c['predicted_rank']:,})"
                 else:
-                    pred_str = "*Prediction unavailable (unseen category/course)*"
+                    # Bug-Fix-7: clearer message distinguishing unavailable vs. sklearn missing
+                    pred_str = "*ML prediction unavailable — scikit-learn not installed in runtime; install scikit-learn>=1.3.0 to enable*"
+                # Bug-Fix-6: build compact historical cutoffs table
+                hist_cuts = c.get("historical_cutoffs") or {}
+                if hist_cuts:
+                    hist_lines = []
+                    for yr_key in sorted(hist_cuts.keys()):
+                        hc = hist_cuts[yr_key]
+                        pct_v = hc.get("closing_percentile")
+                        rnk_v = hc.get("closing_rank")
+                        ev_v = hc.get("evidence_id", "")
+                        pct_s = f"{pct_v:.2f}%" if pct_v else "—"
+                        rnk_s = f"#{rnk_v:,}" if rnk_v else "—"
+                        ev_s = f" `[{ev_v}]`" if ev_v else ""
+                        hist_lines.append(f"{yr_key}: {pct_s} ({rnk_s}){ev_s}")
+                    hist_display = " | ".join(hist_lines)
+                    hist_str = f"   • **Historical Cutoffs (GOPENS/CE):** {hist_display}  \n"
+                else:
+                    hist_str = "   • **Historical Cutoffs:** Data unavailable in dataset  \n"
                 out.append(
                     f"{i}. **{c['institute_name']}** (Code: `{c['institute_code']}`)  \n"
                     f"   • **Branch:** {c['branch']}  \n"
                     f"   • **Latest Cutoff:** **{c['cutoff_percentile']:.2f}%** (Closing Rank: #{c['closing_rank']:,})  \n"
+                    + hist_str +
                     f"   • **Predicted 2026-27 Cutoff:** {pred_str}  \n"
-                    f"   • **Popularity:** {pop_display} | **ROI:** {c['roi_tier']}"
+                    f"   • **Popularity:** {pop_display} | **ROI:** {c['roi_tier']}  \n"
+                    f"   • **Fees/NIRF/NAAC/Placement:** Data not available in current dataset"
                 )
             out.append("")
             return out

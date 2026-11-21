@@ -66,6 +66,14 @@ COMMON_LOCATIONS: Dict[str, List[str]] = {
     "dhule": ["dhule", "धुळे"],
     "chandrapur": ["chandrapur", "चंद्रपूर"],
     "raigad": ["raigad", "panvel", "alibag", "रायगड", "पनवेल"],
+    # State-wide sentinel: "maharashtra" means no district filter — search all MH
+
+    "maharashtra": ["maharashtra", "mh", "across maharashtra", "throughout maharashtra",
+
+                    "in maharashtra", "all over maharashtra", "महाराष्ट्र", "महाराष्ट्रात",
+
+                    "महाराष्ट्रमध्ये", "संपूर्ण महाराष्ट्र"],
+
 }
 
 # Raw Category to normalized CAP Quota token mappings
@@ -296,9 +304,16 @@ class QueryIntelligenceParser:
         # 6. Extract Category
         category_raw: Optional[str] = None
         normalized_seat: Optional[str] = None
-        m_cat = re.search(r"\bcategory\s+([A-Za-z0-9_-]+)\b", q_lower)
-        if m_cat:
-            category_raw = m_cat.group(1).upper()
+        # First check '<category> category' pattern (e.g., 'GOPENS category')
+        m_cat_pre = re.search(r"\b([A-Za-z0-9_-]+)\s+category\b", q_lower)
+        # Also check 'category <name>' pattern, avoiding common stopwords like 'while', 'and', 'for'
+        m_cat_post = re.search(r"\bcategory\s+([A-Za-z0-9_-]+)\b", q_lower)
+        stopwords_cat = {"while", "and", "or", "for", "in", "to", "of", "with", "based", "wise", "quota", "seat"}
+
+        if m_cat_pre and m_cat_pre.group(1).lower() not in stopwords_cat:
+            category_raw = m_cat_pre.group(1).upper()
+        elif m_cat_post and m_cat_post.group(1).lower() not in stopwords_cat:
+            category_raw = m_cat_post.group(1).upper()
         else:
             for raw_c in CATEGORY_NORMALIZATION:
                 if any(ord(c) > 127 for c in raw_c):
@@ -318,24 +333,28 @@ class QueryIntelligenceParser:
         # 7. Extract Location and Geographic Scope
         location: Optional[str] = None
         scope_notes: Optional[str] = None
-        for dist_key, aliases in COMMON_LOCATIONS.items():
-            for alias in aliases:
-                matched = False
-                if any(ord(c) > 127 for c in alias):
-                    if alias in q_lower:
+        # If the user explicitly mentions state-wide or all districts of Maharashtra, prioritize Maharashtra
+        if any(re.search(r"\b" + re.escape(alias) + r"\b", q_lower) for alias in COMMON_LOCATIONS.get("maharashtra", [])):
+            location = "Maharashtra"
+        if not location:
+            for dist_key, aliases in COMMON_LOCATIONS.items():
+                for alias in aliases:
+                    matched = False
+                    if any(ord(c) > 127 for c in alias):
+                        if alias in q_lower:
+                            matched = True
+                    elif re.search(r"\b" + re.escape(alias) + r"\b", q_lower):
                         matched = True
-                elif re.search(r"\b" + re.escape(alias) + r"\b", q_lower):
-                    matched = True
 
-                if matched:
-                    location = dist_key.capitalize()
-                    if alias in ("alandi", "wagholi", "pimpri", "chinchwad", "पिंपरी", "चिंचवड"):
-                        scope_notes = f"Matched locality '{alias.capitalize()}' within Pune district scope."
-                    elif alias in ("navi mumbai", "bandra", "andheri", "dadar", "नवी मुंबई"):
-                        scope_notes = f"Matched locality '{alias.capitalize()}' within Mumbai metropolitan scope."
+                    if matched:
+                        location = dist_key.capitalize()
+                        if alias in ("alandi", "wagholi", "pimpri", "chinchwad", "पिंपरी", "चिंचवड"):
+                            scope_notes = f"Matched locality '{alias.capitalize()}' within Pune district scope."
+                        elif alias in ("navi mumbai", "bandra", "andheri", "dadar", "नवी मुंबई"):
+                            scope_notes = f"Matched locality '{alias.capitalize()}' within Mumbai metropolitan scope."
+                        break
+                if location:
                     break
-            if location:
-                break
 
         if not location and is_follow_up and context.get("location"):
             location = context.get("location")
@@ -343,10 +362,24 @@ class QueryIntelligenceParser:
 
         # 8. Extract Branches
         preferred_branches: List[str] = []
+        # Check if user explicitly asked for 'only the exact <branch>'
+        exact_branch_match = re.search(r"\bonly\s+(?:the\s+)?exact\s+([A-Za-z0-9\s/&-]+?)(?:\s+branch)?(?:\.|,|;|$|\n)", q_lower)
         for branch_alias, canonical in CANONICAL_BRANCH_MAP.items():
+            # Avoid false positive on English pronoun 'it' unless capitalized in raw query or preceded by tech context
+            if branch_alias == "it":
+                if not re.search(r"\b(?:it\s+branch|branch\s+it|b\.tech\s+it|be\s+it|information technology|in it|for it branch)\b", q_lower):
+                    continue
             if re.search(r"\b" + re.escape(branch_alias) + r"\b", q_lower):
                 if canonical not in preferred_branches:
                     preferred_branches.append(canonical)
+
+        # If user explicitly requested only one exact branch, filter to that exact branch
+        if exact_branch_match:
+            exact_stem = exact_branch_match.group(1).strip()
+            for b in preferred_branches:
+                if b.lower() in exact_stem or exact_stem in b.lower():
+                    preferred_branches = [b]
+                    break
 
         # Handle "and related branches" pattern
         if "related branches" in q_lower or "all related" in q_lower:
@@ -413,7 +446,7 @@ class QueryIntelligenceParser:
                 intent = AdmissionIntent.CUTOFF_TREND
             else:
                 intent = AdmissionIntent.COLLEGE_DISCOVERY
-        elif any(k in q_lower for k in ["predict", "histgradientboosting", "regressor", "ml model"]):
+        elif any(k in q_lower for k in ["predict", "histgradientboosting", "regressor", "ml model"]) and not is_multi_college:
             intent = AdmissionIntent.ML_CUTOFF_PREDICTION
         elif ranking_obj == RankingObjective.ROI:
             intent = AdmissionIntent.ROI_RANKING
