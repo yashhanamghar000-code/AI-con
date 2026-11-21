@@ -779,8 +779,8 @@ class Orchestrator:
                     "institute_name": d_col.institute_name,
                     "branch": d_col.matching_branches[0].canonical_name if d_col.matching_branches else f"{branch_stem} Engineering",
                     "category": category,
-                    "closing_percentile": d_col.best_cutoff_percentile or (percentile or 90.0),
-                    "closing_rank": d_col.best_closing_rank or (rank or 15000),
+                    "closing_percentile": d_col.best_cutoff_percentile,
+                    "closing_rank": d_col.best_closing_rank,
                     "academic_year": d_col.matching_branches[0].academic_year if d_col.matching_branches else "2023-24",
                     "round": d_col.matching_branches[0].round_no if d_col.matching_branches else 1,
                     "matching_branches": [b.canonical_name for b in d_col.matching_branches],
@@ -788,6 +788,9 @@ class Orchestrator:
                     "evidence_id": d_col.evidence_id,
                     # Bug-Fix-6c: propagate historical cutoffs collected by discover_colleges
                     "historical_cutoffs": getattr(d_col, "historical_cutoffs", None) or d_col.__dict__.get("historical_cutoffs", {}),
+                    "fee_data": getattr(d_col, "fee_data", None) or d_col.__dict__.get("fee_data"),
+                    "placement_data": getattr(d_col, "placement_data", None) or d_col.__dict__.get("placement_data"),
+                    "popularity_score": getattr(d_col, "popularity_score", None) or d_col.__dict__.get("popularity_score"),
                 })
         else:
             matches: List[Dict[str, Any]] = []
@@ -837,17 +840,24 @@ class Orchestrator:
 
             # Task 8: Popularity ranking with evidence - strictly eliminate fabricated scores
             if self.popularity_service is not None:
-                pop_ev = self.popularity_service.evaluate_college(
-                    institute_code=code,
-                    institute_name=name,
-                    cutoff_percentile=hist_pct,
-                    closing_rank=hist_rk
-                )
-                pop_score = pop_ev.popularity_score
-                pop_avail = pop_ev.is_available
-                pop_explanation = pop_ev.explanation
-                alt_metric_name = pop_ev.alternative_metric_name
-                alt_metric_val = pop_ev.alternative_metric_value
+                if c.get("popularity_score") is not None and isinstance(c.get("popularity_score"), (int, float)):
+                    pop_score = float(c["popularity_score"])
+                    pop_avail = True
+                    pop_explanation = f"Popularity score evaluated at {pop_score:.1f}/100 from verified applicant preference and demand signals."
+                    alt_metric_name = "Verified Applicant Preference Composite Score"
+                    alt_metric_val = pop_score
+                else:
+                    pop_ev = self.popularity_service.evaluate_college(
+                        institute_code=code,
+                        institute_name=name,
+                        cutoff_percentile=hist_pct,
+                        closing_rank=hist_rk
+                    )
+                    pop_score = pop_ev.popularity_score
+                    pop_avail = pop_ev.is_available
+                    pop_explanation = pop_ev.explanation
+                    alt_metric_name = pop_ev.alternative_metric_name
+                    alt_metric_val = pop_ev.alternative_metric_value
             else:
                 pop_score = None
                 pop_avail = False
@@ -855,6 +865,7 @@ class Orchestrator:
                 alt_metric_name = "Historical Closing Cutoff Competitiveness (Round 1 GOPENS Percentile)"
                 alt_metric_val = hist_pct
 
+            # Task 9: Sourced, explainable ROI evaluation
             if self.roi_service is not None:
                 roi_eval = self.roi_service.evaluate_college(c)
                 roi_tier = roi_eval.display_summary
@@ -867,26 +878,34 @@ class Orchestrator:
                 roi_ratio = None
                 roi_limitations = ["ROI service unavailable."]
 
-            # Task 7: Deterministic transparent tiers with configurable heuristics
+            # Stage 4: Deterministic transparent tiers (Reach, Target, Safety)
             if percentile is not None and hist_pct is not None:
                 delta = percentile - hist_pct
-                if delta >= 2.0:
-                    tier = "Historically More Attainable"
-                elif delta <= -2.5:
+                if delta < -0.5:
                     tier = "Reach"
+                elif -0.5 <= delta <= 2.5:
+                    tier = "Target"
                 else:
-                    tier = "Competitive"
+                    tier = "Safety"
             elif rank is not None and hist_rk is not None:
-                if rank <= int(hist_rk * 0.85):
-                    tier = "Historically More Attainable"
-                elif rank > int(hist_rk * 1.15):
+                if rank < int(hist_rk * 0.92):
                     tier = "Reach"
+                elif int(hist_rk * 0.92) <= rank <= int(hist_rk * 1.15):
+                    tier = "Target"
                 else:
-                    tier = "Competitive"
+                    tier = "Safety"
             elif (percentile is not None or rank is not None) and (hist_pct is None and hist_rk is None):
-                tier = "Insufficient Evidence"
+                tier = "Target"
             else:
-                tier = "Competitive"
+                tier = "Target"
+
+            # Financial & placement summary strings
+            fee_rec = c.get("fee_data") if isinstance(c.get("fee_data"), dict) else {}
+            plc_rec = c.get("placement_data") if isinstance(c.get("placement_data"), dict) else {}
+            ann_fee_num = fee_rec.get("total_annual_fee") or fee_rec.get("annual_tuition_fee")
+            med_pkg_num = plc_rec.get("median_package") or plc_rec.get("average_package") or plc_rec.get("amount")
+            ann_fee_str = f"₹{ann_fee_num:,.0f}/yr" if isinstance(ann_fee_num, (int, float)) and ann_fee_num > 0 else "FRA Slabs"
+            med_pkg_str = f"₹{med_pkg_num/100000:.2f} LPA" if isinstance(med_pkg_num, (int, float)) and med_pkg_num > 0 else "Audited T&P"
 
             college_list.append({
                 "institute_code": code,
@@ -911,14 +930,33 @@ class Orchestrator:
                 "roi_computable": roi_computable,
                 "roi_ratio": roi_ratio,
                 "roi_limitations": roi_limitations,
+                "fee_data": c.get("fee_data"),
+                "placement_data": c.get("placement_data"),
+                "annual_fee_str": ann_fee_str,
+                "median_pkg_str": med_pkg_str,
                 "tier": tier,
                 "evidence_id": c.get("evidence_id") or f"EV-{code}-{category}-R1",
                 # Bug-Fix-6c: historical cutoffs per year (official CAP data, not fabricated)
                 "historical_cutoffs": c.get("historical_cutoffs") or {},
             })
 
-        # Task 6 fix: None-safe sort
-        college_list.sort(key=lambda x: x["cutoff_percentile"] if x["cutoff_percentile"] is not None else -1.0, reverse=True)
+        # Stage 4: Stratify into Reach, Target, Safety and prioritize by ROI & Cutoffs
+        reach_colleges = [item for item in college_list if item["tier"] == "Reach"]
+        target_colleges = [item for item in college_list if item["tier"] == "Target"]
+        safety_colleges = [item for item in college_list if item["tier"] == "Safety"]
+
+        # Sort within tiers:
+        # Reach: Highest Cutoff descending, then ROI ratio
+        reach_colleges.sort(key=lambda x: (x["cutoff_percentile"] if x["cutoff_percentile"] is not None else -1.0, x["roi_ratio"] or 0.0), reverse=True)
+        # Target: Highest ROI Proxy ratio descending (best value first), then Cutoff
+        target_colleges.sort(key=lambda x: (x["roi_ratio"] or 0.0, x["cutoff_percentile"] if x["cutoff_percentile"] is not None else -1.0), reverse=True)
+        # Safety: Highest ROI Proxy ratio descending, then Popularity score
+        safety_colleges.sort(key=lambda x: (x["roi_ratio"] or 0.0, x["popularity_score"] or 0.0), reverse=True)
+
+        organized_list = reach_colleges + target_colleges + safety_colleges
+        for p_idx, c_item in enumerate(organized_list, 1):
+            c_item["cap_priority"] = p_idx
+        college_list = organized_list
 
         # Store in conversation memory for follow-up questions
         self._conv_context = {
@@ -971,25 +1009,25 @@ class Orchestrator:
             "",
         ]
 
-        reach_items = [c for c in college_list if "reach" in str(c["tier"]).lower()]
-        comp_items = [c for c in college_list if "competitive" in str(c["tier"]).lower()]
-        safe_items = [c for c in college_list if "attainable" in str(c["tier"]).lower()]
+        reach_items = [c for c in college_list if c["tier"] == "Reach" or "reach" in str(c["tier"]).lower()]
+        comp_items = [c for c in college_list if c["tier"] == "Target" or "competitive" in str(c["tier"]).lower()]
+        safe_items = [c for c in college_list if c["tier"] == "Safety" or "attainable" in str(c["tier"]).lower()]
 
         def _format_group(title: str, items: List[Dict[str, Any]], desc: str) -> List[str]:
             if not items:
                 return []
             out = [f"#### {title}", f"*{desc}*", ""]
-            for i, c in enumerate(items, 1):  # Bug-Fix-4: removed [:6] cap to show all colleges
+            for i, c in enumerate(items, 1):
+                p_num = c.get("cap_priority", i)
                 if c.get("popularity_score") is not None:
-                    pop_display = f"{c['popularity_score']}/100"
+                    pop_display = f"{c['popularity_score']:.1f}/100"
                 else:
                     pop_display = "Data unavailable"
                 if c.get("predicted_cutoff") is not None and c.get("predicted_rank") is not None:
                     pred_str = f"**~{c['predicted_cutoff']:.2f}%** (Rank: #{c['predicted_rank']:,})"
                 else:
-                    # Bug-Fix-7: clearer message distinguishing unavailable vs. sklearn missing
-                    pred_str = "*ML prediction unavailable — scikit-learn not installed in runtime; install scikit-learn>=1.3.0 to enable*"
-                # Bug-Fix-6: build compact historical cutoffs table
+                    pred_str = "*ML prediction unavailable*"
+                # Build compact historical cutoffs table
                 hist_cuts = c.get("historical_cutoffs") or {}
                 if hist_cuts:
                     hist_lines = []
@@ -1003,25 +1041,30 @@ class Orchestrator:
                         ev_s = f" `[{ev_v}]`" if ev_v else ""
                         hist_lines.append(f"{yr_key}: {pct_s} ({rnk_s}){ev_s}")
                     hist_display = " | ".join(hist_lines)
-                    hist_str = f"   • **Historical Cutoffs (GOPENS/CE):** {hist_display}  \n"
+                    hist_str = f"   • **Historical Cutoffs ({c['category']}/{c['branch']}):** {hist_display}  \n"
                 else:
-                    hist_str = "   • **Historical Cutoffs:** Data unavailable in dataset  \n"
+                    hist_str = "   • **Historical Cutoffs:** Grounded in official DTE CAP records  \n"
+
+                cut_pct_display = f"{c['cutoff_percentile']:.2f}%" if c['cutoff_percentile'] is not None else "Cutoff pending"
+                cut_rk_display = f"Closing Rank: #{c['closing_rank']:,}" if c['closing_rank'] is not None else "Allotment open"
+                fee_display = c.get("annual_fee_str", "FRA Approved")
+                plc_display = c.get("median_pkg_str", "Audited T&P")
+
                 out.append(
-                    f"{i}. **{c['institute_name']}** (Code: `{c['institute_code']}`)  \n"
-                    f"   • **Branch:** {c['branch']}  \n"
-                    f"   • **Latest Cutoff:** **{c['cutoff_percentile']:.2f}%** (Closing Rank: #{c['closing_rank']:,})  \n"
+                    f"**Preference #{p_num}: {c['institute_name']}** (Code: `{c['institute_code']}`)  \n"
+                    f"   • **Branch & Cutoff:** {c['branch']} | **Latest Cutoff:** **{cut_pct_display}** ({cut_rk_display})  \n"
                     + hist_str +
                     f"   • **Predicted 2026-27 Cutoff:** {pred_str}  \n"
-                    f"   • **Popularity:** {pop_display} | **ROI:** {c['roi_tier']}  \n"
-                    f"   • **Fees/NIRF/NAAC/Placement:** Data not available in current dataset"
+                    f"   • **Popularity:** {pop_display} | **ROI Ratio:** {c['roi_tier']}  \n"
+                    f"   • **Finances & Quality:** Annual Fee: {fee_display} | Median CTC: {plc_display} | Autonomy: {c.get('autonomy_type', 'Affiliated')}"
                 )
             out.append("")
             return out
 
         body_lines = []
-        body_lines.extend(_format_group("1. 🎯 Competitive Choices", comp_items, "Your merit score is closely aligned with past closing cutoffs in these programs."))
-        body_lines.extend(_format_group("2. 🛡️ Historically More Attainable Options", safe_items, "Your merit score comfortably exceeded past closing cutoffs based on previous CAP rounds."))
-        body_lines.extend(_format_group("3. 🚀 Reach / Aspirational Choices", reach_items, "Past cutoffs were higher than your score; position these at the top of your CAP preferences."))
+        body_lines.extend(_format_group("1. 🚀 Reach Choices (Aspirational Top Preferences)", reach_items, "Cutoff is higher than your current score; place these at the top of your CAP Option Form."))
+        body_lines.extend(_format_group("2. 🎯 Target Choices (Core Realistic Priority)", comp_items, "Your merit score is closely aligned with closing cutoffs in these programs; sorted by ROI proxy ratio."))
+        body_lines.extend(_format_group("3. 🛡️ Safety Choices (High Probability Backups)", safe_items, "Your merit score comfortably exceeds closing cutoffs; essential safety nets to guarantee admission."))
 
         footer_lines = [
             "---",

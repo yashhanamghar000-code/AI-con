@@ -77,6 +77,9 @@ class DiscoveredCollege:
     popularity_available: bool = False
     roi_tier: Optional[str] = None
     evidence_id: Optional[str] = None
+    fee_data: Optional[Dict[str, Any]] = None
+    placement_data: Optional[Dict[str, Any]] = None
+    historical_cutoffs: Optional[Dict[str, Any]] = None
 
     def to_dict(self) -> Dict[str, Any]:
         return {
@@ -95,6 +98,26 @@ class DiscoveredCollege:
             "roi_tier": self.roi_tier,
             "evidence_id": self.evidence_id,
         }
+
+
+def get_category_search_priority(cat_upper: str) -> List[str]:
+    """Expand category query into authoritative Maharashtra CAP seat quota aliases."""
+    c_up = (cat_upper or "GOPENS").strip().upper()
+    if c_up in ("GOPENS", "OPEN", "GENERAL"):
+        return ["GOPENS", "GOPENH", "GOPENO", "OPEN", "DEFOPENS", "LOPENH", "LOPENO"]
+    elif "OBC" in c_up:
+        return [c_up, "GOBCS", "GOBCH", "GOBCO", "OBC", "DEFOBCS", "LOBCS", "LOBCH", "GOPENS", "GOPENH"]
+    elif "SC" in c_up and "VJS" not in c_up:
+        return [c_up, "GSCS", "GSCH", "GSCO", "SC", "DEFSCS", "LSCS", "LSCH", "GOPENS", "GOPENH"]
+    elif "ST" in c_up:
+        return [c_up, "GSTS", "GSTH", "GSTO", "ST", "LSTS", "LSTH", "GOPENS", "GOPENH"]
+    elif any(k in c_up for k in ("VJ", "NT", "DT")):
+        return [c_up, "GNT1S", "GNT1H", "GNT1O", "GNT2S", "GNT2H", "GNT2O", "GNT3S", "GNT3H", "GNT3O", "GVJS", "GVJH", "GOPENS", "GOPENH"]
+    elif "EWS" in c_up:
+        return ["EWS", "GOPENS", "GOPENH"]
+    elif "TFWS" in c_up:
+        return ["TFWS", "GOPENS", "GOPENH"]
+    return [c_up, "GOPENS", "GOPENH", "GOPENO"]
 
 
 class StructuredCollegeDiscoveryService:
@@ -189,34 +212,58 @@ class StructuredCollegeDiscoveryService:
 
                 b_res = self.branch_service.resolve_branch(raw_b_name)
 
-                # Look up cutoff for this branch & category
-                cat_found = None
-                for c in b.get("categories", []):
-                    if c.get("category", "").upper() == cat_upper:
-                        cat_found = c
-                        break
-                # Fallback to GOPENS if specific quota token absent
-                if not cat_found and cat_upper != "GOPENS":
-                    for c in b.get("categories", []):
-                        if c.get("category", "").upper() == "GOPENS":
-                            cat_found = c
-                            break
-
+                # Look up cutoff for this branch & category using authoritative CAP quota aliases
+                search_cats = get_category_search_priority(cat_upper)
                 cut_pct = None
                 cut_rank = None
                 ev_id = None
-                if cat_found:
-                    cutoffs = cat_found.get("cutoffs", [])
-                    if cutoffs:
-                        latest_cut = cutoffs[0]
-                        cut_pct = latest_cut.get("closing_percentile")
-                        cut_rank = latest_cut.get("closing_rank")
-                        ev_id = latest_cut.get("evidence_id")
+                matched_cat_name = cat_upper
+
+                # 1. Search in current year college record
+                for target_cat in search_cats:
+                    for c_entry in b.get("categories", []):
+                        if c_entry.get("category", "").upper() == target_cat:
+                            cutoffs = c_entry.get("cutoffs", [])
+                            if cutoffs:
+                                latest_cut = cutoffs[0]
+                                cut_pct = latest_cut.get("closing_percentile")
+                                cut_rank = latest_cut.get("closing_rank")
+                                ev_id = latest_cut.get("evidence_id")
+                                matched_cat_name = target_cat
+                                break
+                    if cut_pct is not None:
+                        break
+
+                # 2. Fallback: If not found in current year, check previous available years
+                if cut_pct is None and years_map:
+                    for prev_yr in sorted(years_map.keys(), reverse=True):
+                        if prev_yr == college.get("academic_year"):
+                            continue
+                        prev_col = years_map[prev_yr]
+                        for prev_b in prev_col.get("branches", []):
+                            if self.branch_service.matches_requested_branch(prev_b.get("branch", ""), req_branches):
+                                for target_cat in search_cats:
+                                    for c_entry in prev_b.get("categories", []):
+                                        if c_entry.get("category", "").upper() == target_cat:
+                                            cutoffs = c_entry.get("cutoffs", [])
+                                            if cutoffs:
+                                                latest_cut = cutoffs[0]
+                                                cut_pct = latest_cut.get("closing_percentile")
+                                                cut_rank = latest_cut.get("closing_rank")
+                                                ev_id = latest_cut.get("evidence_id")
+                                                matched_cat_name = target_cat
+                                                break
+                                    if cut_pct is not None:
+                                        break
+                            if cut_pct is not None:
+                                break
+                        if cut_pct is not None:
+                            break
 
                 # If score filter is active, check attainability
                 if percentile is not None and cut_pct is not None:
-                    # Include if within reasonable discovery window (percentile +/- 5.0)
-                    if cut_pct > percentile + 5.0:
+                    # Include if within reasonable discovery window (percentile + 6.0 to -25.0)
+                    if cut_pct > percentile + 6.0:
                         continue
 
                 branch_info = DiscoveredBranchInfo(
@@ -227,8 +274,8 @@ class StructuredCollegeDiscoveryService:
                     latest_closing_rank=cut_rank,
                     round_no=1,
                     academic_year=college.get("academic_year"),
-                    evidence_id=ev_id or f"EV-{canon_code}-{cat_upper}-R1",
-                    seat_category=cat_upper,
+                    evidence_id=ev_id or f"EV-{canon_code}-{matched_cat_name}-R1",
+                    seat_category=matched_cat_name,
                 )
                 matching_branches.append(branch_info)
 
@@ -291,6 +338,23 @@ class StructuredCollegeDiscoveryService:
                                 }
             # Store historical cutoffs as an attribute (dynamic attachment)
             inst.__dict__["historical_cutoffs"] = hist
+            inst.historical_cutoffs = hist
+
+            # Attach verified fee, placement, and popularity metrics from CollegeMetricsService
+            try:
+                from scripts.college_metrics_service import CollegeMetricsService
+                cms = CollegeMetricsService.get_instance()
+                m_info = cms.get_metrics_for_code(code)
+                if not m_info and inst.institute_name:
+                    m_info = cms.get_or_enrich_college(code, inst.institute_name, district=inst.district, autonomy_type=inst.autonomy_type)
+                if m_info:
+                    inst.fee_data = m_info.get("fee_data")
+                    inst.placement_data = m_info.get("placement_data")
+                    if m_info.get("popularity_signals"):
+                        inst.popularity_score = m_info["popularity_signals"].get("overall_score")
+                        inst.popularity_available = True
+            except Exception:
+                pass
 
         return {
             "status": "success",

@@ -217,7 +217,7 @@ class ROIService:
         raw_fee = college_data.get("fee_data") or college_data.get("annual_tuition_fee") or college_data.get("total_fees")
         if isinstance(raw_fee, dict):
             try:
-                amt = float(raw_fee.get("amount", 0))
+                amt = float(raw_fee.get("amount") or raw_fee.get("total_annual_fee") or raw_fee.get("annual_tuition_fee") or 0)
                 if amt > 0:
                     fee_data = FeeData(
                         amount=amt,
@@ -243,7 +243,7 @@ class ROIService:
         raw_placement = college_data.get("placement_data") or college_data.get("placement_mentions")
         if isinstance(raw_placement, dict):
             try:
-                amt = float(raw_placement.get("amount", 0))
+                amt = float(raw_placement.get("amount") or raw_placement.get("median_package") or raw_placement.get("average_package") or 0)
                 if amt > 0:
                     placement_data = PlacementData(
                         amount=amt,

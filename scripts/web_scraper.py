@@ -133,6 +133,56 @@ def _text_only(html: str) -> str:
 # Extraction helpers
 # ─────────────────────────────────────────────
 
+def parse_fee_amount(fee_str: Optional[str]) -> Optional[float]:
+    """Parse text fee string into a numerical float amount in INR."""
+    if not fee_str:
+        return None
+    cleaned = fee_str.lower().replace("₹", "").replace("rs.", "").replace("rs", "").strip()
+    m_lakh = re.search(r"([\d\.]+)\s*(?:lakh|lakhs|l)\b", cleaned)
+    if m_lakh:
+        try:
+            return round(float(m_lakh.group(1)) * 100000.0, 2)
+        except ValueError:
+            pass
+    m_k = re.search(r"([\d\.]+)\s*k\b", cleaned)
+    if m_k:
+        try:
+            return round(float(m_k.group(1)) * 1000.0, 2)
+        except ValueError:
+            pass
+    m_num = re.search(r"[\d,]+", cleaned)
+    if m_num:
+        try:
+            val = float(m_num.group(0).replace(",", ""))
+            if val > 1000:
+                return round(val, 2)
+        except ValueError:
+            pass
+    return None
+
+
+def parse_package_amount(pkg_str: Optional[str]) -> Optional[float]:
+    """Parse text placement salary package into a numerical float amount in INR."""
+    if not pkg_str:
+        return None
+    cleaned = pkg_str.lower().replace("₹", "").replace("rs.", "").replace("rs", "").strip()
+    m_lpa = re.search(r"([\d\.]+)\s*(?:lpa|lakh|lakhs|l)\b", cleaned)
+    if m_lpa:
+        try:
+            return round(float(m_lpa.group(1)) * 100000.0, 2)
+        except ValueError:
+            pass
+    m_num = re.search(r"[\d,]+", cleaned)
+    if m_num:
+        try:
+            val = float(m_num.group(0).replace(",", ""))
+            if val > 100000:
+                return round(val, 2)
+        except ValueError:
+            pass
+    return None
+
+
 def _extract_fees(text: str) -> Optional[str]:
     patterns = [
         r"(?:annual|total|tuition)\s+fee[s]?\s*[:\-]?\s*([\u20B9Rs\.]+\s*[\d,]+(?:\s*(?:lakh|lakhs|L|K)?)?)",
@@ -428,6 +478,29 @@ class CollegeWebScraper:
 
         scraped_data = self.cache.get(cache_key)
         if scraped_data is None:
+            # Check Master Metrics DB via CollegeMetricsService for instant verified data
+            try:
+                from scripts.college_metrics_service import CollegeMetricsService
+                cms = CollegeMetricsService.get_instance()
+                master_metrics = cms.get_metrics_for_code(code)
+                if not master_metrics and name:
+                    master_metrics = cms.get_or_enrich_college(code, name)
+                if master_metrics:
+                    f_val = str(master_metrics.get("fee_data", {}).get("total_annual_fee", ""))
+                    p_val = str(master_metrics.get("placement_data", {}).get("average_package", ""))
+                    src = master_metrics.get("fee_data", {}).get("source_citation", "Official FRA / NIRF Disclosure")
+                    scraped_data = {
+                        "naac_grade_scraped": master_metrics.get("naac_grade"),
+                        "nirf_rank_scraped": master_metrics.get("nirf_rank"),
+                        "annual_fee_scraped": f_val,
+                        "avg_package_scraped": p_val,
+                        "_sources": [src],
+                    }
+                    self.cache.set(cache_key, scraped_data)
+            except Exception as e:
+                logger.debug("Master metrics lookup skipped: %s", e)
+
+        if scraped_data is None:
             scraped_data = self.fetch(name, institute_code=code)
             self.cache.set(cache_key, scraped_data)
 
@@ -436,6 +509,8 @@ class CollegeWebScraper:
             "nirf_rank": "nirf_rank_scraped",
             "established_year": "established_scraped",
             "affiliation": "affiliation_scraped",
+            "annual_fee": "annual_fee_scraped",
+            "avg_package": "avg_package_scraped",
         }
 
         for target in missing_fields:
