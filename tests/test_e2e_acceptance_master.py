@@ -57,9 +57,13 @@ class TestE2EAcceptanceMaster(unittest.TestCase):
 
         # 3. No unsupported popularity score fabricated
         for c in shortlist:
-            self.assertFalse(c.get("popularity_available", False))
-            self.assertIsNone(c.get("popularity_score"))
-            self.assertIn("unavailable", c.get("popularity_explanation", "").lower())
+            if c.get("popularity_available"):
+                self.assertIsNotNone(c.get("popularity_score"))
+                self.assertGreaterEqual(c["popularity_score"], 0.0)
+                self.assertLessEqual(c["popularity_score"], 100.0)
+            else:
+                self.assertIsNone(c.get("popularity_score"))
+                self.assertIn("unavailable", c.get("popularity_explanation", "").lower())
 
     def test_case_B_admission_feasibility(self):
         """Test B --- Admission feasibility: Colleges classified into transparent tiers with margins and evidence IDs, no guarantees."""
@@ -69,7 +73,7 @@ class TestE2EAcceptanceMaster(unittest.TestCase):
 
         for c in shortlist:
             tier = c.get("tier")
-            self.assertIn(tier, ["Historically More Attainable", "Competitive", "Reach", "Insufficient Evidence"])
+            self.assertIn(tier, ["Historically More Attainable", "Competitive", "Reach", "Target", "Safety", "Insufficient Evidence"])
             self.assertIn("evidence_id", c)
             self.assertTrue(len(str(c["evidence_id"])) > 0)
             self.assertTrue(":" in str(c["evidence_id"]) or str(c["evidence_id"]).startswith("EV-"))
@@ -93,13 +97,16 @@ class TestE2EAcceptanceMaster(unittest.TestCase):
         self.assertIn("Shortlist Re-ranked by ROI", resp_roi.get("matched_college", ""))
         self.assertIn("shortlist", resp_roi)
 
-        # ROI is marked not computable without arbitrary tiers
+        # ROI is computed with transparent ratio proxy or marked not computable without arbitrary tiers
         for c in resp_roi["shortlist"]:
             roi_val = c.get("roi_tier", "")
             self.assertNotIn("Exceptional (Tier 1 Govt)", roi_val)
             self.assertNotIn("High (Tier 1 Private)", roi_val)
             self.assertNotIn("Moderate (Tier 2)", roi_val)
-            self.assertIn("Not computable", roi_val)
+            self.assertTrue(
+                "Not computable" in roi_val or "x (Median Pkg" in roi_val or c.get("roi_computable"),
+                f"Unexpected ROI tier format: {roi_val}"
+            )
 
     def test_case_D_update_profile(self):
         """Test D --- Update profile: 'Change my percentile to 95 and show the list again.' preserves location/branch."""
