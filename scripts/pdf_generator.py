@@ -134,6 +134,22 @@ def generate_college_list_pdf(
         context_text += " &nbsp;|&nbsp; ".join(ctx_parts)
     context_text += f" &nbsp;|&nbsp; <b>Total Recommendations:</b> {len(colleges)} Options"
 
+    health_badge = ""
+    try:
+        from scripts.cap_blunder_auditor import CAPOptionFormAuditor
+        auditor = CAPOptionFormAuditor()
+        audit_rep = auditor.audit_option_form(colleges, user_context or {})
+        if audit_rep.risk_level == "SAFE":
+            health_badge = "<font color='#059669'><b>CAP Form Audit: EXCELLENT & SAFE (0 Critical Blunders)</b></font>"
+        elif audit_rep.risk_level == "MODERATE_RISK":
+            health_badge = f"<font color='#D97706'><b>CAP Form Audit: REVIEW SUGGESTED ({audit_rep.blunders_count} warnings)</b></font>"
+        else:
+            health_badge = f"<font color='#DC2626'><b>CAP Form Audit: CRITICAL BLUNDERS ({audit_rep.critical_count} critical)</b></font>"
+    except Exception:
+        pass
+    if health_badge:
+        context_text += f"<br/>{health_badge}"
+
     story.append(Paragraph(context_text, meta_style))
     story.append(Spacer(1, 10))
 
@@ -194,7 +210,9 @@ def generate_college_list_pdf(
         autonomy = c.get("autonomy_type") or c.get("institution_type") or "Affiliated"
         district = c.get("district") or c.get("city") or "Maharashtra"
         naac = c.get("naac_grade") or fee_d.get("naac_grade") or "A"
-        col_name = f"<b>{name}</b><br/>"
+        choice_code = c.get("choice_code")
+        choice_display = f"<br/><font color='#2563EB'><b>DTE Choice: {choice_code}</b></font>" if choice_code else ""
+        col_name = f"<b>{name}</b>{choice_display}<br/>"
         col_name += f"<font color='#64748B'>Code: {code} &nbsp;|&nbsp; {district} &nbsp;|&nbsp; {autonomy}</font><br/>"
         col_name += f"<font color='#0284C7'>NAAC: {naac}</font>"
 
@@ -220,14 +238,21 @@ def generate_college_list_pdf(
 
         col_cutoff = f"<b>{branch_name}</b><br/>Cutoff: {pct_str}{pred_str}"
 
-        # Column 4: Finances & Placements
+        # Column 4: Finances & Placements (with Category MahaDBT Concession support)
         ann_fee = fee_d.get("total_annual_fee") or fee_d.get("annual_tuition_fee") or c.get("annual_tuition_fee")
         total_4yr = fee_d.get("total_degree_cost") or (ann_fee * 4 if ann_fee else None)
         med_pkg = plc_d.get("median_package") or plc_d.get("average_package") or plc_d.get("amount") or c.get("median_package")
         highest_pkg = plc_d.get("highest_package")
 
-        fee_str = f"Annual Fee: <b>{_format_currency(ann_fee)}/yr</b>" if ann_fee else "Fee: FRA Slabs"
-        tot_str = f"<br/><font color='#64748B'>4-Yr Total: {_format_currency(total_4yr)}</font>" if total_4yr else ""
+        concession = c.get("concession_data")
+        if concession and concession.get("waiver_percentage", 0) > 0:
+            eff_fee = concession.get("effective_annual_fee")
+            savings = concession.get("total_4yr_savings", 0)
+            fee_str = f"Net Fee: <b>{_format_currency(eff_fee)}/yr</b> <font color='#059669'>({concession['waiver_percentage']:.0f}% waiver)</font>"
+            tot_str = f"<br/><font color='#64748B'>Base: {_format_currency(ann_fee)}/yr | 4-Yr Save: ₹{savings/100000:.1f}L</font>"
+        else:
+            fee_str = f"Annual Fee: <b>{_format_currency(ann_fee)}/yr</b>" if ann_fee else "Fee: FRA Slabs"
+            tot_str = f"<br/><font color='#64748B'>4-Yr Total: {_format_currency(total_4yr)}</font>" if total_4yr else ""
         plc_str = f"<br/>Median CTC: <b><font color='#059669'>{_format_currency(med_pkg)}</font></b>" if med_pkg else "<br/>Placement: Audited T&P"
         if highest_pkg:
             plc_str += f" <font color='#64748B'>(Max {_format_currency(highest_pkg)})</font>"

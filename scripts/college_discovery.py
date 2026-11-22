@@ -14,7 +14,10 @@ from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Any, Dict, List, Optional, Set, Tuple
 
-from scripts.branch_taxonomy import BranchTaxonomyService, BranchResolution
+try:
+    from scripts.branch_taxonomy import BranchTaxonomyService, BranchResolution, format_dte_choice_code
+except ImportError:
+    from branch_taxonomy import BranchTaxonomyService, BranchResolution, format_dte_choice_code
 from scripts.agents.cutoff_agent import CutoffAgent
 
 logger = logging.getLogger("aicon.college_discovery")
@@ -60,6 +63,8 @@ class DiscoveredBranchInfo:
     academic_year: Optional[str] = None
     evidence_id: Optional[str] = None
     seat_category: Optional[str] = None
+    choice_code: Optional[str] = None
+    course_code: Optional[str] = None
 
 
 @dataclass
@@ -77,6 +82,7 @@ class DiscoveredCollege:
     popularity_available: bool = False
     roi_tier: Optional[str] = None
     evidence_id: Optional[str] = None
+    choice_code: Optional[str] = None
     fee_data: Optional[Dict[str, Any]] = None
     placement_data: Optional[Dict[str, Any]] = None
     historical_cutoffs: Optional[Dict[str, Any]] = None
@@ -97,6 +103,7 @@ class DiscoveredCollege:
             "popularity_available": self.popularity_available,
             "roi_tier": self.roi_tier,
             "evidence_id": self.evidence_id,
+            "choice_code": self.choice_code,
         }
 
 
@@ -204,6 +211,7 @@ class StructuredCollegeDiscoveryService:
             best_pct: Optional[float] = None
             best_rank: Optional[int] = None
             best_ev_id: Optional[str] = None
+            best_choice_code: Optional[str] = None
 
             for b in college.get("branches", []):
                 raw_b_name = b.get("branch", "")
@@ -211,6 +219,13 @@ class StructuredCollegeDiscoveryService:
                     continue
 
                 b_res = self.branch_service.resolve_branch(raw_b_name)
+                raw_course_code = b.get("course_code") or b.get("choice_code")
+                choice_code_val = format_dte_choice_code(
+                    raw_course_code=raw_course_code,
+                    institute_code=canon_code,
+                    branch_name=b_res.canonical_name,
+                    category=cat_upper,
+                )
 
                 # Look up cutoff for this branch & category using authoritative CAP quota aliases
                 search_cats = get_category_search_priority(cat_upper)
@@ -276,6 +291,8 @@ class StructuredCollegeDiscoveryService:
                     academic_year=college.get("academic_year"),
                     evidence_id=ev_id or f"EV-{canon_code}-{matched_cat_name}-R1",
                     seat_category=matched_cat_name,
+                    choice_code=choice_code_val,
+                    course_code=str(raw_course_code) if raw_course_code else choice_code_val,
                 )
                 matching_branches.append(branch_info)
 
@@ -283,6 +300,7 @@ class StructuredCollegeDiscoveryService:
                     best_pct = cut_pct
                     best_rank = cut_rank
                     best_ev_id = ev_id
+                    best_choice_code = choice_code_val
 
             if matching_branches:
                 seen_codes.add(canon_code)
@@ -291,6 +309,8 @@ class StructuredCollegeDiscoveryService:
                     autonomy = "Autonomous"
                 elif "government" in inst_name.lower() or "govt" in inst_name.lower():
                     autonomy = "Government"
+
+                final_choice_code = best_choice_code or (matching_branches[0].choice_code if matching_branches else None)
 
                 discovered_institutes.append(
                     DiscoveredCollege(
@@ -303,6 +323,7 @@ class StructuredCollegeDiscoveryService:
                         total_matching_branches=len(matching_branches),
                         best_cutoff_percentile=best_pct,
                         best_closing_rank=best_rank,
+                        choice_code=final_choice_code,
                         evidence_id=best_ev_id or f"EV-{canon_code}-{cat_upper}-R1",
                     )
                 )
@@ -356,6 +377,52 @@ class StructuredCollegeDiscoveryService:
             except Exception:
                 pass
 
+        # Step 3: Allied Branch Interleaved Option List
+        # Builds a granular preference list where every matching branch in each college
+        # is treated as an individual CAP choice option, ranked by cutoff competitiveness.
+        interleaved_options: List[Dict[str, Any]] = []
+        for inst in discovered_institutes:
+            fee_d = getattr(inst, "fee_data", None)
+            plc_d = getattr(inst, "placement_data", None)
+            for mb in inst.matching_branches:
+                tier = "Target"
+                if percentile is not None and mb.latest_cutoff_percentile is not None:
+                    delta = percentile - mb.latest_cutoff_percentile
+                    if delta < -0.5:
+                        tier = "Reach"
+                    elif -0.5 <= delta <= 2.5:
+                        tier = "Target"
+                    else:
+                        tier = "Safety"
+
+                interleaved_options.append({
+                    "institute_code": inst.institute_code,
+                    "institute_name": inst.institute_name,
+                    "branch_name": mb.canonical_name,
+                    "canonical_group": mb.canonical_group,
+                    "choice_code": mb.choice_code,
+                    "cutoff_percentile": mb.latest_cutoff_percentile,
+                    "closing_rank": mb.latest_closing_rank,
+                    "tier": tier,
+                    "city": inst.city,
+                    "district": inst.district,
+                    "autonomy_type": inst.autonomy_type,
+                    "round_no": mb.round_no,
+                    "academic_year": mb.academic_year,
+                    "evidence_id": mb.evidence_id,
+                    "fee_data": fee_d,
+                    "placement_data": plc_d,
+                    "popularity_score": inst.popularity_score,
+                })
+
+        # Sort interleaved options by cutoff percentile descending
+        interleaved_options.sort(
+            key=lambda x: x["cutoff_percentile"] if x["cutoff_percentile"] is not None else 0.0,
+            reverse=True
+        )
+        for idx, opt in enumerate(interleaved_options, 1):
+            opt["preference_priority"] = idx
+
         return {
             "status": "success",
             "requested_unique_colleges": limit,
@@ -364,6 +431,7 @@ class StructuredCollegeDiscoveryService:
             "location_scope": location or "Maharashtra",
             "preferred_branches": req_branches,
             "colleges": shortlist,
+            "interleaved_options": interleaved_options[:limit * 3],
             "shortfall_explanation": (
                 f"Requested {limit} colleges, but only {total_matching_unique_institutes} unique institutes match "
                 f"location '{location}' and branch criteria in the authoritative dataset."

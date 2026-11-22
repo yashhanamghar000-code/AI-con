@@ -238,3 +238,85 @@ class BranchTaxonomyService:
                 return True
         return False
 
+
+# Official Maharashtra State Common Entrance Test Cell (CET Cell) Course Suffixes
+CANONICAL_DTE_COURSE_CODES: Dict[str, str] = {
+    "Computer Engineering": "245",
+    "Computer Science and Engineering": "242",
+    "Information Technology": "242",
+    "Artificial Intelligence and Data Science": "246",
+    "Computer Science and Engineering(Artificial Intelligence and Machine Learning)": "911",
+    "Computer Science and Engineering (Data Science)": "251",
+    "Computer Science and Design": "262",
+    "Computer Technology": "245",
+    "Electronics and Computer Engineering": "897",
+    "Electronics and Telecommunication Engg": "372",
+    "Electrical Engineering": "293",
+    "Mechanical Engineering": "612",
+    "Civil Engineering": "191",
+    "Chemical Engineering": "507",
+    "Aerospace Engineering": "002",
+}
+
+
+def format_dte_choice_code(
+    raw_course_code: Optional[str] = None,
+    institute_code: str = "",
+    branch_name: str = "",
+    category: str = "GOPENS",
+    shift: str = "10"
+) -> str:
+    """
+    Format authoritative 9-digit Maharashtra State CET Cell DTE Choice Code.
+    Structure: [4-digit Institute Code] + [3-digit Course Code] + [2-digit Shift/Status, e.g. 10]
+    For TFWS: appends 'T' (e.g. 617524510T)
+    """
+    is_tfws = "TFWS" in (category or "").upper()
+
+    # 1. If raw course code is already provided from official CET dataset:
+    if raw_course_code and str(raw_course_code).strip():
+        clean_code = str(raw_course_code).strip().upper()
+        if clean_code.endswith("T"):
+            clean_code = clean_code[:-1]
+
+        # If it is a 10-digit number starting with 0 (e.g. 0617524510), strip leading zero
+        if len(clean_code) == 10 and clean_code.startswith("0") and clean_code[1:].isdigit():
+            clean_code = clean_code[1:]
+
+        # If it is a valid 9-digit numeric string
+        if len(clean_code) == 9 and clean_code.isdigit():
+            return f"{clean_code}T" if is_tfws else clean_code
+
+    # 2. Synthesize deterministically from institute code and branch
+    clean_inst = str(institute_code).strip().lstrip("0")
+    if len(clean_inst) < 4:
+        clean_inst = clean_inst.zfill(4)
+    elif len(clean_inst) > 4:
+        clean_inst = clean_inst[-4:]
+
+    # Resolve course suffix
+    course_suffix = "245"  # default Computer
+    if branch_name:
+        for cname, code in CANONICAL_DTE_COURSE_CODES.items():
+            if cname.lower() in branch_name.lower():
+                course_suffix = code
+                break
+        else:
+            lower_b = branch_name.lower()
+            if "information" in lower_b or "it" in lower_b:
+                course_suffix = "242"
+            elif "data" in lower_b or "ai" in lower_b:
+                course_suffix = "246"
+            elif "civil" in lower_b:
+                course_suffix = "191"
+            elif "mech" in lower_b:
+                course_suffix = "612"
+            elif "elect" in lower_b:
+                course_suffix = "293"
+            elif "entc" in lower_b or "telecom" in lower_b:
+                course_suffix = "372"
+
+    shift_suffix = shift if len(shift) == 2 else "10"
+    base_9_digit = f"{clean_inst}{course_suffix}{shift_suffix}"
+    return f"{base_9_digit}T" if is_tfws else base_9_digit
+

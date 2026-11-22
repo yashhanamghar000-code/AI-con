@@ -791,6 +791,7 @@ class Orchestrator:
                     "fee_data": getattr(d_col, "fee_data", None) or d_col.__dict__.get("fee_data"),
                     "placement_data": getattr(d_col, "placement_data", None) or d_col.__dict__.get("placement_data"),
                     "popularity_score": getattr(d_col, "popularity_score", None) or d_col.__dict__.get("popularity_score"),
+                    "choice_code": getattr(d_col, "choice_code", None) or (d_col.matching_branches[0].choice_code if d_col.matching_branches else None),
                 })
         else:
             matches: List[Dict[str, Any]] = []
@@ -907,6 +908,21 @@ class Orchestrator:
             ann_fee_str = f"₹{ann_fee_num:,.0f}/yr" if isinstance(ann_fee_num, (int, float)) and ann_fee_num > 0 else "FRA Slabs"
             med_pkg_str = f"₹{med_pkg_num/100000:.2f} LPA" if isinstance(med_pkg_num, (int, float)) and med_pkg_num > 0 else "Audited T&P"
 
+            # Category fee concession calculation (MahaDBT / AICTE)
+            concession_info = None
+            effective_fee_num = ann_fee_num
+            effective_fee_str = ann_fee_str
+            try:
+                from scripts.college_metrics_service import CategoryConcessionEngine
+                if isinstance(ann_fee_num, (int, float)) and ann_fee_num > 0:
+                    c_res = CategoryConcessionEngine.calculate_concession(ann_fee_num, category)
+                    concession_info = c_res.to_dict()
+                    effective_fee_num = c_res.effective_annual_fee
+                    if c_res.waiver_percentage > 0:
+                        effective_fee_str = f"₹{effective_fee_num:,.0f}/yr ({c_res.waiver_percentage:.0f}% MahaDBT waiver)"
+            except Exception:
+                pass
+
             college_list.append({
                 "institute_code": code,
                 "institute_name": name,
@@ -933,8 +949,12 @@ class Orchestrator:
                 "fee_data": c.get("fee_data"),
                 "placement_data": c.get("placement_data"),
                 "annual_fee_str": ann_fee_str,
+                "effective_annual_fee": effective_fee_num,
+                "effective_annual_fee_str": effective_fee_str,
+                "concession_data": concession_info,
                 "median_pkg_str": med_pkg_str,
                 "tier": tier,
+                "choice_code": c.get("choice_code"),
                 "evidence_id": c.get("evidence_id") or f"EV-{code}-{category}-R1",
                 # Bug-Fix-6c: historical cutoffs per year (official CAP data, not fabricated)
                 "historical_cutoffs": c.get("historical_cutoffs") or {},
@@ -1047,11 +1067,12 @@ class Orchestrator:
 
                 cut_pct_display = f"{c['cutoff_percentile']:.2f}%" if c['cutoff_percentile'] is not None else "Cutoff pending"
                 cut_rk_display = f"Closing Rank: #{c['closing_rank']:,}" if c['closing_rank'] is not None else "Allotment open"
-                fee_display = c.get("annual_fee_str", "FRA Approved")
+                fee_display = c.get("effective_annual_fee_str") or c.get("annual_fee_str", "FRA Approved")
                 plc_display = c.get("median_pkg_str", "Audited T&P")
 
+                choice_display = f" | DTE Choice: `{c['choice_code']}`" if c.get('choice_code') else ""
                 out.append(
-                    f"**Preference #{p_num}: {c['institute_name']}** (Code: `{c['institute_code']}`)  \n"
+                    f"**Preference #{p_num}: {c['institute_name']}** (Code: `{c['institute_code']}`{choice_display})  \n"
                     f"   • **Branch & Cutoff:** {c['branch']} | **Latest Cutoff:** **{cut_pct_display}** ({cut_rk_display})  \n"
                     + hist_str +
                     f"   • **Predicted 2026-27 Cutoff:** {pred_str}  \n"
@@ -1102,6 +1123,7 @@ class Orchestrator:
             "total_matches": len(college_list),
             "shortlist": college_list,
             "ordered_colleges": college_list,
+            "interleaved_options": disco_results.get("interleaved_options", []) if disco_results else [],
             "offer_pdf": True,
             "message": full_message,
             "evidence": evidence_text,

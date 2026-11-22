@@ -15,6 +15,7 @@ from __future__ import annotations
 
 import json
 import logging
+from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Any, Dict, List, Optional, Tuple
 
@@ -24,6 +25,113 @@ from scripts.popularity_service import PopularityRankingService, PopularitySigna
 logger = logging.getLogger(__name__)
 
 MASTER_METRICS_PATH = Path(__file__).resolve().parent.parent / "data" / "maharashtra_colleges_master_metrics.json"
+
+
+@dataclass
+class CategoryConcessionResult:
+    category: str
+    base_annual_fee: float
+    effective_annual_fee: float
+    annual_savings: float
+    total_4yr_cost: float
+    total_4yr_savings: float
+    waiver_percentage: float
+    scheme_name: str
+    income_criteria: str
+    required_documents: List[str]
+
+    def to_dict(self) -> Dict[str, Any]:
+        return {
+            "category": self.category,
+            "base_annual_fee": self.base_annual_fee,
+            "effective_annual_fee": self.effective_annual_fee,
+            "annual_savings": self.annual_savings,
+            "total_4yr_cost": self.total_4yr_cost,
+            "total_4yr_savings": self.total_4yr_savings,
+            "waiver_percentage": self.waiver_percentage,
+            "scheme_name": self.scheme_name,
+            "income_criteria": self.income_criteria,
+            "required_documents": self.required_documents,
+            "effective_annual_fee_str": f"₹{self.effective_annual_fee:,.0f}/yr",
+            "annual_savings_str": f"₹{self.annual_savings:,.0f}/yr",
+        }
+
+
+class CategoryConcessionEngine:
+    """Calculates official Government of Maharashtra MahaDBT & AICTE fee concessions."""
+
+    @staticmethod
+    def calculate_concession(base_annual_fee: float, category: str = "GOPENS") -> CategoryConcessionResult:
+        cat_upper = (category or "GOPENS").strip().upper()
+        base = max(0.0, float(base_annual_fee))
+
+        # In Maharashtra FRA: 85% Tuition Fee, 15% Development Fee
+        tuition = base * 0.85
+        dev_fee = base * 0.15
+
+        if "TFWS" in cat_upper:
+            # 100% Tuition Fee Waiver under AICTE Scheme; pay only development fee
+            effective = dev_fee
+            waiver_pct = 85.0
+            scheme = "AICTE Tuition Fee Waiver Scheme (TFWS)"
+            income = "Annual Family Income <= ₹8.0 Lakhs (All Castes Eligible)"
+            docs = ["Tahsildar Income Certificate (< 8 Lakhs)", "CAP Allotment Letter (TFWS seat)"]
+        elif "SC" in cat_upper and "VJS" not in cat_upper:
+            # SC: 100% Tuition & Dev Fee reimbursed by Social Justice Dept; nominal exam/lib ~₹2,500
+            effective = min(2500.0, base * 0.02)
+            waiver_pct = 98.0
+            scheme = "Government of India Post-Matric Scholarship for SC"
+            income = "Annual Family Income <= ₹2.5 Lakhs (or Freeship > 2.5 Lakhs)"
+            docs = ["Caste Certificate", "Caste Validity Certificate", "Income Certificate"]
+        elif "ST" in cat_upper:
+            # ST: 100% Tuition & Dev Fee reimbursed by Tribal Development Dept
+            effective = min(2500.0, base * 0.02)
+            waiver_pct = 98.0
+            scheme = "Post-Matric Scholarship Scheme for ST"
+            income = "Annual Family Income <= ₹2.5 Lakhs"
+            docs = ["Tribe Certificate", "Tribe Validity Certificate", "Income Certificate"]
+        elif any(k in cat_upper for k in ("VJ", "NT", "DT", "SBC")):
+            # VJNT/SBC: 100% Tuition waiver, student pays development fee
+            effective = dev_fee
+            waiver_pct = 85.0
+            scheme = "Tuition & Examination Fees for VJNT/SBC Students"
+            income = "Annual Family Income <= ₹8.0 Lakhs (with Non-Creamy Layer)"
+            docs = ["Caste Certificate", "Caste Validity", "Non-Creamy Layer (NCL)", "Income Certificate"]
+        elif "OBC" in cat_upper:
+            # OBC: 50% Tuition Fee waiver; pays 50% tuition + 100% dev fee = 57.5% of total
+            effective = (tuition * 0.5) + dev_fee
+            waiver_pct = 42.5
+            scheme = "MahaDBT Post-Matric Tuition Fee Concession for OBC"
+            income = "Annual Family Income <= ₹8.0 Lakhs (Non-Creamy Layer mandatory)"
+            docs = ["OBC Caste Certificate", "Caste Validity", "Valid Non-Creamy Layer (NCL)", "Income Certificate"]
+        elif "EWS" in cat_upper or "EBC" in cat_upper or "SEBC" in cat_upper:
+            # EWS / EBC / SEBC: 50% Tuition waiver under Rajarshi Shahu Maharaj Scheme
+            effective = (tuition * 0.5) + dev_fee
+            waiver_pct = 42.5
+            scheme = "Rajarshi Chhatrapati Shahu Maharaj Shikshan Shulkh Shishyavrutti Yojna (EBC/EWS)"
+            income = "Annual Family Income <= ₹8.0 Lakhs"
+            docs = ["EWS Certificate / Tahsildar Income Certificate (< 8 Lakhs)", "Ration Card", "Domicile Certificate"]
+        else:
+            # General / OPEN: 100% Full FRA approved fees
+            effective = base
+            waiver_pct = 0.0
+            scheme = "Standard State Regulated FRA Tuition Fee Structure"
+            income = "No Statutory Income Cap"
+            docs = ["CAP Allotment Letter", "Standard Identity & Academic Documents"]
+
+        savings = max(0.0, base - effective)
+        return CategoryConcessionResult(
+            category=cat_upper,
+            base_annual_fee=round(base, 2),
+            effective_annual_fee=round(effective, 2),
+            annual_savings=round(savings, 2),
+            total_4yr_cost=round(effective * 4, 2),
+            total_4yr_savings=round(savings * 4, 2),
+            waiver_percentage=waiver_pct,
+            scheme_name=scheme,
+            income_criteria=income,
+            required_documents=docs,
+        )
 
 
 class CollegeMetricsService:
@@ -232,3 +340,15 @@ class CollegeMetricsService:
                 is_missing=False,
             )
             popularity_service.add_verified_institute_signal(code, signal)
+
+    def get_category_concession(
+        self,
+        institute_code: str,
+        category: str = "GOPENS",
+        institute_name: str = "",
+    ) -> CategoryConcessionResult:
+        """Calculate statutory MahaDBT/AICTE concession for a college and category."""
+        metrics = self.get_or_enrich_college(institute_code, institute_name)
+        f_raw = metrics.get("fee_data", {})
+        base_fee = float(f_raw.get("total_annual_fee") or f_raw.get("annual_tuition_fee") or 85000.0)
+        return CategoryConcessionEngine.calculate_concession(base_fee, category)

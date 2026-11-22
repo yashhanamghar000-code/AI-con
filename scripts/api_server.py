@@ -91,6 +91,40 @@ app.include_router(stream_router)
 app.include_router(chat_router)
 app.include_router(college_router)
 
+
+# -------------------------------------------------------------
+# CAP Option Form Blunder Detector & Risk Auditor Endpoint
+# -------------------------------------------------------------
+class AuditOptionItem(BaseModel):
+    preference_no: int
+    institute_code: str
+    institute_name: Optional[str] = None
+    branch: Optional[str] = "Computer Engineering"
+    cutoff_percentile: Optional[float] = None
+    choice_code: Optional[str] = None
+
+
+class AuditOptionFormRequest(BaseModel):
+    student_profile: Dict[str, Any]
+    options: List[AuditOptionItem]
+
+
+@app.post("/api/audit-option-form")
+def audit_option_form_endpoint(payload: AuditOptionFormRequest) -> Dict[str, Any]:
+    """Audits a candidate's drafted CAP Option Form for auto-freeze risks, inversions, and safety gaps."""
+    try:
+        from cap_blunder_auditor import CAPOptionFormAuditor
+    except ImportError:
+        from scripts.cap_blunder_auditor import CAPOptionFormAuditor
+
+    auditor = CAPOptionFormAuditor(cutoff_agent=None)
+    options_dicts = [opt.model_dump() if hasattr(opt, "model_dump") else opt.dict() for opt in payload.options]
+    report = auditor.audit_option_form(options_dicts, payload.student_profile)
+    return {
+        "success": True,
+        "data": report.to_dict()
+    }
+
 # Mount Static Assets
 if FRONTEND_DIR.is_dir():
     app.mount("/frontend", StaticFiles(directory=str(FRONTEND_DIR)), name="frontend_assets")
